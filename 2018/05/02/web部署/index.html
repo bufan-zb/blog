@@ -1,0 +1,1677 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>部署flask项目全流程 | 邹斌的博客</title>
+  <meta name="keywords" content=" web , flask ">
+  <meta name="description" content="部署flask项目全流程 | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker部署Elasticsearch">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-12T10:58:00.000Z">
+<meta property="article:modified_time" content="2020-07-15T06:24:12.667Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Elasticsearch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(64)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        人工智能
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->大数据">
+                                        
+                                        大数据
+                                        
+                                            <small>(10
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->框架">
+                                        
+                                        框架
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->深度学习">
+                                        
+                                        深度学习
+                                        
+                                            <small>(6
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Dockerfile">
+                        
+                        Dockerfile
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        
+                        Web
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="64">
+<input type="hidden" id="yelog_site_word_count" value="58.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Dockerfile "
+           href="/2019/08/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HBase/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HDFS/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 机器学习 "
+           href="/2019/08/12/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Hadoop/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="大数据,推荐系统,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cat">Linux命令之cat</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cd">Linux命令之cd</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ifconfig">Linux命令之ifconfig</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="linux命令之ls">linux命令之ls</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmkdir/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之mkdir">Linux命令之mkdir</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Brm/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之rm">Linux命令之rm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bping/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ping">Linux命令之ping</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btail/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之tail">Linux命令之tail</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btouch/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之touch">Linux命令之touch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/MapReduce/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Sqoop/"
+           data-tag="大数据,推荐系统,Hadoop,未完成"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/YARN/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 "
+           href="/2019/08/12/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="torch">torch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="人工智能优化算法">人工智能优化算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/08/12/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Flume/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Spark/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/06/02/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2018-06-02 15:58:00">2018/06/02</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/17/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2018-05-17 19:58:00">2018/05/17</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/08/12/crontab/"
+           data-tag="cenos,web"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-12 18:58:00">2017/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/05/13/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-13 14:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 15:58:00">2017/05/10</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/04/22/Elasticsearch/"
+           data-tag="未完成,web,搜索引擎"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2017/04/20/Docker/"
+           data-tag="Docker,虚拟化"
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2017-04-20 20:58:00">2017/04/20</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-web部署" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">部署flask项目全流程</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Web">Web</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">web</a>
+            
+            <a class="color1">flask</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-05-03 22:29:54'>2018-05-02 21:58</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:2.9k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%B4%AD%E4%B9%B0%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8"><span class="toc-text">1.购买阿里云服务器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E4%B8%BBMySQL"><span class="toc-text">2.安装主MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BD%BF%E7%94%A8docker%E5%AE%89%E8%A3%85%E4%BB%8EMySQL"><span class="toc-text">3. 使用docker安装从MySQL</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85redis"><span class="toc-text">4.安装redis</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E9%85%8D%E7%BD%AEredis%E9%9B%86%E7%BE%A4"><span class="toc-text">5.配置redis集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-redis%E4%B8%BB%E4%BB%8E"><span class="toc-text">6.redis主从</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-%E5%AE%89%E8%A3%85rabbitmq"><span class="toc-text">7.安装rabbitmq</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-%E5%AE%89%E8%A3%85Elasticsearch5"><span class="toc-text">8.安装Elasticsearch5</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-%E5%AE%89%E8%A3%85%E4%B8%AD%E6%96%87%E5%88%86%E8%AF%8D%E5%99%A8"><span class="toc-text">9.安装中文分词器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-%E5%AE%89%E8%A3%85git"><span class="toc-text">10.安装git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#11-Logstach%E5%AE%89%E8%A3%85-%E6%8D%A2%E6%88%90%E8%84%9A%E6%9C%AC%E5%AF%BC%E5%85%A5import-es-data-py"><span class="toc-text">11.Logstach安装(换成脚本导入import_es_data.py)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#12-%E5%AE%89%E8%A3%85%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83"><span class="toc-text">12.安装虚拟环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#13-%E9%85%8D%E7%BD%AE%E9%A1%B9%E7%9B%AE%E4%BB%A3%E7%A0%81"><span class="toc-text">13.配置项目代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#14-%E5%AE%89%E8%A3%85supervisord"><span class="toc-text">14.安装supervisord</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#15-nginx"><span class="toc-text">15.nginx</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1-购买阿里云服务器"><a href="#1-购买阿里云服务器" class="headerlink" title="1.购买阿里云服务器"></a>1.购买阿里云服务器</h3><ul>
+<li><p>基础配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">1.计费方式 - 按量付费</span><br><span class="line">2.地域选择 - 华南（深圳）</span><br><span class="line">3.实例</span><br><span class="line">  架构-&gt; x86计算</span><br><span class="line">  分类-&gt; 计算型</span><br><span class="line">  规格族-&gt; 计算型c5 4vCPU 8GiB</span><br><span class="line">  价格: 1.260&#x2F;小时</span><br><span class="line">4.操作系统 - centos 7.2 64位</span><br><span class="line">5.存储 - 高效云盘 40g</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>网络和安全组 - 不用改</p>
+</li>
+<li><p>系统配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">自定义密码</span><br><span class="line">root 密码(大小写字符+数字):</span><br><span class="line">主机名-&gt; toutiao-web</span><br></pre></td></tr></table></figure></li>
+<li><p>分组设置 - 不用填</p>
+</li>
+<li><p>确认订单 - 下一步</p>
+</li>
+<li><p>购买成功(得先充钱，最低100)</p>
+</li>
+<li><p>进入控制台</p>
+</li>
+<li><p>找到公网ip地址</p>
+</li>
+<li><p>使用Termius连接服务器</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">1.NEW HOST</span><br><span class="line">	Label-&gt; ali-toutiao-web</span><br><span class="line">	Address-&gt; 服务器的公网ip地址</span><br><span class="line">	SSH</span><br><span class="line">		Username -&gt; root</span><br><span class="line">		Password -&gt; 密码</span><br><span class="line">2.保存</span><br><span class="line">3.双击打开</span><br><span class="line">4.创建python用户</span><br><span class="line">	useradd python</span><br><span class="line">5.修改python用户密码</span><br><span class="line">	passwd python</span><br></pre></td></tr></table></figure></li>
+<li><p>设置网络</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装ifconfig工具</span></span><br><span class="line">sudo yum install net-tools -y</span><br></pre></td></tr></table></figure></li>
+<li><p>设置主机名</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hostnamectl set-hostname toutiao-web</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="2-安装主MySQL"><a href="#2-安装主MySQL" class="headerlink" title="2.安装主MySQL"></a>2.安装主MySQL</h3><ul>
+<li><p>添加MariaDB软件源</p>
+<ul>
+<li><p>在/etc/yum.repos.d/目录中添加MariaDB.repo文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> sudo vi /etc/yum.repos.d/MariaDB.repo</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下内容:</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> MariaDB 10.3 CentOS repository list - created 2018-11-24 14:39 UTC</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> http://downloads.mariadb.org/mariadb/repositories/</span></span><br><span class="line">[mariadb]</span><br><span class="line">name = MariaDB</span><br><span class="line"><span class="meta">#</span><span class="bash">baseurl = http://yum.mariadb.org/10.3/centos7-amd64</span></span><br><span class="line">baseurl = http://mirrors.ustc.edu.cn/mariadb/yum/10.3/centos7-amd64</span><br><span class="line"><span class="meta">#</span><span class="bash">gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB</span></span><br><span class="line">gpgkey=http://mirrors.ustc.edu.cn/mariadb/yum/RPM-GPG-KEY-MariaDB</span><br><span class="line">gpgcheck=1</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>安装MariaDB(1分钟)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install MariaDB-server MariaDB-client mariadb-devel MariaDB-shared -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>修改配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/my.cnf.d/server.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 [mysqld] 标签下方添加</span></span><br><span class="line"></span><br><span class="line">init_connect=&#x27;SET collation_connection = utf8_unicode_ci&#x27; </span><br><span class="line">init_connect=&#x27;SET NAMES utf8&#x27; </span><br><span class="line">character-set-server=utf8 </span><br><span class="line">collation-server=utf8_unicode_ci </span><br><span class="line">skip-character-set-client-handshake</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/my.cnf.d/client.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 [client] 标签下方添加</span></span><br><span class="line">default-character-set=utf8</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/my.cnf.d/mysql-clients.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 [mysql] 标签下方添加</span></span><br><span class="line">default-character-set=utf8</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置开机自启</span></span><br><span class="line">sudo systemctl enable mariadb</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动mariadb</span></span><br><span class="line">sudo systemctl start mariadb</span><br></pre></td></tr></table></figure></li>
+<li><p>设置root账号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">mysql_secure_installation</span><br><span class="line"><span class="meta">#</span><span class="bash"> 初始密码为空</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改密码为: mysql</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 后面的设置一路yes即可</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 登录测试: mysql -uroot -p</span></span><br></pre></td></tr></table></figure></li>
+<li><p>Python客户端依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 需要使用mysql的python客户端库mysqlclient，安装依赖包</span></span><br><span class="line">sudo yum install python-devel zlib-devel openssl-devel -y</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="3-使用docker安装从MySQL"><a href="#3-使用docker安装从MySQL" class="headerlink" title="3. 使用docker安装从MySQL"></a>3. 使用docker安装从MySQL</h3><ul>
+<li><p>安装Docker</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装docker依赖</span></span><br><span class="line">yum install -y yum-utils device-mapper-persistent-data lvm2 -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加docker yum源</span></span><br><span class="line">yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 下载并安装docker (2-3分钟)</span></span><br><span class="line">yum install docker-ce docker-ce-cli containerd.io -y</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动docker</span></span><br><span class="line">sudo systemctl start docker</span><br><span class="line"><span class="meta">#</span><span class="bash"> 测试docker</span></span><br><span class="line">sudo docker run hello-world</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>使用Docker安装MySQL(1分钟)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker pull mariadb:10.3.13</span><br></pre></td></tr></table></figure></li>
+<li><p>配置MySQL主从同步</p>
+<ul>
+<li><p>配置MySQL master</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> master 配置文件: /etc/my.cnf.d/server.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/my.cnf.d/server.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 [mysqld] 标签下方添加</span></span><br><span class="line">log-bin=mysql-bin</span><br><span class="line">server-id=1</span><br></pre></td></tr></table></figure></li>
+<li><p>重启主mysql</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">systemctl restart mariadb</span><br></pre></td></tr></table></figure></li>
+<li><p>配置MySQL slave</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 把master的配置拷过去作为从的配置</span></span><br><span class="line">sudo cp -r /etc/my.cnf.d/ /opt/my.cnf.d-slave</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改从的配置</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim /opt/my.cnf.d-slave/server.cnf</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在 [mysqld] 标签下方修改</span></span><br><span class="line">server-id=10</span><br><span class="line">read_only=on</span><br><span class="line">port=8306</span><br></pre></td></tr></table></figure></li>
+<li><p>启动docker容器mysql slave</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo docker run --name mariadb -v /opt/my.cnf.d-slave:/etc/mysql/conf.d -e MYSQL_ROOT_PASSWORD=mysql -v /opt/mysql-slave-data:/var/lib/mysql -d --network=host mariadb:10.3.13</span><br></pre></td></tr></table></figure></li>
+<li><p>为mysql master添加用于同步复制的账号</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p</span><br><span class="line">GRANT REPLICATION SLAVE ON *.* TO &#x27;slave&#x27;@&#x27;%&#x27; identified by &#x27;slave&#x27;;</span><br><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure></li>
+<li><p>查看mysql master状态</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show master status;</span><br></pre></td></tr></table></figure></li>
+<li><p>设置mysql slave</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p -h 127.0.0.1 -P 8306</span><br><span class="line">	change master to master_host&#x3D;&#39;127.0.0.1&#39;, master_user&#x3D;&#39;slave&#39;, 	master_password&#x3D;&#39;slave&#39;,master_log_file&#x3D;&#39;mysql-bin.000001&#39;, master_log_pos&#x3D;637;</span><br></pre></td></tr></table></figure></li>
+<li><p>注意</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">master_log_file要改成show master status中的文件名</span><br><span class="line">master_log_pos要改成show master status中的Position值</span><br><span class="line">start slave;</span><br><span class="line">show slave status\G</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>从虚拟机中导出数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -uroot -pmysql --databases toutiao &gt;&#x2F;home&#x2F;python&#x2F;toutiao.sql</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>导入头条数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 上传sql文件到服务器中(5分钟)</span></span><br><span class="line">scp toutiao.sql root@39.108.69.171:/home/python</span><br><span class="line"><span class="meta">#</span><span class="bash"> 从sql文件中导入数据</span></span><br><span class="line">mysql -uroot -p &lt; toutiao.sql</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="4-安装redis"><a href="#4-安装redis" class="headerlink" title="4.安装redis"></a>4.安装redis</h3><ul>
+<li><p>从虚拟机中上传redis压缩文件到服务器中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp redis-4.0.13.tar.gz root@120.77.33.51:/root/</span><br></pre></td></tr></table></figure></li>
+<li><p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-4.0.13.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 安装gcc。 编译redis，需要用到gcc编译器</span></span><br><span class="line">sudo yum install gcc -y</span><br><span class="line"><span class="meta">#</span><span class="bash"> 再装redis</span></span><br><span class="line">cd redis-4.0.13</span><br><span class="line">sudo make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<h3 id="5-配置redis集群"><a href="#5-配置redis集群" class="headerlink" title="5.配置redis集群"></a>5.配置redis集群</h3></li>
+<li><p>从虚拟机中上传redis集群配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在服务器中创建redis目录, 用于存放redis配置</span></span><br><span class="line">mkdir -p /etc/redis</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在虚拟机中上传文件</span></span><br><span class="line">scp /etc/redis/* root@120.77.33.51:/etc/redis</span><br></pre></td></tr></table></figure></li>
+<li><p>安装Ruby</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 下载ruby (1分钟)</span></span><br><span class="line">wget https://cache.ruby-lang.org/pub/ruby/2.6/ruby-2.6.1.tar.gz</span><br><span class="line">tar -zxvf ruby-2.6.1.tar.gz</span><br><span class="line">cd ruby-2.6.1</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置(1分钟)</span></span><br><span class="line">./configure</span><br><span class="line"><span class="meta">#</span><span class="bash"> make 比较耗时(4分钟)</span></span><br><span class="line">sudo make </span><br><span class="line">sudo make install</span><br><span class="line">gem install redis</span><br></pre></td></tr></table></figure></li>
+<li><p>从服务器中上传redis启动脚本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp &#x2F;opt&#x2F;redis-* root@39.108.69.171:&#x2F;opt</span><br></pre></td></tr></table></figure></li>
+<li><p>创建存放redis数据库的文件夹</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /var/lib/redis/7000</span><br><span class="line">mkdir -p /var/lib/redis/7001</span><br><span class="line">mkdir -p /var/lib/redis/7002</span><br><span class="line">mkdir -p /var/lib/redis/7003</span><br><span class="line">mkdir -p /var/lib/redis/7004</span><br><span class="line">mkdir -p /var/lib/redis/7005</span><br><span class="line">mkdir -p /var/lib/redis/6381</span><br><span class="line">mkdir -p /var/lib/redis/6380</span><br></pre></td></tr></table></figure></li>
+<li><p>启动redis集群实例</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 先给脚本执行权限</span></span><br><span class="line">chmod +x /opt/redis-cluster-start.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行命令</span></span><br><span class="line">/opt/redis-cluster-start.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>启动cluster集群</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 拷贝redis-trib.rb命令到搜索路径下</span></span><br><span class="line">sudo cp /home/python/redis-4.0.13/src/redis-trib.rb /usr/local/bin/</span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建集群</span></span><br><span class="line">redis-trib.rb create --replicas 1 127.0.0.1:7000 127.0.0.1:7001 127.0.0.1:7002 127.0.0.1:7003 127.0.0.1:7004 127.0.0.1:7005</span><br></pre></td></tr></table></figure></li>
+<li><p>测试redis集群</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -c -p 7000</span><br></pre></td></tr></table></figure>
+<h3 id="6-redis主从"><a href="#6-redis主从" class="headerlink" title="6.redis主从"></a>6.redis主从</h3></li>
+<li><p>使用脚本启动redis主从</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加执行权限</span></span><br><span class="line">chmod +x /opt/redis-replication-start.sh</span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行脚本，启动主从redis、哨兵</span></span><br><span class="line">/opt/redis-replication-start.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">redis-cli -p 6381</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="7-安装rabbitmq"><a href="#7-安装rabbitmq" class="headerlink" title="7.安装rabbitmq"></a>7.安装rabbitmq</h3><ul>
+<li><p>安装erlang</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 在/etc/yum.repos.d/目录中添加rabbitmq_erlang.repo文件</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> sudo vim /etc/yum.repos.d/rabbitmq_erlang.repo</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在文件中添加</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> In /etc/yum.repos.d/rabbitmq_erlang.repo</span></span><br><span class="line">[rabbitmq-erlang]</span><br><span class="line">name=rabbitmq-erlang</span><br><span class="line">baseurl=https://dl.bintray.com/rabbitmq-erlang/rpm/erlang/21/el/7</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://dl.bintray.com/rabbitmq/Keys/rabbitmq-release-signing-key.asc</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行安装(测试时安装1分钟，实际安装，需要换源)</span></span><br><span class="line">sudo yum install erlang -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装RabbitMQ</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">rpm --import https://github.com/rabbitmq/signing-keys/releases/download/2.0/rabbitmq-release-signing-key.asc</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在/etc/yum.repos.d/目录中添加rabbitmq_server.repo文件</span></span><br><span class="line">vim /etc/yum.repos.d/rabbitmq_server.repo</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在文件中添加</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> In /etc/yum.repos.d/rabbitmq_server.repo</span></span><br><span class="line">[bintray-rabbitmq-server]</span><br><span class="line">name=bintray-rabbitmq-rpm</span><br><span class="line">baseurl=https://dl.bintray.com/rabbitmq/rpm/rabbitmq-server/v3.7.x/el/7/</span><br><span class="line">gpgcheck=0</span><br><span class="line">repo_gpgcheck=0</span><br><span class="line">enabled=1</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 执行安装(实际安装1分钟)</span></span><br><span class="line">sudo yum install rabbitmq-server -y</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>启动</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chkconfig rabbitmq-server on</span><br><span class="line">sudo systemctl start  rabbitmq-server.service</span><br></pre></td></tr></table></figure></li>
+<li><p>头条项目账号设置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo rabbitmqctl add_user python rabbitmqpwd</span><br><span class="line">sudo rabbitmqctl add_vhost toutiao</span><br><span class="line">sudo rabbitmqctl set_user_tags python administrator</span><br><span class="line">sudo rabbitmqctl set_permissions -p toutiao python &quot;.*&quot; &quot;.*&quot; &quot;.*&quot;</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="8-安装Elasticsearch5"><a href="#8-安装Elasticsearch5" class="headerlink" title="8.安装Elasticsearch5"></a>8.安装Elasticsearch5</h3><ul>
+<li><p>安装wget</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install wget -y</span><br></pre></td></tr></table></figure></li>
+<li><p>下载jdk 官网密码: 13423682841_qinzhiWang</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">下载页:</span><br><span class="line">https:&#x2F;&#x2F;www.oracle.com&#x2F;technetwork&#x2F;java&#x2F;javase&#x2F;downloads&#x2F;jdk8-downloads-2133151.html</span><br><span class="line">下载前得先创建账号</span><br><span class="line">选中xxx-linux-x64.rpm 或者 xxx-linux-x64.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -ivh &#x2F;home&#x2F;python&#x2F;jdk-8u221-linux-x64.rpm</span><br></pre></td></tr></table></figure></li>
+<li><p>安装后查看java版本</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure></li>
+<li><p>设置python登录时的环境变量</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 在最后添加</span></span><br><span class="line">export JAVA_HOME=/usr/java/default</span><br></pre></td></tr></table></figure></li>
+<li><p>安装Elasticsearch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在/etc/yum.repos.d/ 中编辑elasticsearch5x.repo</span></span><br><span class="line">vim /etc/yum.repos.d/elasticsearch5x.repo</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下内容</span></span><br><span class="line">[elasticsearch-5.x]</span><br><span class="line">name=Elasticsearch repository for 5.x packages</span><br><span class="line">baseurl=https://artifacts.elastic.co/packages/5.x/yum</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="line">enabled=1</span><br><span class="line">autorefresh=1</span><br><span class="line">type=rpm-md</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行安装(7分钟, 实测30秒)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install elasticsearch -y</span><br></pre></td></tr></table></figure></li>
+<li><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 设置开机启动</span></span><br><span class="line">sudo systemctl enable elasticsearch.service</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动elasticsearch</span></span><br><span class="line">sudo systemctl start elasticsearch.service</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:9200&#x2F;_cluster&#x2F;health?pretty</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="9-安装中文分词器"><a href="#9-安装中文分词器" class="headerlink" title="9.安装中文分词器"></a>9.安装中文分词器</h3><ul>
+<li><p>上传ik文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp elasticsearch-analysis-ik-5.6.16.zip root@120.77.33.51:&#x2F;root</span><br></pre></td></tr></table></figure></li>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /usr/share/elasticsearch/bin/elasticsearch-plugin install file:///home/python/elasticsearch-analysis-ik-5.6.16.zip</span><br></pre></td></tr></table></figure></li>
+<li><p>重新启动elasticsearch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl restart elasticsearch</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">curl -X GET 127.0.0.1:9200/_analyze?pretty -d &#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot;: &quot;standard&quot;,</span><br><span class="line">  &quot;text&quot;: &quot;我是&amp;中国人&quot;</span><br><span class="line">&#125;&#x27;</span><br><span class="line"></span><br><span class="line">curl -X GET 127.0.0.1:9200/_analyze?pretty -d &#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;analyzer&quot;: &quot;ik_max_word&quot;,</span><br><span class="line">  &quot;text&quot;: &quot;我是&amp;中国人&quot;</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+<h3 id="10-安装git"><a href="#10-安装git" class="headerlink" title="10.安装git"></a>10.安装git</h3></li>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install git -y</span><br></pre></td></tr></table></figure></li>
+<li><p>拉取项目代码(python)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;git.meiduo.site&#x2F;csjy6&#x2F;toutiao-backend.git</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="11-Logstach安装-换成脚本导入import-es-data-py"><a href="#11-Logstach安装-换成脚本导入import-es-data-py" class="headerlink" title="11.Logstach安装(换成脚本导入import_es_data.py)"></a>11.Logstach安装(换成脚本导入import_es_data.py)</h3><ul>
+<li><p>安装Logstach</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo rpm --import https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br></pre></td></tr></table></figure></li>
+<li><p>添加Logstach yum源</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vi /etc/yum.repos.d/logstash.repo</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 输入内容</span></span><br><span class="line">[logstash-6.x]</span><br><span class="line">name=Elastic repository for 6.x packages</span><br><span class="line">baseurl=https://artifacts.elastic.co/packages/6.x/yum</span><br><span class="line">gpgcheck=1</span><br><span class="line">gpgkey=https://artifacts.elastic.co/GPG-KEY-elasticsearch</span><br><span class="line">enabled=1</span><br><span class="line">autorefresh=1</span><br><span class="line">type=rpm-md</span><br></pre></td></tr></table></figure></li>
+<li><p>安装 (超慢，提前安装)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo yum install logstash -y</span><br></pre></td></tr></table></figure></li>
+<li><p>安装插件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd /usr/share/logstash/bin/</span><br><span class="line">sudo ./logstash-plugin install logstash-input-jdbc</span><br><span class="line">sudo ./logstash-plugin install logstash-output-elasticsearch</span><br></pre></td></tr></table></figure></li>
+<li><p>上传mysql-connector到服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp mysql-connector-java-8.0.13.tar.gz python@120.78.184.139:/home/python</span><br></pre></td></tr></table></figure></li>
+<li><p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf mysql-connector-java-8.0.13.tar.gz</span><br></pre></td></tr></table></figure></li>
+<li><p>执行脚本导入数据到elasticsearch</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/home/python/toutiao-backend/scripts/import_elasticsearch_data.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>使用import_es_data.py导入es数据</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">workon toutiao</span><br><span class="line">cd /home/python/toutiao-backend</span><br><span class="line">python scripts/import_es_data.py</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="12-安装虚拟环境"><a href="#12-安装虚拟环境" class="headerlink" title="12.安装虚拟环境"></a>12.安装虚拟环境</h3><ul>
+<li><p>安装虚拟环境(使用python 用户)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo pip install virtualenv</span><br><span class="line">sudo pip install virtualenvwrapper</span><br></pre></td></tr></table></figure></li>
+<li><p>配置虚拟环境命令环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建目录用来存放虚拟环境</span></span><br><span class="line">mkdir $HOME/.virtualenvs</span><br><span class="line"><span class="meta">#</span><span class="bash"> 打开~/.bash_profile文件，并添加如下</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> vim ~/.bash_profile</span></span><br><span class="line">export WORKON_HOME=$HOME/.virtualenvs</span><br><span class="line">source /usr/bin/virtualenvwrapper.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 重连</span></span><br><span class="line">workon</span><br></pre></td></tr></table></figure></li>
+<li><p>安装python3</p>
+<ul>
+<li><p>下载</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:&#x2F;&#x2F;www.python.org&#x2F;ftp&#x2F;python&#x2F;3.6.4&#x2F;Python-3.6.4.tar.xz</span><br></pre></td></tr></table></figure></li>
+<li><p>解压</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">xz -d Python-3.6.4.tar.xz</span><br><span class="line">tar -xf Python-3.6.4.tar</span><br></pre></td></tr></table></figure></li>
+<li><p>安装sqlite3(一定要先装，再装python，不然会报各种未知错误)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install sqlite-devel -y</span><br></pre></td></tr></table></figure></li>
+<li><p>编译&amp;安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd Python-3.6.4</span><br><span class="line"><span class="meta">#</span><span class="bash"> 配置</span></span><br><span class="line">./configure prefix=/usr/local/python3</span><br><span class="line"><span class="meta">#</span><span class="bash"> 编译&amp;安装(2分钟)</span></span><br><span class="line">make</span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure></li>
+<li><p>配置python3命令可以搜索 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vi ~/.bash_profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加以下内容</span></span><br><span class="line">export PATH=$PATH:/usr/local/python3/bin/</span><br></pre></td></tr></table></figure></li>
+</ul>
+</li>
+<li><p>创建头条虚拟环境</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkvirtualenv -p python3 toutiao</span><br></pre></td></tr></table></figure></li>
+<li><p>安装依赖</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">workon toutiao</span><br><span class="line">cd /home/python/toutiao-backend</span><br><span class="line"><span class="meta">#</span><span class="bash"> 大概(5分钟)</span></span><br><span class="line">pip install -r requirements.txt</span><br></pre></td></tr></table></figure>
+
+
+</li>
+</ul>
+<h3 id="13-配置项目代码"><a href="#13-配置项目代码" class="headerlink" title="13.配置项目代码"></a>13.配置项目代码</h3><ul>
+<li><p>git配置永久保存密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure></li>
+<li><p>创建logs日志文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p &#x2F;home&#x2F;python&#x2F;logs</span><br></pre></td></tr></table></figure></li>
+<li><p>运行代码测试</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">export FLASK_APP=toutiao.main</span><br><span class="line">export FLASK_ENV=production</span><br><span class="line">flask run</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:5000</span><br></pre></td></tr></table></figure></li>
+<li><p>使用脚本运行代码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">  sh /home/python/toutiao-backend/scripts/toutiao_app.sh</span><br><span class="line"><span class="meta">  #</span><span class="bash"> 加上可执行权限</span></span><br><span class="line">chmod +x /home/python/toutiao-backend/scripts/toutiao_app.sh</span><br><span class="line">  /home/python/toutiao-backend/scripts/toutiao_app.sh</span><br></pre></td></tr></table></figure>
+
+
+
+</li>
+</ul>
+<h3 id="14-安装supervisord"><a href="#14-安装supervisord" class="headerlink" title="14.安装supervisord"></a>14.安装supervisord</h3><ul>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install supervisor</span><br></pre></td></tr></table></figure></li>
+<li><p>生成默认配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">echo_supervisord_conf &gt; /etc/supervisord.conf</span><br></pre></td></tr></table></figure></li>
+<li><p>修改/etc/supervisord.conf 文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/supervisord.conf</span> </span><br><span class="line">;[include]</span><br><span class="line">;files = relative/directory/*.ini</span><br><span class="line"><span class="meta">#</span><span class="bash"> 改成</span></span><br><span class="line">[include]</span><br><span class="line">files = /home/python/etc/supervisor/*.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建存放supervisor配置文件夹</span></span><br><span class="line">mkdir -p /home/python/etc/supervisor/</span><br></pre></td></tr></table></figure></li>
+<li><p>启动supervisord(使用python用户)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisord -c &#x2F;etc&#x2F;supervisord.conf</span><br></pre></td></tr></table></figure></li>
+<li><p>配置项目由supervisord管理</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 创建toutiao_app_supervisor软链接</span></span><br><span class="line">ln -s /home/python/toutiao-backend/scripts/toutiao_app_supervisor.conf /home/python/etc/supervisor/toutiao_app_supervisor.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建im_supervisor软链接</span></span><br><span class="line">ln -s /home/python/toutiao-backend/scripts/im_supervisor.conf /home/python/etc/supervisor/im_supervisor.conf</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 创建apscheduler_supervisor软链接</span></span><br><span class="line">ln -s /home/python/toutiao-backend/scripts/apscheduler_supervisor.conf /home/python/etc/supervisor/apscheduler_supervisor.conf</span><br></pre></td></tr></table></figure></li>
+<li><p>给命令加上执行权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">chmod +x /home/python/toutiao-backend/scripts/im.sh</span><br><span class="line">chmod +x /home/python/toutiao-backend/scripts/toutiao_app.sh</span><br><span class="line">chmod +x /home/python/toutiao-backend/scripts/apscheduler.sh</span><br></pre></td></tr></table></figure></li>
+<li><p>重新加载配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">supervisorctl reload</span><br></pre></td></tr></table></figure></li>
+<li><p>测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl localhost:5000</span><br></pre></td></tr></table></figure>
+<h3 id="15-nginx"><a href="#15-nginx" class="headerlink" title="15.nginx"></a>15.nginx</h3></li>
+<li><p>安装</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install nginx -y</span><br></pre></td></tr></table></figure></li>
+<li><p>启动</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx</span><br></pre></td></tr></table></figure></li>
+<li><p>创建nginx日志文件夹(python用户)</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir -p /home/python/logs/nginx</span><br></pre></td></tr></table></figure></li>
+<li><p>配置反向代理访问项目</p>
+</li>
+<li><p>添加toutiao配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/nginx/conf.d/toutiao.conf</span></span><br><span class="line">upstream toutiao-api-backend &#123;</span><br><span class="line">      server localhost:5000;</span><br><span class="line">&#125;</span><br><span class="line">server &#123;</span><br><span class="line">    listen  80;</span><br><span class="line">    server_name toutiao.com;</span><br><span class="line">    access_log /home/python/logs/nginx/toutiao.com.access.log main;</span><br><span class="line"></span><br><span class="line">    location / &#123;</span><br><span class="line">        client_max_body_size 5M;</span><br><span class="line">        proxy_pass http://toutiao-api-backend;</span><br><span class="line">        proxy_set_header X-Host $host;</span><br><span class="line">        proxy_set_header X-Real-Ip $remote_addr;</span><br><span class="line">        proxy_set_header Connection &#x27;&#x27;;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>添加im配置文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/nginx/conf.d/im.conf</span></span><br><span class="line">upstream im-backend &#123;</span><br><span class="line">      server localhost:7777;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">server &#123;</span><br><span class="line">    listen  80;</span><br><span class="line">    server_name toutiao_im.com;</span><br><span class="line">    access_log /home/python/logs/nginx/toutiao_im.com.access.log main;</span><br><span class="line"></span><br><span class="line">    location /socket.io/ &#123;</span><br><span class="line">        proxy_set_header X-Real-IP $remote_addr;</span><br><span class="line">        proxy_set_header User-Agent $http_user_agent;</span><br><span class="line">        proxy_pass http://im-backend;</span><br><span class="line">        proxy_http_version 1.1;</span><br><span class="line">        proxy_set_header Upgrade $http_upgrade;</span><br><span class="line">        proxy_set_header Connection &quot;upgrade&quot;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li><p>重新加载配置</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure></li>
+<li><p>配置本地hosts指向服务器</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> vim /etc/hosts</span></span><br><span class="line">120.77.33.51 toutiao.com</span><br><span class="line">120.77.33.51 toutiao_im.com</span><br></pre></td></tr></table></figure></li>
+<li><p>测试 - 关注测试</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">toutiao.com</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'bufan-zb.github.io',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

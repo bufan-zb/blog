@@ -1,0 +1,1560 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Elasticsearch | 邹斌的博客</title>
+  <meta name="keywords" content=" 未完成 , web , 搜索引擎 ">
+  <meta name="description" content="Elasticsearch | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker部署Elasticsearch">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-12T10:58:00.000Z">
+<meta property="article:modified_time" content="2020-07-15T06:24:12.667Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Elasticsearch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(64)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        人工智能
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->大数据">
+                                        
+                                        大数据
+                                        
+                                            <small>(10
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->框架">
+                                        
+                                        框架
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->深度学习">
+                                        
+                                        深度学习
+                                        
+                                            <small>(6
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Dockerfile">
+                        
+                        Dockerfile
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        
+                        Web
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="64">
+<input type="hidden" id="yelog_site_word_count" value="58.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Dockerfile "
+           href="/2019/08/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HBase/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HDFS/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 机器学习 "
+           href="/2019/08/12/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Hadoop/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="大数据,推荐系统,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cat">Linux命令之cat</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cd">Linux命令之cd</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ifconfig">Linux命令之ifconfig</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="linux命令之ls">linux命令之ls</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmkdir/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之mkdir">Linux命令之mkdir</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Brm/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之rm">Linux命令之rm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bping/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ping">Linux命令之ping</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btail/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之tail">Linux命令之tail</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btouch/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之touch">Linux命令之touch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/MapReduce/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Sqoop/"
+           data-tag="大数据,推荐系统,Hadoop,未完成"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/YARN/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 "
+           href="/2019/08/12/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="torch">torch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="人工智能优化算法">人工智能优化算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/08/12/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Flume/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Spark/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/06/02/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2018-06-02 15:58:00">2018/06/02</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/17/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2018-05-17 19:58:00">2018/05/17</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/08/12/crontab/"
+           data-tag="cenos,web"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-12 18:58:00">2017/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/05/13/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-13 14:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 15:58:00">2017/05/10</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/04/22/Elasticsearch/"
+           data-tag="未完成,web,搜索引擎"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2017/04/20/Docker/"
+           data-tag="Docker,虚拟化"
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2017-04-20 20:58:00">2017/04/20</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Elasticsearch" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Elasticsearch</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Web">Web</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">未完成</a>
+            
+            <a class="color4">web</a>
+            
+            <a class="color5">搜索引擎</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-06-22 11:57:52'>2017-04-22 19:27</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:4.3k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Elasticsearch%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E"><span class="toc-text">Elasticsearch搜索引擎</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%90%9C%E7%B4%A2%E5%8E%9F%E7%90%86"><span class="toc-text">搜索原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%80%92%E6%8E%92%E7%B4%A2%E5%BC%95%EF%BC%9A"><span class="toc-text">倒排索引：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E6%80%A7%E6%8E%92%E5%BA%8F%EF%BC%9A"><span class="toc-text">相关性排序：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9B%86%E7%BE%A4"><span class="toc-text">集群</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES%E7%9A%84%E5%8D%95%E6%9C%BA%E9%83%A8%E7%BD%B2"><span class="toc-text">ES的单机部署</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%85%8D%E7%BD%AE%E7%BD%91%E5%8D%A1%EF%BC%88%E6%97%A0%E7%BD%91%E7%8E%AF%E5%A2%83%E5%BF%BD%E7%95%A5%E6%AD%A4%E6%9D%A1%EF%BC%89"><span class="toc-text">一、配置网卡（无网环境忽略此条）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E9%85%8D%E7%BD%AE%E6%9C%AC%E5%9C%B0yum%E6%BA%90%EF%BC%88%E6%9C%89%E7%BD%91%E7%8E%AF%E5%A2%83%E5%BF%BD%E7%95%A5%E6%AD%A4%E6%9D%A1%EF%BC%89"><span class="toc-text">二、配置本地yum源（有网环境忽略此条）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A"><span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%85%B3%E9%97%AD%E9%98%B2%E7%81%AB%E5%A2%99%E5%8F%8Aselinux"><span class="toc-text">三、关闭防火墙及selinux</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-1"><span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AE%89%E8%A3%85docker"><span class="toc-text">四、安装docker</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-2"><span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%BC%80%E5%90%AFdocker%E6%9C%8D%E5%8A%A1"><span class="toc-text">五、开启docker服务</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AE%89%E8%A3%85java-%E9%83%A8%E7%BD%B2es-%E7%9A%84%E4%BE%9D%E8%B5%96"><span class="toc-text">六、安装java(部署es 的依赖)</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9C%AC%E5%9C%B0%E5%AE%89%E8%A3%85java"><span class="toc-text">本地安装java</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E8%AF%BB%E5%8F%96%E9%95%9C%E5%83%8F%EF%BC%88%E6%A0%B9%E6%8D%AE%E5%AE%9E%E9%99%85%E6%83%85%E5%86%B5%EF%BC%89"><span class="toc-text">七、读取镜像（根据实际情况）</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%A6%82%E6%9E%9C%E9%9C%80%E8%A6%81docker-compose%E5%90%AF%E5%8A%A8"><span class="toc-text">八、如果需要docker-compose启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ES%E9%9B%86%E7%BE%A4%E9%83%A8%E7%BD%B2"><span class="toc-text">ES集群部署</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E9%83%A8%E7%BD%B2%E9%9B%86%E7%BE%A4"><span class="toc-text">一、部署集群</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-3"><span class="toc-text">注意：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E6%93%8D%E4%BD%9C%E6%9D%83%E9%99%90%EF%BC%8C%E5%88%99%E6%89%A7%E8%A1%8C%EF%BC%9A"><span class="toc-text">如果没有操作权限，则执行：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BD%93%E4%B8%8D%E4%BD%BF%E7%94%A8es%E8%BF%9C%E7%A8%8B%E8%AF%8D%E5%85%B8%E6%97%B6%EF%BC%9A"><span class="toc-text">当不使用es远程词典时：</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E8%AF%B4%E6%98%8E%EF%BC%9A"><span class="toc-text">说明：</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%87%AA%E5%AE%9A%E4%B9%89%E5%90%8C%E4%B9%89%E8%AF%8D"><span class="toc-text">添加自定义同义词</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E4%BF%AE%E6%94%B9%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AE"><span class="toc-text">二、修改集群配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%90%AF%E5%8A%A8%E9%9B%86%E7%BE%A4"><span class="toc-text">三、启动集群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%90%9C%E7%B4%A2%E9%83%A8%E7%BD%B2"><span class="toc-text">四、搜索部署</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-4"><span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%88%A0%E9%99%A4%E5%AD%97%E6%AE%B5"><span class="toc-text">添加删除字段</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-5"><span class="toc-text">注意：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E6%9F%A5%E8%AF%A2%E5%90%AF%E5%8A%A8%E7%BB%93%E6%9E%9C"><span class="toc-text">五、查询启动结果</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E6%95%B0%E6%8D%AE%E9%87%8F%E6%9F%A5%E8%AF%A2"><span class="toc-text">六、数据量查询</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%83%E3%80%81search-guard%E4%B8%BAes%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AEauth"><span class="toc-text">七、search-guard为es集群配置auth</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81%E5%AE%89%E8%A3%85search-guard%E6%8F%92%E4%BB%B6%E5%92%8Cssl%E6%8F%92%E4%BB%B6"><span class="toc-text">1、安装search-guard插件和ssl插件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%9F%A5%E8%AF%A2es%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-text">查询es的版本</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85search-guard"><span class="toc-text">安装search-guard</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%AE%89%E8%A3%85search-guard-ssl"><span class="toc-text">安装search-guard-ssl</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-6"><span class="toc-text">注意：</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81%E7%94%9F%E6%88%90es%E8%AF%81%E4%B9%A6%E6%96%87%E4%BB%B6"><span class="toc-text">2、生成es证书文件</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BDsearch-guard%E6%BA%90%E7%A0%81%E5%B7%A5%E5%85%B7%EF%BC%8C%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%E7%9A%84%E5%B7%A5%E5%85%B7"><span class="toc-text">下载search-guard源码工具，生成证书的工具</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9ca%E9%85%8D%E7%BD%AE"><span class="toc-text">修改ca配置</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9sh%E6%96%87%E4%BB%B6"><span class="toc-text">修改sh文件</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E8%AF%81%E4%B9%A6%EF%BC%8C%E8%BF%90%E8%A1%8Cexample-sh"><span class="toc-text">生成证书，运行example.sh</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81%E9%85%8D%E7%BD%AEes%EF%BC%8C%E5%90%AF%E5%8A%A8search-guard"><span class="toc-text">3、配置es，启动search-guard</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%86%E7%94%9F%E6%88%90%E7%9A%84%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%E7%9A%84%E8%AF%81%E4%B9%A6%EF%BC%8C%E5%88%86%E5%88%ABcopy%E5%88%B0%E5%90%84%E4%B8%AA%E8%8A%82%E7%82%B9%E4%B8%8A"><span class="toc-text">将生成的各个节点的证书，分别copy到各个节点上</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BF%AE%E6%94%B9es%E7%9A%84%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6config-elaticsearch-yml"><span class="toc-text">修改es的配置文件config&#x2F;elaticsearch.yml</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8es"><span class="toc-text">启动es</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81%E5%B0%86search-guard%E7%9A%84%E9%85%8D%E7%BD%AE%E5%86%99%E5%85%A5es%E4%B8%AD"><span class="toc-text">4、将search-guard的配置写入es中</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BB%A5%E4%B8%8A%E9%85%8D%E7%BD%AE%E7%94%9F%E6%88%90%E7%9A%84%E5%91%BD%E4%BB%A4%E4%B8%BA"><span class="toc-text">以上配置生成的命令为</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81%E6%B7%BB%E5%8A%A0es%E7%94%A8%E6%88%B7%E5%8F%8A%E5%AF%86%E7%A0%81"><span class="toc-text">5、添加es用户及密码</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E7%94%9F%E6%88%90md5%E5%8A%A0%E5%AF%86%E5%AF%86%E7%A0%81"><span class="toc-text">生成md5加密密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%8F%8A%E5%AF%86%E7%A0%81"><span class="toc-text">添加用户及密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E7%9A%84%E6%9D%83%E9%99%90"><span class="toc-text">添加用户的权限</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E9%87%8D%E6%96%B0%E5%B0%86%E9%85%8D%E7%BD%AE%E5%86%99%E5%85%A5es%E4%B8%AD%E7%94%9F%E6%95%88"><span class="toc-text">重新将配置写入es中生效</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81%E6%B5%8B%E8%AF%95"><span class="toc-text">6、测试</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%AB%E3%80%81x-pack%E4%B8%BAes%E9%9B%86%E7%BE%A4%E9%85%8D%E7%BD%AEauth"><span class="toc-text">八、x-pack为es集群配置auth</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1%E3%80%81%E8%A6%81%E6%B1%82"><span class="toc-text">1、要求</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2%E3%80%81%E5%AE%89%E8%A3%85x-pack"><span class="toc-text">2、安装x-pack</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3%E3%80%81%E5%AF%B9elasticsearch%E3%80%81logstash%E3%80%81kibana%E5%88%86%E5%88%AB%E8%AE%BE%E7%BD%AE%E7%99%BB%E5%BD%95%E5%AF%86%E7%A0%81%EF%BC%88%E9%BB%98%E8%AE%A4es%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%BAelastic%EF%BC%8Clogstash%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%BAlogstash-system%EF%BC%8Ckibana%E7%94%A8%E6%88%B7%E5%90%8D%E4%B8%BAkibana%EF%BC%89"><span class="toc-text">3、对elasticsearch、logstash、kibana分别设置登录密码（默认es用户名为elastic，logstash用户名为logstash_system，kibana用户名为kibana）</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4%E3%80%81%E9%85%8D%E7%BD%AE-config-elasticsearch-yml"><span class="toc-text">4、配置.&#x2F;config&#x2F;elasticsearch.yml</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#5%E3%80%81%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE"><span class="toc-text">5、测试访问</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6%E3%80%81x-pack%E9%BB%98%E8%AE%A4%E8%B4%A6%E5%8F%B7%E5%AF%86%E7%A0%81"><span class="toc-text">6、x-pack默认账号密码</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F%EF%BC%9A-7"><span class="toc-text">注意：</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Elasticsearch搜索引擎"><a href="#Elasticsearch搜索引擎" class="headerlink" title="Elasticsearch搜索引擎"></a>Elasticsearch搜索引擎</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><strong>Eladticsearch</strong>是一个基于<strong>Lucene库</strong>的搜索引擎</p>
+<p>他提供了一个<strong>分布式</strong>、支持多用户的全文搜索引擎，采用的是<strong>HTTP</strong>接口的方式对外提供服务</p>
+<p><strong>Elasticsearch 是一个实时的分布式搜索分析引擎，它被用作全文检索、结构化搜索、分析以及这三个功能的组合</strong></p>
+<p><strong>属于面向文档的数据库</strong></p>
+<ul>
+<li>Elasticsearch 是 <em>面向文档</em> 的，意味着它存储整个对象或 <em>文档。Elasticsearch 不仅存储文档，而且 索引</em>每个文档的内容使之可以被检索。在 Elasticsearch 中，你 对文档进行索引、检索、排序和过滤–而不是对行列数据。</li>
+</ul>
+<h2 id="搜索原理"><a href="#搜索原理" class="headerlink" title="搜索原理"></a>搜索原理</h2><h3 id="倒排索引："><a href="#倒排索引：" class="headerlink" title="倒排索引："></a>倒排索引：</h3><ul>
+<li>倒排索引是一种索引方法，被用来存储在全文搜索下某个单词在文档或者一组文档中的存储位置的映射。<strong>它是文档检索系统中最常用的数据结构</strong>（会对文档数据进行标准化处理）</li>
+</ul>
+<h3 id="相关性排序："><a href="#相关性排序：" class="headerlink" title="相关性排序："></a>相关性排序：</h3><ul>
+<li>检索词频率：检索词在该文档中出现的次数，出现次数越多，相关性越高</li>
+<li>反向文档频率：检索词在整个文档中出现的频率，出现次数越多相关性越低</li>
+<li>字段长度准则：长度越长，相关性越低</li>
+</ul>
+<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><ul>
+<li><strong>节点（node）</strong>：<ul>
+<li><strong>一个运行中的Elasticsearch实例称为一个节点</strong>。</li>
+<li>每个节点都知道任意文档的所处位置，可以将请求发给任意一个节点（包括主节点），所以主节点不会成为不会成为集群的瓶颈</li>
+<li><strong>主节点</strong>：当一个节点被选举成主节点时，它将负责管理集群范围内所有变更，例如增加、删除索引，或者增加删除节点。而主节点并不需要涉及到文档级别的变更和搜索等操作。</li>
+</ul>
+</li>
+<li><strong>分片（shard）</strong>：<ul>
+<li>一个分片是一个底层的工作单元 它仅保存了 全部数据中的一部分。Elasticsearch 是利用分片将数据分发到集群内各处的。分片是数据的容器，文档保存在分片内，分片又被分配到集群内的各个节点里。 当你的集群规模扩大或者缩小时， Elasticsearch 会自动的在各节点中迁移分片，使得数据仍然均匀分布在集群里。</li>
+<li><strong>主分片（primary shard）</strong>：索引内的任意一个文档都属于一个主分片，所以主分片（按50G时查询和写入的性能较好）的数目决定着能够保存的最大数据量</li>
+<li>**复制分片(replica shard)**：复制分片是主分片的拷贝。复制分片作为硬件故障时保护数据不丢失的冗余备份，并为搜索和返回文档等读操作提供服务。</li>
+<li><strong>在索引建立的时候就已经确定了主分片数，但是副本分片数可以随时修改.</strong></li>
+<li>每一个分片是一个功能完整的搜索引擎，它可以使用一个节点上的所有资源的能力。复制分片越多，也将拥有越高的吞吐量</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"># 设置索引的分片</span><br><span class="line">curl -X PUT IP:9200&#x2F;库名 -H &#39;Content-Type: application&#x2F;json&#39; -d&#39;</span><br><span class="line">&#123;</span><br><span class="line">   &quot;settings&quot; : &#123;</span><br><span class="line">        &quot;index&quot;: &#123;</span><br><span class="line">            &quot;number_of_shards&quot; : 3,</span><br><span class="line">            &quot;number_of_replicas&quot; : 1</span><br><span class="line">        &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br><span class="line">&#39;</span><br><span class="line"># 修改副分片数量</span><br><span class="line">PUT IP:9200&#x2F;库名&#x2F;_settings &#123;&quot;number_of_replicas&quot; : 2&#125;</span><br><span class="line"># 查看集群健康状态</span><br><span class="line">GET IP:9200&#x2F;_cluster&#x2F;health</span><br></pre></td></tr></table></figure>
+<p>未完待续。。。。。。。。。。</p>
+<h2 id="ES的单机部署"><a href="#ES的单机部署" class="headerlink" title="ES的单机部署"></a>ES的单机部署</h2><h4 id="一、配置网卡（无网环境忽略此条）"><a href="#一、配置网卡（无网环境忽略此条）" class="headerlink" title="一、配置网卡（无网环境忽略此条）"></a>一、配置网卡（无网环境忽略此条）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/sysconfig/network-scripts/ifcfg-*</span><br><span class="line"></span><br><span class="line">	BOOTPROTO=static	# 修改为静态网路，可以不修改</span><br><span class="line">	ONBOOT=yes</span><br><span class="line"></span><br><span class="line">systemctl restart network</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="二、配置本地yum源（有网环境忽略此条）"><a href="#二、配置本地yum源（有网环境忽略此条）" class="headerlink" title="二、配置本地yum源（有网环境忽略此条）"></a>二、配置本地yum源（有网环境忽略此条）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">mkdir /centos7		#存放本地yum源</span><br><span class="line"></span><br><span class="line">mount /iso  ./tmp		#将iso镜像挂载到本地文件中</span><br><span class="line"></span><br><span class="line">cp -vrf ./tmp/* /centos7	#将挂载后到本地文件copy到本地yum源文件中</span><br><span class="line"></span><br><span class="line">cd /etc/yum.repos.d		</span><br><span class="line"></span><br><span class="line">mv ./CentOS-*	/root/tmp	#移除yum到网络源信息</span><br><span class="line"></span><br><span class="line">vi yum.repo		#编写本地yum</span><br><span class="line">	[centos7-yum]</span><br><span class="line">	name=&quot;yum.local&quot;</span><br><span class="line">	baseurl=file:///centos7</span><br><span class="line">	gpgcheck=0</span><br><span class="line">	enabled=1</span><br><span class="line"></span><br><span class="line">yum clean all		#刷新缓存</span><br><span class="line"></span><br><span class="line">rm -rf /var/cache/yum</span><br><span class="line"></span><br><span class="line">yum list		#显示数据则表示本地yum配置成功</span><br><span class="line"></span><br><span class="line">yum install net-tools	#安装net-tools，查看ifconfig</span><br></pre></td></tr></table></figure>
+<h5 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h5><p>​    本地挂载完镜像之后，如果还要使用该文件的话，必须先umount该文件，否则会报错，提示权限不够</p>
+<h4 id="三、关闭防火墙及selinux"><a href="#三、关闭防火墙及selinux" class="headerlink" title="三、关闭防火墙及selinux"></a>三、关闭防火墙及selinux</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">systemctl disable firewalld</span><br><span class="line">systemctl stop firewalld</span><br><span class="line"></span><br><span class="line">vi /etc/sysconfig/selinux</span><br><span class="line">	SELINUX=disabled</span><br><span class="line">setenforce 0</span><br><span class="line">getenforce</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-1"><a href="#注意：-1" class="headerlink" title="注意："></a>注意：</h5><p>​    安装docker时可以不用关闭，当es进行集群部署时，必须关闭，否则集群无法生效</p>
+<h4 id="四、安装docker"><a href="#四、安装docker" class="headerlink" title="四、安装docker"></a>四、安装docker</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">scp docker.zip root@ip:~	#没网手动copy</span><br><span class="line">unzip docker.zip</span><br><span class="line">cd docker</span><br><span class="line">sh setup_without_container-selinux-2.9	#虚拟机/实体机</span><br><span class="line"><span class="meta">#</span><span class="bash"> 服务器，直接联网安装，不赘述</span></span><br></pre></td></tr></table></figure>
+<p>setup_without_container-selinux-2.9.sh 脚本内容如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">auto-mount</span></span><br><span class="line">yum clean all</span><br><span class="line">yum makecache</span><br><span class="line">yum remove -y docker-engine</span><br><span class="line">mkdir -p /data/tmp</span><br><span class="line">chmod -R 777 /data/tmp</span><br><span class="line">mkdir -p /data/sys/var/docker</span><br><span class="line">chmod -R 777 /data/sys/var/docker</span><br><span class="line">ln -s /data/sys/var/docker /var/lib/docker</span><br><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br><span class="line">echo &quot;vm.max_map_count=655360&quot; &gt;&gt; /etc/sysctl.conf &amp;&amp; sysctl -p</span><br><span class="line">yum install -y net-tools</span><br><span class="line">useradd -d /data/duser -m duser</span><br><span class="line">echo &quot;duser:5VSDHai4&quot; |chpasswd</span><br><span class="line">echo &quot;duser    ALL=(ALL) NOPASSWD: ALL&quot; &gt;&gt; /etc/sudoers</span><br><span class="line">rpm -ivh container-selinux-2.9-4.el7.noarch.rpm</span><br><span class="line">yum install -y ./docker-ce-17.09.0.ce-1.el7.centos.x86_64.rpm</span><br><span class="line">usermod -aG docker duser</span><br><span class="line">rm -fr ./*</span><br><span class="line">cd ../</span><br><span class="line">rm -fr docker_install docker_install.tar.gz</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-2"><a href="#注意：-2" class="headerlink" title="注意："></a>注意：</h5><p>​    sh脚本可以根据具体情况进行修改</p>
+<p>​    当出现无法安装成功，且提示rpm安装问题时，在rpm安装命令之后，加 —nodeps —force  ，意思为不考虑分析包之间的依赖关系，即可安装成功</p>
+<h4 id="五、开启docker服务"><a href="#五、开启docker服务" class="headerlink" title="五、开启docker服务"></a>五、开启docker服务</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">systemctl start docker</span><br><span class="line">systemctl enable docker</span><br><span class="line">systemctl status docker</span><br><span class="line">docker version	#查询是否开启docker</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="六、安装java-部署es-的依赖"><a href="#六、安装java-部署es-的依赖" class="headerlink" title="六、安装java(部署es 的依赖)"></a>六、安装java(部署es 的依赖)</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version	#查看是否有java，如果有，忽略以后步骤</span><br></pre></td></tr></table></figure>
+<h5 id="本地安装java"><a href="#本地安装java" class="headerlink" title="本地安装java"></a>本地安装java</h5><p>​    <a target="_blank" rel="noopener" href="http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a> </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/java</span><br><span class="line">cp jdk-8u171-linux-x64.rpm /usr/java</span><br><span class="line">cd /usr/java</span><br><span class="line">chmod +x jdk-8u171-linux-x64.rpm</span><br><span class="line">rpm -ivh jdk-8u171-linux-x64.rpm</span><br><span class="line">java -version</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="七、读取镜像（根据实际情况）"><a href="#七、读取镜像（根据实际情况）" class="headerlink" title="七、读取镜像（根据实际情况）"></a>七、读取镜像（根据实际情况）</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">docker load -i image.tar	#如果是zip的镜像，则先unziip成tar文件</span><br><span class="line">docker images</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动容器，并且将本地的文件目录挂载至容器data目录下</span></span><br><span class="line">docker run -itd -p 8888:8888 -v /data/origin_file:/data/duser/patent_similaruty/data/origin_file --name patent_preprocess patent_preprocess:1.1 bash</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">进入容器</span></span><br><span class="line">docker exec -it patent_preprocess bash</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">停止容器</span></span><br><span class="line">docker stop patent_preprocess</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="八、如果需要docker-compose启动"><a href="#八、如果需要docker-compose启动" class="headerlink" title="八、如果需要docker-compose启动"></a>八、如果需要docker-compose启动</h4><p>安装并使用docker-compose</p>
+<p>方法一：</p>
+<p>使用curl命令下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -L https://github.com/docker/compose/releases/download/1.24.0/docker-compose-Linux-x86_64 -o /usr/local/bin/docker-compose</span><br><span class="line"></span><br><span class="line">chmod +x /usr/local/bin/docker-compose</span><br></pre></td></tr></table></figure>
+<p>方法二：</p>
+<p>使用pip命令下载</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">yum -y install epel-release</span><br><span class="line"></span><br><span class="line">yum -y install python-pip</span><br><span class="line"></span><br><span class="line">pip install docker-compose</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="ES集群部署"><a href="#ES集群部署" class="headerlink" title="ES集群部署"></a>ES集群部署</h2><h3 id="一、部署集群"><a href="#一、部署集群" class="headerlink" title="一、部署集群"></a>一、部署集群</h3><p>user用户下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">unzip elasticsearch_bak.zip	#解压引擎文件</span><br><span class="line"><span class="meta">#</span><span class="bash"> 修改默认的配置文件</span></span><br><span class="line">cd elasticsearch_bak/config</span><br><span class="line">vi elasctsearch.yml</span><br><span class="line">	cluster.name: es-zl		#修改集群名，所有节点配置的该名称必须一样</span><br><span class="line">	node.name: es-46	#修改每个节点的名称，必须不同，以区分每个节点</span><br><span class="line">	node.master:true	#是否可作为主节点</span><br><span class="line">	path.data: /data/es_data	#es数据存放的位置</span><br><span class="line">	network.host:127.17.30.46	#每个节点的ip地址</span><br><span class="line">	http.port: 9200		#节点的端口，必须相同，默认9200</span><br><span class="line">	</span><br><span class="line">	bootstrap.memory_lock: true</span><br><span class="line">	bootstrap.system_call_filter: false		#内存锁定，防止swap使es产生内存交互</span><br><span class="line">	discovery.zen.ping.unicast.hosts:[&quot;127.17.30.44&quot;,&quot;127.17.30.45&quot;,,]	#集群master节点的ip，不需要所有节点的ip，其他节点只要能与任意一个master节点通讯，即可加入到该集群当中</span><br><span class="line">	discovery.zen.minimum_master_nodes:2	#当2个有资格成为主节点的从节点认为主节点挂了，则进行重新选主，一般设置为(n/2)+1，防止es出现脑裂情况</span><br><span class="line">	gateway.recover_after_nodes: 3	#节点数量达到多少之后，进行数据恢复处理</span><br><span class="line">	http.cors.enabled: true</span><br><span class="line">	http.cors.allow-origin: &quot;*&quot;</span><br><span class="line">	</span><br><span class="line">vi yvm.options</span><br><span class="line">	-Xms16g		#默认为2g，可根据服务器内存，自行修改</span><br><span class="line">	</span><br><span class="line"><span class="meta">#</span><span class="bash">通过一下命令查看内存</span></span><br><span class="line">cat /proc/cpuinfo | grep &#x27;cpu cores&#x27; | wc -l	#查看cpu核数</span><br><span class="line">cat /proc/meminfo | grep MemTotal	#只查看内存</span><br><span class="line">free -h		#查看内存的使用</span><br><span class="line">df -h		#查看硬盘存储</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-3"><a href="#注意：-3" class="headerlink" title="注意："></a>注意：</h5><p>​    该操作必须在每台服务器上都要部署，并不能在root用户下操作，要在user下操作，如果没有usr用户，则创建</p>
+<h5 id="如果没有操作权限，则执行："><a href="#如果没有操作权限，则执行：" class="headerlink" title="如果没有操作权限，则执行："></a>如果没有操作权限，则执行：</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> root下，将文件权限设置为duser用户可操作</span></span><br><span class="line">chown duser *</span><br><span class="line">chgrp duser *</span><br></pre></td></tr></table></figure>
+
+
+<h4 id="当不使用es远程词典时："><a href="#当不使用es远程词典时：" class="headerlink" title="当不使用es远程词典时："></a>当不使用es远程词典时：</h4><p>修改elasticsearch-5.3.0/plugins/ik/config/IKAnalyzer.cfg.xml </p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">properties</span> <span class="meta-keyword">SYSTEM</span> <span class="meta-string">&quot;http://java.sun.com/dtd/properties.dtd&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">comment</span>&gt;</span>IK Analyzer 扩展配置<span class="tag">&lt;/<span class="name">comment</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--用户可以在这里配置自己的扩展字典 --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">&quot;ext_dict&quot;</span>&gt;</span>custom/mydict.dic;custom/single_word_low_freq.dic<span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line">                 <span class="comment">&lt;!--用户可以在这里配置自己的扩展停止词字典--&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">entry</span> <span class="attr">key</span>=<span class="string">&quot;ext_stopwords&quot;</span>&gt;</span>custom/ext_stopword.dic<span class="tag">&lt;/<span class="name">entry</span>&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--用户可以在这里配置远程扩展字典 --&gt;</span></span><br><span class="line">       <span class="comment">&lt;!-- &lt;entry key=&quot;remote_ext_dict&quot;&gt;http://10.172.80.229:9301/mydict.dic&lt;/entry&gt; --&gt;</span></span><br><span class="line">                <span class="comment">&lt;!--用户可以在这里配置远程扩展停止词字典--&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="comment">&lt;!-- &lt;entry key=&quot;remote_ext_stopwords&quot;&gt;http://10.172.80.229:9301/stopword.dic&lt;/entry&gt; --&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="说明："><a href="#说明：" class="headerlink" title="说明："></a>说明：</h5><p>​    注释后两项即可</p>
+<h5 id="添加自定义同义词"><a href="#添加自定义同义词" class="headerlink" title="添加自定义同义词"></a>添加自定义同义词</h5><p>替换config/synonyms.txt文件</p>
+<p>synonyms.txt文件内格式，所有同义词为一行，且用 “, ” 隔开</p>
+<h3 id="二、修改集群配置"><a href="#二、修改集群配置" class="headerlink" title="二、修改集群配置"></a>二、修改集群配置</h3><p>root用户下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/security/limits.conf</span><br><span class="line"><span class="meta">	#</span><span class="bash">添加一下语句</span></span><br><span class="line">	*      soft    nofile    65536</span><br><span class="line">	*      hard    nofile    65536</span><br><span class="line">	*      soft	   nproc     65536</span><br><span class="line">	*	   hard	   nproc	 65536</span><br><span class="line">	duser  soft    memlock   unlimited </span><br><span class="line">    duser  hard    memlock   unlimited </span><br><span class="line"></span><br><span class="line">vi /etc/sysctl.conf</span><br><span class="line"><span class="meta">	#</span><span class="bash">修改以下语句</span></span><br><span class="line">	vm.max_map_count=655360</span><br><span class="line">	</span><br><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="三、启动集群"><a href="#三、启动集群" class="headerlink" title="三、启动集群"></a>三、启动集群</h3><p>user用户下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd elasticsearch_bak/bin</span><br><span class="line">./elasticsearch  -d	#后台启动集群</span><br><span class="line">curl 172.17.30.45:9200/_cat/nodes	#查看所有节点，*为主节点</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动不了时候，查看es-log</span></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="四、搜索部署"><a href="#四、搜索部署" class="headerlink" title="四、搜索部署"></a>四、搜索部署</h3><p>user用户下的操作</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vi index_search_mapping.sh</span><br><span class="line"><span class="meta">	#</span><span class="bash">修改的ip和端口与集群一样</span></span><br><span class="line">	curl -XPUT &quot;http://10.25.114.90:9200/index&quot; </span><br><span class="line">	&#123;</span><br><span class="line">        settings&quot;: &#123;</span><br><span class="line">        &quot;number_of_shards&quot;: 6,	#主分片数量，一般为 服务器总核数</span><br><span class="line">        &quot;number_of_replicas&quot;: 2,	#副本分片的数量，防止数据丢失</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-4"><a href="#注意：-4" class="headerlink" title="注意："></a>注意：</h5><p>​    分词器anslyzer可以根据实际情况进行修改、删除和添加</p>
+<h4 id="添加删除字段"><a href="#添加删除字段" class="headerlink" title="添加删除字段"></a>添加删除字段</h4><p>​    当需要添加字段时，只要在以下位置添加即可</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&quot;mappings&quot;: &#123;</span><br><span class="line">    &quot;index&quot;: &#123;</span><br><span class="line">      &quot;properties&quot;: &#123;</span><br><span class="line">	  &quot;id&quot;: &#123;</span><br><span class="line">          &quot;type&quot;: &quot;keyword&quot;</span><br><span class="line">        &#125;,</span><br><span class="line">       &quot;&quot;: &#123;		#需要添加的字段名</span><br><span class="line">           &quot;type&quot;:&quot;&quot;	#添加的字段的约束条件</span><br><span class="line">       &#125;</span><br><span class="line">       &#125;</span><br><span class="line">      &#125;</span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-5"><a href="#注意：-5" class="headerlink" title="注意："></a>注意：</h5><p>​    修改某个文件的字段之前，需要先删除该文件的core</p>
+<p>​    重新启动搜索时，也需要进行以下步骤</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl -XDELETE &quot;http://172.19.30.45:9200/index&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash">修改完之后，重新运行该文件</span></span><br><span class="line">sh index_search_mapping.sh</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="五、查询启动结果"><a href="#五、查询启动结果" class="headerlink" title="五、查询启动结果"></a>五、查询启动结果</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">curl http://ip:9200/index?pretty		#查询字段</span><br><span class="line">curl http://ip:9200/_cat/nodes		#查询节点</span><br><span class="line">curl http://ip:9200/_cat/health	#查询加群健康，green</span><br><span class="line">curl http://ip:9200/_cat/shards	#查询集群分片状态</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="六、数据量查询"><a href="#六、数据量查询" class="headerlink" title="六、数据量查询"></a>六、数据量查询</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl http://ip:9200/one_index/_stats	#查询某一个index下的数据量</span><br><span class="line">curl http://ip:9200/one_index,two_index/_stats	#查询多个index的数据量，使用,隔开</span><br><span class="line">curl http://ip:9200/_all/_stats		#查询所有index下的数据量</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 返回search、fetch、get、index、bulk、segment、counts</span></span><br><span class="line"></span><br><span class="line">curl http://ip:9200/_cat/count/index	#只查询某个index下的文档数，如果不加index，则查询所有的index的文档总数</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="七、search-guard为es集群配置auth"><a href="#七、search-guard为es集群配置auth" class="headerlink" title="七、search-guard为es集群配置auth"></a>七、search-guard为es集群配置auth</h3><h4 id="1、安装search-guard插件和ssl插件"><a href="#1、安装search-guard插件和ssl插件" class="headerlink" title="1、安装search-guard插件和ssl插件"></a>1、安装search-guard插件和ssl插件</h4><h5 id="查询es的版本"><a href="#查询es的版本" class="headerlink" title="查询es的版本"></a>查询es的版本</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">curl ip:9200</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 结果中的number数据即代表版本号</span></span><br></pre></td></tr></table></figure>
+<h5 id="安装search-guard"><a href="#安装search-guard" class="headerlink" title="安装search-guard"></a>安装search-guard</h5><p><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/floragunn/search-guard-5">https://repo1.maven.org/maven2/com/floragunn/search-guard-5</a></p>
+<p>找到对应的版本，下载即可</p>
+<p>或者使用命令行下载，es目录下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch-plugin install -b com.floragunn:search-guard-5:5.3.0-12</span><br></pre></td></tr></table></figure>
+<h5 id="安装search-guard-ssl"><a href="#安装search-guard-ssl" class="headerlink" title="安装search-guard-ssl"></a>安装search-guard-ssl</h5><p><a target="_blank" rel="noopener" href="https://repo1.maven.org/maven2/com/floragunn/search-guard-ssl">https://repo1.maven.org/maven2/com/floragunn/search-guard-ssl</a></p>
+<p>命令行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bin/elasticsearch-plugin install -b com.floragunn:search-guard-ssl:5.3.0-22</span><br></pre></td></tr></table></figure>
+<h5 id="注意：-6"><a href="#注意：-6" class="headerlink" title="注意："></a>注意：</h5><p>当es版本较高时，可能并不需要这两个都存在，取search-guard即可</p>
+<h4 id="2、生成es证书文件"><a href="#2、生成es证书文件" class="headerlink" title="2、生成es证书文件"></a>2、生成es证书文件</h4><h5 id="下载search-guard源码工具，生成证书的工具"><a href="#下载search-guard源码工具，生成证书的工具" class="headerlink" title="下载search-guard源码工具，生成证书的工具"></a>下载search-guard源码工具，生成证书的工具</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/floragunncom/search-guard-ssl.git</span><br></pre></td></tr></table></figure>
+<h5 id="修改ca配置"><a href="#修改ca配置" class="headerlink" title="修改ca配置"></a>修改ca配置</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">cd search-guard-ssl/example-pki-scripts/etc/</span><br><span class="line"></span><br><span class="line">vi root-ca.conf		# 根证书配置</span><br><span class="line">	0.domainComponent       = &quot;www.test.com”    # 域名</span><br><span class="line">	1.domainComponent       = &quot;www.test.com&quot;    # 域名</span><br><span class="line">	organizationName        = &quot;Test&quot;            # 组织名称</span><br><span class="line">	organizationalUnitName  = &quot;Test Root CA&quot;    # 组织单位名称</span><br><span class="line">	commonName              = &quot;Test Root CA&quot;    # 通用名称</span><br><span class="line">	</span><br><span class="line">vi signing-ca.conf	# 签名证书配置</span><br><span class="line">	0.domainComponent       = &quot;www.test.com”    # 域名</span><br><span class="line">	1.domainComponent       = &quot;www.test.com&quot;    # 域名</span><br><span class="line">	organizationName        = &quot;Test&quot;            # 组织名称</span><br><span class="line">	organizationalUnitName  = &quot;Test Signing CA&quot; # 组织单位名称</span><br><span class="line">	commonName              = &quot;Test Signing CA&quot; # 通用名称</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>​    以上信息填写，必须保证和生成证书时信息一致</p>
+<h5 id="修改sh文件"><a href="#修改sh文件" class="headerlink" title="修改sh文件"></a>修改sh文件</h5><p>返回example-pki-scripts目录下，修改example.sh文件：</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#!/bin/bash</span></span><br><span class="line"></span><br><span class="line"><span class="built_in">set</span> -e</span><br><span class="line"></span><br><span class="line">./clean.sh</span><br><span class="line"></span><br><span class="line">./gen_root_ca.sh 12345678 12345678</span><br><span class="line"></span><br><span class="line">./gen_node_cert.sh 0 12345678 12345678&amp;&amp; ./gen_node_cert.sh 1 12345678 12345678 &amp;&amp;  ./gen_node_cert.sh 2 12345678 12345678</span><br><span class="line"></span><br><span class="line">./gen_client_node_cert.sh <span class="built_in">test</span> 12345678 12345678</span><br><span class="line"></span><br><span class="line">./gen_client_node_cert.sh <span class="built_in">test</span> 12345678 12345678</span><br></pre></td></tr></table></figure>
+<p>参数说明：</p>
+<p>./gen_root_ca.sh 12345678 12345678</p>
+<p>第一个参数为CA_PASS，即CA密码（根证书密码）</p>
+<p>第二个参数为TS_PASS，即TS密码（truststore，信任证书密码）</p>
+<p>./gen_node_cert.sh 0 12345678 12345678</p>
+<p>第一个参数为node编号，生成证书后的文件名为node-0*</p>
+<p>第二个参数为KS_PASS（keystore文件密码）</p>
+<p>第三个参数为CA_PASS</p>
+<p>./gen_client_node_cert.sh test 12345678</p>
+<p>第一个参数为客户端节点名称，生成证书后的文件名为test*</p>
+<p>第二个参数为KS_PASS</p>
+<p>第三个参数为CA_PASS</p>
+<h5 id="生成证书，运行example-sh"><a href="#生成证书，运行example-sh" class="headerlink" title="生成证书，运行example.sh"></a>生成证书，运行example.sh</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sh example.sh</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 在当前目录下会生成证书文件</span></span><br></pre></td></tr></table></figure>
+
+
+<h4 id="3、配置es，启动search-guard"><a href="#3、配置es，启动search-guard" class="headerlink" title="3、配置es，启动search-guard"></a>3、配置es，启动search-guard</h4><h5 id="将生成的各个节点的证书，分别copy到各个节点上"><a href="#将生成的各个节点的证书，分别copy到各个节点上" class="headerlink" title="将生成的各个节点的证书，分别copy到各个节点上"></a>将生成的各个节点的证书，分别copy到各个节点上</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 将node-0-keystore.jks和truststore.jks复制到es的config目录下</span></span><br><span class="line"></span><br><span class="line">cp node-0-keystore.jks ~/elasticsearch/config/</span><br><span class="line">cp truststore.jks ~/elasticsearch/config/</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 将test-keystore.jks和truststore.jks复制到es的plugins/search-guard-2/sgconfig目录下</span></span><br><span class="line"></span><br><span class="line">cp test-keystore.jks ~/elasticsearch/plugins/search-guard-2/sgconfig/</span><br><span class="line">cp truststore.jks ~/elasticsearch/plugins/search-guard-2/sgconfig/</span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>​    保持证书的一致性，因此只需要在一台机器上生成CA证书即可</p>
+<h5 id="修改es的配置文件config-elaticsearch-yml"><a href="#修改es的配置文件config-elaticsearch-yml" class="headerlink" title="修改es的配置文件config/elaticsearch.yml"></a>修改es的配置文件config/elaticsearch.yml</h5><p>在之前修改的基础上，增加如下配置</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 配置ssl</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.keystore_filepath:</span> <span class="string">node-0-keystore.jks</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.keystore_password:</span> <span class="number">12345678</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.truststore_filepath:</span> <span class="string">truststore.jks</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.truststore_password:</span> <span class="number">12345678</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.enforce_hostname_verification:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">searchguard.ssl.transport.resolve_hostname:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置https</span></span><br><span class="line"><span class="comment"># http配置，这里我只是为了测试方便，配置完，应该设置为true</span></span><br><span class="line"><span class="attr">searchguard.ssl.http.enabled:</span> <span class="literal">false</span></span><br><span class="line"><span class="attr">searchguard.ssl.http.keystore_filepath:</span> <span class="string">node-0-keystore.jks</span></span><br><span class="line"><span class="attr">searchguard.ssl.http.keystore_password:</span> <span class="number">12345678</span></span><br><span class="line"><span class="attr">searchguard.ssl.http.truststore_filepath:</span> <span class="string">truststore.jks</span></span><br><span class="line"><span class="attr">searchguard.ssl.http.truststore_password:</span> <span class="number">12345678</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># CN为生成CA证书时填写的信息，即./gen_client_node_cert.sh test 12345678 命令的第一个参数</span></span><br><span class="line"><span class="attr">searchguard.authcz.admin_dn:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">CN=test,</span> <span class="string">OU=client,</span> <span class="string">O=client,</span> <span class="string">L=Test,</span> <span class="string">C=DE</span></span><br></pre></td></tr></table></figure>
+<h5 id="启动es"><a href="#启动es" class="headerlink" title="启动es"></a>启动es</h5><h4 id="4、将search-guard的配置写入es中"><a href="#4、将search-guard的配置写入es中" class="headerlink" title="4、将search-guard的配置写入es中"></a>4、将search-guard的配置写入es中</h4><p>添加权限</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 plugins/search-guard-5/tools/sgadmin.sh</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>配置格式</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./plugins/search-guard-5/tools/sgadmin.sh -cn clustername -h hostname -cd plugins/search-guard-5/sgconfig -ks plugins/search-guard-5/sgconfig/admin-keystore.jks -kspass password -ts plugins/search-guard-5/sgconfig/truststore.jks -tspass password -nhnv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>​    clustername为集群的名称</p>
+<p>​    hostname为elasticsearch.yml 文件中 network.host 的值</p>
+<p>​    password生成证书设置的密码</p>
+<h5 id="以上配置生成的命令为"><a href="#以上配置生成的命令为" class="headerlink" title="以上配置生成的命令为"></a>以上配置生成的命令为</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./plugins/search-guard-5/tools/sgadmin.sh -cn es-nlp -h 192.168.124.18 -cd plugins/search-guard-5/sgconfig -ks plugins/search-guard-5/sgconfig/test-keystore.jks -kspass 12345678 -ts plugins/search-guard-5/sgconfig/truststore.jks -tspass 12345678 -nhnv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="5、添加es用户及密码"><a href="#5、添加es用户及密码" class="headerlink" title="5、添加es用户及密码"></a>5、添加es用户及密码</h4><h5 id="生成md5加密密码"><a href="#生成md5加密密码" class="headerlink" title="生成md5加密密码"></a>生成md5加密密码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 777 plugins/search-guard-2/tools/hash.sh</span><br><span class="line"></span><br><span class="line">cd plugins/search-guard-2/tools/</span><br><span class="line"></span><br><span class="line">plugins/search-guard-2/tools/hash.sh -p 123456</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 保存生成的<span class="built_in">hash</span>密码</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="添加用户及密码"><a href="#添加用户及密码" class="headerlink" title="添加用户及密码"></a>添加用户及密码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim plugins/search-guard-5/sgconfig/sg_internal_users.yml</span><br><span class="line"></span><br><span class="line">sunww:</span><br><span class="line">  hash: 加密后的字符串</span><br><span class="line"><span class="meta">  #</span><span class="bash"> password: 123456</span></span><br><span class="line">  </span><br><span class="line"><span class="meta">#</span><span class="bash"> 最后一行时password提示，防止忘记</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="添加用户的权限"><a href="#添加用户的权限" class="headerlink" title="添加用户的权限"></a>添加用户的权限</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">vim plugins/search-guard-5/sgconfig/sg_roles_mapping.yml</span><br><span class="line"></span><br><span class="line">ag_all_access:</span><br><span class="line">  users:</span><br><span class="line">    - admin</span><br><span class="line">    - sunww</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加所有权限给sunww用户</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="重新将配置写入es中生效"><a href="#重新将配置写入es中生效" class="headerlink" title="重新将配置写入es中生效"></a>重新将配置写入es中生效</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./plugins/search-guard-5/tools/sgadmin.sh -cn es-nlp -h 192.168.124.18 -cd plugins/search-guard-5/sgconfig -ks plugins/search-guard-5/sgconfig/test-keystore.jks -kspass 12345678 -ts plugins/search-guard-5/sgconfig/truststore.jks -tspass 12345678 -nhnv</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="6、测试"><a href="#6、测试" class="headerlink" title="6、测试"></a>6、测试</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">curl http://sunww:123456@127.0.0.1:9200</span><br><span class="line"></span><br><span class="line">curl -u sunww:123456 http://127.0.0.1:9200</span><br><span class="line"></span><br><span class="line">curl --user sunww:123456 http://127.0.0.1:9200</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h3 id="八、x-pack为es集群配置auth"><a href="#八、x-pack为es集群配置auth" class="headerlink" title="八、x-pack为es集群配置auth"></a>八、x-pack为es集群配置auth</h3><h5 id="1、要求"><a href="#1、要求" class="headerlink" title="1、要求"></a>1、要求</h5><p>es的版本必须为6.X及以上，5.X的es配置x-pack只能通过api修改密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.tar.gz</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="2、安装x-pack"><a href="#2、安装x-pack" class="headerlink" title="2、安装x-pack"></a>2、安装x-pack</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./bin/elasticsearch-plugin install x-pack</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="3、对elasticsearch、logstash、kibana分别设置登录密码（默认es用户名为elastic，logstash用户名为logstash-system，kibana用户名为kibana）"><a href="#3、对elasticsearch、logstash、kibana分别设置登录密码（默认es用户名为elastic，logstash用户名为logstash-system，kibana用户名为kibana）" class="headerlink" title="3、对elasticsearch、logstash、kibana分别设置登录密码（默认es用户名为elastic，logstash用户名为logstash_system，kibana用户名为kibana）"></a>3、对elasticsearch、logstash、kibana分别设置登录密码（默认es用户名为elastic，logstash用户名为logstash_system，kibana用户名为kibana）</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">./bin/x-pack/setup-passwords interactive</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<p>​    此时的es必须时启动状态</p>
+<h5 id="4、配置-config-elasticsearch-yml"><a href="#4、配置-config-elasticsearch-yml" class="headerlink" title="4、配置./config/elasticsearch.yml"></a>4、配置./config/elasticsearch.yml</h5><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># es6.X配置：</span></span><br><span class="line"><span class="attr">http.cors.enabled:</span> <span class="literal">true</span></span><br><span class="line"><span class="attr">http.cors.allow-origin:</span> <span class="string">&#x27;*&#x27;</span></span><br><span class="line"><span class="attr">http.cors.allow-headers:</span> <span class="string">Authorization,X-Requested-With,Content-Length,Content-Type</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># es5.X配置</span></span><br><span class="line"><span class="string">xpack.graph.enabled</span>			<span class="comment">#设置为false以禁用X-Pack图形功能。</span></span><br><span class="line"><span class="string">xpack.ml.enabled</span>			<span class="comment">#设置为false以禁用X-Pack机器学习功能。</span></span><br><span class="line"><span class="string">xpack.monitoring.enabled</span>	<span class="comment">#设置为false以禁用X-Pack监视功能。</span></span><br><span class="line"><span class="string">xpack.reporting.enabled</span>     <span class="comment">#设置为false以禁用X-Pack报告功能。</span></span><br><span class="line"><span class="string">xpack.security.enabled</span>      <span class="comment">#设置为false以禁用X-Pack安全功能。</span></span><br><span class="line"><span class="string">xpack.watcher.enabled</span>       <span class="comment">#设置为false以禁用Watcher。</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="5、测试访问"><a href="#5、测试访问" class="headerlink" title="5、测试访问"></a>5、测试访问</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -u elastic:password ip:port</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="6、x-pack默认账号密码"><a href="#6、x-pack默认账号密码" class="headerlink" title="6、x-pack默认账号密码"></a>6、x-pack默认账号密码</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">账号：elastic</span><br><span class="line">密码：changeme</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h5 id="注意：-7"><a href="#注意：-7" class="headerlink" title="注意："></a>注意：</h5><p>​    x-pack只有一个月的使用时间，适合poc使用</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'bufan-zb.github.io',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

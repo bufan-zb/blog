@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Pandas | 邹斌的博客</title>
+  <meta name="keywords" content=" 数据分析 , Pandas ">
+  <meta name="description" content="Pandas | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Docker部署Elasticsearch">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:locale">
+<meta property="article:published_time" content="2019-08-12T10:58:00.000Z">
+<meta property="article:modified_time" content="2020-07-15T06:24:12.667Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="Docker">
+<meta property="article:tag" content="Elasticsearch">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="All">All
+            
+                <small>(64)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        <i class="fold iconfont icon-right"></i>
+                        
+                        人工智能
+                        <small>(21)</small>
+                        
+                    </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->大数据">
+                                        
+                                        大数据
+                                        
+                                            <small>(10
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->机器学习">
+                                        
+                                        机器学习
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->框架">
+                                        
+                                        框架
+                                        
+                                            <small>(3
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->深度学习">
+                                        
+                                        深度学习
+                                        
+                                            <small>(6
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
+                    
+                </li>
+            
+        
+    
+        
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Docker">
+                        
+                        Docker
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Dockerfile">
+                        
+                        Dockerfile
+                        <small>(1)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(2)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Web">
+                        
+                        Web
+                        <small>(5)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="64">
+<input type="hidden" id="yelog_site_word_count" value="58.4k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        Links
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">All</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟化</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Dockerfile "
+           href="/2019/08/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HBase/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/HDFS/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 机器学习 "
+           href="/2019/08/12/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Hadoop/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="大数据,推荐系统,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cat">Linux命令之cat</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之cd">Linux命令之cd</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ifconfig">Linux命令之ifconfig</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="linux命令之ls">linux命令之ls</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmkdir/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之mkdir">Linux命令之mkdir</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Brm/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之rm">Linux命令之rm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bping/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ping">Linux命令之ping</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btail/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之tail">Linux命令之tail</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btouch/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之touch">Linux命令之touch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/MapReduce/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Sqoop/"
+           data-tag="大数据,推荐系统,Hadoop,未完成"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/YARN/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All python "
+           href="/2019/08/12/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 "
+           href="/2019/08/12/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 框架 "
+           href="/2019/08/12/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="torch">torch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="人工智能优化算法">人工智能优化算法</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All "
+           href="/2019/08/12/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 深度学习 "
+           href="/2019/08/12/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 排序算法 "
+           href="/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 数据结构 "
+           href="/2019/08/12/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Flume/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Kafka/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All 人工智能 大数据 "
+           href="/2019/08/12/Spark/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/06/02/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2018-06-02 15:58:00">2018/06/02</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/17/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2018-05-17 19:58:00">2018/05/17</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/08/12/crontab/"
+           data-tag="cenos,web"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-12 18:58:00">2017/08/12</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/05/13/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-13 14:58:00">2017/05/13</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 15:58:00">2017/05/10</span>
+        </a>
+        
+        <a  class="All Linux "
+           href="/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="All Web "
+           href="/2017/04/22/Elasticsearch/"
+           data-tag="未完成,web,搜索引擎"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="All Docker "
+           href="/2017/04/20/Docker/"
+           data-tag="Docker,虚拟化"
+           data-author="" >
+            <span class="post-title" title="Docker">Docker</span>
+            <span class="post-date" title="2017-04-20 20:58:00">2017/04/20</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-pandas" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Pandas</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="人工智能">人工智能</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">数据分析</a>
+            
+            <a class="color2">Pandas</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            Created At : <time class="date" title='Updated At: 2020-12-29 23:14:46'>2019-08-12 18:58</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>Count:1.9k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            Views 👀 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                Comment:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Pandas"><span class="toc-text">Pandas</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Pandas%E7%AE%80%E4%BB%8B"><span class="toc-text">Pandas简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pandas%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84"><span class="toc-text">Pandas数据结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%93%8D%E4%BD%9C%E5%B8%B8%E7%94%A8API"><span class="toc-text">数据操作常用API</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataFrame%E8%BF%90%E7%AE%97"><span class="toc-text">DataFrame运算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#DataFrame%E7%94%BB%E5%9B%BE"><span class="toc-text">DataFrame画图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E8%AF%BB%E5%8F%96%E4%B8%8E%E5%AD%98%E5%82%A8"><span class="toc-text">文件读取与存储</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Pandas"><a href="#Pandas" class="headerlink" title="Pandas"></a>Pandas</h1><h3 id="Pandas简介"><a href="#Pandas简介" class="headerlink" title="Pandas简介"></a>Pandas简介</h3><ul>
+<li>专门用于数据挖掘的开源python库</li>
+<li>以Numpy为基础，借力Numpy模块在计算方面性能高的优势</li>
+<li>基于matplotlib，能够简便的画图</li>
+<li>独特的数据结构</li>
+<li>相比于Numpy优势：<ul>
+<li>pandas的数据展示结果可读性更好</li>
+<li>处理数据更加方便</li>
+<li>读取文件更加方便</li>
+</ul>
+</li>
+</ul>
+<h3 id="Pandas数据结构"><a href="#Pandas数据结构" class="headerlink" title="Pandas数据结构"></a>Pandas数据结构</h3><ul>
+<li><p>Series结构(一维数组的数据结构)：</p>
+<ul>
+<li>Series是一个类似于一维数组的数据结构，它能够保存任何类型的数据，如整数、字符床、浮点数等，主要由一组数据和与之相关的索引两部分构成</li>
+<li>Series创建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">import pandas as pd</span><br><span class="line">pd.Series(data&#x3D;data, index&#x3D;index, dtype&#x3D;dtype)</span><br><span class="line"># 参数：data：可以是array，list；index：索引，和data长度一致，不传默认生成0-n的整数索引；dtype：数据的类型</span><br><span class="line">pd1 &#x3D; pd.Series(np.arange(10))</span><br><span class="line"># 也可通过字典创建</span><br><span class="line">pd1 &#x3D; pd.Series(&#123;&quot;a&quot;:&quot;b&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Series属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># 获取索引</span><br><span class="line">pd1.index</span><br><span class="line"># 获取值</span><br><span class="line">pd1.values</span><br><span class="line"># 也可通过下标获取值</span><br><span class="line">pd1[0]</span><br></pre></td></tr></table></figure></li>
+<li><p>Dataframe结构(二维数组的数据结构)：</p>
+<ul>
+<li>DataFrame是一个类似于二维数组或表格的对象，既有行索引又有列索引</li>
+<li>DataFrame创建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">pd.DataFrame(data&#x3D;data, index&#x3D;index, columns&#x3D;columns)</span><br><span class="line"># 参数：data：可以是array，list；index：行索引，和data长度一致，不传默认生成0-n的整数索引；columns：列索引，和data长度一致，不传默认生成0-n的整数索引；</span><br><span class="line">index &#x3D; [&quot;行1&quot;,&quot;行2&quot;]</span><br><span class="line">columns &#x3D; [&quot;列1&quot;,&quot;列2&quot;,&quot;列3&quot;]</span><br><span class="line">df1 &#x3D; pd.DataFrame(np.random.randn(2,3)，index&#x3D;index,columns&#x3D;columns)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>DataFrame属性</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">df1.shape # 获取DataFrame形状</span><br><span class="line">df1.index # 获取DataFrame行索引</span><br><span class="line">df1.columns # 获取DataFrame列索引</span><br><span class="line">df1.values  # 获取DataFrame值，返回array数组</span><br><span class="line">df1.T  # 对DataFrame进行行列装换</span><br><span class="line">df1.head(num) # 显示前num行</span><br><span class="line">df1.tail(num) # 显示后num行</span><br><span class="line">df1.index &#x3D; [&quot;行_1&quot;,&quot;行_2&quot;] # 修改索引，必须整体修改</span><br><span class="line">df1.reset_index(drop&#x3D;False) # 重置索引，False为不删除索引，True为删除索引</span><br><span class="line">df1.set_index([&quot;列1&quot;]) # 设置列1为索引列</span><br></pre></td></tr></table></figure></li>
+<li><p>Multilndex结构(三维数组的数据结构)：</p>
+<ul>
+<li>Multilndex是三维数据结构：也称多级索引，可以在Series、DataFrame对象上拥有2个以及2个以上的索引</li>
+<li>Multilndex创建</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">df2 &#x3D; df1.set_index([&quot;列1&quot;, &quot;列2&quot;])</span><br><span class="line"># 获取索引</span><br><span class="line">df2.index</span><br><span class="line">MultiIndex(levels&#x3D;[[列1去重后的所有元素],[列2去重后的所有元素]],</span><br><span class="line">          labels&#x3D;[[列1该位置元素对应levels的下标],[列1该位置元素对应levels的下标]],</span><br><span class="line">          name&#x3D;[&quot;列1&quot;,&quot;列2&quot;])</span><br></pre></td></tr></table></figure>
+<h3 id="数据操作常用API"><a href="#数据操作常用API" class="headerlink" title="数据操作常用API"></a>数据操作常用API</h3></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"># 索引切片</span><br><span class="line">df1 &#x3D; pd.read_csv(&quot;csv.csv&quot;) # 读取csv文件</span><br><span class="line">df2 &#x3D; df1.drop([&quot;列1&quot;,&quot;列2&quot;],axis&#x3D;1) # 删除列1列2,设置为0则是行</span><br><span class="line">df2[&quot;列&quot;][&quot;行&quot;]  # 索引数据,只能先列后行，且不支持切片</span><br><span class="line">df2.loc[&quot;行1&quot;:&quot;行5&quot;,&quot;列&quot;]  # 索引数据，只能先行后列</span><br><span class="line">df2.iloc[:num,:num]  # 通过下标索引，先行后列</span><br><span class="line">df2.ix[0:4,[&quot;列1&quot;,&quot;列2&quot;,&quot;列3&quot;]] # 可以通过名字或者下标来获取，推荐使用loc或iloc获取值</span><br><span class="line"># 赋值</span><br><span class="line">df2[&quot;列1&quot;]&#x3D;1 # 把列1值变成1，或者新增</span><br><span class="line">df2.列1 &#x3D; 0 # 把列1值变成1，或者新增</span><br><span class="line"># 排序</span><br><span class="line">df2.sort_index()  # 按索引升序排序</span><br><span class="line">df2.sort_values(by&#x3D;[&quot;列1&quot;,&quot;列2&quot;], ascending&#x3D;True) # 先按列1排序，在列1相同的前提下按列2排序，升序</span><br><span class="line"># 缺失值处理</span><br><span class="line">df2.drop_duplicates([&quot;列1&quot;,&quot;列2&quot;]) # 按列1、列2去重</span><br><span class="line">pd.isnull(df2) # 有缺失值返回True，没有返回False</span><br><span class="line">pd.notnull(df2) # 有缺失值返回False，没有返回True</span><br><span class="line">df3 &#x3D; df2.dropna(axid&#x3D;&quot;rows&quot;) # 返回按行删除缺失值的dataframe</span><br><span class="line">df2.fillna(value, inplace&#x3D;True)  # 在df2中的NaN替换成value</span><br><span class="line">df3 &#x3D; df2.replace(to_replace&#x3D;&quot;a&quot;, value&#x3D;&quot;b&quot;) # 返回一个把a替换成b的dataframe</span><br><span class="line"># 数据离散化</span><br><span class="line">df4 &#x3D; pd.qcut(df2[&quot;列1&quot;], 10)  # 返回把列1分别对应的区间</span><br><span class="line">df4.value_counts() # 返回对应区间的数据个数</span><br><span class="line">pd.cut(df2[&quot;列1&quot;],[-1,0,1]) # 把列1自定义分为4个区间</span><br><span class="line">df5 &#x3D; pd.get_dummies(df2[&quot;列1&quot;], prefix&#x3D;&quot;列1&quot;) # 把列1进行one_hot编码，生成的列名前加上列1_</span><br><span class="line"># 数据合并</span><br><span class="line">pd.concat([df1,df2],axis&#x3D;1)  # 把df1和df2行合并，当axis&#x3D;0时按列拼接</span><br><span class="line">pd.merge(df1,df2,how&#x3D;&quot;inner&quot;,on&#x3D;None) # 以how方式on为连接的键连接df1，df2</span><br><span class="line"># how:inner(默认):内连接(取交集);outer:外连接(并集);left:左连接;right:右连接</span><br><span class="line"># on:list,如果为None表示自动寻找df1和df2中列名一致的进行匹配</span><br><span class="line"></span><br><span class="line"># 交叉表：交叉表用于计算一列数据对于另外一列数据的分组个数（用于统计分组频率的特殊透视表）</span><br><span class="line">pd.crosstab(df1,df2)</span><br><span class="line"># 透视表：透视表是将原有的dataframe的列分别作为行索引和列索引，然后对指定的列应用聚集函数</span><br><span class="line">df5.pivot_table([&#39;a&#39;],index&#x3D;&#39;c&#39;)</span><br><span class="line"># 分组聚合</span><br><span class="line">df5.groupby([&#39;a&#39;]) # 把df5按a列进行分组</span><br><span class="line">count &#x3D; df5.groupby([&#39;a&#39;]).count() # 把df5按a列进行分组,计算没一列有多少个数据</span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame运算"><a href="#DataFrame运算" class="headerlink" title="DataFrame运算"></a>DataFrame运算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"># 加减</span><br><span class="line">df2[&quot;列1&quot;].add(1)  # 把列1所有值加1</span><br><span class="line">df2[&quot;列1&quot;].sub(1)  # 把列1所有值减1</span><br><span class="line"># 按条件取值</span><br><span class="line">df2[df2[&quot;列1&quot;]&gt;10]  # 取出df2列1中大于10的数据</span><br><span class="line">df2[(df2[&quot;列1&quot;]&gt;10) &amp; (df2[&quot;列1&quot;]&lt;20)]  # 取出df2列1中大于10且小于20的数据</span><br><span class="line">df2.query(&quot;列1&lt;20 &amp; 列1&gt;10&quot;) # 取出df2列1中大于10且小于20的数据</span><br><span class="line">df2[df2[&quot;列1&quot;].isin([10,20])] # 取出df2列1中值是10和20的</span><br><span class="line"># 统计</span><br><span class="line">df2.describe()  # 返回对应列的和、平均值、标准差、最小值、四分位的值、最大值</span><br><span class="line">df2.sum()  # 每列的和</span><br><span class="line">df2.max()  # 每列的最大值</span><br><span class="line">df2.min()  # 每列的最小值</span><br><span class="line">df2.mean() # 每列的平均值</span><br><span class="line">df2.median() # 每列的中位数</span><br><span class="line">df2.mode()  # 每列中的出现次数最多的数</span><br><span class="line">df2.abs()  # 所有数的绝对值</span><br><span class="line">df2.prod() # 每列的乘积</span><br><span class="line">df2.std()  # 每列的标准差</span><br><span class="line">df2.var()  # 每列的方差</span><br><span class="line">df2.idxmax() # 每列中最大值的索引</span><br><span class="line">df2.idxmin() # 每列中最小值的索引</span><br><span class="line">df2.cumsum() # 每列累计前面数据的和</span><br><span class="line">df2.cummax() # 每列累计前面数据的最大值</span><br><span class="line">df2.cummin() # 每列累计前面数据的最小值</span><br><span class="line">df2.cumprod() # 每列累计前面数据的乘积</span><br><span class="line"># 自定义运算</span><br><span class="line">df2.apply(lambda x: x.max()-x.min(), axis&#x3D;0)  # 返回每列的最大值与最小值之差，当axis为1时按行传入</span><br></pre></td></tr></table></figure>
+<h3 id="DataFrame画图"><a href="#DataFrame画图" class="headerlink" title="DataFrame画图"></a>DataFrame画图</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import matplotlib.pyplot as plt</span><br><span class="line"># 折线图</span><br><span class="line">df2[&quot;列1&quot;].plot()</span><br><span class="line">plt.show()</span><br><span class="line"># 垂直条形图</span><br><span class="line">df2[&quot;列1&quot;].plot(kind&#x3D;&quot;bar&quot;)</span><br><span class="line">plt.show()</span><br><span class="line"># 水平条形图</span><br><span class="line">df2[&quot;列1&quot;].plot(kind&#x3D;&quot;barh&quot;)</span><br><span class="line">plt.show()</span><br><span class="line"># 直方图</span><br><span class="line">df2[&quot;列1&quot;].plot(kind&#x3D;&quot;hist&quot;)</span><br><span class="line">plt.show()</span><br><span class="line"># 饼图</span><br><span class="line">df2[&quot;列1&quot;].plot(kind&#x3D;&quot;pei&quot;)</span><br><span class="line">plt.show()</span><br><span class="line"># 散点图</span><br><span class="line">df2[&quot;列1&quot;].plot(kind&#x3D;&quot;scatter&quot;)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
+<h3 id="文件读取与存储"><a href="#文件读取与存储" class="headerlink" title="文件读取与存储"></a>文件读取与存储</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># csv读取与存储</span></span><br><span class="line">pd.read_csv(路径)</span><br><span class="line">pd.to_csv(路径)</span><br><span class="line"><span class="comment"># json读取与存储</span></span><br><span class="line">pd.read_json(路径)</span><br><span class="line">pd.to_json(路径)</span><br><span class="line"><span class="comment"># html读取与存储</span></span><br><span class="line">pd.read_html(路径)</span><br><span class="line">pd.to_html(路径)</span><br><span class="line"><span class="comment"># clipboard读取与存储</span></span><br><span class="line">pd.read_clipboard(路径)</span><br><span class="line">pd.to_clipboard(路径)</span><br><span class="line"><span class="comment"># exel读取与存储</span></span><br><span class="line">pd.read_exel(路径)</span><br><span class="line">pd.to_exel(路径)</span><br><span class="line"><span class="comment"># hdf5读取与存储</span></span><br><span class="line">pd.read_hdf(路径,key)</span><br><span class="line">pd.to_hdf(路径,key)</span><br><span class="line"><span class="comment"># feather读取与存储</span></span><br><span class="line">pd.read_feather(路径)</span><br><span class="line">pd.to_feather(路径)</span><br><span class="line"><span class="comment"># parquet读取与存储</span></span><br><span class="line">pd.read_parquet(路径)</span><br><span class="line">pd.to_parquet(路径)</span><br><span class="line"><span class="comment"># msgpack读取与存储</span></span><br><span class="line">pd.read_msgpack(路径)</span><br><span class="line">pd.to_msgpack(路径)</span><br><span class="line"><span class="comment"># stata读取与存储</span></span><br><span class="line">pd.read_stata(路径)</span><br><span class="line">pd.to_stata(路径)</span><br><span class="line"><span class="comment"># sas读取</span></span><br><span class="line">pd.read_sas(路径)</span><br><span class="line"><span class="comment"># pickle读取与存储</span></span><br><span class="line">pd.read_pickle(路径)</span><br><span class="line">pd.to_pickle(路径)</span><br><span class="line"><span class="comment"># sql读取与存储</span></span><br><span class="line">pd.read_sql(路径)</span><br><span class="line">pd.to_sql(路径)</span><br><span class="line"><span class="comment"># gbq读取与存储</span></span><br><span class="line">pd.read_gbq(路径)</span><br><span class="line">pd.to_gbq(路径)</span><br></pre></td></tr></table></figure>
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">💰</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'bufan-zb.github.io',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>Help us with donation</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">alipay</label></span><span><label><input type="radio" name="pay" value="weixin">weixin</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav {
+        width: 542px;
+    }
+    .nav.fullscreen {
+        margin-left: -542px;
+    }
+    .nav-left {
+        width: 120px;
+    }
+    
+    
+    @media screen and (max-width: 1468px) {
+        .nav {
+            width: 492px;
+        }
+        .nav.fullscreen {
+            margin-left: -492px;
+        }
+        .nav-left {
+            width: 100px;
+        }
+    }
+    
+    
+    @media screen and (max-width: 1024px) {
+        .nav {
+            width: 492px;
+            margin-left: -492px
+        }
+        .nav.fullscreen {
+            margin-left: 0;
+        }
+    }
+    
+    @media screen and (max-width: 426px) {
+        .nav {
+            width: 100%;
+        }
+        .nav-left {
+            width: 100%;
+        }
+    }
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("https://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
