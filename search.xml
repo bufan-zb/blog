@@ -31,6 +31,33 @@
     
     
     <entry>
+      <title>Docker部署Gitblit</title>
+      <link href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"/>
+      <url>/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker部署Gitblit"><a href="#Docker部署Gitblit" class="headerlink" title="Docker部署Gitblit"></a>Docker部署Gitblit</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中/docker_images/gitblit.jar</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; gitblit.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><p>命令：docker run -dit -p 10101:10101 -p 8443:8443 -p 29418:29418 gitblit-wy<br>            注解：映射了几个常用端口，其中10101是http请求下gitblit网页访问端口，8443是https端口，29418是ssh端口。</p><h3 id="四、进入docker容器"><a href="#四、进入docker容器" class="headerlink" title="四、进入docker容器"></a>四、进入docker容器</h3><p>命令：docker exec -it 容器id /bin/bash<br>或<br>命令： docker attach 容器id<br>注解：exec和attach区别在于exec不随exit命令关闭容器，而attach随着exit命令在关闭终端时候关闭容器</p><h3 id="五、启动gitblit"><a href="#五、启动gitblit" class="headerlink" title="五、启动gitblit"></a>五、启动gitblit</h3><p>1、cd /opt/gitblit/gitblit-1.8.0/<br>2、java -jar gitblit.jar &amp;</p><h3 id="六、访问-docker宿主机的ip-10101"><a href="#六、访问-docker宿主机的ip-10101" class="headerlink" title="六、访问 docker宿主机的ip:10101"></a>六、访问 docker宿主机的ip:10101</h3><p>初始账号为：admin 密码为：admin</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Gitblit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Docker部署Elasticsearch</title>
       <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"/>
       <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/</url>
@@ -96,41 +123,12 @@
           
           <category> 人工智能 </category>
           
-          <category> 深度学习 </category>
-          
       </categories>
       
       
         <tags>
             
             <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>Docker部署Gitblit</title>
-      <link href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"/>
-      <url>/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker部署Gitblit"><a href="#Docker部署Gitblit" class="headerlink" title="Docker部署Gitblit"></a>Docker部署Gitblit</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中/docker_images/gitblit.jar</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; gitblit.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><p>命令：docker run -dit -p 10101:10101 -p 8443:8443 -p 29418:29418 gitblit-wy<br>            注解：映射了几个常用端口，其中10101是http请求下gitblit网页访问端口，8443是https端口，29418是ssh端口。</p><h3 id="四、进入docker容器"><a href="#四、进入docker容器" class="headerlink" title="四、进入docker容器"></a>四、进入docker容器</h3><p>命令：docker exec -it 容器id /bin/bash<br>或<br>命令： docker attach 容器id<br>注解：exec和attach区别在于exec不随exit命令关闭容器，而attach随着exit命令在关闭终端时候关闭容器</p><h3 id="五、启动gitblit"><a href="#五、启动gitblit" class="headerlink" title="五、启动gitblit"></a>五、启动gitblit</h3><p>1、cd /opt/gitblit/gitblit-1.8.0/<br>2、java -jar gitblit.jar &amp;</p><h3 id="六、访问-docker宿主机的ip-10101"><a href="#六、访问-docker宿主机的ip-10101" class="headerlink" title="六、访问 docker宿主机的ip:10101"></a>六、访问 docker宿主机的ip:10101</h3><p>初始账号为：admin 密码为：admin</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> Gitblit </tag>
             
         </tags>
       
@@ -149,8 +147,6 @@
       <categories>
           
           <category> 人工智能 </category>
-          
-          <category> 深度学习 </category>
           
       </categories>
       
@@ -334,31 +330,6 @@
     
     
     <entry>
-      <title>Linux命令之cd</title>
-      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"/>
-      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/</url>
-      
-        <content type="html"><![CDATA[<h1 id="cd命令用于切换当前工作目录至-dirName-目录参数"><a href="#cd命令用于切换当前工作目录至-dirName-目录参数" class="headerlink" title="cd命令用于切换当前工作目录至 dirName(目录参数)"></a><strong>cd命令用于切换当前工作目录至 dirName(目录参数)</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cd [dirName]&#96;&#96;cd 目录&#96;&#96;cd &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>跳转到/tmp/test目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ cd &#x2F;tmp&#x2F;test&#96;&#96;jingjiandeMacBook-Pro:test jingjian$&#96;</span><br></pre></td></tr></table></figure><p>跳转到自己的home目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cd ~&#96;&#96;jingjiandeMacBook-Pro:~ jingjian$&#96;</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux常用命令 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Linux命令之cat</title>
       <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"/>
       <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/</url>
@@ -384,11 +355,11 @@
     
     
     <entry>
-      <title>Linux命令之ifconfig</title>
-      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"/>
-      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/</url>
+      <title>linux命令之ls</title>
+      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/"/>
+      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/</url>
       
-        <content type="html"><![CDATA[<h1 id="ifconfig-命令可用于显示或设置网络设备"><a href="#ifconfig-命令可用于显示或设置网络设备" class="headerlink" title="ifconfig 命令可用于显示或设置网络设备"></a><strong>ifconfig 命令可用于显示或设置网络设备</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备][down up -allmulti -arp -promisc add&lt;地址&gt; del&lt;地址&gt;]</span><br><span class="line">ifconfig  网络设备名  选项</span><br><span class="line"></span><br><span class="line">ifconfig eth0 down</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>add&lt;地址&gt; 设置网络设备IPv6的IP地址。</li><li>del&lt;地址&gt; 删除网络设备IPv6的IP地址。</li><li>down 关闭指定的网络设备。</li><li>&lt;hw&lt;网络设备类型&gt;&lt;硬件地址&gt; 设置网络设备的类型与硬件地址。</li><li>io_addr&lt;I/O地址&gt; 设置网络设备的I/O地址。</li><li>irq&lt;IRQ地址&gt; 设置网络设备的IRQ。</li><li>media&lt;网络媒介类型&gt; 设置网络设备的媒介类型。</li><li>mem_start&lt;内存地址&gt; 设置网络设备在主内存所占用的起始地址。</li><li>metric&lt;数目&gt; 指定在计算数据包的转送次数时，所要加上的数目。</li><li>mtu&lt;字节&gt; 设置网络设备的MTU。</li><li>netmask&lt;子网掩码&gt; 设置网络设备的子网掩码。</li><li>tunnel&lt;地址&gt; 建立IPv4与IPv6之间的隧道通信地址。</li><li>up 启动指定的网络设备。</li><li>-broadcast&lt;地址&gt; 将要送往指定地址的数据包当成广播数据包来处理。</li><li>-pointopoint&lt;地址&gt; 与指定地址的网络设备建立直接连线，此模式具有保密功能。</li><li>-promisc 关闭或启动指定网络设备的promiscuous模式。</li><li>[IP地址] 指定网络设备的IP地址。</li><li>[网络设备] 指定网络设备的名称。</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>ifconfig</li><li>ifconfig eth0 down</li><li>ifconfig eth0 up</li></ul><h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p>查看所有网卡信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line"></span><br><span class="line">eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C </span><br><span class="line">     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0</span><br><span class="line">     inet6 addr: fe80::250:56ff:fe0a:b0c&#x2F;64 Scope:Link</span><br><span class="line">     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</span><br><span class="line">     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:1000 </span><br><span class="line">     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)</span><br><span class="line">     Interrupt:185 Base address:0x2024 </span><br><span class="line"></span><br><span class="line">lo    Link encap:Local Loopback </span><br><span class="line">     inet addr:127.0.0.1 Mask:255.0.0.0</span><br><span class="line">     inet6 addr: ::1&#x2F;128 Scope:Host</span><br><span class="line">     UP LOOPBACK RUNNING MTU:16436 Metric:1</span><br><span class="line">     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:0 </span><br><span class="line">     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)</span><br></pre></td></tr></table></figure><p>关闭/启动指定网卡</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down   &#x2F;&#x2F; 关闭eth0网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up       &#x2F;&#x2F; 开启eth0网卡</span><br></pre></td></tr></table></figure><p>为网卡配置和删除IPv6地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 add 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡设置IPv6地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 del 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡删除IPv6地址</span><br></pre></td></tr></table></figure><p>用ifconfig修改MAC地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down &#x2F;&#x2F;关闭网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE &#x2F;&#x2F;修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up &#x2F;&#x2F;启动网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 hw ether 00:1D:1C:1D:1E &#x2F;&#x2F;关闭网卡并修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 up &#x2F;&#x2F;启动网卡</span><br></pre></td></tr></table></figure><p>配置IP地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 192.168.1.56 &#x2F;&#x2F;给eth0网卡配置IP地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 &#x2F;&#x2F; 给eth0网卡配置IP地址,并加上子掩码</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 broadcast 192.168.1.255 &#x2F;&#x2F; 给eth0网卡配置IP地址,加上子掩码,加上个广播地址</span><br></pre></td></tr></table></figure><p>启用和关闭ARP协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 arp &#x2F;&#x2F;开启</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 -arp &#x2F;&#x2F;关闭</span><br></pre></td></tr></table></figure><p>设置最大传输单元</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 mtu 1500  &#x2F;&#x2F;设置能通过的最大数据包大小为 1500 bytes</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录"><a href="#ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录" class="headerlink" title="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)"></a><strong>ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)</strong></h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls [-alrtAFR] [name...]</span><br><span class="line">ls -参数 目标路径   </span><br><span class="line">ls -l &#x2F;tmp&#x2F;test</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为”.”的视为隐藏档，不会列出)</li><li>-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li><li>-r 将文件以相反次序显示(原定依英文字母次序)</li><li>-t 将文件依建立时间之先后次序列出</li><li>-T 显示完整的年月日时分秒时间</li><li>-A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)  </li><li>-F 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li><li>-R 若目录下有文件，则以下之文件亦皆依序列出</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>ls</li><li>ls -l</li><li>ls -A</li></ul><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>列出/tmp/test目录下的所有的文件及目录(包括.和..）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -a &#x2F;tmp&#x2F;test</span><br><span class="line">.       ..      .ssh        folder1     folder2     txt1.txt    txt2.txt</span><br></pre></td></tr></table></figure><p>按创建时间先后顺序展示区分目录下所有的目录及文件的详情</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -ltrFA &#x2F;tmp&#x2F;test</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x  6 jingjian  wheel  192  6 17 15:00 .ssh&#x2F;</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt1.txt</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt2.txt</span><br><span class="line">drwxr-xr-x  2 jingjian  wheel   64  6 17 15:01 folder2&#x2F;</span><br><span class="line">drwxr-xr-x  4 jingjian  wheel  128  6 17 15:01 folder1&#x2F;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -409,11 +380,36 @@
     
     
     <entry>
-      <title>linux命令之ls</title>
-      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/"/>
-      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bls/</url>
+      <title>Linux命令之cd</title>
+      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"/>
+      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/</url>
       
-        <content type="html"><![CDATA[<h1 id="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录"><a href="#ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录" class="headerlink" title="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)"></a><strong>ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)</strong></h1><h2 id="语法"><a href="#语法" class="headerlink" title="语法:"></a>语法:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls [-alrtAFR] [name...]</span><br><span class="line">ls -参数 目标路径   </span><br><span class="line">ls -l &#x2F;tmp&#x2F;test</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为”.”的视为隐藏档，不会列出)</li><li>-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li><li>-r 将文件以相反次序显示(原定依英文字母次序)</li><li>-t 将文件依建立时间之先后次序列出</li><li>-T 显示完整的年月日时分秒时间</li><li>-A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)  </li><li>-F 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li><li>-R 若目录下有文件，则以下之文件亦皆依序列出</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>ls</li><li>ls -l</li><li>ls -A</li></ul><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>列出/tmp/test目录下的所有的文件及目录(包括.和..）</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -a &#x2F;tmp&#x2F;test</span><br><span class="line">.       ..      .ssh        folder1     folder2     txt1.txt    txt2.txt</span><br></pre></td></tr></table></figure><p>按创建时间先后顺序展示区分目录下所有的目录及文件的详情</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -ltrFA &#x2F;tmp&#x2F;test</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x  6 jingjian  wheel  192  6 17 15:00 .ssh&#x2F;</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt1.txt</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt2.txt</span><br><span class="line">drwxr-xr-x  2 jingjian  wheel   64  6 17 15:01 folder2&#x2F;</span><br><span class="line">drwxr-xr-x  4 jingjian  wheel  128  6 17 15:01 folder1&#x2F;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="cd命令用于切换当前工作目录至-dirName-目录参数"><a href="#cd命令用于切换当前工作目录至-dirName-目录参数" class="headerlink" title="cd命令用于切换当前工作目录至 dirName(目录参数)"></a><strong>cd命令用于切换当前工作目录至 dirName(目录参数)</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cd [dirName]&#96;&#96;cd 目录&#96;&#96;cd &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>跳转到/tmp/test目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ cd &#x2F;tmp&#x2F;test&#96;&#96;jingjiandeMacBook-Pro:test jingjian$&#96;</span><br></pre></td></tr></table></figure><p>跳转到自己的home目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cd ~&#96;&#96;jingjiandeMacBook-Pro:~ jingjian$&#96;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux常用命令 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Linux命令之ifconfig</title>
+      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"/>
+      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/</url>
+      
+        <content type="html"><![CDATA[<h1 id="ifconfig-命令可用于显示或设置网络设备"><a href="#ifconfig-命令可用于显示或设置网络设备" class="headerlink" title="ifconfig 命令可用于显示或设置网络设备"></a><strong>ifconfig 命令可用于显示或设置网络设备</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备][down up -allmulti -arp -promisc add&lt;地址&gt; del&lt;地址&gt;]</span><br><span class="line">ifconfig  网络设备名  选项</span><br><span class="line"></span><br><span class="line">ifconfig eth0 down</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>add&lt;地址&gt; 设置网络设备IPv6的IP地址。</li><li>del&lt;地址&gt; 删除网络设备IPv6的IP地址。</li><li>down 关闭指定的网络设备。</li><li>&lt;hw&lt;网络设备类型&gt;&lt;硬件地址&gt; 设置网络设备的类型与硬件地址。</li><li>io_addr&lt;I/O地址&gt; 设置网络设备的I/O地址。</li><li>irq&lt;IRQ地址&gt; 设置网络设备的IRQ。</li><li>media&lt;网络媒介类型&gt; 设置网络设备的媒介类型。</li><li>mem_start&lt;内存地址&gt; 设置网络设备在主内存所占用的起始地址。</li><li>metric&lt;数目&gt; 指定在计算数据包的转送次数时，所要加上的数目。</li><li>mtu&lt;字节&gt; 设置网络设备的MTU。</li><li>netmask&lt;子网掩码&gt; 设置网络设备的子网掩码。</li><li>tunnel&lt;地址&gt; 建立IPv4与IPv6之间的隧道通信地址。</li><li>up 启动指定的网络设备。</li><li>-broadcast&lt;地址&gt; 将要送往指定地址的数据包当成广播数据包来处理。</li><li>-pointopoint&lt;地址&gt; 与指定地址的网络设备建立直接连线，此模式具有保密功能。</li><li>-promisc 关闭或启动指定网络设备的promiscuous模式。</li><li>[IP地址] 指定网络设备的IP地址。</li><li>[网络设备] 指定网络设备的名称。</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>ifconfig</li><li>ifconfig eth0 down</li><li>ifconfig eth0 up</li></ul><h2 id="示例："><a href="#示例：" class="headerlink" title="示例："></a>示例：</h2><p>查看所有网卡信息</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line"></span><br><span class="line">eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C </span><br><span class="line">     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0</span><br><span class="line">     inet6 addr: fe80::250:56ff:fe0a:b0c&#x2F;64 Scope:Link</span><br><span class="line">     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</span><br><span class="line">     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:1000 </span><br><span class="line">     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)</span><br><span class="line">     Interrupt:185 Base address:0x2024 </span><br><span class="line"></span><br><span class="line">lo    Link encap:Local Loopback </span><br><span class="line">     inet addr:127.0.0.1 Mask:255.0.0.0</span><br><span class="line">     inet6 addr: ::1&#x2F;128 Scope:Host</span><br><span class="line">     UP LOOPBACK RUNNING MTU:16436 Metric:1</span><br><span class="line">     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:0 </span><br><span class="line">     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)</span><br></pre></td></tr></table></figure><p>关闭/启动指定网卡</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down   &#x2F;&#x2F; 关闭eth0网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up       &#x2F;&#x2F; 开启eth0网卡</span><br></pre></td></tr></table></figure><p>为网卡配置和删除IPv6地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 add 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡设置IPv6地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 del 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡删除IPv6地址</span><br></pre></td></tr></table></figure><p>用ifconfig修改MAC地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down &#x2F;&#x2F;关闭网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE &#x2F;&#x2F;修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up &#x2F;&#x2F;启动网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 hw ether 00:1D:1C:1D:1E &#x2F;&#x2F;关闭网卡并修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 up &#x2F;&#x2F;启动网卡</span><br></pre></td></tr></table></figure><p>配置IP地址</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 192.168.1.56 &#x2F;&#x2F;给eth0网卡配置IP地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 &#x2F;&#x2F; 给eth0网卡配置IP地址,并加上子掩码</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 broadcast 192.168.1.255 &#x2F;&#x2F; 给eth0网卡配置IP地址,加上子掩码,加上个广播地址</span><br></pre></td></tr></table></figure><p>启用和关闭ARP协议</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 arp &#x2F;&#x2F;开启</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 -arp &#x2F;&#x2F;关闭</span><br></pre></td></tr></table></figure><p>设置最大传输单元</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 mtu 1500  &#x2F;&#x2F;设置能通过的最大数据包大小为 1500 bytes</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -696,31 +692,6 @@
     
     
     <entry>
-      <title>Vim</title>
-      <link href="/blog/2019/08/12/Vim/"/>
-      <url>/blog/2019/08/12/Vim/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><p><img src="/blog/img/Vim_1.gif"></p><h3 id="vim有3种常用模式：一般模式、编辑模式、命令模式。"><a href="#vim有3种常用模式：一般模式、编辑模式、命令模式。" class="headerlink" title="vim有3种常用模式：一般模式、编辑模式、命令模式。"></a>vim有3种常用模式：一般模式、编辑模式、命令模式。</h3><ul><li>一般模式<ul><li>上下左右:kjhl  也可以使用方向键</li><li>n+上下左右:n为数字，向上下左右移动n个字符</li><li>[ctrl]+f:屏幕向下滚动一页，同page down</li><li>[ctrl]+b:屏幕向上滚动一页，同page up</li><li>0或home:光标移动到行首</li><li>$或end:光标移动到行尾</li><li>g:光标移动到最后一行</li><li>ng:光标移动到第n行</li><li>gg:同1g，光标移动到第一行行首</li><li>/word:向下查找关键词，使用n或N向上或向下查找关键词</li><li>?word:向上查找关键词word，使用n或N向上或向下查找关键词</li><li>:n1,n2s/word1/word2/g   :   s/1/2/g 表示将1替换成2，所以前面的意思是在n1到n2之间，将word1替换为word2.例如：51,100s/aaa/bbb/g</li><li>:1,$s/word1/word2/g  :  全文查找替换将word1替换为word2</li><li>x:向后删除</li><li>X:向前删除</li><li>nx:向后删除n个字符</li><li>dd:删除当前行　</li><li>ndd:向下删除n行</li><li>d1G:删除当前位置到第一行</li><li>d$:删除当前位置到最后一行</li><li>d0:删除当前位置到改行第一个字符的所有数据</li><li>yy:复制光标所在的这一行</li><li>nyy:向下复制n行</li><li>p:在光标所在行的下面粘贴复制的数据</li><li>P:在光标所在行的上面粘贴复制的数据</li><li>u:恢复前一个操作</li><li>[ctrl]+u:重做上一个操作</li></ul></li><li>一般模式切换到编辑模式<ul><li>i:进入插入模式，在光标前插入   I是在第一个非空格符处插入</li><li>a:进入插入模式，在光标下一个字符插入  A是在所在行最后一个字符插入</li><li>o:进入插入模式，在下面一行插入    O是在上面一行出入</li><li>r:进入替换模式，类似于insert键</li></ul></li><li>编辑模式到一般模式<ul><li>Esc：退出编辑模式进入命令模式</li></ul></li><li>命令模式<ul><li>:w  保存</li><li>:w! 强制保存</li><li>:q  退出</li><li>:q! 强制退出</li><li>:wq :x 保存并退出</li><li>ZZ 保存并退出</li><li>:set number 显示行号</li><li>:set nonu 取消显示行号</li></ul></li></ul><p>　　</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Linux </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Word2Vec</title>
       <link href="/blog/2019/08/12/Word2Vec/"/>
       <url>/blog/2019/08/12/Word2Vec/</url>
@@ -738,6 +709,31 @@
         <tags>
             
             <tag> 算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Vim</title>
+      <link href="/blog/2019/08/12/Vim/"/>
+      <url>/blog/2019/08/12/Vim/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><p><img src="/blog/img/Vim_1.gif"></p><h3 id="vim有3种常用模式：一般模式、编辑模式、命令模式。"><a href="#vim有3种常用模式：一般模式、编辑模式、命令模式。" class="headerlink" title="vim有3种常用模式：一般模式、编辑模式、命令模式。"></a>vim有3种常用模式：一般模式、编辑模式、命令模式。</h3><ul><li>一般模式<ul><li>上下左右:kjhl  也可以使用方向键</li><li>n+上下左右:n为数字，向上下左右移动n个字符</li><li>[ctrl]+f:屏幕向下滚动一页，同page down</li><li>[ctrl]+b:屏幕向上滚动一页，同page up</li><li>0或home:光标移动到行首</li><li>$或end:光标移动到行尾</li><li>g:光标移动到最后一行</li><li>ng:光标移动到第n行</li><li>gg:同1g，光标移动到第一行行首</li><li>/word:向下查找关键词，使用n或N向上或向下查找关键词</li><li>?word:向上查找关键词word，使用n或N向上或向下查找关键词</li><li>:n1,n2s/word1/word2/g   :   s/1/2/g 表示将1替换成2，所以前面的意思是在n1到n2之间，将word1替换为word2.例如：51,100s/aaa/bbb/g</li><li>:1,$s/word1/word2/g  :  全文查找替换将word1替换为word2</li><li>x:向后删除</li><li>X:向前删除</li><li>nx:向后删除n个字符</li><li>dd:删除当前行　</li><li>ndd:向下删除n行</li><li>d1G:删除当前位置到第一行</li><li>d$:删除当前位置到最后一行</li><li>d0:删除当前位置到改行第一个字符的所有数据</li><li>yy:复制光标所在的这一行</li><li>nyy:向下复制n行</li><li>p:在光标所在行的下面粘贴复制的数据</li><li>P:在光标所在行的上面粘贴复制的数据</li><li>u:恢复前一个操作</li><li>[ctrl]+u:重做上一个操作</li></ul></li><li>一般模式切换到编辑模式<ul><li>i:进入插入模式，在光标前插入   I是在第一个非空格符处插入</li><li>a:进入插入模式，在光标下一个字符插入  A是在所在行最后一个字符插入</li><li>o:进入插入模式，在下面一行插入    O是在上面一行出入</li><li>r:进入替换模式，类似于insert键</li></ul></li><li>编辑模式到一般模式<ul><li>Esc：退出编辑模式进入命令模式</li></ul></li><li>命令模式<ul><li>:w  保存</li><li>:w! 强制保存</li><li>:q  退出</li><li>:q! 强制退出</li><li>:wq :x 保存并退出</li><li>ZZ 保存并退出</li><li>:set number 显示行号</li><li>:set nonu 取消显示行号</li></ul></li></ul><p>　　</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Linux </tag>
             
         </tags>
       
@@ -877,35 +873,6 @@
     
     
     <entry>
-      <title>人工智能优化算法</title>
-      <link href="/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
-      <url>/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
-      
-        <content type="html"><![CDATA[<h1 id="梯度下降法（BGD）"><a href="#梯度下降法（BGD）" class="headerlink" title="梯度下降法（BGD）"></a>梯度下降法（BGD）</h1><p>每次迭代都需要把所有的样本都送入进行梯度计算，是做全局的最优化，但是有可能达到局部最优</p><p>缺点：计算量大</p><p><img src="/blog/img/BGD.jpg" alt="BGD"></p><h1 id="随机梯度下降法（SGD）"><a href="#随机梯度下降法（SGD）" class="headerlink" title="随机梯度下降法（SGD）"></a>随机梯度下降法（SGD）</h1><p>针对梯度下降算法训练过慢的缺点，每一次进行梯度计算的时候只选出一组数据进行计算并更新一次，再循环；史得计算量大大减小。</p><p>缺点：受噪声影响大</p><h1 id="小批量梯度下降（MBGD）"><a href="#小批量梯度下降（MBGD）" class="headerlink" title="小批量梯度下降（MBGD）"></a>小批量梯度下降（MBGD）</h1><p>结合BGD和SGD取的一个新的优化方法，每一次随机抽出一小批进行梯度计算，参数更新，从而减少噪声带来的影响，也可使计算速度得到了保证。</p><h1 id="Momentum（从梯度角度优化）"><a href="#Momentum（从梯度角度优化）" class="headerlink" title="Momentum（从梯度角度优化）"></a>Momentum（从梯度角度优化）</h1><p>MBGD算法虽然能带来很好的训练速度，但是在快达到最优解的时候不能真正达到最优解，只能在最优解附近徘徊，为解决这一问题，创造了动量法</p><p>主要思想是之前梯度大，那接下来也梯度大，使得梯度更加稳定平缓</p><p><img src="/blog/img/Momentum.jpg" alt="Momentum"></p><h1 id="AdaGrad（从学习率角度优化）"><a href="#AdaGrad（从学习率角度优化）" class="headerlink" title="AdaGrad（从学习率角度优化）"></a>AdaGrad（从学习率角度优化）</h1><p>主要思想就是可以设定一个较大的学习率前期收敛快，而后期是这个学习率慢慢减少</p><p><img src="/blog/img/AdaGrad.jpg" alt="AdaGrad"></p><h1 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h1><p>基于AdaGrad进行对学习率方面进行了指数加权</p><p><img src="/blog/img/RMSProp.jpg" alt="RMSProp"></p><h1 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h1><p>Adam算法是结合RMSProp和Momentum算法的结合，一方面能够防止梯度摆幅过大，同时还能加快收敛速度</p><p><img src="/blog/img/Adam.jpg" alt="Adam"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 人工智能 </category>
-          
-          <category> 深度学习 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-            <tag> 梯度下降 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>冒泡排序</title>
       <link href="/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
       <url>/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
@@ -923,6 +890,33 @@
         <tags>
             
             <tag> 排序算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>人工智能优化算法</title>
+      <link href="/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
+      <url>/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
+      
+        <content type="html"><![CDATA[<h1 id="梯度下降法（BGD）"><a href="#梯度下降法（BGD）" class="headerlink" title="梯度下降法（BGD）"></a>梯度下降法（BGD）</h1><p>每次迭代都需要把所有的样本都送入进行梯度计算，是做全局的最优化，但是有可能达到局部最优</p><p>缺点：计算量大</p><p><img src="/blog/img/BGD.jpg" alt="BGD"></p><h1 id="随机梯度下降法（SGD）"><a href="#随机梯度下降法（SGD）" class="headerlink" title="随机梯度下降法（SGD）"></a>随机梯度下降法（SGD）</h1><p>针对梯度下降算法训练过慢的缺点，每一次进行梯度计算的时候只选出一组数据进行计算并更新一次，再循环；史得计算量大大减小。</p><p>缺点：受噪声影响大</p><h1 id="小批量梯度下降（MBGD）"><a href="#小批量梯度下降（MBGD）" class="headerlink" title="小批量梯度下降（MBGD）"></a>小批量梯度下降（MBGD）</h1><p>结合BGD和SGD取的一个新的优化方法，每一次随机抽出一小批进行梯度计算，参数更新，从而减少噪声带来的影响，也可使计算速度得到了保证。</p><h1 id="Momentum（从梯度角度优化）"><a href="#Momentum（从梯度角度优化）" class="headerlink" title="Momentum（从梯度角度优化）"></a>Momentum（从梯度角度优化）</h1><p>MBGD算法虽然能带来很好的训练速度，但是在快达到最优解的时候不能真正达到最优解，只能在最优解附近徘徊，为解决这一问题，创造了动量法</p><p>主要思想是之前梯度大，那接下来也梯度大，使得梯度更加稳定平缓</p><p><img src="/blog/img/Momentum.jpg" alt="Momentum"></p><h1 id="AdaGrad（从学习率角度优化）"><a href="#AdaGrad（从学习率角度优化）" class="headerlink" title="AdaGrad（从学习率角度优化）"></a>AdaGrad（从学习率角度优化）</h1><p>主要思想就是可以设定一个较大的学习率前期收敛快，而后期是这个学习率慢慢减少</p><p><img src="/blog/img/AdaGrad.jpg" alt="AdaGrad"></p><h1 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h1><p>基于AdaGrad进行对学习率方面进行了指数加权</p><p><img src="/blog/img/RMSProp.jpg" alt="RMSProp"></p><h1 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h1><p>Adam算法是结合RMSProp和Momentum算法的结合，一方面能够防止梯度摆幅过大，同时还能加快收敛速度</p><p><img src="/blog/img/Adam.jpg" alt="Adam"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 算法 </tag>
+            
+            <tag> 梯度下降 </tag>
             
         </tags>
       
@@ -1081,6 +1075,25 @@
     
     
     <entry>
+      <title>数学</title>
+      <link href="/blog/2019/08/12/%E6%95%B0%E5%AD%A6/"/>
+      <url>/blog/2019/08/12/%E6%95%B0%E5%AD%A6/</url>
+      
+        <content type="html"><![CDATA[<h1 id="均值-Mean"><a href="#均值-Mean" class="headerlink" title="均值(Mean)"></a>均值(Mean)</h1><p>反应该集合中的数大多数处在哪个水平</p><p>即平均值：<br>$$<br>mean=\frac{\sum_{i=0}^{i=N}n_i}{N}\quad\quad\quad\quad N：为总数量；n：为每个数量的值<br>$$</p><h1 id="标准差-Standard-Deviation"><a href="#标准差-Standard-Deviation" class="headerlink" title="标准差(Standard Deviation)"></a>标准差(Standard Deviation)</h1><p>可以反映出数据的离散程度<br>$$<br>std^2 = \frac{\sum_{i=0}^{i=N}(n_i-Mean)^2}{N}\quad\quad\quad\quad N：为总数量；n：为每个数量的值<br>$$</p><h1 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h1><p>方差=标准查^2</p><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><p>就是把所有的数据归到[0, 1]的区间里面<br>$$<br>n=\frac{n-min}{max-min}<br>$$</p><h1 id="标准化处理"><a href="#标准化处理" class="headerlink" title="标准化处理"></a>标准化处理</h1><p>把数据转换成均值为0，标准差为1的数据<br>$$<br>n=\frac{n-mean}{std}<br>$$</p>]]></content>
+      
+      
+      
+        <tags>
+            
+            <tag> 数学 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>栈</title>
       <link href="/blog/2019/08/12/%E6%A0%88/"/>
       <url>/blog/2019/08/12/%E6%A0%88/</url>
@@ -1098,25 +1111,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>数学</title>
-      <link href="/blog/2019/08/12/%E6%95%B0%E5%AD%A6/"/>
-      <url>/blog/2019/08/12/%E6%95%B0%E5%AD%A6/</url>
-      
-        <content type="html"><![CDATA[<h1 id="均值-Mean"><a href="#均值-Mean" class="headerlink" title="均值(Mean)"></a>均值(Mean)</h1><p>反应该集合中的数大多数处在哪个水平</p><p>即平均值：<br>$$<br>mean=\frac{\sum_{i=0}^{i=N}n_i}{N}\quad\quad\quad\quad N：为总数量；n：为每个数量的值<br>$$</p><h1 id="标准差-Standard-Deviation"><a href="#标准差-Standard-Deviation" class="headerlink" title="标准差(Standard Deviation)"></a>标准差(Standard Deviation)</h1><p>可以反映出数据的离散程度<br>$$<br>std^2 = \frac{\sum_{i=0}^{i=N}(n_i-Mean)^2}{N}\quad\quad\quad\quad N：为总数量；n：为每个数量的值<br>$$</p><h1 id="方差"><a href="#方差" class="headerlink" title="方差"></a>方差</h1><p>方差=标准查^2</p><h1 id="归一化处理"><a href="#归一化处理" class="headerlink" title="归一化处理"></a>归一化处理</h1><p>就是把所有的数据归到[0, 1]的区间里面<br>$$<br>n=\frac{n-min}{max-min}<br>$$</p><h1 id="标准化处理"><a href="#标准化处理" class="headerlink" title="标准化处理"></a>标准化处理</h1><p>把数据转换成均值为0，标准差为1的数据<br>$$<br>n=\frac{n-mean}{std}<br>$$</p>]]></content>
-      
-      
-      
-        <tags>
-            
-            <tag> 数学 </tag>
             
         </tags>
       
@@ -1186,8 +1180,6 @@
           
           <category> 人工智能 </category>
           
-          <category> 深度学习 </category>
-          
       </categories>
       
       
@@ -1207,6 +1199,31 @@
       <url>/blog/2019/08/12/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</url>
       
         <content type="html"><![CDATA[<h1 id="计数排序"><a href="#计数排序" class="headerlink" title="计数排序"></a>计数排序</h1><ul><li>定义：<ul><li>计数排序不是基于比较的排序算法，其核心在于将输入的数据值转化为键存储在额外开辟的数组空间中。 作为一种线性时间复杂度的排序，计数排序要求输入的数据必须是有确定范围的整数。(On+k)</li></ul></li><li>代码实现</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#################数字排序#############</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countSort</span>(<span class="params">arr</span>):</span></span><br><span class="line">    <span class="comment"># 输出序列</span></span><br><span class="line">    <span class="keyword">if</span> <span class="built_in">max</span>(arr) &gt; <span class="built_in">len</span>(arr):</span><br><span class="line">        n = <span class="built_in">max</span>(arr) + <span class="number">1</span></span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        n = <span class="built_in">len</span>(arr) + <span class="number">1</span></span><br><span class="line">    output = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="comment"># 计数序列</span></span><br><span class="line">    count = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">        count[i] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)):</span><br><span class="line">        count[i + <span class="number">1</span>] += count[i]</span><br><span class="line">    print(count)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)):</span><br><span class="line">        <span class="comment"># 下标从0开始</span></span><br><span class="line">        output[count[arr[i]] - <span class="number">1</span>] = arr[i]</span><br><span class="line">        count[arr[i]] -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> (output[:<span class="built_in">len</span>(arr)])</span><br><span class="line"></span><br><span class="line">arr = [<span class="number">5</span>,<span class="number">6</span>,<span class="number">3</span>,<span class="number">2</span>,<span class="number">1</span>,<span class="number">2</span>,<span class="number">0</span>,<span class="number">8</span>,<span class="number">0</span>]</span><br><span class="line">ans = countSort(arr)</span><br><span class="line">print(ans)</span><br><span class="line"><span class="comment">#################字母排序##################</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">countSort</span>(<span class="params">arr</span>):</span></span><br><span class="line">    n = <span class="built_in">len</span>(arr)</span><br><span class="line">    <span class="comment"># 输出序列</span></span><br><span class="line">    output = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>)]</span><br><span class="line">    <span class="comment"># 计数序列</span></span><br><span class="line">    count = [<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>)]</span><br><span class="line">    ans = [<span class="string">&quot;&quot;</span> <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n)]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> arr:</span><br><span class="line">        count[<span class="built_in">ord</span>(i)] += <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">256</span>):</span><br><span class="line">        count[i] += count[i - <span class="number">1</span>]</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n):</span><br><span class="line">        <span class="comment"># 下标从0开始</span></span><br><span class="line">        output[count[<span class="built_in">ord</span>(arr[i])] - <span class="number">1</span>] = arr[i]</span><br><span class="line">        count[<span class="built_in">ord</span>(arr[i])] -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(arr)):</span><br><span class="line">        ans[i] = output[i]</span><br><span class="line">    <span class="keyword">return</span> ans</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">arr = <span class="string">&quot;wwwrunoobcom&quot;</span></span><br><span class="line">ans = countSort(arr)</span><br><span class="line">print(<span class="string">&quot;字符数组排序 %s&quot;</span> % (<span class="string">&quot;&quot;</span>.join(ans)))</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 排序算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 排序算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>选择排序</title>
+      <link href="/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
+      <url>/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><ul><li><p>定义：</p><ul><li><p><strong>选择排序（Selection sort）</strong>是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p><p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的表进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。(On^2)</p></li></ul></li><li><p>代码实现：</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    n = <span class="built_in">len</span>(alist)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 记录最小位置</span></span><br><span class="line">        min_index = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, n):</span><br><span class="line">            <span class="keyword">if</span> alist[j] &lt; alist[min_index]:</span><br><span class="line">                min_index = j</span><br><span class="line">        <span class="comment"># 如果选择出的数据不在正确位置，进行交换</span></span><br><span class="line">        <span class="keyword">if</span> min_index != i:</span><br><span class="line">            alist[i], alist[min_index] = alist[min_index], alist[i]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">226</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">selection_sort(alist)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1269,31 +1286,6 @@
         <tags>
             
             <tag> Python </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>选择排序</title>
-      <link href="/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"/>
-      <url>/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="选择排序"><a href="#选择排序" class="headerlink" title="选择排序"></a>选择排序</h1><ul><li><p>定义：</p><ul><li><p><strong>选择排序（Selection sort）</strong>是一种简单直观的排序算法。它的工作原理如下。首先在未排序序列中找到最小（大）元素，存放到排序序列的起始位置，然后，再从剩余未排序元素中继续寻找最小（大）元素，然后放到已排序序列的末尾。以此类推，直到所有元素均排序完毕。</p><p>选择排序的主要优点与数据移动有关。如果某个元素位于正确的最终位置上，则它不会被移动。选择排序每次交换一对元素，它们当中至少有一个将被移到其最终位置上，因此对n个元素的表进行排序总共进行至多n-1次交换。在所有的完全依靠交换去移动元素的排序方法中，选择排序属于非常好的一种。(On^2)</p></li></ul></li><li><p>代码实现：</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">selection_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    n = <span class="built_in">len</span>(alist)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(n-<span class="number">1</span>):</span><br><span class="line">        <span class="comment"># 记录最小位置</span></span><br><span class="line">        min_index = i</span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i+<span class="number">1</span>, n):</span><br><span class="line">            <span class="keyword">if</span> alist[j] &lt; alist[min_index]:</span><br><span class="line">                min_index = j</span><br><span class="line">        <span class="comment"># 如果选择出的数据不在正确位置，进行交换</span></span><br><span class="line">        <span class="keyword">if</span> min_index != i:</span><br><span class="line">            alist[i], alist[min_index] = alist[min_index], alist[i]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">226</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">selection_sort(alist)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 排序算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 排序算法 </tag>
             
         </tags>
       
