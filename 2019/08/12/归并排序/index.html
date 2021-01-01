@@ -6,18 +6,18 @@
   <meta name="keywords" content=" 排序算法 ">
   <meta name="description" content="归并排序 | 邹斌的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta name="description" content="Docker部署FastDFS前言：一、Docker 镜像地址百度网盘中 二、镜像导入docker load &lt; FastDFS.jar 三、使用容器运行镜像开启tracker1docker run -dit --name tracker --network&#x3D;host -v &#x2F;var&#x2F;fdfs&#x2F;tracker:&#x2F;var&#x2F;fdfs d">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker部署Elasticsearch">
-<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/index.html">
+<meta property="og:title" content="Docker部署FastDFS">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/index.html">
 <meta property="og:site_name" content="邹斌的博客">
-<meta property="og:description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:description" content="Docker部署FastDFS前言：一、Docker 镜像地址百度网盘中 二、镜像导入docker load &lt; FastDFS.jar 三、使用容器运行镜像开启tracker1docker run -dit --name tracker --network&#x3D;host -v &#x2F;var&#x2F;fdfs&#x2F;tracker:&#x2F;var&#x2F;fdfs d">
 <meta property="og:locale">
 <meta property="article:published_time" content="2019-08-12T10:58:00.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:24:12.667Z">
+<meta property="article:modified_time" content="2020-07-15T06:24:02.870Z">
 <meta property="article:author" content="邹斌">
 <meta property="article:tag" content="Docker">
-<meta property="article:tag" content="Elasticsearch">
+<meta property="article:tag" content="FastDFS">
 <meta name="twitter:card" content="summary">
 
 
@@ -458,6 +458,14 @@
     <nav id="title-list-nav">
         
         <a  class="全部文章 Docker "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
            href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
            data-tag="Docker,Elasticsearch"
            data-author="" >
@@ -489,14 +497,6 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 Docker "
-           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
-           data-tag="Docker,FastDFS"
-           data-author="" >
-            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/FTRL/"
            data-tag="算法"
@@ -514,18 +514,18 @@
         </a>
         
         <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/HDFS/"
-           data-tag="大数据,推荐系统,Hadoop"
-           data-author="" >
-            <span class="post-title" title="HDFS">HDFS</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 大数据 "
            href="/blog/2019/08/12/HBase/"
            data-tag="大数据,推荐系统,Hadoop"
            data-author="" >
             <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/12/HDFS/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -570,18 +570,18 @@
         </a>
         
         <a  class="全部文章 Linux "
-           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"
-           data-tag="Linux常用命令"
-           data-author="" >
-            <span class="post-title" title="Linux命令之ifconfig">Linux命令之ifconfig</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
            href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"
            data-tag="Linux常用命令"
            data-author="" >
             <span class="post-title" title="Linux命令之cd">Linux命令之cd</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bifconfig/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之ifconfig">Linux命令之ifconfig</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -594,6 +594,14 @@
         </a>
         
         <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmkdir/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令之mkdir">Linux命令之mkdir</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
            href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bping/"
            data-tag="Linux常用命令"
            data-author="" >
@@ -602,10 +610,10 @@
         </a>
         
         <a  class="全部文章 Linux "
-           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bmkdir/"
+           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Brm/"
            data-tag="Linux常用命令"
            data-author="" >
-            <span class="post-title" title="Linux命令之mkdir">Linux命令之mkdir</span>
+            <span class="post-title" title="Linux命令之rm">Linux命令之rm</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -618,10 +626,10 @@
         </a>
         
         <a  class="全部文章 Linux "
-           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Brm/"
+           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btouch/"
            data-tag="Linux常用命令"
            data-author="" >
-            <span class="post-title" title="Linux命令之rm">Linux命令之rm</span>
+            <span class="post-title" title="Linux命令之touch">Linux命令之touch</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -633,14 +641,6 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 Linux "
-           href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Btouch/"
-           data-tag="Linux常用命令"
-           data-author="" >
-            <span class="post-title" title="Linux命令之touch">Linux命令之touch</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/N-garm/"
            data-tag="算法"
@@ -649,19 +649,19 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 人工智能 "
-           href="/blog/2019/08/12/Numpy/"
-           data-tag="数据分析,Numpy"
-           data-author="" >
-            <span class="post-title" title="Numpy">Numpy</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 大数据 "
            href="/blog/2019/08/12/Sqoop/"
            data-tag="大数据,推荐系统,Hadoop,未完成"
            data-author="" >
             <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/12/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -714,18 +714,18 @@
         </a>
         
         <a  class="全部文章 人工智能 "
-           href="/blog/2019/08/12/pytorch/"
-           data-tag="pytorch"
-           data-author="" >
-            <span class="post-title" title="torch">torch</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/pandas/"
            data-tag="数据分析,Pandas"
            data-author="" >
             <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/12/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="torch">torch</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -841,19 +841,19 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 排序算法 "
-           href="/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
-           data-tag="排序算法"
-           data-author="" >
-            <span class="post-title" title="选择排序">选择排序</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 数据结构 "
            href="/blog/2019/08/12/%E9%93%BE%E8%A1%A8/"
            data-tag="Python"
            data-author="" >
             <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2019/08/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
