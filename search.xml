@@ -4,33 +4,6 @@
   
     
     <entry>
-      <title>Docker部署Elasticsearch</title>
-      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"/>
-      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/</url>
-      
-        <content type="html"><![CDATA[<h1 id="Docker部署Elasticsearch"><a href="#Docker部署Elasticsearch" class="headerlink" title="Docker部署Elasticsearch"></a>Docker部署Elasticsearch</h1><h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0</span><br><span class="line">#或直接百度网盘下载</span><br><span class="line">docker load &lt; ***.jar</span><br></pre></td></tr></table></figure><h3 id="配置elasticsearch-yml的IP"><a href="#配置elasticsearch-yml的IP" class="headerlink" title="配置elasticsearch.yml的IP"></a>配置elasticsearch.yml的IP</h3><ul><li>把下载下来的文件拷贝到home目录下</li><li>并修改/home/python/elasticsearc-2.4.6/config/elasticsearch.yml第54行为真是IP</li></ul><h3 id="运行image"><a href="#运行image" class="headerlink" title="运行image"></a>运行image</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dti --name&#x3D;elasticsearch --network&#x3D;host -v &#x2F;home&#x2F;python&#x2F;elasticsearch-2.4.6&#x2F;config:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config delron&#x2F;elasticsearch-ik:2.4.6-1.0</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Docker </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> Elasticsearch </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker部署FastDFS</title>
       <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"/>
       <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/</url>
@@ -58,11 +31,11 @@
     
     
     <entry>
-      <title>Docker部署MySQL</title>
-      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
-      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
+      <title>Docker部署Elasticsearch</title>
+      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"/>
+      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/</url>
       
-        <content type="html"><![CDATA[<h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+        <content type="html"><![CDATA[<h1 id="Docker部署Elasticsearch"><a href="#Docker部署Elasticsearch" class="headerlink" title="Docker部署Elasticsearch"></a>Docker部署Elasticsearch</h1><h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0</span><br><span class="line">#或直接百度网盘下载</span><br><span class="line">docker load &lt; ***.jar</span><br></pre></td></tr></table></figure><h3 id="配置elasticsearch-yml的IP"><a href="#配置elasticsearch-yml的IP" class="headerlink" title="配置elasticsearch.yml的IP"></a>配置elasticsearch.yml的IP</h3><ul><li>把下载下来的文件拷贝到home目录下</li><li>并修改/home/python/elasticsearc-2.4.6/config/elasticsearch.yml第54行为真是IP</li></ul><h3 id="运行image"><a href="#运行image" class="headerlink" title="运行image"></a>运行image</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dti --name&#x3D;elasticsearch --network&#x3D;host -v &#x2F;home&#x2F;python&#x2F;elasticsearch-2.4.6&#x2F;config:&#x2F;usr&#x2F;share&#x2F;elasticsearch&#x2F;config delron&#x2F;elasticsearch-ik:2.4.6-1.0</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -76,7 +49,7 @@
             
             <tag> Docker </tag>
             
-            <tag> MySQL </tag>
+            <tag> Elasticsearch </tag>
             
         </tags>
       
@@ -104,6 +77,33 @@
             <tag> Docker </tag>
             
             <tag> Gitblit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker部署MySQL</title>
+      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
+      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Docker </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       
@@ -162,31 +162,6 @@
     
     
     <entry>
-      <title>GRU</title>
-      <link href="/blog/2019/08/12/GRU/"/>
-      <url>/blog/2019/08/12/GRU/</url>
-      
-        <content type="html"><![CDATA[<h1 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h1><p>GRU(Gated Recurrent Unit)，是一种LSTM的变形状态，它将遗忘门和输入门组合成了一个更新门。它还合并了单元状态和隐藏状态，并对单元结构做了简化，可以使模型更简单。</p><p><img src="/blog/img/GRU_1.png"><br>$$<br>z_t=\sigma(W_z.[h_{t-1}, x_t])<br>$$</p><p>$$<br>r_t=\sigma(W_r.[h_{t-1},x_t])<br>$$</p><p>$$<br>\tilde{h}<em>t=tanh(W_r.[r_t*h</em>{t-1}, x_t])<br>$$</p><p>$$<br>h_t=(1-z_t)<em>h_{t-1}+z_t</em>\tilde{h}_t<br>$$</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 人工智能 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> RNN </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>GPU镜像生成</title>
       <link href="/blog/2019/08/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"/>
       <url>/blog/2019/08/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/</url>
@@ -206,6 +181,31 @@
             <tag> Pytorch </tag>
             
             <tag> TensorFlow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>GRU</title>
+      <link href="/blog/2019/08/12/GRU/"/>
+      <url>/blog/2019/08/12/GRU/</url>
+      
+        <content type="html"><![CDATA[<h1 id="GRU"><a href="#GRU" class="headerlink" title="GRU"></a>GRU</h1><p>GRU(Gated Recurrent Unit)，是一种LSTM的变形状态，它将遗忘门和输入门组合成了一个更新门。它还合并了单元状态和隐藏状态，并对单元结构做了简化，可以使模型更简单。</p><p><img src="/blog/img/GRU_1.png"><br>$$<br>z_t=\sigma(W_z.[h_{t-1}, x_t])<br>$$</p><p>$$<br>r_t=\sigma(W_r.[h_{t-1},x_t])<br>$$</p><p>$$<br>\tilde{h}<em>t=tanh(W_r.[r_t*h</em>{t-1}, x_t])<br>$$</p><p>$$<br>h_t=(1-z_t)<em>h_{t-1}+z_t</em>\tilde{h}_t<br>$$</p><h1 id="其他详情参考LSTM文档"><a href="#其他详情参考LSTM文档" class="headerlink" title="其他详情参考LSTM文档"></a>其他详情参考LSTM文档</h1>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RNN </tag>
             
         </tags>
       
@@ -380,11 +380,11 @@
     
     
     <entry>
-      <title>Linux命令之cat</title>
-      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"/>
-      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/</url>
+      <title>Linux命令之cd</title>
+      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"/>
+      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/</url>
       
-        <content type="html"><![CDATA[<h1 id="cat-命令用于连接文件并打印到标准输出设备上"><a href="#cat-命令用于连接文件并打印到标准输出设备上" class="headerlink" title="cat 命令用于连接文件并打印到标准输出设备上"></a><strong>cat 命令用于连接文件并打印到标准输出设备上</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cat [-nbse]  fileName&#96;&#96;cat -参数 文件名&#96;&#96;cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>-n 由 1 开始对所有输出的行数编号</li><li>-b 和 -n 相似，只不过对于空白行不编号</li><li>-s 当遇到有连续两行以上的空白行，就代换为一行的空白行</li><li>-e 在每行结束处显示 $</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>cat /tmp/test/txt1.txt</li></ul><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>设定原文档内容为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;111&#96; &#96;222&#96;&#96;333&#96;&#96;444&#96;   &#96;555&#96;&#96;666&#96;&#96;777&#96;&#96;888&#96;&#96;999&#96;</span><br></pre></td></tr></table></figure><p>带行号输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;     &#96;&#96;2&#96;&#96;     &#96;&#96;3&#96;  &#96;222&#96;&#96;     &#96;&#96;4&#96;  &#96;333&#96;&#96;     &#96;&#96;5&#96;  &#96;444&#96;&#96;     &#96;&#96;6&#96;&#96;     &#96;&#96;7&#96;&#96;     &#96;&#96;8&#96;&#96;     &#96;&#96;9&#96;  &#96;555&#96;&#96;    &#96;&#96;10&#96;  &#96;666&#96;&#96;    &#96;&#96;11&#96;  &#96;777&#96;&#96;    &#96;&#96;12&#96;  &#96;888&#96;&#96;    &#96;&#96;13&#96;  &#96;999&#96;</span><br></pre></td></tr></table></figure><p>忽略空行行号，多行空行合并，行末尾标记，带行号输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -nbse &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;2&#96;  &#96;222&#96;&#96;$&#96;&#96;     &#96;&#96;3&#96;  &#96;333&#96;&#96;$&#96;&#96;     &#96;&#96;4&#96;  &#96;444&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;5&#96;  &#96;555&#96;&#96;$&#96;&#96;     &#96;&#96;6&#96;  &#96;666&#96;&#96;$&#96;&#96;     &#96;&#96;7&#96;  &#96;777&#96;&#96;$&#96;&#96;     &#96;&#96;8&#96;  &#96;888&#96;&#96;$&#96;&#96;     &#96;&#96;9&#96;  &#96;999&#96;&#96;$&#96;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="cd命令用于切换当前工作目录至-dirName-目录参数"><a href="#cd命令用于切换当前工作目录至-dirName-目录参数" class="headerlink" title="cd命令用于切换当前工作目录至 dirName(目录参数)"></a><strong>cd命令用于切换当前工作目录至 dirName(目录参数)</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cd [dirName]&#96;&#96;cd 目录&#96;&#96;cd &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>跳转到/tmp/test目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ cd &#x2F;tmp&#x2F;test&#96;&#96;jingjiandeMacBook-Pro:test jingjian$&#96;</span><br></pre></td></tr></table></figure><p>跳转到自己的home目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cd ~&#96;&#96;jingjiandeMacBook-Pro:~ jingjian$&#96;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -405,11 +405,11 @@
     
     
     <entry>
-      <title>Linux命令之cd</title>
-      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/"/>
-      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/</url>
+      <title>Linux命令之cat</title>
+      <link href="/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/"/>
+      <url>/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcat/</url>
       
-        <content type="html"><![CDATA[<h1 id="cd命令用于切换当前工作目录至-dirName-目录参数"><a href="#cd命令用于切换当前工作目录至-dirName-目录参数" class="headerlink" title="cd命令用于切换当前工作目录至 dirName(目录参数)"></a><strong>cd命令用于切换当前工作目录至 dirName(目录参数)</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cd [dirName]&#96;&#96;cd 目录&#96;&#96;cd &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>跳转到/tmp/test目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ cd &#x2F;tmp&#x2F;test&#96;&#96;jingjiandeMacBook-Pro:test jingjian$&#96;</span><br></pre></td></tr></table></figure><p>跳转到自己的home目录</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cd ~&#96;&#96;jingjiandeMacBook-Pro:~ jingjian$&#96;</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="cat-命令用于连接文件并打印到标准输出设备上"><a href="#cat-命令用于连接文件并打印到标准输出设备上" class="headerlink" title="cat 命令用于连接文件并打印到标准输出设备上"></a><strong>cat 命令用于连接文件并打印到标准输出设备上</strong></h1><h2 id="语法："><a href="#语法：" class="headerlink" title="语法："></a>语法：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cat [-nbse]  fileName&#96;&#96;cat -参数 文件名&#96;&#96;cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;</span><br></pre></td></tr></table></figure><h2 id="参数："><a href="#参数：" class="headerlink" title="参数："></a>参数：</h2><ul><li>-n 由 1 开始对所有输出的行数编号</li><li>-b 和 -n 相似，只不过对于空白行不编号</li><li>-s 当遇到有连续两行以上的空白行，就代换为一行的空白行</li><li>-e 在每行结束处显示 $</li></ul><h2 id="常用："><a href="#常用：" class="headerlink" title="常用："></a>常用：</h2><ul><li>cat /tmp/test/txt1.txt</li></ul><h2 id="实例："><a href="#实例：" class="headerlink" title="实例："></a>实例：</h2><p>设定原文档内容为</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;111&#96; &#96;222&#96;&#96;333&#96;&#96;444&#96;   &#96;555&#96;&#96;666&#96;&#96;777&#96;&#96;888&#96;&#96;999&#96;</span><br></pre></td></tr></table></figure><p>带行号输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;     &#96;&#96;2&#96;&#96;     &#96;&#96;3&#96;  &#96;222&#96;&#96;     &#96;&#96;4&#96;  &#96;333&#96;&#96;     &#96;&#96;5&#96;  &#96;444&#96;&#96;     &#96;&#96;6&#96;&#96;     &#96;&#96;7&#96;&#96;     &#96;&#96;8&#96;&#96;     &#96;&#96;9&#96;  &#96;555&#96;&#96;    &#96;&#96;10&#96;  &#96;666&#96;&#96;    &#96;&#96;11&#96;  &#96;777&#96;&#96;    &#96;&#96;12&#96;  &#96;888&#96;&#96;    &#96;&#96;13&#96;  &#96;999&#96;</span><br></pre></td></tr></table></figure><p>忽略空行行号，多行空行合并，行末尾标记，带行号输出</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -nbse &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;2&#96;  &#96;222&#96;&#96;$&#96;&#96;     &#96;&#96;3&#96;  &#96;333&#96;&#96;$&#96;&#96;     &#96;&#96;4&#96;  &#96;444&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;5&#96;  &#96;555&#96;&#96;$&#96;&#96;     &#96;&#96;6&#96;  &#96;666&#96;&#96;$&#96;&#96;     &#96;&#96;7&#96;  &#96;777&#96;&#96;$&#96;&#96;     &#96;&#96;8&#96;  &#96;888&#96;&#96;$&#96;&#96;     &#96;&#96;9&#96;  &#96;999&#96;&#96;$&#96;</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -605,31 +605,6 @@
     
     
     <entry>
-      <title>N-Garm</title>
-      <link href="/blog/2019/08/12/N-garm/"/>
-      <url>/blog/2019/08/12/N-garm/</url>
-      
-        <content type="html"><![CDATA[<h1 id="N-garm"><a href="#N-garm" class="headerlink" title="N-garm"></a>N-garm</h1><p>概念：在<strong>计算某一个单词出现的概率的时候，不考虑它的全部的历史，只考虑最接近的N个词语，从而近似的逼近该单词的在该句子中出现的概率</strong></p><p>如：二元语法模型</p><p><img src="/blog/img/N-garm_1.jpg"></p><p>一个单词出现只和它之前的有限个词语相关，这种假设也被称为<strong>马尔科夫假设</strong></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 人工智能 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>MapReduce</title>
       <link href="/blog/2019/08/12/MapReduce/"/>
       <url>/blog/2019/08/12/MapReduce/</url>
@@ -686,29 +661,23 @@
     
     
     <entry>
-      <title>Sqoop</title>
-      <link href="/blog/2019/08/12/Sqoop/"/>
-      <url>/blog/2019/08/12/Sqoop/</url>
+      <title>N-Garm</title>
+      <link href="/blog/2019/08/12/N-garm/"/>
+      <url>/blog/2019/08/12/N-garm/</url>
       
-        <content type="html"><![CDATA[<h1 id="Sqoop简介"><a href="#Sqoop简介" class="headerlink" title="Sqoop简介"></a>Sqoop简介</h1><p>Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库<em>（例如 ： MySQL ,Oracle ,Postgres等）</em>中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p><p>Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了让使用者能够快速部署，也为了让开发人员能够更快速的迭代开发，Sqoop独立成为一个<a href="https://baike.baidu.com/item/Apache/6265">Apache</a>项目。</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="N-garm"><a href="#N-garm" class="headerlink" title="N-garm"></a>N-garm</h1><p>概念：在<strong>计算某一个单词出现的概率的时候，不考虑它的全部的历史，只考虑最接近的N个词语，从而近似的逼近该单词的在该句子中出现的概率</strong></p><p>如：二元语法模型</p><p><img src="/blog/img/N-garm_1.jpg"></p><p>一个单词出现只和它之前的有限个词语相关，这种假设也被称为<strong>马尔科夫假设</strong></p>]]></content>
       
       
       <categories>
           
-          <category> 大数据 </category>
+          <category> 人工智能 </category>
           
       </categories>
       
       
         <tags>
             
-            <tag> 大数据 </tag>
-            
-            <tag> 推荐系统 </tag>
-            
-            <tag> Hadoop </tag>
-            
-            <tag> 未完成 </tag>
+            <tag> 算法 </tag>
             
         </tags>
       
@@ -734,6 +703,37 @@
         <tags>
             
             <tag> TensorFlow </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Sqoop</title>
+      <link href="/blog/2019/08/12/Sqoop/"/>
+      <url>/blog/2019/08/12/Sqoop/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Sqoop简介"><a href="#Sqoop简介" class="headerlink" title="Sqoop简介"></a>Sqoop简介</h1><p>Sqoop是一款开源的工具，主要用于在Hadoop(Hive)与传统的数据库(mysql、postgresql…)间进行数据的传递，可以将一个关系型数据库<em>（例如 ： MySQL ,Oracle ,Postgres等）</em>中的数据导进到Hadoop的HDFS中，也可以将HDFS的数据导进到关系型数据库中。</p><p>Sqoop项目开始于2009年，最早是作为Hadoop的一个第三方模块存在，后来为了让使用者能够快速部署，也为了让开发人员能够更快速的迭代开发，Sqoop独立成为一个<a href="https://baike.baidu.com/item/Apache/6265">Apache</a>项目。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 推荐系统 </tag>
+            
+            <tag> Hadoop </tag>
+            
+            <tag> 未完成 </tag>
             
         </tags>
       
@@ -792,35 +792,6 @@
     
     
     <entry>
-      <title>YARN</title>
-      <link href="/blog/2019/08/12/YARN/"/>
-      <url>/blog/2019/08/12/YARN/</url>
-      
-        <content type="html"><![CDATA[<h1 id="YARN简介"><a href="#YARN简介" class="headerlink" title="YARN简介"></a>YARN简介</h1><h2 id="什么是YARN"><a href="#什么是YARN" class="headerlink" title="什么是YARN"></a>什么是YARN</h2><ul><li>Yet Another Resource Negotiator,另一种资源调度器</li><li>通用资源管理系统</li><li>为上层应用提供统一的资源管理和调度，为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处</li></ul><h2 id="YARN产生背景"><a href="#YARN产生背景" class="headerlink" title="YARN产生背景"></a>YARN产生背景</h2><ul><li>通用资源管理系统<ul><li>Hadoop数据分布式存储（数据分块，冗余存储）</li><li>当多个MapReduce任务要用到相同的hdfs数据，需要进行资源调度管理</li><li>Hadoop1.x时并没有YARN，MapReduce既负责进行计算左右又要处理服务器集群资源调度管理</li></ul></li><li>服务器集群资源调度管理和MapReduce执行过程耦合在一起带来的问题<ul><li>Hadoop早期，技术只有Hadoop，这个问题不明显</li><li>随着大数据技术的发展，Spark、Storm····计算框架都要用到服务器集群资源</li><li>如果没有通用资源管理系统，只能为多个集群分别提供数据</li></ul></li><li>不同计算框架可以共享同一个HDFS集群上的数据，享受整体资源调度</li></ul><p><img src="/blog/img/YARN_1.png" alt="YARN_1"></p><h1 id="YARN的架构和执行流程"><a href="#YARN的架构和执行流程" class="headerlink" title="YARN的架构和执行流程"></a>YARN的架构和执行流程</h1><h3 id="ResourceManager（RM）"><a href="#ResourceManager（RM）" class="headerlink" title="ResourceManager（RM）"></a>ResourceManager（RM）</h3><ul><li>RM资源管理器；</li><li>整个集群同时提供服务的RM只有一个，负责集群资源的统一管理和调度；</li><li>处理客户端的请求；</li><li>监控NM，一旦某个NM挂了，那么改NM上运行的任务需要我们来告诉AM来如何进行处理</li></ul><h3 id="NodeManager-NM"><a href="#NodeManager-NM" class="headerlink" title="NodeManager(NM)"></a>NodeManager(NM)</h3><ul><li>NM节点管理器</li><li>整个集群中有多个，负责自己节点资源管理和使用</li><li>定时向RM汇报本节点的资源使用情况</li><li>接收并处理来自RM的命令：启动Container</li><li>处理来自AM的命令</li></ul><h3 id="ApplicationMaster-AM"><a href="#ApplicationMaster-AM" class="headerlink" title="ApplicationMaster(AM)"></a>ApplicationMaster(AM)</h3><ul><li>每一个应用程序对应一个：MR，Spark</li><li>负责应用程序的管理</li><li>为应用程序向RM申请资源(core、memory)，分配给内部的task</li><li>需要与NM通讯：启动/停止task</li><li>Task和AM都是运行在Container中的</li></ul><h3 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h3><ul><li>容器：封装了CPU、Memory等资源的一个容器，是一个任务运行环境的抽象</li></ul><h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><ul><li>提交作业</li><li>查询作业进度</li><li>杀死作业</li></ul><p><img src="/blog/img/YARN_2.png" alt="YARN_1"></p><ol><li>Client提交作业请求</li><li>RedourceManager进程和NodeManager进程通信，根据集群资源，为用户程序分配第一个Container(容器)，并将ApplicationManager分发到这个容器上面</li><li>启动Container中的ApplicationMaster</li><li>ApplicationMaster启动后向ResourceManager注册进程，申请资源</li><li>ApplicationMaster申请到资源后，向对应的NodeManager申请启动Container，将要执行的程序分发到NodeManager上</li><li>Container启动后执行对应的任务</li><li>Task执行完毕之后，向ApplicationMaster返回结果</li><li>ApplicationMaster向ResourceManager请求kill</li></ol><h1 id="YARN环境搭建"><a href="#YARN环境搭建" class="headerlink" title="YARN环境搭建"></a>YARN环境搭建</h1><ul><li>mapred-site.xml</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapreduce.framework.name&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;yarn&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure><ul><li>yarn-site.xml</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure><ul><li>启动YARN相关进程sbin/start-yarn.sh</li><li><a href="http://ip:8088验证">http://ip:8088验证</a></li><li>停止YARN相关进程sbin/stop-yarn.sh</li></ul>]]></content>
-      
-      
-      <categories>
-          
-          <category> 大数据 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 大数据 </tag>
-            
-            <tag> 推荐系统 </tag>
-            
-            <tag> Hadoop </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>hdfs连接</title>
       <link href="/blog/2019/08/12/hdfs%E8%BF%9E%E6%8E%A5/"/>
       <url>/blog/2019/08/12/hdfs%E8%BF%9E%E6%8E%A5/</url>
@@ -861,6 +832,35 @@
       
       
         <tags>
+            
+            <tag> Hadoop </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>YARN</title>
+      <link href="/blog/2019/08/12/YARN/"/>
+      <url>/blog/2019/08/12/YARN/</url>
+      
+        <content type="html"><![CDATA[<h1 id="YARN简介"><a href="#YARN简介" class="headerlink" title="YARN简介"></a>YARN简介</h1><h2 id="什么是YARN"><a href="#什么是YARN" class="headerlink" title="什么是YARN"></a>什么是YARN</h2><ul><li>Yet Another Resource Negotiator,另一种资源调度器</li><li>通用资源管理系统</li><li>为上层应用提供统一的资源管理和调度，为集群在利用率、资源统一管理和数据共享等方面带来了巨大好处</li></ul><h2 id="YARN产生背景"><a href="#YARN产生背景" class="headerlink" title="YARN产生背景"></a>YARN产生背景</h2><ul><li>通用资源管理系统<ul><li>Hadoop数据分布式存储（数据分块，冗余存储）</li><li>当多个MapReduce任务要用到相同的hdfs数据，需要进行资源调度管理</li><li>Hadoop1.x时并没有YARN，MapReduce既负责进行计算左右又要处理服务器集群资源调度管理</li></ul></li><li>服务器集群资源调度管理和MapReduce执行过程耦合在一起带来的问题<ul><li>Hadoop早期，技术只有Hadoop，这个问题不明显</li><li>随着大数据技术的发展，Spark、Storm····计算框架都要用到服务器集群资源</li><li>如果没有通用资源管理系统，只能为多个集群分别提供数据</li></ul></li><li>不同计算框架可以共享同一个HDFS集群上的数据，享受整体资源调度</li></ul><p><img src="/blog/img/YARN_1.png" alt="YARN_1"></p><h1 id="YARN的架构和执行流程"><a href="#YARN的架构和执行流程" class="headerlink" title="YARN的架构和执行流程"></a>YARN的架构和执行流程</h1><h3 id="ResourceManager（RM）"><a href="#ResourceManager（RM）" class="headerlink" title="ResourceManager（RM）"></a>ResourceManager（RM）</h3><ul><li>RM资源管理器；</li><li>整个集群同时提供服务的RM只有一个，负责集群资源的统一管理和调度；</li><li>处理客户端的请求；</li><li>监控NM，一旦某个NM挂了，那么改NM上运行的任务需要我们来告诉AM来如何进行处理</li></ul><h3 id="NodeManager-NM"><a href="#NodeManager-NM" class="headerlink" title="NodeManager(NM)"></a>NodeManager(NM)</h3><ul><li>NM节点管理器</li><li>整个集群中有多个，负责自己节点资源管理和使用</li><li>定时向RM汇报本节点的资源使用情况</li><li>接收并处理来自RM的命令：启动Container</li><li>处理来自AM的命令</li></ul><h3 id="ApplicationMaster-AM"><a href="#ApplicationMaster-AM" class="headerlink" title="ApplicationMaster(AM)"></a>ApplicationMaster(AM)</h3><ul><li>每一个应用程序对应一个：MR，Spark</li><li>负责应用程序的管理</li><li>为应用程序向RM申请资源(core、memory)，分配给内部的task</li><li>需要与NM通讯：启动/停止task</li><li>Task和AM都是运行在Container中的</li></ul><h3 id="Container"><a href="#Container" class="headerlink" title="Container"></a>Container</h3><ul><li>容器：封装了CPU、Memory等资源的一个容器，是一个任务运行环境的抽象</li></ul><h3 id="Client"><a href="#Client" class="headerlink" title="Client"></a>Client</h3><ul><li>提交作业</li><li>查询作业进度</li><li>杀死作业</li></ul><p><img src="/blog/img/YARN_2.png" alt="YARN_1"></p><ol><li>Client提交作业请求</li><li>RedourceManager进程和NodeManager进程通信，根据集群资源，为用户程序分配第一个Container(容器)，并将ApplicationManager分发到这个容器上面</li><li>启动Container中的ApplicationMaster</li><li>ApplicationMaster启动后向ResourceManager注册进程，申请资源</li><li>ApplicationMaster申请到资源后，向对应的NodeManager申请启动Container，将要执行的程序分发到NodeManager上</li><li>Container启动后执行对应的任务</li><li>Task执行完毕之后，向ApplicationMaster返回结果</li><li>ApplicationMaster向ResourceManager请求kill</li></ol><h1 id="YARN环境搭建"><a href="#YARN环境搭建" class="headerlink" title="YARN环境搭建"></a>YARN环境搭建</h1><ul><li>mapred-site.xml</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;mapreduce.framework.name&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;yarn&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure><ul><li>yarn-site.xml</li></ul><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;property&gt;</span><br><span class="line">    &lt;name&gt;yarn.nodemanager.aux-services&lt;&#x2F;name&gt;</span><br><span class="line">    &lt;value&gt;mapreduce_shuffle&lt;&#x2F;value&gt;</span><br><span class="line">&lt;&#x2F;property&gt;</span><br></pre></td></tr></table></figure><ul><li>启动YARN相关进程sbin/start-yarn.sh</li><li><a href="http://ip:8088验证">http://ip:8088验证</a></li><li>停止YARN相关进程sbin/stop-yarn.sh</li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> 大数据 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 大数据 </tag>
+            
+            <tag> 推荐系统 </tag>
             
             <tag> Hadoop </tag>
             
@@ -923,31 +923,6 @@
     
     
     <entry>
-      <title>冒泡排序</title>
-      <link href="/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
-      <url>/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
-      
-        <content type="html"><![CDATA[<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ul><li>定义：<ul><li>冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。(On^2)</li></ul></li><li>代码实现</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(alist)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(j):</span><br><span class="line">            <span class="keyword">if</span> alist[i] &gt; alist[i+<span class="number">1</span>]:</span><br><span class="line">                alist[i], alist[i+<span class="number">1</span>] = alist[i+<span class="number">1</span>], alist[i]</span><br><span class="line"></span><br><span class="line">li = [<span class="number">54</span>, <span class="number">26</span>, <span class="number">93</span>, <span class="number">17</span>, <span class="number">77</span>, <span class="number">31</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">20</span>]</span><br><span class="line">bubble_sort(li)</span><br><span class="line">print(li)</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> 排序算法 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 排序算法 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>人工智能优化算法</title>
       <link href="/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
       <url>/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</url>
@@ -967,6 +942,31 @@
             <tag> 算法 </tag>
             
             <tag> 梯度下降 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>冒泡排序</title>
+      <link href="/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"/>
+      <url>/blog/2019/08/12/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h1><ul><li>定义：<ul><li>冒泡排序是一种简单的排序算法。它重复地走访过要排序的数列，一次比较两个元素，如果它们的顺序错误就把它们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。这个算法的名字由来是因为越小的元素会经由交换慢慢“浮”到数列的顶端。(On^2)</li></ul></li><li>代码实现</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">bubble_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(<span class="built_in">len</span>(alist)-<span class="number">1</span>, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(j):</span><br><span class="line">            <span class="keyword">if</span> alist[i] &gt; alist[i+<span class="number">1</span>]:</span><br><span class="line">                alist[i], alist[i+<span class="number">1</span>] = alist[i+<span class="number">1</span>], alist[i]</span><br><span class="line"></span><br><span class="line">li = [<span class="number">54</span>, <span class="number">26</span>, <span class="number">93</span>, <span class="number">17</span>, <span class="number">77</span>, <span class="number">31</span>, <span class="number">44</span>, <span class="number">55</span>, <span class="number">20</span>]</span><br><span class="line">bubble_sort(li)</span><br><span class="line">print(li)</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 排序算法 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 排序算法 </tag>
             
         </tags>
       
@@ -1075,11 +1075,11 @@
     
     
     <entry>
-      <title>插入排序</title>
-      <link href="/blog/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
-      <url>/blog/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
+      <title>快速排序</title>
+      <link href="/blog/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
+      <url>/blog/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
       
-        <content type="html"><![CDATA[<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><ul><li><p>定义：</p><ul><li>插入排序是一种简单直观的排序算法，它的工作原理是通过构建有序序列，对未排序数据，在已排中从前向后扫描，找到相应位置并插入。（On^2）</li></ul></li><li><p>代码实现：</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    <span class="comment"># 从第二个位置，即下标为1的元素开始向前插入</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(alist)):</span><br><span class="line">        <span class="comment"># 从第i个元素开始向前比较，如果小于前一个元素，交换位置</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> alist[j] &lt; alist[j-<span class="number">1</span>]:</span><br><span class="line">                alist[j], alist[j-<span class="number">1</span>] = alist[j-<span class="number">1</span>], alist[j]</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">insert_sort(alist)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><ul><li>定义：<ul><li><strong>快速排序</strong>（英语：Quicksort），又称划分交换排序（partition-exchange sort），通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 使用分治法来把一个串（list）分为两个子串（sub-lists） 。(On^2)</li></ul></li><li>代码实现</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span>(<span class="params">alist, start, end</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;快速排序&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 递归的退出条件</span></span><br><span class="line">    <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="comment"># 设定起始元素为要寻找位置的基准元素</span></span><br><span class="line">    mid = alist[start]</span><br><span class="line">    <span class="comment"># low为序列左边的由左向右移动的游标</span></span><br><span class="line">    low = start</span><br><span class="line">    <span class="comment"># high为序列右边的由右向左移动的游标</span></span><br><span class="line">    high = end</span><br><span class="line">    <span class="keyword">while</span> low &lt; high:</span><br><span class="line">        <span class="comment"># 如果low与high未重合，high指向的元素不比基准元素小，则high向左移动</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high <span class="keyword">and</span> alist[high] &gt;= mid:</span><br><span class="line">            high -= <span class="number">1</span></span><br><span class="line">        <span class="comment"># 将high指向的元素放到low的位置上</span></span><br><span class="line">        alist[low] = alist[high]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果low与high未重合，low指向的元素比基准元素小，则low向右移动</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high <span class="keyword">and</span> alist[low] &lt; mid:</span><br><span class="line">            low += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 将low指向的元素放到high的位置上</span></span><br><span class="line">        alist[high] = alist[low]</span><br><span class="line">    <span class="comment"># 退出循环后，low与high重合，此时所指位置为基准元素的正确位置</span></span><br><span class="line">    <span class="comment"># 将基准元素放到该位置</span></span><br><span class="line">    alist[low] = mid</span><br><span class="line">    <span class="comment"># 对基准元素左边的子序列进行快速排序</span></span><br><span class="line">    quick_sort(alist, start, low-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 对基准元素右边的子序列进行快速排序</span></span><br><span class="line">    quick_sort(alist, low+<span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">quick_sort(alist,<span class="number">0</span>,<span class="built_in">len</span>(alist)-<span class="number">1</span>)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -1100,11 +1100,11 @@
     
     
     <entry>
-      <title>快速排序</title>
-      <link href="/blog/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"/>
-      <url>/blog/2019/08/12/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</url>
+      <title>插入排序</title>
+      <link href="/blog/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"/>
+      <url>/blog/2019/08/12/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</url>
       
-        <content type="html"><![CDATA[<h1 id="快速排序"><a href="#快速排序" class="headerlink" title="快速排序"></a>快速排序</h1><ul><li>定义：<ul><li><strong>快速排序</strong>（英语：Quicksort），又称划分交换排序（partition-exchange sort），通过一趟排序将要排序的数据分割成独立的两部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排序，整个排序过程可以递归进行，以此达到整个数据变成有序序列。 使用分治法来把一个串（list）分为两个子串（sub-lists） 。(On^2)</li></ul></li><li>代码实现</li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">quick_sort</span>(<span class="params">alist, start, end</span>):</span></span><br><span class="line">    <span class="string">&quot;&quot;&quot;快速排序&quot;&quot;&quot;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># 递归的退出条件</span></span><br><span class="line">    <span class="keyword">if</span> start &gt;= end:</span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">    <span class="comment"># 设定起始元素为要寻找位置的基准元素</span></span><br><span class="line">    mid = alist[start]</span><br><span class="line">    <span class="comment"># low为序列左边的由左向右移动的游标</span></span><br><span class="line">    low = start</span><br><span class="line">    <span class="comment"># high为序列右边的由右向左移动的游标</span></span><br><span class="line">    high = end</span><br><span class="line">    <span class="keyword">while</span> low &lt; high:</span><br><span class="line">        <span class="comment"># 如果low与high未重合，high指向的元素不比基准元素小，则high向左移动</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high <span class="keyword">and</span> alist[high] &gt;= mid:</span><br><span class="line">            high -= <span class="number">1</span></span><br><span class="line">        <span class="comment"># 将high指向的元素放到low的位置上</span></span><br><span class="line">        alist[low] = alist[high]</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 如果low与high未重合，low指向的元素比基准元素小，则low向右移动</span></span><br><span class="line">        <span class="keyword">while</span> low &lt; high <span class="keyword">and</span> alist[low] &lt; mid:</span><br><span class="line">            low += <span class="number">1</span></span><br><span class="line">        <span class="comment"># 将low指向的元素放到high的位置上</span></span><br><span class="line">        alist[high] = alist[low]</span><br><span class="line">    <span class="comment"># 退出循环后，low与high重合，此时所指位置为基准元素的正确位置</span></span><br><span class="line">    <span class="comment"># 将基准元素放到该位置</span></span><br><span class="line">    alist[low] = mid</span><br><span class="line">    <span class="comment"># 对基准元素左边的子序列进行快速排序</span></span><br><span class="line">    quick_sort(alist, start, low-<span class="number">1</span>)</span><br><span class="line">    <span class="comment"># 对基准元素右边的子序列进行快速排序</span></span><br><span class="line">    quick_sort(alist, low+<span class="number">1</span>, end)</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">quick_sort(alist,<span class="number">0</span>,<span class="built_in">len</span>(alist)-<span class="number">1</span>)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
+        <content type="html"><![CDATA[<h1 id="插入排序"><a href="#插入排序" class="headerlink" title="插入排序"></a>插入排序</h1><ul><li><p>定义：</p><ul><li>插入排序是一种简单直观的排序算法，它的工作原理是通过构建有序序列，对未排序数据，在已排中从前向后扫描，找到相应位置并插入。（On^2）</li></ul></li><li><p>代码实现：</p></li></ul><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">insert_sort</span>(<span class="params">alist</span>):</span></span><br><span class="line">    <span class="comment"># 从第二个位置，即下标为1的元素开始向前插入</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="built_in">len</span>(alist)):</span><br><span class="line">        <span class="comment"># 从第i个元素开始向前比较，如果小于前一个元素，交换位置</span></span><br><span class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> <span class="built_in">range</span>(i, <span class="number">0</span>, -<span class="number">1</span>):</span><br><span class="line">            <span class="keyword">if</span> alist[j] &lt; alist[j-<span class="number">1</span>]:</span><br><span class="line">                alist[j], alist[j-<span class="number">1</span>] = alist[j-<span class="number">1</span>], alist[j]</span><br><span class="line"></span><br><span class="line">alist = [<span class="number">54</span>,<span class="number">26</span>,<span class="number">93</span>,<span class="number">17</span>,<span class="number">77</span>,<span class="number">31</span>,<span class="number">44</span>,<span class="number">55</span>,<span class="number">20</span>]</span><br><span class="line">insert_sort(alist)</span><br><span class="line">print(alist)</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
