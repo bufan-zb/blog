@@ -6,18 +6,17 @@
   <meta name="keywords" content=" 数据分析 , Numpy ">
   <meta name="description" content="Numpy | 邹斌的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta name="description" content="遗传算法使用二进制初始化-&gt;选择算子-&gt;交叉算子-&gt;变异算子-&gt;选择算子 初始化基本参数群体大小20-100进化代数100-500交叉概率0.4-0.99变异概率取0.0001-0.1这4个运行参数对遗传算法的结果和求解效率都有一定影响，但是没有理论依据，需要进行多次试算才能确定参数合理大小和取值范围 基本遗传算法定义$$SGA&#x3D;(C, E, P_0, M, \Phi, R">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker部署Elasticsearch">
-<meta property="og:url" content="https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/index.html">
+<meta property="og:title" content="遗传算法">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/index.html">
 <meta property="og:site_name" content="邹斌的博客">
-<meta property="og:description" content="Docker部署Elasticsearch拉取镜像123docker pull delron&#x2F;elasticsearch-ik:2.4.6-1.0#或直接百度网盘下载docker load &lt; ***.jar 配置elasticsearch.yml的IP 把下载下来的文件拷贝到home目录下 并修改&#x2F;home&#x2F;python&#x2F;elasticsearc-2.4.6&#x2F;config&#x2F;ela">
+<meta property="og:description" content="遗传算法使用二进制初始化-&gt;选择算子-&gt;交叉算子-&gt;变异算子-&gt;选择算子 初始化基本参数群体大小20-100进化代数100-500交叉概率0.4-0.99变异概率取0.0001-0.1这4个运行参数对遗传算法的结果和求解效率都有一定影响，但是没有理论依据，需要进行多次试算才能确定参数合理大小和取值范围 基本遗传算法定义$$SGA&#x3D;(C, E, P_0, M, \Phi, R">
 <meta property="og:locale">
-<meta property="article:published_time" content="2019-08-12T10:58:00.000Z">
-<meta property="article:modified_time" content="2020-07-15T06:24:12.000Z">
+<meta property="article:published_time" content="2020-12-22T10:58:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T05:45:38.214Z">
 <meta property="article:author" content="邹斌">
-<meta property="article:tag" content="Docker">
-<meta property="article:tag" content="Elasticsearch">
+<meta property="article:tag" content="遗传算法">
 <meta name="twitter:card" content="summary">
 
 
@@ -116,7 +115,7 @@
     <li>
         <div class="all active" data-rel="全部文章">全部文章
             
-                <small>(57)</small>
+                <small>(60)</small>
             
         </div>
     </li>
@@ -132,6 +131,10 @@
                     </div>
                     
                 </li>
+            
+        
+    
+        
             
         
     
@@ -153,11 +156,28 @@
             
                 <li>
                     <div data-rel="人工智能">
+                        <i class="fold iconfont icon-right"></i>
                         
                         人工智能
-                        <small>(13)</small>
+                        <small>(16)</small>
                         
                     </div>
+                    
+                        <ul class="sub hide">
+                            
+                                <li>
+                                    <div data-rel="人工智能<--->大数据">
+                                        
+                                        大数据
+                                        
+                                            <small>(1
+                                                )</small>
+                                        
+                                    </div>
+                                    
+                                </li>
+                            
+                        </ul>
                     
                 </li>
             
@@ -260,8 +280,8 @@
         
     </div>
 </div>
-<input type="hidden" id="yelog_site_posts_number" value="57">
-<input type="hidden" id="yelog_site_word_count" value="63.2k">
+<input type="hidden" id="yelog_site_posts_number" value="60">
+<input type="hidden" id="yelog_site_word_count" value="64.8k">
 <div style="display: none">
     <span id="busuanzi_value_site_uv"></span>
     <span id="busuanzi_value_site_pv"></span>
@@ -319,6 +339,10 @@
             </li>
         
             <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模型推导</a>
+            </li>
+        
+            <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>排序算法</a>
             </li>
         
@@ -360,6 +384,10 @@
         
             <li class="article-tag-list-item">
                 <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>遗传算法</a>
             </li>
         
             <li class="article-tag-list-item">
@@ -453,6 +481,38 @@
     
     <nav id="title-list-nav">
         
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
+           data-tag="遗传算法"
+           data-author="" >
+            <span class="post-title" title="遗传算法">遗传算法</span>
+            <span class="post-date" title="2020-12-22 18:58:00">2020/12/22</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"
+           data-tag="模型推导"
+           data-author="" >
+            <span class="post-title" title="逻辑回归">逻辑回归</span>
+            <span class="post-date" title="2020-08-12 18:58:00">2020/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/18/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="人工智能优化算法">人工智能优化算法</span>
+            <span class="post-date" title="2019-08-18 18:58:00">2019/08/18</span>
+        </a>
+        
+        <a  class="全部文章 Docker "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
         <a  class="全部文章 Docker "
            href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
            data-tag="Docker,Elasticsearch"
@@ -477,14 +537,6 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 Docker "
-           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
-           data-tag="Docker,FastDFS"
-           data-author="" >
-            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 Linux "
            href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
            data-tag="Elasticsearch,搜索"
@@ -501,14 +553,6 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/Flume/"
-           data-tag="大数据,推荐系统,Hadoop"
-           data-author="" >
-            <span class="post-title" title="Flume">Flume</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/FTRL/"
            data-tag="算法"
@@ -517,19 +561,11 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 人工智能 "
-           href="/blog/2019/08/12/GRU/"
-           data-tag="RNN"
-           data-author="" >
-            <span class="post-title" title="GRU">GRU</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/HBase/"
+           href="/blog/2019/08/12/Flume/"
            data-tag="大数据,推荐系统,Hadoop"
            data-author="" >
-            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-title" title="Flume">Flume</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -542,18 +578,26 @@
         </a>
         
         <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/HDFS/"
+           href="/blog/2019/08/12/HBase/"
            data-tag="大数据,推荐系统,Hadoop"
            data-author="" >
-            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/12/GRU/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="GRU">GRU</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
         <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
-           data-tag="大数据,推荐系统,Kafka"
+           href="/blog/2019/08/12/HDFS/"
+           data-tag="大数据,推荐系统,Hadoop"
            data-author="" >
-            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-title" title="HDFS">HDFS</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -581,6 +625,14 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/12/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="大数据,推荐系统,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
         <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/LSTM/"
            data-tag="RNN"
@@ -597,19 +649,19 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 大数据 "
-           href="/blog/2019/08/12/MapReduce/"
-           data-tag="大数据,推荐系统,Hadoop"
-           data-author="" >
-            <span class="post-title" title="MapReduce">MapReduce</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
         <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/N-garm/"
            data-tag="算法"
            data-author="" >
             <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/12/MapReduce/"
+           data-tag="大数据,推荐系统,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -686,14 +738,6 @@
         </a>
         
         <a  class="全部文章 人工智能 "
-           href="/blog/2019/08/12/pytorch/"
-           data-tag="pytorch"
-           data-author="" >
-            <span class="post-title" title="torch">torch</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 人工智能 "
            href="/blog/2019/08/12/pandas/"
            data-tag="数据分析,Pandas"
            data-author="" >
@@ -702,10 +746,10 @@
         </a>
         
         <a  class="全部文章 人工智能 "
-           href="/blog/2019/08/12/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
-           data-tag="算法,梯度下降"
+           href="/blog/2019/08/12/pytorch/"
+           data-tag="pytorch"
            data-author="" >
-            <span class="post-title" title="人工智能优化算法">人工智能优化算法</span>
+            <span class="post-title" title="torch">torch</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -765,11 +809,11 @@
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
-        <a  class="全部文章 "
-           href="/blog/2019/08/12/%E6%95%B0%E5%AD%A6/"
-           data-tag="数学"
+        <a  class="全部文章 人工智能 大数据 "
+           href="/blog/2019/08/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"
+           data-tag="大数据"
            data-author="" >
-            <span class="post-title" title="数学">数学</span>
+            <span class="post-title" title=""></span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -786,6 +830,14 @@
            data-tag="Python"
            data-author="" >
             <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/blog/2019/08/12/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
