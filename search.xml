@@ -30,8 +30,8 @@
     
     <entry>
       <title>遗传算法</title>
-      <link href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"/>
-      <url>/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</url>
+      <link href="/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"/>
+      <url>/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</url>
       
         <content type="html"><![CDATA[<p>[TOC]</p><h1 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h1><h1 id="使用二进制"><a href="#使用二进制" class="headerlink" title="使用二进制"></a>使用二进制</h1><p>初始化-&gt;选择算子-&gt;交叉算子-&gt;变异算子-&gt;选择算子</p><h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><h1 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h1><p>群体大小20-100<br>进化代数100-500<br>交叉概率0.4-0.99<br>变异概率取0.0001-0.1<br>这4个运行参数对遗传算法的结果和求解效率都有一定影响，但是没有理论依据，需要进行多次试算才能确定参数合理大小和取值范围</p><h1 id="基本遗传算法定义"><a href="#基本遗传算法定义" class="headerlink" title="基本遗传算法定义"></a>基本遗传算法定义</h1><p>$$<br>SGA=(C, E, P_0, M, \Phi, R, \Psi, T) \C—–个体的编码方法 \E——个体适应度评价函数 \P_0—初始群体 \M—–群体大小 \\Phi—-选择算子\R—-交叉算子 \\Psi—-变异算子 \T—-遗传运算终止条件 \<br>$$</p><h1 id="个体适应度评价"><a href="#个体适应度评价" class="headerlink" title="个体适应度评价"></a>个体适应度评价</h1><h1 id="目标函数求最大值"><a href="#目标函数求最大值" class="headerlink" title="目标函数求最大值"></a>目标函数求最大值</h1><p>  定义一个较小的值C，目标函数值-C<br>    C:<br>      预先指定一个较小的值<br>      当前代的最小值的目标函数值<br>      最近几代中最小目标函数值</p><h1 id="目标函数求最大值-1"><a href="#目标函数求最大值-1" class="headerlink" title="目标函数求最大值"></a>目标函数求最大值</h1><p>  定义一个较大的值C，C-目标函数值<br>    C:<br>      预先指定一个较大的值<br>      当前代的最大值的目标函数值<br>      最近几代中最大目标函数值</p><h1 id="比例选择算子"><a href="#比例选择算子" class="headerlink" title="比例选择算子"></a>比例选择算子</h1><p>先计算出群体中所有个体适应度的总和<br>计算出每个个体的相对适应度，既为各个个体被遗传到下一代群体中的概率<br>模拟赌盘操作，来确定各个个体被选中的次数</p><h1 id="单点交叉算子"><a href="#单点交叉算子" class="headerlink" title="单点交叉算子"></a>单点交叉算子</h1><p>对群体中的个体两两随机配对<br>对配对的个体随机数配置一个基因座，<br>基因座后面的位置参数进行置换，生成两个新的个体</p><h1 id="变异算子"><a href="#变异算子" class="headerlink" title="变异算子"></a>变异算子</h1><p>对每个编码为随机生成一个(0,1)小数,<br>如果小于变异概率不变异，大于就取反变异</p>]]></content>
       
@@ -46,6 +46,31 @@
         <tags>
             
             <tag> 遗传算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>LSTM</title>
+      <link href="/blog/2020/11/15/LSTM/"/>
+      <url>/blog/2020/11/15/LSTM/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p>LSTM(Long Short-Term Memory)是一种特殊的RNN,可以学习长依赖信息</p><h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><p><img src="/blog/img/LSTM_1.png"></p><p>1.遗忘门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数的神经元得到一个(0, 1)之间的数$f_t$来乘上细胞状态，根据数字的大小来确定需要遗忘多少。<br>$$<br>f_t=\sigma(W_f.[h_{t-1},x_t]+b_f)<br>$$<br><img src="/blog/img/LSTM_2.png"></p><p>2.输入门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数和tanh函数的神经元得到一个(0, 1)之间的数$i_t$和(-1, 1)之间的数，两数相乘再加入细胞状态中。<br>$$<br>i_t=\sigma(W_i.[h_{t-1},x_t]+b_i)<br>$$</p><p>$$<br>\tilde{C_t}=tanh(W_c.[h_{t-1}]+b_C)<br>$$</p><p><img src="/blog/img/LSTM_3.png"></p><p>3.输出门：当细胞状态通过遗忘门和输入门后，新的细胞状态每个元素都通过tanh函数后乘上一个(0, 1)之间的数来作为当前神经元的输出和下一个神经元中的一个输入<br>$$<br>o_t=\sigma(W_o[h_{t-1},x_t]+b_o)<br>$$</p><p>$$<br>h_t=o_t*tanh(C_t)<br>$$</p><p><img src="/blog/img/LSTM_4.png"></p><h1 id="双向LSTM"><a href="#双向LSTM" class="headerlink" title="双向LSTM"></a>双向LSTM</h1><p>单向的RNN，是根据前面的信息往后面推，但是有时候当前词语语义不仅和前面的词有关，还和后面的词也有关，所以再增加一个由前向后的LSRM的RNN</p><p><img src="/blog/img/LSTM_5.png"></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> RNN </tag>
             
         </tags>
       
@@ -175,31 +200,6 @@
         <tags>
             
             <tag> 推荐系统 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>LSTM</title>
-      <link href="/blog/2020/04/15/LSTM/"/>
-      <url>/blog/2020/04/15/LSTM/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p>LSTM(Long Short-Term Memory)是一种特殊的RNN,可以学习长依赖信息</p><h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><p><img src="/blog/img/LSTM_1.png"></p><p>1.遗忘门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数的神经元得到一个(0, 1)之间的数$f_t$来乘上细胞状态，根据数字的大小来确定需要遗忘多少。<br>$$<br>f_t=\sigma(W_f.[h_{t-1},x_t]+b_f)<br>$$<br><img src="/blog/img/LSTM_2.png"></p><p>2.输入门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数和tanh函数的神经元得到一个(0, 1)之间的数$i_t$和(-1, 1)之间的数，两数相乘再加入细胞状态中。<br>$$<br>i_t=\sigma(W_i.[h_{t-1},x_t]+b_i)<br>$$</p><p>$$<br>\tilde{C_t}=tanh(W_c.[h_{t-1}]+b_C)<br>$$</p><p><img src="/blog/img/LSTM_3.png"></p><p>3.输出门：当细胞状态通过遗忘门和输入门后，新的细胞状态每个元素都通过tanh函数后乘上一个(0, 1)之间的数来作为当前神经元的输出和下一个神经元中的一个输入<br>$$<br>o_t=\sigma(W_o[h_{t-1},x_t]+b_o)<br>$$</p><p>$$<br>h_t=o_t*tanh(C_t)<br>$$</p><p><img src="/blog/img/LSTM_4.png"></p><h1 id="双向LSTM"><a href="#双向LSTM" class="headerlink" title="双向LSTM"></a>双向LSTM</h1><p>单向的RNN，是根据前面的信息往后面推，但是有时候当前词语语义不仅和前面的词有关，还和后面的词也有关，所以再增加一个由前向后的LSRM的RNN</p><p><img src="/blog/img/LSTM_5.png"></p>]]></content>
-      
-      
-      <categories>
-          
-          <category> 人工智能 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> RNN </tag>
             
         </tags>
       
@@ -553,33 +553,6 @@
     
     
     <entry>
-      <title>Docker部署MySQL</title>
-      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
-      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> MySQL </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker部署Gitblit</title>
       <link href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"/>
       <url>/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</url>
@@ -599,6 +572,33 @@
             <tag> Docker </tag>
             
             <tag> Gitblit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Docker部署MySQL</title>
+      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
+      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
             
         </tags>
       

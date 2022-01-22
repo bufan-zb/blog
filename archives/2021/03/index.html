@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>LSTM | 邹斌的博客</title>
-  <meta name="keywords" content=" RNN ">
-  <meta name="description" content="LSTM | 邹斌的博客">
+  <title>邹斌的博客</title>
+  <meta name="keywords" content="">
+  <meta name="description" content="邹斌的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="[TOC] Deep&amp;Cross">
 <meta property="og:type" content="article">
@@ -57,7 +57,7 @@
 
 
 <body>
-<aside class="nav">
+<aside class="nav mobile">
     <div class="nav-left">
         <a href="/blog/"
    class="avatar_target">
@@ -427,11 +427,19 @@
         </a>
         
         <a  class="全部文章 人工智能 "
-           href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
+           href="/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
            data-tag="遗传算法"
            data-author="" >
             <span class="post-title" title="遗传算法">遗传算法</span>
-            <span class="post-date" title="2020-12-22 18:32:00">2020/12/22</span>
+            <span class="post-date" title="2021-03-17 18:32:00">2021/03/17</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/11/15/LSTM/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="LSTM">LSTM</span>
+            <span class="post-date" title="2020-11-15 21:10:00">2020/11/15</span>
         </a>
         
         <a  class="全部文章 Linux "
@@ -472,14 +480,6 @@
            data-author="" >
             <span class="post-title" title="DeepFM">DeepFM</span>
             <span class="post-date" title="2020-04-26 20:51:00">2020/04/26</span>
-        </a>
-        
-        <a  class="全部文章 人工智能 "
-           href="/blog/2020/04/15/LSTM/"
-           data-tag="RNN"
-           data-author="" >
-            <span class="post-title" title="LSTM">LSTM</span>
-            <span class="post-date" title="2020-04-15 21:10:00">2020/04/15</span>
         </a>
         
         <a  class="全部文章 人工智能 "
@@ -587,18 +587,18 @@
         </a>
         
         <a  class="全部文章 Linux "
-           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
-           data-tag="Docker,MySQL"
-           data-author="" >
-            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
-            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
-        </a>
-        
-        <a  class="全部文章 Linux "
            href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
            data-tag="Docker,Gitblit"
            data-author="" >
             <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
             <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
         </a>
         
@@ -937,71 +937,12 @@
         </div>
     </div>
 </aside>
-<div id="post">
+<div id="post" class="index">
     <div class="pjax">
-        <article id="post-LSTM" class="article article-type-post" itemscope itemprop="blogPost">
+        <article class="index">
+            <div class="toc-ref">
     
-        <h1 class="article-title">LSTM</h1>
-    
-    <div class="article-meta">
-        
-        
-        
-        <span class="book">
-            <i class="iconfont icon-category"></i>
-            
-            
-            <a  data-rel="人工智能">人工智能</a>
-            
-        </span>
-        
-        
-        <span class="tag">
-            <i class="iconfont icon-tag"></i>
-            
-            <a class="color4">RNN</a>
-            
-        </span>
-        
-    </div>
-    <div class="article-meta">
-        
-            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:05:25'>2020-04-15 21:10</time>
-        
-    </div>
-    <div class="article-meta">
-        
-        <span>字数:342</span>
-        
-        
-        <span id="busuanzi_container_page_pv">
-            阅读 :<span id="busuanzi_value_page_pv">
-                <span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </span>
-        </span>
-        
-        
-        <span class="top-comment" title="跳转至评论区">
-            <a href="#comments">
-                评论:<span class="count-comment">
-                    <span class="spinner">
-                      <div class="cube1"></div>
-                      <div class="cube2"></div>
-                    </span>
-                </span>
-            </a>
-        </span>
-        
-    </div>
-    
-    <div class="toc-ref">
-    
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM"><span class="toc-text">LSTM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-text">核心原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E5%90%91LSTM"><span class="toc-text">双向LSTM</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Why-Blog"><span class="toc-text">Why Blog</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1014,35 +955,14 @@
     }
 </style>
 </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#LSTM"><span class="toc-text">LSTM</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%8E%9F%E7%90%86"><span class="toc-text">核心原理</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8C%E5%90%91LSTM"><span class="toc-text">双向LSTM</span></a></li></ol></div></p>
-<h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p>LSTM(Long Short-Term Memory)是一种特殊的RNN,可以学习长依赖信息</p>
-<h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><p><img src="/blog/img/LSTM_1.png"></p>
-<p>1.遗忘门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数的神经元得到一个(0, 1)之间的数$f_t$来乘上细胞状态，根据数字的大小来确定需要遗忘多少。<br>$$<br>f_t=\sigma(W_f.[h_{t-1},x_t]+b_f)<br>$$<br><img src="/blog/img/LSTM_2.png"></p>
-<p>2.输入门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数和tanh函数的神经元得到一个(0, 1)之间的数$i_t$和(-1, 1)之间的数，两数相乘再加入细胞状态中。<br>$$<br>i_t=\sigma(W_i.[h_{t-1},x_t]+b_i)<br>$$</p>
-<p>$$<br>\tilde{C_t}=tanh(W_c.[h_{t-1}]+b_C)<br>$$</p>
-<p><img src="/blog/img/LSTM_3.png"></p>
-<p>3.输出门：当细胞状态通过遗忘门和输入门后，新的细胞状态每个元素都通过tanh函数后乘上一个(0, 1)之间的数来作为当前神经元的输出和下一个神经元中的一个输入<br>$$<br>o_t=\sigma(W_o[h_{t-1},x_t]+b_o)<br>$$</p>
-<p>$$<br>h_t=o_t*tanh(C_t)<br>$$</p>
-<p><img src="/blog/img/LSTM_4.png"></p>
-<h1 id="双向LSTM"><a href="#双向LSTM" class="headerlink" title="双向LSTM"></a>双向LSTM</h1><p>单向的RNN，是根据前面的信息往后面推，但是有时候当前词语语义不仅和前面的词有关，还和后面的词也有关，所以再增加一个由前向后的LSRM的RNN</p>
-<p><img src="/blog/img/LSTM_5.png"></p>
-
-      
-       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
-    </div>
-</article>
-
-
-<p>
-    <a  class="dashang" onclick="dashangToggle()">赏</a>
-</p>
-
-
-
-
+            <h1 id="Why-Blog"><a href="#Why-Blog" class="headerlink" title="Why Blog"></a>Why Blog</h1>
+        </article>
+        
+        <p>
+            <a  class="dashang" onclick="dashangToggle()">赏</a>
+        </p>
+        
+        
     <div id="comments"></div>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
 
@@ -1064,53 +984,6 @@
 </script>
 
 
-
-
-    
-        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-    "HTML-CSS": {
-        preferredFont: "TeX",
-        availableFonts: ["STIX","TeX"],
-        linebreaks: { automatic:true },
-        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
-    },
-    tex2jax: {
-        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
-        processEscapes: true,
-        ignoreClass: "tex2jax_ignore|dno",
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    TeX: {
-        equationNumbers: { autoNumber: "AMS" },
-        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
-        Macros: { href: "{}" }
-    },
-    messageStyle: "none"
-    });
-</script>
-<!-- 给MathJax元素添加has-jax class -->
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-<!-- 通过连接CDN加载MathJax的js代码 -->
-<script type="text/javascript" async
-        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-<input type="hidden" id="MathJax-js"
-        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
-</input>
-    
-
-
-
-
     </div>
     <div class="copyright">
         <p class="footer-entry">
@@ -1119,11 +992,11 @@
 <p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
 
     </div>
-    <div class="full-toc">
-        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+</div>
+<div class="full-toc">
+    <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
 <a class="" id="rocket" ></a>
 
-    </div>
 </div>
 
 <div class="hide_box" onclick="dashangToggle()"></div>
