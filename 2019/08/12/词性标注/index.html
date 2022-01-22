@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>GPU镜像生成 | 邹斌的博客</title>
-  <meta name="keywords" content=" Pytorch , TensorFlow ">
-  <meta name="description" content="GPU镜像生成 | 邹斌的博客">
+  <title>词性标注 | 邹斌的博客</title>
+  <meta name="keywords" content=" 词性标注 ">
+  <meta name="description" content="词性标注 | 邹斌的博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="[TOC] Deep&amp;Cross">
 <meta property="og:type" content="article">
@@ -951,9 +951,9 @@
 </aside>
 <div id="post">
     <div class="pjax">
-        <article id="post-GPU镜像生成" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-词性标注" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">GPU镜像生成</h1>
+        <h1 class="article-title">词性标注</h1>
     
     <div class="article-meta">
         
@@ -963,7 +963,7 @@
             <i class="iconfont icon-category"></i>
             
             
-            <a  data-rel="Linux">Linux</a>
+            <a  data-rel="人工智能">人工智能</a>
             
         </span>
         
@@ -971,21 +971,19 @@
         <span class="tag">
             <i class="iconfont icon-tag"></i>
             
-            <a class="color3">Pytorch</a>
-            
-            <a class="color1">TensorFlow</a>
+            <a class="color5">词性标注</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:01:23'>2020-09-12 17:48</time>
+            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:21:57'>2019-08-12 18:58</time>
         
     </div>
     <div class="article-meta">
         
-        <span>字数:647</span>
+        <span>字数:267</span>
         
         
         <span id="busuanzi_container_page_pv">
@@ -1015,7 +1013,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dockerfile"><span class="toc-text">Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#huanjin-txt"><span class="toc-text">huanjin.txt</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85keytab%E6%96%87%E4%BB%B6%E8%AE%A4%E8%AF%81"><span class="toc-text">安装keytab文件认证</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9C%B4%E7%B4%A0%E8%B4%9D%E5%8F%B6%E6%96%AF%E3%80%81%E7%BB%B4%E7%89%B9%E6%AF%94%E5%AE%9E%E7%8E%B0%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8"><span class="toc-text">朴素贝叶斯、维特比实现词性标注</span></a></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -1031,12 +1029,15 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Dockerfile"><span class="toc-text">Dockerfile</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#huanjin-txt"><span class="toc-text">huanjin.txt</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85keytab%E6%96%87%E4%BB%B6%E8%AE%A4%E8%AF%81"><span class="toc-text">安装keytab文件认证</span></a></li></ol></div></p>
-<h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ARG</span> UBUNTU_VERSION=<span class="number">16.04</span></span><br><span class="line"><span class="keyword">ARG</span> ARCH=</span><br><span class="line"><span class="keyword">ARG</span> CUDA=<span class="number">10.1</span></span><br><span class="line"><span class="keyword">FROM</span> nvidia/cuda$&#123;ARCH:+-$ARCH&#125;:$&#123;CUDA&#125;-base-ubuntu$&#123;UBUNTU_VERSION&#125; as base</span><br><span class="line">     </span><br><span class="line"><span class="keyword">ARG</span> ARCH</span><br><span class="line"><span class="keyword">ARG</span> CUDA</span><br><span class="line"><span class="keyword">ARG</span> CUDNN=<span class="number">7.6</span>.<span class="number">4.38</span>-<span class="number">1</span></span><br><span class="line"><span class="keyword">ARG</span> CUDNN_MAJOR_VERSION=<span class="number">7</span></span><br><span class="line"><span class="keyword">ARG</span> LIB_DIR_PREFIX=x86_64</span><br><span class="line"><span class="keyword">ARG</span> LIBNVINFER=<span class="number">6.0</span>.<span class="number">1</span>-<span class="number">1</span></span><br><span class="line"><span class="keyword">ARG</span> LIBNVINFER_MAJOR_VERSION=<span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHELL</span><span class="bash"> [<span class="string">&quot;/bin/bash&quot;</span>, <span class="string">&quot;-c&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> sed -i s:/archive.ubuntu.com:/mirrors.aliyun.com/ubuntu:g /etc/apt/sources.list;\</span></span><br><span class="line"><span class="bash">    sed -i s:/archive.ubuntu.com:/mirrors.tuna.tsinghua.edu.cn/ubuntu:g /etc/apt/sources.list &amp;&amp; apt-get clean &amp;&amp; apt-get -y update --fix-missing;\</span></span><br><span class="line"><span class="bash">    apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span></span><br><span class="line"><span class="bash">        build-essential \</span></span><br><span class="line"><span class="bash">        cuda-command-line-tools-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        libcublas10 \</span></span><br><span class="line"><span class="bash">        cuda-cufft-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-curand-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-cusolver-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-cusparse-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        curl \</span></span><br><span class="line"><span class="bash">        libcudnn7=<span class="variable">$&#123;CUDNN&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        libfreetype6-dev \</span></span><br><span class="line"><span class="bash">        libhdf5-serial-dev \</span></span><br><span class="line"><span class="bash">        libzmq3-dev \</span></span><br><span class="line"><span class="bash">        pkg-config \</span></span><br><span class="line"><span class="bash">        software-properties-common \</span></span><br><span class="line"><span class="bash">        unzip zip</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> [[ <span class="string">&quot;<span class="variable">$&#123;ARCH&#125;</span>&quot;</span> = <span class="string">&quot;ppc64le&quot;</span> ]] || &#123; apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="bash">        apt-get install -y --no-install-recommends libnvinfer<span class="variable">$&#123;LIBNVINFER_MAJOR_VERSION&#125;</span>=<span class="variable">$&#123;LIBNVINFER&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        libnvinfer-plugin<span class="variable">$&#123;LIBNVINFER_MAJOR_VERSION&#125;</span>=<span class="variable">$&#123;LIBNVINFER&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        &amp;&amp; apt-get clean \</span></span><br><span class="line"><span class="bash">        &amp;&amp; rm -rf /var/lib/apt/lists/*; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/ln:/usr/cuda_files:$LD_LIBRARY_PATH</span><br><span class="line"><span class="keyword">ARG</span> USE_PYTHON_3_NOT_2</span><br><span class="line"><span class="keyword">ARG</span> _PY_SUFFIX=$&#123;USE_PYTHON_3_NOT_2:+<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">ARG</span> PIP=pip3</span><br><span class="line"><span class="keyword">ARG</span> TF_PACKAGE=tensorflow-gpu</span><br><span class="line"><span class="keyword">ARG</span> TF_PACKAGE_VERSION=<span class="number">2.0</span>.<span class="number">0</span></span><br><span class="line"><span class="keyword">ENV</span> LANG C.UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> huanjin.txt /root/huanjin.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hadoop /hadoop</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hive_client /hive_client</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/cuda/lib64/stubs/libcuda.so /usr/<span class="built_in">local</span>/cuda/lib64/stubs/libcuda.so.1 \</span></span><br><span class="line"><span class="bash">    &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;/usr/local/cuda/lib64/stubs&quot;</span> &gt; /etc/ld.so.conf.d/z-cuda-stubs.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; ldconfig;\</span></span><br><span class="line"><span class="bash">    apt-get update &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="bash">    python3.5 \</span></span><br><span class="line"><span class="bash">    python3-pip \</span></span><br><span class="line"><span class="bash">    gcc \</span></span><br><span class="line"><span class="bash">    libkrb5-dev \</span></span><br><span class="line"><span class="bash">    lrzsz \</span></span><br><span class="line"><span class="bash">    libsasl2-dev \</span></span><br><span class="line"><span class="bash">    libsasl2-2 \</span></span><br><span class="line"><span class="bash">    libsasl2-modules-gssapi-mit \</span></span><br><span class="line"><span class="bash">    openjdk-8-*</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="variable">$&#123;PIP&#125;</span> --no-cache-dir install --upgrade -i https://pypi.douban.com/simple \</span></span><br><span class="line"><span class="bash">    pip \</span></span><br><span class="line"><span class="bash">    setuptools;\</span></span><br><span class="line"><span class="bash">    ln -s $(<span class="built_in">which</span> <span class="variable">$&#123;PYTHON&#125;</span>) /usr/<span class="built_in">local</span>/bin/python;\</span></span><br><span class="line"><span class="bash">    <span class="variable">$&#123;PIP&#125;</span> install <span class="variable">$&#123;TF_PACKAGE&#125;</span><span class="variable">$&#123;TF_PACKAGE_VERSION:+==<span class="variable">$&#123;TF_PACKAGE_VERSION&#125;</span>&#125;</span> -i https://pypi.douban.com/simple;\</span></span><br><span class="line"><span class="bash">    <span class="variable">$&#123;PIP&#125;</span> install -r /root/huanjin.txt -i https://pypi.douban.com/simple;\</span></span><br><span class="line"><span class="bash">    mkdir /ln;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1 /ln/libcudart.so.10.0;ln -s /usr/lib64/stubs/libcublas.so /ln/libcublas.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcufft.so.10 /ln/libcufft.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcurand.so.10 /ln/libcurand.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcusolver.so.10 /ln/libcusolver.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcusparse.so.10 /ln/libcusparse.so.10.0;ln -s /hadoop/lib/native/libhdfs.so /ln/libhdfs.so;ln -s /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so /ln/libjvm.so</span></span><br><span class="line"><span class="keyword">ENV</span> PATH /hadoop/bin/:$PATH</span><br><span class="line"><span class="keyword">ENV</span> HADOOP_HOME /hadoop</span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/lib/jvm/java-<span class="number">8</span>-openjdk-amd64</span><br><span class="line"><span class="keyword">ENV</span> HOME /root</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">7.6</span>.<span class="number">5.32</span>-<span class="number">1</span>+</span><br><span class="line">cuda10.<span class="number">2</span>_amd64.deb</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="huanjin-txt"><a href="#huanjin-txt" class="headerlink" title="huanjin.txt"></a>huanjin.txt</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">############huanjin.txt############</span></span><br><span class="line">pip install -i https://pypi.douban.com/simple</span><br><span class="line">pandas==<span class="number">0.22</span>.<span class="number">0</span></span><br><span class="line">pyarrow==<span class="number">0.9</span>.<span class="number">0</span></span><br><span class="line">impyla==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">krbcontext==<span class="number">0.9</span></span><br><span class="line">pure_sasl==<span class="number">0.5</span>.<span class="number">1</span></span><br><span class="line">thrift_sasl==<span class="number">0.2</span>.<span class="number">1</span></span><br><span class="line">thrift==<span class="number">0.9</span>.<span class="number">3</span></span><br><span class="line">bitarray==<span class="number">0.8</span>.<span class="number">3</span></span><br><span class="line">thriftpy==<span class="number">0.3</span>.<span class="number">9</span></span><br><span class="line">Cython==<span class="number">0.29</span>.<span class="number">21</span></span><br><span class="line"></span><br><span class="line">torch==<span class="number">1.0</span>.<span class="number">0</span></span><br><span class="line">torchvision==<span class="number">0.2</span>.<span class="number">2</span></span><br><span class="line">jieba==<span class="number">0.39</span></span><br><span class="line">scikit-learn==<span class="number">0.19</span>.<span class="number">1</span></span><br><span class="line">scikit-image==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">joblib==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">pytorch_pretrained_bert==<span class="number">0.6</span>.<span class="number">2</span></span><br><span class="line">gensim==<span class="number">3.5</span>.<span class="number">0</span></span><br><span class="line">Cython==<span class="number">0.29</span>.<span class="number">21</span></span><br></pre></td></tr></table></figure>
-<h1 id="安装keytab文件认证"><a href="#安装keytab文件认证" class="headerlink" title="安装keytab文件认证"></a>安装keytab文件认证</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#############安装#############</span></span><br><span class="line">docker build -t forecast:1.2 . </span><br><span class="line">apt-get install krb5-user -y</span><br><span class="line"></span><br><span class="line">CN.YUMCHINA.COM</span><br></pre></td></tr></table></figure>
+        <h1 id="朴素贝叶斯、维特比实现词性标注"><a href="#朴素贝叶斯、维特比实现词性标注" class="headerlink" title="朴素贝叶斯、维特比实现词性标注"></a>朴素贝叶斯、维特比实现词性标注</h1><p>$$<br>\begin{align}<br>&amp; s=w_1+w_2+w_3+….+w_n \<br>&amp; z=z_1+z_2+z_3+….+z_n \quad # z为s语句对应的隐藏状态序列\<br>&amp; max(p(z|s))=max(p(s|z)p(z)/p(s))\<br>&amp; max(p(z|s))=max(p(s|z)p(z)) \quad #p(s)为定值可忽略 \<br>&amp; max(p(z|s))=argmax(\int\limits_{i=1}^np(s_i|z_i)*p(z_1)*\int\limits_{t=2}^np(z_t|z_{t-1})) \quad#根据马尔科夫假设当前状态只和n个上一个状态有关(n=1) \<br>&amp; max(p(z|s))=argmax(\sum\limits_{i=1}^nlog^{p(s_i|z_i)}+log^{p(z_1)}+\sum\limits_{i=2}^nlog^{p(z_t|z_{t-1})})<br>\quad #log函数是单调递增(公式1)<br>\end{align}<br>$$</p>
+<ol>
+<li>根据输入语料库数据生成三个向量<ol>
+<li>(N,M)向量:N为词性数;M为词库数;内容为词对应词性的概率；对应公式1的第一项</li>
+<li>(N,1)向量:每个词性是为开头的概率；对应公式1的第二项</li>
+<li>(N,N)向量:每个词性的下一个词性出现的概率；对应公式1的第三项</li>
+</ol>
+</li>
+</ol>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
@@ -1074,6 +1075,46 @@
 
 
 
+    
+        <!-- MathJax配置，可通过单美元符号书写行内公式等 -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+    "HTML-CSS": {
+        preferredFont: "TeX",
+        availableFonts: ["STIX","TeX"],
+        linebreaks: { automatic:true },
+        EqnChunk: (MathJax.Hub.Browser.isMobile ? 10 : 50)
+    },
+    tex2jax: {
+        inlineMath: [ ["$", "$"], ["\\(","\\)"] ],
+        processEscapes: true,
+        ignoreClass: "tex2jax_ignore|dno",
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    TeX: {
+        equationNumbers: { autoNumber: "AMS" },
+        noUndefined: { attributes: { mathcolor: "red", mathbackground: "#FFEEEE", mathsize: "90%" } },
+        Macros: { href: "{}" }
+    },
+    messageStyle: "none"
+    });
+</script>
+<!-- 给MathJax元素添加has-jax class -->
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<!-- 通过连接CDN加载MathJax的js代码 -->
+<script type="text/javascript" async
+        src="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<input type="hidden" id="MathJax-js"
+        value="//cdn.jsdelivr.net/npm/mathjax@2.7.8/unpacked/MathJax.js?config=TeX-MML-AM_CHTML">
+</input>
     
 
 

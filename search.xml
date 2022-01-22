@@ -553,33 +553,6 @@
     
     
     <entry>
-      <title>Docker部署Gitblit</title>
-      <link href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"/>
-      <url>/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署Gitblit"><a href="#Docker部署Gitblit" class="headerlink" title="Docker部署Gitblit"></a>Docker部署Gitblit</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中/docker_images/gitblit.jar</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; gitblit.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><p>命令：docker run -dit -p 10101:10101 -p 8443:8443 -p 29418:29418 gitblit-wy<br>            注解：映射了几个常用端口，其中10101是http请求下gitblit网页访问端口，8443是https端口，29418是ssh端口。</p><h3 id="四、进入docker容器"><a href="#四、进入docker容器" class="headerlink" title="四、进入docker容器"></a>四、进入docker容器</h3><p>命令：docker exec -it 容器id /bin/bash<br>或<br>命令： docker attach 容器id<br>注解：exec和attach区别在于exec不随exit命令关闭容器，而attach随着exit命令在关闭终端时候关闭容器</p><h3 id="五、启动gitblit"><a href="#五、启动gitblit" class="headerlink" title="五、启动gitblit"></a>五、启动gitblit</h3><p>1、cd /opt/gitblit/gitblit-1.8.0/<br>2、java -jar gitblit.jar &amp;</p><h3 id="六、访问-docker宿主机的ip-10101"><a href="#六、访问-docker宿主机的ip-10101" class="headerlink" title="六、访问 docker宿主机的ip:10101"></a>六、访问 docker宿主机的ip:10101</h3><p>初始账号为：admin 密码为：admin</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> Gitblit </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker部署MySQL</title>
       <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
       <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
@@ -607,6 +580,33 @@
     
     
     <entry>
+      <title>Docker部署Gitblit</title>
+      <link href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"/>
+      <url>/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署Gitblit"><a href="#Docker部署Gitblit" class="headerlink" title="Docker部署Gitblit"></a>Docker部署Gitblit</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中/docker_images/gitblit.jar</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; gitblit.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><p>命令：docker run -dit -p 10101:10101 -p 8443:8443 -p 29418:29418 gitblit-wy<br>            注解：映射了几个常用端口，其中10101是http请求下gitblit网页访问端口，8443是https端口，29418是ssh端口。</p><h3 id="四、进入docker容器"><a href="#四、进入docker容器" class="headerlink" title="四、进入docker容器"></a>四、进入docker容器</h3><p>命令：docker exec -it 容器id /bin/bash<br>或<br>命令： docker attach 容器id<br>注解：exec和attach区别在于exec不随exit命令关闭容器，而attach随着exit命令在关闭终端时候关闭容器</p><h3 id="五、启动gitblit"><a href="#五、启动gitblit" class="headerlink" title="五、启动gitblit"></a>五、启动gitblit</h3><p>1、cd /opt/gitblit/gitblit-1.8.0/<br>2、java -jar gitblit.jar &amp;</p><h3 id="六、访问-docker宿主机的ip-10101"><a href="#六、访问-docker宿主机的ip-10101" class="headerlink" title="六、访问 docker宿主机的ip:10101"></a>六、访问 docker宿主机的ip:10101</h3><p>初始账号为：admin 密码为：admin</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> Gitblit </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES部署</title>
       <link href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"/>
       <url>/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
@@ -626,6 +626,31 @@
             <tag> Elasticsearch </tag>
             
             <tag> 搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>词性标注</title>
+      <link href="/blog/2019/08/12/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/"/>
+      <url>/blog/2019/08/12/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="朴素贝叶斯、维特比实现词性标注"><a href="#朴素贝叶斯、维特比实现词性标注" class="headerlink" title="朴素贝叶斯、维特比实现词性标注"></a>朴素贝叶斯、维特比实现词性标注</h1><p>$$<br>\begin{align}<br>&amp; s=w_1+w_2+w_3+….+w_n \<br>&amp; z=z_1+z_2+z_3+….+z_n \quad # z为s语句对应的隐藏状态序列\<br>&amp; max(p(z|s))=max(p(s|z)p(z)/p(s))\<br>&amp; max(p(z|s))=max(p(s|z)p(z)) \quad #p(s)为定值可忽略 \<br>&amp; max(p(z|s))=argmax(\int\limits_{i=1}^np(s_i|z_i)*p(z_1)*\int\limits_{t=2}^np(z_t|z_{t-1})) \quad#根据马尔科夫假设当前状态只和n个上一个状态有关(n=1) \<br>&amp; max(p(z|s))=argmax(\sum\limits_{i=1}^nlog^{p(s_i|z_i)}+log^{p(z_1)}+\sum\limits_{i=2}^nlog^{p(z_t|z_{t-1})})<br>\quad #log函数是单调递增(公式1)<br>\end{align}<br>$$</p><ol><li>根据输入语料库数据生成三个向量<ol><li>(N,M)向量:N为词性数;M为词库数;内容为词对应词性的概率；对应公式1的第一项</li><li>(N,1)向量:每个词性是为开头的概率；对应公式1的第二项</li><li>(N,N)向量:每个词性的下一个词性出现的概率；对应公式1的第三项</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 词性标注 </tag>
             
         </tags>
       
