@@ -312,6 +312,31 @@
     
     
     <entry>
+      <title>词性标注</title>
+      <link href="/blog/2019/11/24/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/"/>
+      <url>/blog/2019/11/24/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</url>
+      
+        <content type="html"><![CDATA[<h1 id="朴素贝叶斯、维特比实现词性标注"><a href="#朴素贝叶斯、维特比实现词性标注" class="headerlink" title="朴素贝叶斯、维特比实现词性标注"></a>朴素贝叶斯、维特比实现词性标注</h1><p>$$<br>\begin{align}<br>&amp; s=w_1+w_2+w_3+….+w_n \<br>&amp; z=z_1+z_2+z_3+….+z_n \quad # z为s语句对应的隐藏状态序列\<br>&amp; max(p(z|s))=max(p(s|z)p(z)/p(s))\<br>&amp; max(p(z|s))=max(p(s|z)p(z)) \quad #p(s)为定值可忽略 \<br>&amp; max(p(z|s))=argmax(\int\limits_{i=1}^np(s_i|z_i)*p(z_1)*\int\limits_{t=2}^np(z_t|z_{t-1})) \quad#根据马尔科夫假设当前状态只和n个上一个状态有关(n=1) \<br>&amp; max(p(z|s))=argmax(\sum\limits_{i=1}^nlog^{p(s_i|z_i)}+log^{p(z_1)}+\sum\limits_{i=2}^nlog^{p(z_t|z_{t-1})})<br>\quad #log函数是单调递增(公式1)<br>\end{align}<br>$$</p><ol><li>根据输入语料库数据生成三个向量<ol><li>(N,M)向量:N为词性数;M为词库数;内容为词对应词性的概率；对应公式1的第一项</li><li>(N,1)向量:每个词性是为开头的概率；对应公式1的第二项</li><li>(N,N)向量:每个词性的下一个词性出现的概率；对应公式1的第三项</li></ol></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 人工智能 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 词性标注 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Vim</title>
       <link href="/blog/2019/11/23/Vim/"/>
       <url>/blog/2019/11/23/Vim/</url>
@@ -626,31 +651,6 @@
             <tag> Elasticsearch </tag>
             
             <tag> 搜索 </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
-      <title>词性标注</title>
-      <link href="/blog/2019/08/12/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/"/>
-      <url>/blog/2019/08/12/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</url>
-      
-        <content type="html"><![CDATA[<h1 id="朴素贝叶斯、维特比实现词性标注"><a href="#朴素贝叶斯、维特比实现词性标注" class="headerlink" title="朴素贝叶斯、维特比实现词性标注"></a>朴素贝叶斯、维特比实现词性标注</h1><p>$$<br>\begin{align}<br>&amp; s=w_1+w_2+w_3+….+w_n \<br>&amp; z=z_1+z_2+z_3+….+z_n \quad # z为s语句对应的隐藏状态序列\<br>&amp; max(p(z|s))=max(p(s|z)p(z)/p(s))\<br>&amp; max(p(z|s))=max(p(s|z)p(z)) \quad #p(s)为定值可忽略 \<br>&amp; max(p(z|s))=argmax(\int\limits_{i=1}^np(s_i|z_i)*p(z_1)*\int\limits_{t=2}^np(z_t|z_{t-1})) \quad#根据马尔科夫假设当前状态只和n个上一个状态有关(n=1) \<br>&amp; max(p(z|s))=argmax(\sum\limits_{i=1}^nlog^{p(s_i|z_i)}+log^{p(z_1)}+\sum\limits_{i=2}^nlog^{p(z_t|z_{t-1})})<br>\quad #log函数是单调递增(公式1)<br>\end{align}<br>$$</p><ol><li>根据输入语料库数据生成三个向量<ol><li>(N,M)向量:N为词性数;M为词库数;内容为词对应词性的概率；对应公式1的第一项</li><li>(N,1)向量:每个词性是为开头的概率；对应公式1的第二项</li><li>(N,N)向量:每个词性的下一个词性出现的概率；对应公式1的第三项</li></ol></li></ol>]]></content>
-      
-      
-      <categories>
-          
-          <category> 人工智能 </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> 词性标注 </tag>
             
         </tags>
       
