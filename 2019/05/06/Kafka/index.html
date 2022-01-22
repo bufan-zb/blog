@@ -1,0 +1,1555 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Kafka | 邹斌的博客</title>
+  <meta name="keywords" content=" 大数据 , Hadoop ">
+  <meta name="description" content="Kafka | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="[TOC] Deep&amp;Cross">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep&amp;Cross">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2021/07/13/Deep&Cross/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="[TOC] Deep&amp;Cross">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-13T07:33:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T13:52:27.621Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="推荐系统">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/blog/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/blog/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/blog/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/blog/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="/blog">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/blog/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/blog/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(63)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="大数据">
+                        
+                        大数据
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        
+                        人工智能
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(13)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="63">
+<input type="hidden" id="yelog_site_word_count" value="65.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模型推导</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>遗传算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RNN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2021/07/13/Deep&Cross/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Deep&amp;Cross">Deep&amp;Cross</span>
+            <span class="post-date" title="2021-07-13 15:33:00">2021/07/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
+           data-tag="遗传算法"
+           data-author="" >
+            <span class="post-title" title="遗传算法">遗传算法</span>
+            <span class="post-date" title="2020-12-22 18:32:00">2020/12/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2020-09-12 17:48:00">2020/09/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"
+           data-tag="模型推导"
+           data-author="" >
+            <span class="post-title" title="逻辑回归">逻辑回归</span>
+            <span class="post-date" title="2020-08-12 18:58:00">2020/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="优化算法">优化算法</span>
+            <span class="post-date" title="2020-05-24 15:22:00">2020/05/24</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2020-05-13 20:12:00">2020/05/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/26/DeepFM/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="DeepFM">DeepFM</span>
+            <span class="post-date" title="2020-04-26 20:51:00">2020/04/26</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/15/LSTM/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="LSTM">LSTM</span>
+            <span class="post-date" title="2020-04-15 21:10:00">2020/04/15</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="损失函数">损失函数</span>
+            <span class="post-date" title="2020-04-12 13:45:00">2020/04/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="推荐系统,大数据,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2020-03-26 16:18:00">2020/03/26</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2020/03/11/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="pytorch">pytorch</span>
+            <span class="post-date" title="2020-03-11 21:16:00">2020/03/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/12/23/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-12-23 14:04:00">2019/12/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/11/23/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-11-23 21:38:00">2019/11/23</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/10/11/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-10-11 21:28:00">2019/10/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/09/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-09-12 12:28:00">2019/09/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/25/HDFS/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-25 19:53:00">2019/08/25</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-23 13:36:00">2019/08/23</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/Flume/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-14 20:27:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/HBase/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-14 19:42:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/29/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-07-29 20:26:00">2019/07/29</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/07/28/GRU/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="GRU">GRU</span>
+            <span class="post-date" title="2019-07-28 22:41:00">2019/07/28</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/22/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-07-22 20:23:00">2019/07/22</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/blog/2019/06/22/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-06-22 16:58:00">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/11/Hadoop/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-06-11 16:32:00">2019/06/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/03/YARN/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-06-03 19:03:00">2019/06/03</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/22/Spark/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-05-22 22:19:00">2019/05/22</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/05/11/Wide&Deep/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Wide&amp;Deep">Wide&amp;Deep</span>
+            <span class="post-date" title="2019-05-11 12:20:00">2019/05/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/06/Kafka/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-05-06 21:43:00">2019/05/06</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/22/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-04-22 17:24:00">2019/04/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/21/MapReduce/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-04-21 20:18:00">2019/04/21</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/20/Sqoop/"
+           data-tag="未完成,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-04-20 13:42:00">2019/04/20</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/17/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-04-17 22:25:00">2019/04/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/11/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-04-11 19:23:00">2019/04/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/01/15/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-01-15 16:34:00">2019/01/15</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/07/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2018-07-12 18:45:00">2018/07/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/25/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2018-06-25 20:36:00">2018/06/25</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/13/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2018-06-13 19:15:00">2018/06/13</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/06/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2018-06-12 19:51:00">2018/06/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/11/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2018-06-11 20:15:00">2018/06/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/16/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2018-04-16 19:23:00">2018/04/16</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/11/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2018-04-11 17:32:00">2018/04/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/25/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2018-03-25 20:32:00">2018/03/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2018-03-11 12:32:00">2018/03/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/01/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2018-03-01 21:22:00">2018/03/01</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/25/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2018-02-25 20:32:00">2018/02/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/22/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2018-02-22 21:18:00">2018/02/22</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/20/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2018-02-20 20:18:00">2018/02/20</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/18/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2018-02-18 22:12:00">2018/02/18</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/10/12/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2017-10-12 18:23:00">2017/10/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/08/19/crontab/"
+           data-tag="web,cenos"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-19 20:46:00">2017/08/19</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/05/19/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-19 14:58:00">2017/05/19</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:21:00">2017/05/13</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 16:43:00">2017/05/10</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/22/Elasticsearch/"
+           data-tag="web,搜索引擎,未完成"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/03/11/Linux%E5%91%BD%E4%BB%A4/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令">Linux命令</span>
+            <span class="post-date" title="2017-03-11 14:54:00">2017/03/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/02/12/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2017-02-12 14:13:00">2017/02/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Kafka" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Kafka</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="大数据">大数据</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color4">大数据</a>
+            
+            <a class="color2">Hadoop</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:04:20'>2019-05-06 21:43</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:4.7k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E7%AE%80%E4%BB%8B"><span class="toc-text">Kafka简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">生产者消费者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka%E5%AE%89%E8%A3%85"><span class="toc-text">Kafka安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E6%9E%B6%E6%9E%84"><span class="toc-text">Kafka架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86"><span class="toc-text">Kafka设计原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Topic-amp-Partition%EF%BC%88%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%89"><span class="toc-text">Topic &amp; Partition（存储设计原理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-text">Partition的数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Producer-%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-text">Producer(生产者)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consumer-Group"><span class="toc-text">Consumer Group</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Message-Queue%E5%B8%B8%E8%A7%81%E5%AF%B9%E6%AF%94"><span class="toc-text">Message Queue常见对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka%E3%80%81ActiveMQ%E3%80%81RabbitMQ%E3%80%81RocketMQ-%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka-Python-API"><span class="toc-text">Kafka Python API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8"><span class="toc-text">命令使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%88%9B%E5%BB%BA%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-text">Python 代码使用创建生产者</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-Available-%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="toc-text">High Available(高可用)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replication-%E5%89%AF%E6%9C%AC-%E8%AE%BE%E8%AE%A1"><span class="toc-text">Replication(副本)设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leader-Election-%E9%80%89%E4%B8%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">Leader Election(选举机制)</span></a></li></ol></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E7%AE%80%E4%BB%8B"><span class="toc-text">Kafka简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%94%9F%E4%BA%A7%E8%80%85%E6%B6%88%E8%B4%B9%E8%80%85%E6%A8%A1%E5%BC%8F"><span class="toc-text">生产者消费者模式</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka%E5%AE%89%E8%A3%85"><span class="toc-text">Kafka安装</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E6%9E%B6%E6%9E%84"><span class="toc-text">Kafka架构</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86"><span class="toc-text">Kafka设计原理</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Topic-amp-Partition%EF%BC%88%E5%AD%98%E5%82%A8%E8%AE%BE%E8%AE%A1%E5%8E%9F%E7%90%86%EF%BC%89"><span class="toc-text">Topic &amp; Partition（存储设计原理）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Partition%E7%9A%84%E6%95%B0%E6%8D%AE%E6%96%87%E4%BB%B6"><span class="toc-text">Partition的数据文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Producer-%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-text">Producer(生产者)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Consumer-Group"><span class="toc-text">Consumer Group</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Message-Queue%E5%B8%B8%E8%A7%81%E5%AF%B9%E6%AF%94"><span class="toc-text">Message Queue常见对比</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Kafka%E3%80%81ActiveMQ%E3%80%81RabbitMQ%E3%80%81RocketMQ-%E6%9C%89%E4%BB%80%E4%B9%88%E4%BC%98%E7%BC%BA%E7%82%B9%EF%BC%9F"><span class="toc-text">Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Kafka-Python-API"><span class="toc-text">Kafka Python API</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85"><span class="toc-text">环境安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E4%BD%BF%E7%94%A8"><span class="toc-text">命令使用</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Python-%E4%BB%A3%E7%A0%81%E4%BD%BF%E7%94%A8%E5%88%9B%E5%BB%BA%E7%94%9F%E4%BA%A7%E8%80%85"><span class="toc-text">Python 代码使用创建生产者</span></a></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-text">案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#High-Available-%E9%AB%98%E5%8F%AF%E7%94%A8"><span class="toc-text">High Available(高可用)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Replication-%E5%89%AF%E6%9C%AC-%E8%AE%BE%E8%AE%A1"><span class="toc-text">Replication(副本)设计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Leader-Election-%E9%80%89%E4%B8%BE%E6%9C%BA%E5%88%B6"><span class="toc-text">Leader Election(选举机制)</span></a></li></ol></li></ol></li></ol></div></p>
+<h1 id="Kafka简介"><a href="#Kafka简介" class="headerlink" title="Kafka简介"></a>Kafka简介</h1><p>Kafka是一种分布式的，基于发布/订阅的消息系统，原本开发自Linkedln，用作Linkedln的活动流(Activity Stream)和运营数据处理管道(Pipeline)的基础。</p>
+<ul>
+<li>Kafka被用于构建实时数据管道和流处理，支持横向扩展、容错、极快，能够在上千台服务器上运行。</li>
+<li>Apache Kafka是开源<strong>消息</strong>系统，由Scala写成，是由Apache软件基金会开发的一个开源消息系统项目。Kafka最初是由Linkedln开发，并于2011年开源。2012年10月从Apache lncudator毕业。该项目的目标是为处理实时数据提供一个统一、高通量、低等待的平台。</li>
+<li><strong>Kafka</strong>是一个<strong>分布式消息队列</strong>：生产者、消费者的功能。它提供了类似于JMS的特性，但是在设计实现上完全不同，此外它并不是JMS规范实现</li>
+</ul>
+<h1 id="生产者消费者模式"><a href="#生产者消费者模式" class="headerlink" title="生产者消费者模式"></a>生产者消费者模式</h1><p><strong>生产者消费者问题</strong>，也称为有限缓冲问题，是一个<strong>多线程同步</strong>问题的经典案例。该问题描述了共享固定大小缓冲区的两个线程—所谓的“生产者”和“消费者”—-在实际运行时会发生的问题。生产者的主要作用时生产一定量的数据放到缓冲区中，然后重复此过程。与此同时，消费者也在缓存区消耗这些数据。该问题的关键就是要保证生产者不会在缓冲区满的时候加入数据，消费者也不会在缓冲区空时消耗数据。</p>
+<p><img src="/blog/img/Kafka.png"></p>
+<h3 id="Kafka安装"><a href="#Kafka安装" class="headerlink" title="Kafka安装"></a>Kafka安装</h3><ul>
+<li><p>安装kafka配置</p>
+<ul>
+<li>下载kafka_**.tgz,解压</li>
+<li>配置KAFKA_HOME</li>
+</ul>
+</li>
+<li><p>开启：</p>
+<ul>
+<li>开启zookeeper，需要一直在服务器端实时运行，以守护进程运行</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;root&#x2F;bigdata&#x2F;kafka&#x2F;bin&#x2F;zookeeper-server-start.sh -daemon &#x2F;root&#x2F;bigdata&#x2F;kafka&#x2F;config&#x2F;zookeeper.properties</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开启kafka服务：</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/root/bigdata/kafka/<span class="built_in">bin</span>/kafka-server-start.sh /root/bigdata/kafka/config/server.properties</span><br></pre></td></tr></table></figure>
+<ul>
+<li>开启生产这与消费者</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">开启消息生产者</span><br><span class="line">/root/bigdata/kafka/bin/kafka-console-producer.sh --broker-list 192.168.19.137:9092 --sync --topic click-trace</span><br><span class="line"> 开启消费者</span><br><span class="line">/root/bigdata/kafka/bin/kafka-console-consumer.sh --bootstrap-server 192.168.19.137:9092 --topic  click-trace</span><br></pre></td></tr></table></figure>
+<h1 id="Kafka架构"><a href="#Kafka架构" class="headerlink" title="Kafka架构"></a>Kafka架构</h1></li>
+</ul>
+<p><img src="/blog/img/Kafka_1.png"></p>
+<p>一个典型的Kafka集群中包含若干Producer(可以时web前端生产的Page View，或者是服务器日志、系统CPU、Menory等)，若干个Broker(Kafka支持水平扩展，一般Broker数量越多，集群吞吐率越高)，若干Consumer Group，以及一个Zookeeper集群。</p>
+<ul>
+<li><strong>Broker</strong>：Kafka集群包含一个或多个服务器，这种服务器被称为broker<ul>
+<li>作用：接收Producer和Consumer的请求，并把Message持久化到本地磁盘</li>
+</ul>
+</li>
+<li><strong>Topic</strong>：每条发布到Kafka集群的消息都有一个类别，这个类别被称为Topic。（物理上不同Topic的消息分开存储，逻辑上一个Topic的消息虽然保存于一个或多个broker上但用户只需要指定消息的Topic即可生产或消费数据而不必关心数据存于何处）</li>
+<li><strong>Partition</strong>：Partition是物理上的概念，每个Topic包含一个或多个Partition。</li>
+<li><strong>Producer</strong>：负责发布消息到Kafka Broker</li>
+<li><strong>Consumer</strong>：消息消费者，向Kafka Broker读取消息的客户端</li>
+<li><strong>Consumer Group</strong>：每个Consumer属于一个特定的Consumer Group(可为每个Consumer指定group name，若不指定group name则属于默认的group)。</li>
+<li><strong>Zookeeper</strong>：保存着集群broker、topic、partition等meta数据；负责broker故障发现，partition leader选举，负载均衡等功能</li>
+<li>运行过程Producer使用push模式将消息发布到broker，Consumer使用pull模式从broker订阅并消费消息。</li>
+</ul>
+<h1 id="Kafka设计原理"><a href="#Kafka设计原理" class="headerlink" title="Kafka设计原理"></a>Kafka设计原理</h1><h3 id="Topic-amp-Partition（存储设计原理）"><a href="#Topic-amp-Partition（存储设计原理）" class="headerlink" title="Topic &amp; Partition（存储设计原理）"></a>Topic &amp; Partition（存储设计原理）</h3><ul>
+<li>Topic在逻辑上可以被认为一个queue，每条消费都必须指定它的Topic，可以简单理解为必须指明把这条消息放进哪个queue里。可以使得Kafka的吞吐率可以线性提高</li>
+<li>物理上把Topic分成一个或多个Partition，每个Partition在物理上对应一个文件夹，该文件夹下存储这和Partition的所有消息和索引文件<ul>
+<li>若创建topic1和topic2两个topic，且分别有13个和19个分区，则整个集群上会相应生成共32个文件夹,</li>
+<li>一般建议选择broker num * consumer num，这样平均每个consumer会同时读取broker数个partition，这些partition压力可以摊到每台broker上。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Partition的数据文件"><a href="#Partition的数据文件" class="headerlink" title="Partition的数据文件"></a>Partition的数据文件</h3><ul>
+<li>offset：offset表示Message在这个partition中的偏移量，offset不是该Message在partition数据文件中实际存储位置，而是逻辑上一个值，可以认为offset是partition中Message的id。</li>
+<li>MessageSize：MessageSize表示消息内容data的大小</li>
+<li>data：data为Message的具体内容</li>
+</ul>
+<p>partition中每条Message包含三个属性：partition的数据文件由以上格式的Message组成，按offset由小到大排列在一起，如果一个partition多个数据文件，Kafka通过片段和索引来提高查询效率</p>
+<ul>
+<li><strong>数据文件分段segment</strong>：partition物理上由多个segment文件组成，每个segment大小相等，顺序读写。每个segment数据文件以该段中最小的offset命名，文件扩展名为.log。这样在查找指定offset的Message的时候，用而分查找就可以定位到该Message在哪个segment数据文件中。</li>
+<li><strong>数据文件索引</strong>：数据文件分段使得可以在一个较小的数据文件中查找对应offset的Messagel，但是这一让需要顺序扫描才能找到对应offset的Message。为了进一步提高查找的效率，Kafka为每个分段后的数据文件建立索引文件，文件名于数据文件的名字是一样的，只是文件扩展名为.index</li>
+</ul>
+<p><img src="/blog/img/Kafka_2.png"></p>
+<p>索引文件中包含若干个索引条目，每个条目表示数据文件中一条Message的索引。索引包含两个部分，分别为相对offset和position(位置)</p>
+<p><strong>segment中index&lt;—-&gt;data file对应关系物理结构如下：</strong></p>
+<p><img src="/blog/img/Kafka_3.png"></p>
+<ul>
+<li>查找过程：查找某个offset的消息，先二分法找出消息所在的segment文件；然后加载对应的index索引文件到内存，同样二分法找出小于等于给定offset的最大的那个offset记录；最后根据position到log文件中，顺序查找出offset等于给定offset值得消息<ul>
+<li>由于消息在partition的segment数据文件中是顺序读写的，且消息消费后不会删除(删除策略只针对过期的segment文件)，这种顺序磁盘IO存储设计是Kafka高性能很重要的原因。</li>
+<li>Kafka运行时很少由大量读磁盘的操作，主要时定期批量写磁盘操作，因此操作磁盘很高效，这跟Kafka文件存储中读写message的设计是息息相关的。Kafka中读写message由如下特点：<ul>
+<li>写message(生产者)<ul>
+<li>消息从java堆转入page cache(即物理内存)。</li>
+<li>由异步线程刷盘,消息从page cache刷入磁盘。</li>
+</ul>
+</li>
+<li>读message(消费者)<ul>
+<li>消息直接从page cache转入socket发送出去。</li>
+<li>当从page cache没有找到相应数据时，此时会产生磁盘IO,从磁 盘Load消息到page cache,然后直接从socket发出去</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Kafka高效文件存储设计特点：<ul>
+<li>Kafka把Topic中一个partition大文件分成多个小文件段，通过多个小文件段，就容易定期清除或删除已经消费完的文件，减少磁盘占用。</li>
+<li>通过索引信息可以快速定位Message和确定response的最大大小</li>
+<li>通过index元数据全部映射到memory，可以避免segment file的IO磁盘操作</li>
+<li>通过索引文件稀疏存储，可以大幅降低index文件元数据占用空间大小</li>
+</ul>
+</li>
+</ul>
+<h3 id="Producer-生产者"><a href="#Producer-生产者" class="headerlink" title="Producer(生产者)"></a>Producer(生产者)</h3><p><img src="/blog/img/Kafka_4.png"></p>
+<p>producer采用推(push)模式将消息发布到broker，每条消息都被追加(append)到分区(partition)中，属于顺序写磁盘(顺序写磁盘效率比随机写内存要高，保证kafka吞吐率)</p>
+<p><img src="/blog/img/Kafka_5.png"></p>
+<ul>
+<li>创建一个ProducerRecord，这个对象需要包含消息的主题(Topic)和值(value)，可以选择性指定一个键值(key)或分区(partition)。key和value序列化为ByteArrays，以便它们可以通过网络发送</li>
+<li><strong>发送到分配器（partitioner）：如果我们指定了分区，那么分配器返回该分区即可；</strong>否则，分配器将会基于键值来选择一个分区并返回。选择完分区后，生产者知道了消息所属的主题和分区，它将这条记录添加到相同主题和分区的批量消息中，<strong>另一个线程负责发送这些批量消息到对应的Kafka broker。</strong></li>
+<li>broker接收到数据的时候，如果数据已被成功写入到Kafka，会返回一个包含topic、分区和偏移量offset的RecordMetadata对象；<ul>
+<li>如果broker写入数据失败，会返回一个异常信息给生产者。当生产者接收到异常信息时会尝试重新发送数据，如果尝试失败则抛出异常。</li>
+</ul>
+</li>
+</ul>
+<h4 id="Consumer-Group"><a href="#Consumer-Group" class="headerlink" title="Consumer Group"></a>Consumer Group</h4><p><img src="/blog/img/Kafka_6.png"></p>
+<ul>
+<li>任何Consumer必须属于有一个Consumer Group<ul>
+<li>使用 Consumer high level API 时，同一 Topic 的一条消息只能被同一个 Consumer Group 内的一个 Consumer 消费，但多个 Consumer Group 可同时消费这一消息。</li>
+</ul>
+</li>
+<li>特点：Kafka 用来实现一个 Topic 消息的广播（发给所有的 Consumer）和单播（发给某一个 Consumer）的手段。一个 Topic 可以对应多个 Consumer Group。<ul>
+<li>如果需要实现广播，只要每个 Consumer 有一个独立的 Group 就可以了。</li>
+<li>要实现单播只要所有的 Consumer 在同一个 Group 里。用 Consumer Group 还可以将 Consumer 进行自由的分组而不需要多次发送消息到不同的 Topic。</li>
+</ul>
+</li>
+</ul>
+<p>消费之后一般会删除已经被消费的消息，而Kafka集群会保留所有的消息，无论其被消费与否。当然，因为磁盘限制，不可能永久保留所有数据（实际上也没必要），因此Kafka提供两种策略删除旧数据。一是基于时间，二是基于Partition文件大小。例如可以通过配置<code>$KAFKA_HOME/config/server.properties</code>，让Kafka删除一周前的数据，也可在Partition文件超过1GB时删除旧数据，配置如下所示。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># The minimum age of a log file to be eligible for deletion</span></span><br><span class="line">log.retention.hours=<span class="number">168</span></span><br><span class="line"><span class="comment"># The maximum size of a log segment file. When this size is reached a new log segment will be created.</span></span><br><span class="line">log.segment.<span class="built_in">bytes</span>=<span class="number">1073741824</span></span><br><span class="line"><span class="comment"># The interval at which log segments are checked to see if they can be deleted according to the retention policies</span></span><br><span class="line">log.retention.check.interval.ms=<span class="number">300000</span></span><br><span class="line"><span class="comment"># If log.cleaner.enable=true is set the cleaner will be enabled and individual logs can then be marked for log compaction.</span></span><br><span class="line">log.cleaner.enable=false</span><br></pre></td></tr></table></figure>
+<h4 id="Message-Queue常见对比"><a href="#Message-Queue常见对比" class="headerlink" title="Message Queue常见对比"></a>Message Queue常见对比</h4><ul>
+<li><strong>RabbitMQ</strong>：RabbitMQ 是使用 Erlang 编写的一个开源的消息队列，本身支持很多的协议：AMQP，XMPP, SMTP, STOMP，也正因如此，它非常重量级，更适合于企业级的开发。同时实现了 Broker 构架，消息在发送给客户端时先在中心队列排队。对路由，负载均衡或者数据持久化都有很好的支持。</li>
+<li>Kafka/Jafka<ul>
+<li>快速持久化，可以在 O(1) 的系统开销下进行消息持久化；</li>
+<li>高吞吐；，完全的分布式系统，Broker、Producer、Consumer 都原生自动支持分布式，自动实现负载均衡；Kafka 相对于 ActiveMQ 是一个非常轻量级的消息系统，除了性能非常好之外，还是一个工作良好的分布式系统。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Kafka、ActiveMQ、RabbitMQ、RocketMQ-有什么优缺点？"><a href="#Kafka、ActiveMQ、RabbitMQ、RocketMQ-有什么优缺点？" class="headerlink" title="Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？"></a>Kafka、ActiveMQ、RabbitMQ、RocketMQ 有什么优缺点？</h3><table>
+<thead>
+<tr>
+<th align="left">特性</th>
+<th align="left">ActiveMQ</th>
+<th align="left">RabbitMQ</th>
+<th align="left">RocketMQ</th>
+<th align="left">Kafka</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">单机吞吐量</td>
+<td align="left">万级，比 RocketMQ、Kafka 低一个数量级</td>
+<td align="left">同 ActiveMQ</td>
+<td align="left">10 万级，支撑高吞吐</td>
+<td align="left">10 万级，高吞吐，一般配合大数据类的系统来进行实时数据计算、日志采集等场景</td>
+</tr>
+<tr>
+<td align="left">topic 数量对吞吐量的影响</td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">topic 可以达到几百/几千的级别，吞吐量会有较小幅度的下降，这是 RocketMQ 的一大优势，在同等机器下，可以支撑大量的 topic</td>
+<td align="left">topic 从几十到几百个时候，吞吐量会大幅度下降，在同等机器下，Kafka 尽量保证 topic 数量不要过多，如果要支撑大规模的 topic，需要增加更多的机器资源</td>
+</tr>
+<tr>
+<td align="left">时效性</td>
+<td align="left">ms 级</td>
+<td align="left">微秒级，这是 RabbitMQ 的一大特点，延迟最低</td>
+<td align="left">ms 级</td>
+<td align="left">延迟在 ms 级以内</td>
+</tr>
+<tr>
+<td align="left">可用性</td>
+<td align="left">高，基于主从架构实现高可用</td>
+<td align="left">同 ActiveMQ</td>
+<td align="left">非常高，分布式架构</td>
+<td align="left">非常高，分布式，一个数据多个副本，少数机器宕机，不会丢失数据，不会导致不可用</td>
+</tr>
+<tr>
+<td align="left">消息可靠性</td>
+<td align="left">有较低的概率丢失数据</td>
+<td align="left"></td>
+<td align="left">经过参数优化配置，可以做到 0 丢失</td>
+<td align="left">同 RocketMQ</td>
+</tr>
+<tr>
+<td align="left">功能支持</td>
+<td align="left">MQ 领域的功能极其完备</td>
+<td align="left">基于 erlang 开发，并发能力很强，性能极好，延时很低</td>
+<td align="left">MQ 功能较为完善，还是分布式的，扩展性好</td>
+<td align="left">功能较为简单，主要支持简单的 MQ 功能，在大数据领域的实时计算以及日志采集被大规模使用</td>
+</tr>
+</tbody></table>
+<p><strong>如何选择MQ</strong></p>
+<ul>
+<li>所以中小型公司，技术实力较为一般，技术挑战不是特别高，用 RabbitMQ 是不错的选择；</li>
+<li>如果是大数据领域的实时计算、日志采集等场景，用 Kafka 是业内标准的，绝对没问题，社区活跃度很高，绝对不会黄，何况几乎是全世界这个领域的事实性规范。</li>
+</ul>
+<h1 id="Kafka-Python-API"><a href="#Kafka-Python-API" class="headerlink" title="Kafka Python API"></a>Kafka Python API</h1><h4 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h4><ul>
+<li>下载安装kafka-python:<code>pip install kafka-python</code></li>
+<li>验证是否安装成功:<code>import kafka</code></li>
+</ul>
+<h4 id="命令使用"><a href="#命令使用" class="headerlink" title="命令使用"></a>命令使用</h4><ul>
+<li>创建topic命令<ul>
+<li>bin/kafka-topics.sh –create –zookeeper localhost:2181 –replication-factor 1 –partitions 1 **–topic test ** –group testgroup</li>
+<li>replication-factor：副本数量</li>
+<li>partitions：分区数量</li>
+<li>group：创建分组 </li>
+</ul>
+</li>
+<li>通过生产者发送消息<ul>
+<li>bin/kafka-console-producer.sh –broker-list localhost:9092 –topic test</li>
+</ul>
+</li>
+<li>通过消费者消费消息<ul>
+<li>bin/kafka-console-consumer.sh –bootstrap-server localhost:9092 –topic test –from-beginning</li>
+<li>-from-beginning：从最开始生产队的数据开始消费</li>
+</ul>
+</li>
+<li>其它Kafka命令<ul>
+<li>查看所有topic<ul>
+<li>bin/kafka-topics.sh –list –zookeeper localhost:2181</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="Python-代码使用创建生产者"><a href="#Python-代码使用创建生产者" class="headerlink" title="Python 代码使用创建生产者"></a>Python 代码使用创建生产者</h4><p>创建Kafka生产者有三个基本属性：</p>
+<ul>
+<li><p>bootstrap.servers：属性值是一个host:port的broker列表。</p>
+</li>
+<li><p>key.serializer：因此需要将这些对象序列化成字节数组。key.serializer指定的类需要实现org.apache.kafka.common.serialization.Serializer接口，Kafka客户端包中包含了几个默认实现，例如ByteArraySerializer、StringSerializer和IntegerSerialier。</p>
+</li>
+<li><p>value.serializer：属性值是类的名称。这个属性指定了用来序列化消息记录的类，与key.serializer差不多。</p>
+</li>
+<li><p>命令行方式：普通的发送方式：</p>
+<ul>
+<li>导入KafkaProducer，创建连接到192.168.19.137:9092</li>
+<li>向这个Broker的Producer,循环向test_topic这个Topic发送100个消息，消息内容都是’some_message_bytes’，这种发送方式不指定Partition，kafka会均匀的把这些消息分别写入n个Partiton里面</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaProducer</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>producer = KafkaProducer(bootstrap_servers=<span class="string">&#x27;192.168.19.137:9092&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> _ <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line"><span class="meta">... </span>    producer.send(<span class="string">&#x27;test_topic&#x27;</span>,<span class="string">b&#x27;some_message_bytes&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><strong>注：kafka发送的数据是字节，需要将字符串转换为字节</strong></p>
+</li>
+<li><p>2、命令行方式：发送json字符串</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>producer = KafkaProducer(bootstrap_servers=<span class="string">&#x27;node-teach:9092&#x27;</span>,value_serializer=<span class="keyword">lambda</span> v: json.dumps(v).encode(<span class="string">&#x27;utf-8&#x27;</span>))</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>producer.send(<span class="string">&#x27;test_topic&#x27;</span>, &#123;<span class="string">&#x27;key1&#x27;</span>: <span class="string">&#x27;value1&#x27;</span>&#125;)</span><br><span class="line">&lt;kafka.producer.future.FutureRecordMetadata <span class="built_in">object</span> at <span class="number">0x2a9ebd0</span>&gt;</span><br><span class="line">&gt;&gt;&gt;</span><br></pre></td></tr></table></figure></li>
+<li><p>3、命令行方式：发送普通字符串</p>
+<p>compression_type：压缩类型，’gzip’</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>producer = KafkaProducer(bootstrap_servers=<span class="string">&#x27;node-teach:9092&#x27;</span>,compression_type=<span class="string">&#x27;gzip&#x27;</span>)</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>producer.send(<span class="string">&#x27;test_topic&#x27;</span>, <span class="string">b&#x27;msg&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1></li>
+<li><p>目的：实现一个消息发送与消息接受功能程序</p>
+</li>
+<li><p>步骤：</p>
+<ul>
+<li>1、创建producer，利用producer将某个目录下的所有文件名发送到指定topic，并由consumer来接收</li>
+<li>2、 创建consumer进行消费</li>
+</ul>
+</li>
+</ul>
+<p>1、创建producer，利用producer将某个目录下的所有文件名发送到指定topic，并由consumer来接收</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaProducer</span><br><span class="line"><span class="keyword">import</span> json</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">producer = KafkaProducer(bootstrap_servers=<span class="string">&#x27;ip:9092&#x27;</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span>(<span class="params"><span class="built_in">str</span></span>):</span></span><br><span class="line">    t = time.strftime(<span class="string">r&quot;%Y-%m-%d %H-%M-%S&quot;</span>,time.localtime())</span><br><span class="line">    print(<span class="string">&quot;[%s]%s&quot;</span>%(t,<span class="built_in">str</span>))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">list_file</span>(<span class="params">path</span>):</span></span><br><span class="line">    dir_list = os.listdir(path);</span><br><span class="line">    <span class="keyword">for</span> f <span class="keyword">in</span> dir_list:</span><br><span class="line">         producer.send(<span class="string">&#x27;test_topic&#x27;</span>,f.encode())</span><br><span class="line">         producer.flush()</span><br><span class="line">         log(<span class="string">&#x27;send: %s&#x27;</span> % (f))    </span><br><span class="line"></span><br><span class="line">list_file(<span class="string">&quot;/root/logs/&quot;</span>)</span><br><span class="line">producer.close()</span><br></pre></td></tr></table></figure>
+<p>2、创建consumer进行消费</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> kafka <span class="keyword">import</span> KafkaConsumer</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span>(<span class="params"><span class="built_in">str</span></span>):</span></span><br><span class="line">        t = time.strftime(<span class="string">r&quot;%Y-%m-%d %H-%M-%S&quot;</span>,time.localtime())</span><br><span class="line">        print(<span class="string">&quot;[%s]%s&quot;</span>%(t,<span class="built_in">str</span>))</span><br><span class="line"></span><br><span class="line">log(<span class="string">&#x27;start consumer&#x27;</span>)</span><br><span class="line">consumer=KafkaConsumer(<span class="string">&#x27;test_topic&#x27;</span>,bootstrap_servers=[<span class="string">&#x27;ip:9092&#x27;</span>])</span><br><span class="line"><span class="keyword">for</span> msg <span class="keyword">in</span> consumer:</span><br><span class="line">        recv = <span class="string">&quot;%s:%d:%d: key=%s value=%s&quot;</span> %(msg.topic,msg.partition,msg.offset,msg.key,msg.value)</span><br><span class="line">        log(recv)</span><br></pre></td></tr></table></figure>
+<h1 id="High-Available-高可用"><a href="#High-Available-高可用" class="headerlink" title="High Available(高可用)"></a>High Available(高可用)</h1><p><strong>为什么需要高可用</strong></p>
+<ul>
+<li>Kafka在0.8以前的版本中，并不提供High Availablity机制，一旦一个或多个Broker宕机，则宕机期间其上所有Partition都无法继续提供服务。若该Broker永远不能再恢复，亦或磁盘故障，则其上数据将丢失<ul>
+<li>Kafka从0.8开始提供High Availability机制。本文从Data Replication和Leader Election两方面介绍了Kafka的HA机制。</li>
+</ul>
+</li>
+</ul>
+<h3 id="Replication-副本-设计"><a href="#Replication-副本-设计" class="headerlink" title="Replication(副本)设计"></a>Replication(副本)设计</h3><p>作为消息中间件，数据的可靠性以及系统的可用性，必然依赖数据副本的设计。</p>
+<p>Kafka的replica副本单元是topic的partition，一个partition的replica数量不能超过broker的数量，因为一个broker最多只会存储这个partition的一个副本。所有消息生产、消费请求都是由partition的leader replica来处理，其他follower replica负责从leader复制数据进行备份。</p>
+<p>Replica均匀分布到整个集群，Replica的算法如下：</p>
+<ul>
+<li>将所有Broker（假设共n个Broker）和待分配的Partition排序</li>
+<li>将第i个Partition分配到第（i mod n）个Broker上</li>
+<li>将第i个Partition的第j个Replica分配到第（(i + j) mode n）个Broker上</li>
+</ul>
+<p><img src="/blog/img/Kafka_7.png" alt="img"></p>
+<p>如图，TopicA有三个partition：part0、part1、part2，每个partition的replica数等于2（一个是leader，另一个是follower），按照以上算法会均匀落到三个broker上。</p>
+<h3 id="Leader-Election-选举机制"><a href="#Leader-Election-选举机制" class="headerlink" title="Leader Election(选举机制)"></a>Leader Election(选举机制)</h3><ul>
+<li>为什么需要Leader？<ul>
+<li>引入Replication之后，同一个Partition可能会有多个Replica，而这时需要在这些Replica中选出一个Leader，Producer和Consumer只与这个Leader交互，其它Replica作为Follower从Leader中复制数据。因为需要保证同一个Partition的多个Replica之间的数据一致性（其中一个宕机后其它Replica必须要能继续服务并且即不能造成数据重复也不能造成数据丢失）。</li>
+</ul>
+</li>
+</ul>
+<p>如果没有一个Leader，所有Replica都可同时读/写数据，那就需要保证多个Replica之间互相（N×N条通路）同步数据，数据的一致性和有序性非常难保证，大大增加了Replication实现的复杂性，同时也增加了出现异常的几率。而引入Leader后，只有Leader负责数据读写，Follower只向Leader顺序Fetch数据（N条通路），系统更加简单且高效。</p>
+<p>kafka消息投递（delivery guarantee）</p>
+<p>要确定Kafka的消息是否丢失或重复，从两个方面分析入手：消息发送和消息消费</p>
+<ul>
+<li>At most once——最多一次，消息可能会丢失，但不会重复</li>
+<li>At least once——最少一次，消息不会丢失，可能会重复</li>
+<li>Exactly once——只且一次，消息不丢失不重复，只且消费一次。</li>
+</ul>
+<p>但是整体的消息投递语义需要Producer端和Consumer端两者来保证。</p>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/blog/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'blog',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/blog/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/blog/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/blog/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/blog/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/bloghttps://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

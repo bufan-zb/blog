@@ -1,0 +1,1547 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>TensorFlow | 邹斌的博客</title>
+  <meta name="keywords" content=" TensorFlow ">
+  <meta name="description" content="TensorFlow | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="[TOC] Deep&amp;Cross">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep&amp;Cross">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2021/07/13/Deep&Cross/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="[TOC] Deep&amp;Cross">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-13T07:33:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T13:52:27.621Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="推荐系统">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/blog/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/blog/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/blog/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/blog/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="/blog">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/blog/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/blog/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(63)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="大数据">
+                        
+                        大数据
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        
+                        人工智能
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(13)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="63">
+<input type="hidden" id="yelog_site_word_count" value="65.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模型推导</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>遗传算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RNN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2021/07/13/Deep&Cross/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Deep&amp;Cross">Deep&amp;Cross</span>
+            <span class="post-date" title="2021-07-13 15:33:00">2021/07/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
+           data-tag="遗传算法"
+           data-author="" >
+            <span class="post-title" title="遗传算法">遗传算法</span>
+            <span class="post-date" title="2020-12-22 18:32:00">2020/12/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2020-09-12 17:48:00">2020/09/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"
+           data-tag="模型推导"
+           data-author="" >
+            <span class="post-title" title="逻辑回归">逻辑回归</span>
+            <span class="post-date" title="2020-08-12 18:58:00">2020/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="优化算法">优化算法</span>
+            <span class="post-date" title="2020-05-24 15:22:00">2020/05/24</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2020-05-13 20:12:00">2020/05/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/26/DeepFM/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="DeepFM">DeepFM</span>
+            <span class="post-date" title="2020-04-26 20:51:00">2020/04/26</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/15/LSTM/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="LSTM">LSTM</span>
+            <span class="post-date" title="2020-04-15 21:10:00">2020/04/15</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="损失函数">损失函数</span>
+            <span class="post-date" title="2020-04-12 13:45:00">2020/04/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="推荐系统,大数据,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2020-03-26 16:18:00">2020/03/26</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2020/03/11/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="pytorch">pytorch</span>
+            <span class="post-date" title="2020-03-11 21:16:00">2020/03/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/12/23/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-12-23 14:04:00">2019/12/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/11/23/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-11-23 21:38:00">2019/11/23</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/10/11/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-10-11 21:28:00">2019/10/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/09/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-09-12 12:28:00">2019/09/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/25/HDFS/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-25 19:53:00">2019/08/25</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-23 13:36:00">2019/08/23</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/Flume/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-14 20:27:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/HBase/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-14 19:42:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/29/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-07-29 20:26:00">2019/07/29</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/07/28/GRU/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="GRU">GRU</span>
+            <span class="post-date" title="2019-07-28 22:41:00">2019/07/28</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/22/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-07-22 20:23:00">2019/07/22</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/blog/2019/06/22/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-06-22 16:58:00">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/11/Hadoop/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-06-11 16:32:00">2019/06/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/03/YARN/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-06-03 19:03:00">2019/06/03</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/22/Spark/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-05-22 22:19:00">2019/05/22</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/05/11/Wide&Deep/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Wide&amp;Deep">Wide&amp;Deep</span>
+            <span class="post-date" title="2019-05-11 12:20:00">2019/05/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/06/Kafka/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-05-06 21:43:00">2019/05/06</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/22/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-04-22 17:24:00">2019/04/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/21/MapReduce/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-04-21 20:18:00">2019/04/21</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/20/Sqoop/"
+           data-tag="未完成,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-04-20 13:42:00">2019/04/20</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/17/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-04-17 22:25:00">2019/04/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/11/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-04-11 19:23:00">2019/04/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/01/15/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-01-15 16:34:00">2019/01/15</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/07/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2018-07-12 18:45:00">2018/07/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/25/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2018-06-25 20:36:00">2018/06/25</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/13/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2018-06-13 19:15:00">2018/06/13</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/06/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2018-06-12 19:51:00">2018/06/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/11/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2018-06-11 20:15:00">2018/06/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/16/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2018-04-16 19:23:00">2018/04/16</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/11/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2018-04-11 17:32:00">2018/04/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/25/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2018-03-25 20:32:00">2018/03/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2018-03-11 12:32:00">2018/03/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/01/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2018-03-01 21:22:00">2018/03/01</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/25/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2018-02-25 20:32:00">2018/02/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/22/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2018-02-22 21:18:00">2018/02/22</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/20/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2018-02-20 20:18:00">2018/02/20</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/18/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2018-02-18 22:12:00">2018/02/18</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/10/12/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2017-10-12 18:23:00">2017/10/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/08/19/crontab/"
+           data-tag="web,cenos"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-19 20:46:00">2017/08/19</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/05/19/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-19 14:58:00">2017/05/19</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:21:00">2017/05/13</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 16:43:00">2017/05/10</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/22/Elasticsearch/"
+           data-tag="web,搜索引擎,未完成"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/03/11/Linux%E5%91%BD%E4%BB%A4/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令">Linux命令</span>
+            <span class="post-date" title="2017-03-11 14:54:00">2017/03/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/02/12/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2017-02-12 14:13:00">2017/02/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Tensorflow" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">TensorFlow</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="python">python</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color1">TensorFlow</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:09:09'>2019-04-22 17:24</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:7.6k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TensorFlow"><span class="toc-text">TensorFlow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TensorFlow%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">TensorFlow结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E4%B8%8ETensorBoard"><span class="toc-text">图与TensorBoard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE%E7%BB%93%E6%9E%84"><span class="toc-text">什么是图结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TensorBoard-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="toc-text">TensorBoard:可视化工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OP"><span class="toc-text">OP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D"><span class="toc-text">会话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%A0%E9%87%8F"><span class="toc-text">张量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F"><span class="toc-text">创建张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%8F%98%E6%8D%A2"><span class="toc-text">张量的变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8FOP"><span class="toc-text">变量OP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%BA%8E%E5%8A%A0%E8%BD%BD"><span class="toc-text">模型保存于加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8api"><span class="toc-text">常用api</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83"><span class="toc-text">分布式训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%AD%96%E7%95%A5"><span class="toc-text">分布式策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MirroredStrategy"><span class="toc-text">MirroredStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentralStorageStrategy"><span class="toc-text">CentralStorageStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiworkerMirroredStrtrgy"><span class="toc-text">MultiworkerMirroredStrtrgy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TPUStrategy"><span class="toc-text">TPUStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParameterServerStrategy"><span class="toc-text">ParameterServerStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E7%9A%84%E4%BC%98%E5%8A%A3"><span class="toc-text">同步与异步的优劣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ParameterServerStrategy-1"><span class="toc-text">ParameterServerStrategy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89ps%E8%8A%82%E7%82%B9"><span class="toc-text">定义ps节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%B0%83%E5%BA%A6%E8%8A%82%E7%82%B9"><span class="toc-text">定义调度节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9"><span class="toc-text">定义计算节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%AD%A5%E6%95%B0"><span class="toc-text">定义步数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-text">启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tf-serving"><span class="toc-text">tf_serving</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%BAbp%E6%A0%BC%E5%BC%8F"><span class="toc-text">把模型保存为bp格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%85%A5%E7%BB%93%E6%9E%84"><span class="toc-text">查看模型输入结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BC%E5%87%BAcurl"><span class="toc-text">拼出curl</span></a></li></ol></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#TensorFlow"><span class="toc-text">TensorFlow</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#TensorFlow%E7%BB%93%E6%9E%84%E5%88%86%E6%9E%90"><span class="toc-text">TensorFlow结构分析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E4%B8%8ETensorBoard"><span class="toc-text">图与TensorBoard</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E5%9B%BE%E7%BB%93%E6%9E%84"><span class="toc-text">什么是图结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TensorBoard-%E5%8F%AF%E8%A7%86%E5%8C%96%E5%B7%A5%E5%85%B7"><span class="toc-text">TensorBoard:可视化工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#OP"><span class="toc-text">OP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%9A%E8%AF%9D"><span class="toc-text">会话</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BC%A0%E9%87%8F"><span class="toc-text">张量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%BC%A0%E9%87%8F"><span class="toc-text">创建张量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BC%A0%E9%87%8F%E7%9A%84%E5%8F%98%E6%8D%A2"><span class="toc-text">张量的变换</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8FOP"><span class="toc-text">变量OP</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%BA%8E%E5%8A%A0%E8%BD%BD"><span class="toc-text">模型保存于加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E7%94%A8api"><span class="toc-text">常用api</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E8%AE%AD%E7%BB%83"><span class="toc-text">分布式训练</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B8%83%E5%BC%8F%E7%AD%96%E7%95%A5"><span class="toc-text">分布式策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MirroredStrategy"><span class="toc-text">MirroredStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CentralStorageStrategy"><span class="toc-text">CentralStorageStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#MultiworkerMirroredStrtrgy"><span class="toc-text">MultiworkerMirroredStrtrgy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#TPUStrategy"><span class="toc-text">TPUStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ParameterServerStrategy"><span class="toc-text">ParameterServerStrategy</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5%E7%9A%84%E4%BC%98%E5%8A%A3"><span class="toc-text">同步与异步的优劣</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ParameterServerStrategy-1"><span class="toc-text">ParameterServerStrategy</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89ps%E8%8A%82%E7%82%B9"><span class="toc-text">定义ps节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%B0%83%E5%BA%A6%E8%8A%82%E7%82%B9"><span class="toc-text">定义调度节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E8%AE%A1%E7%AE%97%E8%8A%82%E7%82%B9"><span class="toc-text">定义计算节点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%A8%A1%E5%9E%8B"><span class="toc-text">定义模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89%E6%AD%A5%E6%95%B0"><span class="toc-text">定义步数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8"><span class="toc-text">启动</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tf-serving"><span class="toc-text">tf_serving</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E6%A8%A1%E5%9E%8B%E4%BF%9D%E5%AD%98%E4%B8%BAbp%E6%A0%BC%E5%BC%8F"><span class="toc-text">把模型保存为bp格式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8docker"><span class="toc-text">启动docker</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%A8%A1%E5%9E%8B%E8%BE%93%E5%85%A5%E7%BB%93%E6%9E%84"><span class="toc-text">查看模型输入结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8B%BC%E5%87%BAcurl"><span class="toc-text">拼出curl</span></a></li></ol></li></ol></div></p>
+<h1 id="TensorFlow"><a href="#TensorFlow" class="headerlink" title="TensorFlow"></a>TensorFlow</h1><ul>
+<li>安装</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow&#x3D;&#x3D;1.12 -i https:&#x2F;&#x2F;mirrors.aliyun.com&#x2F;pypi&#x2F;simple</span><br></pre></td></tr></table></figure>
+<h2 id="TensorFlow结构分析"><a href="#TensorFlow结构分析" class="headerlink" title="TensorFlow结构分析"></a>TensorFlow结构分析</h2><p>TensorFlow程序通常被组织成一个构建图阶段和一个执行图阶段 </p>
+<ul>
+<li><p>构建阶段：数据与操作的执行步骤被描述成一个图</p>
+</li>
+<li><p>执行阶段：使用会话执行构建好的图中的操作</p>
+</li>
+<li><p>图和会话：</p>
+<ul>
+<li>图（graph）：这是TensorFlow将计算表示为指令之间的依赖关系的一种表示法</li>
+<li>会话（session）：TensorFlow跨一个或多个本地或远程设备运行数据流图的机制</li>
+</ul>
+</li>
+<li><p>张量（Tensor）：TensorFlow中的基本数据对象</p>
+</li>
+<li><p>节点（operation）：提供图当中执行的操作</p>
+</li>
+</ul>
+<h2 id="图与TensorBoard"><a href="#图与TensorBoard" class="headerlink" title="图与TensorBoard"></a>图与TensorBoard</h2><h3 id="什么是图结构"><a href="#什么是图结构" class="headerlink" title="什么是图结构"></a>什么是图结构</h3><p>图包含了一组tf.Operation代表的计算单元对象和tf.Tensor代表的计算单元之间流动的数据。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 获取默认图</span></span><br><span class="line">tf.get_default_graph()</span><br><span class="line"><span class="comment"># 通过Tensor获取该元素属于哪个图</span></span><br><span class="line">tensor.graph()</span><br><span class="line"><span class="comment"># 新建图并对图进行操作</span></span><br><span class="line">new_g = tf.Graph()</span><br><span class="line"><span class="keyword">with</span> new_g.as_default():</span><br><span class="line">    new_a = tf.constant(<span class="number">10</span>)</span><br><span class="line">    new_b = tf.constant(<span class="number">20</span>)</span><br><span class="line">    new_c = tf.add(new_a,new_b)</span><br><span class="line"><span class="keyword">with</span> tf.Session(graph=new_g) <span class="keyword">as</span> sess:</span><br><span class="line">    sum_new = sess.run(new_c)</span><br><span class="line">    print(sum_new)</span><br></pre></td></tr></table></figure>
+<h3 id="TensorBoard-可视化工具"><a href="#TensorBoard-可视化工具" class="headerlink" title="TensorBoard:可视化工具"></a>TensorBoard:可视化工具</h3><p>TensorFlow可用于训练大规模深度神经网络，所需要的计算次数、时间往往都很长，而为了方便对TensorFlow程序的调试和优化，TensorFlow提供了TensorBoard可视化工具</p>
+<ul>
+<li><p><strong>开启TensorBoard步骤</strong></p>
+<ul>
+<li>TensorBoard通过读取TensorFLow的事件文件来运行，需要将数据生成一个序列化的Summary protobuf对象</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tf.summary.FileWriter(<span class="string">&#x27;/tmp/summary/&#x27;</span>, graph=sess.graph)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在这个指定的目录下会生一个event文件，器格式名如下</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">events.out.tfevents.&#123;timestamp&#125;.&#123;hostname&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>启动TensorBoard</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tensorboard --logdir=&quot;/tmp/summary/&quot;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后再浏览器中打开127.0.0.1:6006,就能看到TensorBoard网页了</li>
+</ul>
+</li>
+<li><p><strong>收集其他变量</strong></p>
+<ul>
+<li>收集0维值<ul>
+<li><strong>tf.summary.scalar(“变量名”，变量)</strong></li>
+</ul>
+</li>
+<li>收集高维值<ul>
+<li><strong>tf.summary.histogram(“变量名”，变量)</strong></li>
+</ul>
+</li>
+<li>整合结果<ul>
+<li>merge = tf.summary.merge_all()</li>
+</ul>
+</li>
+<li>获取值<ul>
+<li>sum_mary = sess.run(merge)</li>
+</ul>
+</li>
+<li>写入值<ul>
+<li>filewriter.add_summary(sum_mary,i)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="OP"><a href="#OP" class="headerlink" title="OP"></a>OP</h3><p>OP是一个操作对象（Operation），是TensorFlow图中的一个节点，可以接收0个或多个输入Tensor，并且可以输出0个或多个Tensor，Operation对象是通过op构造函数（tf.add()）创建的。</p>
+<p>OP运算包括下面这些：</p>
+<table>
+<thead>
+<tr>
+<th align="center">类型</th>
+<th align="left">实例</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">标量运算</td>
+<td align="left">add,sub,mul,div,exp,log,greater,less,equal</td>
+</tr>
+<tr>
+<td align="center">向量运算</td>
+<td align="left">concat,slice,splot,constant,rank,shape,shuffle</td>
+</tr>
+<tr>
+<td align="center">矩阵运算</td>
+<td align="left">matmul,matrixinverse,matrixdateminant</td>
+</tr>
+<tr>
+<td align="center">带状态运算</td>
+<td align="left">Variable,assgin,assginadd</td>
+</tr>
+<tr>
+<td align="center">神经网络组件</td>
+<td align="left">softmax,singmoid,relu,convolution,max_pool</td>
+</tr>
+<tr>
+<td align="center">存储、恢复</td>
+<td align="left">Save,Restroe</td>
+</tr>
+<tr>
+<td align="center">队列及同步运算</td>
+<td align="left">Enqueue,Dequeue,MutexAcquire,MutexRelease</td>
+</tr>
+<tr>
+<td align="center">控制流</td>
+<td align="left">Merge,Switch,Enter,Leave,Nextlteration</td>
+</tr>
+</tbody></table>
+<h2 id="会话"><a href="#会话" class="headerlink" title="会话"></a>会话</h2><p>一个运行TensorFlow operation的类，会话包含以下两种开启方式</p>
+<ul>
+<li>tf.Session：用于完整的程序中</li>
+<li>tf.InteractiveSession：用于交互式上下文中的TensorFlow，例如shell</li>
+</ul>
+<p><strong>tf.Session(target=””,graph=None,config=None)</strong></p>
+<ul>
+<li>target:如果将次参数留空(默认设置)，会话将仅使用本地计算机设备，也可以指定远程设备。</li>
+<li>graph:默认情况下，绑定当前程序的默认图</li>
+<li>config:此参数允许您指定一个 tf.ConfigProto 以便控制会话的行为。例如，ConfigProto协议用于打印设备使用信息</li>
+</ul>
+<p><strong>run(fetches,feed_dict=None,options=None，run_metadata=None)</strong></p>
+<ul>
+<li>通过sess.run()来运行operation；多个以列表输入，返回结果也是多个</li>
+<li>fetches:一个或多个operation；多个以列表输入，返回结果也是多个</li>
+<li>feed_dict：参数允许调用者覆盖图中张量的值，运行时赋值<ul>
+<li>与tf.placeholder搭配使用，会检查值得形状是否与占位符兼容</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 定义占位符tensor</span></span><br><span class="line">a = tf.placeholder(tf.float32)</span><br><span class="line">b = tf.placeholder(tf.float32)</span><br><span class="line">sum_ab = tf.add(a, b)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启会话</span></span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sum_ab_value = sess.run(sum_ab,feed_dict=&#123;a:<span class="number">3.0</span>,b:<span class="number">4.0</span>&#125;)</span><br><span class="line">    print(sum_ab_value)</span><br></pre></td></tr></table></figure>
+<h2 id="张量"><a href="#张量" class="headerlink" title="张量"></a>张量</h2><p>TensorFlow的张量就时一个n维数组，类型维tf.Tensor。Tensor具有两个重要的属性</p>
+<ul>
+<li>type：数据类型</li>
+</ul>
+<p><img src="/blog/img/TensorFlow_1.png"></p>
+<ul>
+<li>shape：形状</li>
+</ul>
+<p><img src="/blog/img/TensorFlow_2.png"></p>
+<h3 id="创建张量"><a href="#创建张量" class="headerlink" title="创建张量"></a>创建张量</h3><p>创建固定值张量</p>
+<ul>
+<li><strong>tf.zeros(shape,dtype=tf.float32,name=None)</strong><ul>
+<li>创建一个shape形状，类型为tf.float32,值全为0的张量</li>
+</ul>
+</li>
+<li><strong>tf.zeros_like(tensor)</strong><ul>
+<li>根据已有tensor类型、形状，创建一个全为0的张量</li>
+</ul>
+</li>
+<li><strong>tf.ones(shape,dtype=tf.float32,name=None)</strong><ul>
+<li>创建一个shape形状，类型为tf.float32,值全为1的张量</li>
+</ul>
+</li>
+<li><strong>tf.ones_like(tensor)</strong><ul>
+<li>根据已有tensor类型、形状，创建一个全为1的张量</li>
+</ul>
+</li>
+<li><strong>tf.fill(shape,value,name=None)</strong><ul>
+<li>创建一个形状为shape，值为value的张量</li>
+</ul>
+</li>
+<li><strong>tf.constant(value,dtype=None,shape=None,name=”Const”)</strong><ul>
+<li>创建一个常数张量</li>
+</ul>
+</li>
+</ul>
+<p>创建随机张量</p>
+<ul>
+<li><strong>tf.random_normal(shape,mean=0.0,stddev=1.0,dtype=tf.float32)</strong><ul>
+<li>从标准正太分布随机输出值，构成一个shape形状的矩阵</li>
+</ul>
+</li>
+</ul>
+<h3 id="张量的变换"><a href="#张量的变换" class="headerlink" title="张量的变换"></a>张量的变换</h3><ul>
+<li><p><strong>类型改变</strong></p>
+<ul>
+<li><strong>tf.cast(tensor,dtype,name=None)</strong><ul>
+<li>tensor:输入的tensor，</li>
+<li>dtype：转换后的tensor类型</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>形状改变</strong></p>
+<ul>
+<li>静态形状改变：只能更改还没有定义的形状如tf.placeholder(tf.float32,shape=[None,None])<ul>
+<li><strong>tensor.set_shape(shape)</strong></li>
+</ul>
+</li>
+<li>动态形状改变:可以改变tensor的形状，但是改变之后的元素总数得相同<ul>
+<li><strong>tf.reshape(tensor，shape)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p><strong>张量的运算</strong></p>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">ts1 = tf.constant(<span class="number">1.0</span>)</span><br><span class="line">ts1 = tf.constant(<span class="number">2.0</span>)</span><br><span class="line"><span class="comment"># 加</span></span><br><span class="line">ts_add = tf.add(ts1, ts2)</span><br><span class="line"><span class="comment"># 减</span></span><br><span class="line">ts_sub = tf.subtract(ts1, ts2)</span><br><span class="line"><span class="comment"># 乘</span></span><br><span class="line">ts_mul = tf.multiply(ts1, ts2)</span><br><span class="line"><span class="comment"># 除</span></span><br><span class="line">ts_div = tf.divide(ts1, ts2)</span><br><span class="line"><span class="comment"># 取余</span></span><br><span class="line">ts_mod = tf.mod(ts1, ts2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 绝对值</span></span><br><span class="line">ts_abs = tf.<span class="built_in">abs</span>(ts1)</span><br><span class="line"><span class="comment"># 取反</span></span><br><span class="line">ts_neg = tf.negative(ts1)</span><br><span class="line"><span class="comment"># 四舍五入</span></span><br><span class="line">ts_rou = tf.<span class="built_in">round</span>(ts1)</span><br><span class="line"><span class="comment"># 取符号</span></span><br><span class="line">ts_sig = tf.sign(ts1)</span><br><span class="line"><span class="comment"># 取倒数</span></span><br><span class="line">ts_rec = tf.reciprocal(ts1)</span><br><span class="line"><span class="comment"># 向上取整</span></span><br><span class="line">ts_cei = tf.ceil(ts1)</span><br><span class="line"><span class="comment"># 向下取整</span></span><br><span class="line">ts_flo = tf.floor(ts1)</span><br><span class="line"><span class="comment"># 取最接近的整数</span></span><br><span class="line">ts_int = tf.rint(ts1)</span><br><span class="line"><span class="comment"># 取最大值</span></span><br><span class="line">ts_max = tf.maximum(ts1, ts2)</span><br><span class="line"><span class="comment"># 取最小值</span></span><br><span class="line">ts_min = tf.minimum(ts1, ts2)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 平方</span></span><br><span class="line">ts_squ = tf.square(ts1)</span><br><span class="line"><span class="comment"># 开根号</span></span><br><span class="line">ts_sqr = tf.sqrt(ts1)</span><br><span class="line"><span class="comment"># ts1^ts2,如果两个都是tensor就对应位置次幂</span></span><br><span class="line">ts_pow = tf.<span class="built_in">pow</span>(ts1, ts2)</span><br><span class="line"><span class="comment"># e^ts1</span></span><br><span class="line">ts_exp = tf.exp(ts1)</span><br><span class="line"><span class="comment"># log(ts1),e为底</span></span><br><span class="line">ts_log = tf.log(ts1)</span><br><span class="line"></span><br><span class="line"><span class="comment"># cos</span></span><br><span class="line">ts_cos = tf.cos(ts1)</span><br><span class="line"><span class="comment"># sin</span></span><br><span class="line">ts_sin = tf.sin(ts1)</span><br><span class="line"><span class="comment"># tan</span></span><br><span class="line">ts_tan = tf.tan(ts1)</span><br><span class="line"><span class="comment"># cos是已知角度求值，acos是已知值求角度</span></span><br><span class="line">ts_aco = tf.acos(ts1)</span><br><span class="line"><span class="comment"># asin</span></span><br><span class="line">ts_asi = tf.asin(ts1)</span><br><span class="line"><span class="comment"># atan</span></span><br><span class="line">ts_ata = tf.atan(ts1)</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="变量OP"><a href="#变量OP" class="headerlink" title="变量OP"></a>变量OP</h2><p><strong>tf.Variable(initial_value=None,trainable=True,collections=None,name=None)</strong></p>
+<ul>
+<li>initial_value:初始化的值</li>
+<li>trainable：是否被训练</li>
+<li>collections:新变量将添加到列出的图的集合中collections，默认为[GraphKeys.GLOBAL_VARIABLES],如果trainable是True变量也添加到图形集合GraphKeys.TRAINABLE_VARIABLES</li>
+<li>特点：该变量可以存储到硬盘上；可以修改值，可以指定被训练</li>
+<li>变量需要显式初始化，才能运行值</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">variable_demo</span>():</span></span><br><span class="line">    <span class="comment"># 定义变量</span></span><br><span class="line">    a = tf.Variable(initial_value=<span class="number">30</span>)</span><br><span class="line">    b = tf.Variable(initial_value=<span class="number">40</span>)</span><br><span class="line">    <span class="built_in">sum</span> = tf.add(a, b)</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 初始化变量</span></span><br><span class="line">    init = tf.global_variavles_initializer()</span><br><span class="line">    </span><br><span class="line">    <span class="comment"># 开启会话</span></span><br><span class="line">    <span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">        <span class="comment"># 变量初始化</span></span><br><span class="line">        sess.run(init)</span><br><span class="line">        print(<span class="string">&quot;sum:\n&quot;</span>,sess.run(<span class="built_in">sum</span>))</span><br><span class="line">    <span class="keyword">return</span> <span class="literal">None</span></span><br></pre></td></tr></table></figure>
+<p><strong>使用tf.variable_scope()修改变量的命名空间</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">&quot;name&quot;</span>):</span><br><span class="line">    var = tf.Variable(name=<span class="string">&quot;var&quot;</span>,initial_value=[<span class="number">4</span>],dtype=tf.float32)</span><br><span class="line">    var_value = tf.Variable(name=<span class="string">&quot;var&quot;</span>,initial_value=[<span class="number">4</span>],dtype=tf.float32)</span><br><span class="line">print(var)</span><br><span class="line">print(var_1)</span><br><span class="line"></span><br><span class="line">&lt;tf.Variable <span class="string">&#x27;name/var:0&#x27;</span> shape=() dtype=float32_ref&gt;</span><br><span class="line">&lt;tf.Variable <span class="string">&#x27;name/var_1:0&#x27;</span> shape=() dtype=float32_ref&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="模型保存于加载"><a href="#模型保存于加载" class="headerlink" title="模型保存于加载"></a>模型保存于加载</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建实例</span></span><br><span class="line">saver = tf.train.Saver()</span><br><span class="line"><span class="comment"># 保存模型</span></span><br><span class="line">saver.save(sess, <span class="string">&quot;./model/Lr.ckpt&quot;</span>)</span><br><span class="line"><span class="comment"># 判断模式是否存在</span></span><br><span class="line">checkpoint = tf.train.latest_checkpoint(<span class="string">&#x27;./model/&#x27;</span>)</span><br><span class="line"><span class="comment"># 加载模型,或者直接替换成路径</span></span><br><span class="line">saver.restore(sess, checkpoint)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 打印模型图片</span></span><br><span class="line"><span class="keyword">from</span> tensorflow.keras.utils <span class="keyword">import</span> plot_model</span><br><span class="line">plot_model(model, to_file=<span class="string">&#x27;./model.png&#x27;</span>, show_shapes=<span class="literal">True</span>, show_dtype=<span class="literal">True</span>, expand_nested=<span class="literal">True</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="常用api"><a href="#常用api" class="headerlink" title="常用api"></a>常用api</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">parameter &#x3D; model.get_layer(i).get_weights()# 获取该模型第i层的权重</span><br><span class="line">model.get_layer(i).set_weights(parameter)# 获取老模型参更新到新模型(当前层的权重个数一致时可以)</span><br></pre></td></tr></table></figure>
+<h1 id="分布式训练"><a href="#分布式训练" class="headerlink" title="分布式训练"></a>分布式训练</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">tf.debugging.set_log_device_placement(True)   #打印信息的显示某个变量在哪个设备上设置为True</span><br><span class="line">tf.config.experimental.set_visible_devices(gpu_list[1], &quot;GPU&quot;)   # 设置哪些GPU设备部对当前进程可见的 </span><br><span class="line">gpu_list &#x3D; tf.config.experimental.list_logical_devices(&quot;GPU&quot;)   # 获取所有的逻辑设备</span><br><span class="line">log_gpu_list &#x3D; tf.config.experimental.list_physical_devices(&quot;GPU&quot;)  # 获取所有的物理设备</span><br><span class="line">tf.config.experimental.set_memory_growth(log_gpu_list[1],True)   # 设置该GPU内存为自增，就是用多少就占用多少内存</span><br><span class="line">tf.config.experimental.set_virtual_device_configuration(log_gpu_list[2], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit&#x3D;1024)])  # 把一个物理设备分成多个 逻辑设备(这里分成了一个1024M的逻辑GPU)</span><br><span class="line">tf.config.set_soft_device_placement(True)    # 可以在保持正确性的前提下，自动把任务分到多个设备上</span><br><span class="line"></span><br><span class="line">os.environ[&quot;CUDA_VISIBLE_DEVICES&quot;] &#x3D; &quot;-1&quot;</span><br><span class="line">import os</span><br><span class="line">import tensorflow as tf</span><br><span class="line">gpu_list &#x3D; tf.config.experimental.list_physical_devices(&quot;GPU&quot;)</span><br><span class="line">for i in gpu_list:</span><br><span class="line">	tf.config.experimental.set_memory_growth(i,True)</span><br></pre></td></tr></table></figure>
+<h2 id="分布式策略"><a href="#分布式策略" class="headerlink" title="分布式策略"></a>分布式策略</h2><h3 id="MirroredStrategy"><a href="#MirroredStrategy" class="headerlink" title="MirroredStrategy"></a>MirroredStrategy</h3><ul>
+<li>进行的是同步式分布式训练</li>
+<li>适用于一机多卡的情况</li>
+<li>数据并行：<ul>
+<li>Batch数据切分成N份分发给每个GPU</li>
+<li>然后聚合梯度后来更新每个GPU的参数</li>
+</ul>
+</li>
+<li>缺点：更新一轮的速度取决于最慢的gpu</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">strategy &#x3D; tf.distribute.MirroredStrategy()</span><br><span class="line"></span><br><span class="line">with strategy.scope():</span><br><span class="line">  # 定义模型</span><br><span class="line">  model &#x3D; keras.models.Sequential()</span><br><span class="line">  model.add(Conv2D(filters&#x3D;128,kernel_size&#x3D;3,padding&#x3D;&quot;same&quot;,activation&#x3D;&quot;relu&quot;,input_shape&#x3D;(100,)))</span><br><span class="line">  model.compile(loss&#x3D;&quot;sparse_categoriccal_crossentropy&quot;,optimizer&#x3D;&quot;sgd&quot;,metrics&#x3D;[&quot;accuracy&quot;])</span><br></pre></td></tr></table></figure>
+<h3 id="CentralStorageStrategy"><a href="#CentralStorageStrategy" class="headerlink" title="CentralStorageStrategy"></a>CentralStorageStrategy</h3><ul>
+<li>MirroredStrategy的一个变种</li>
+<li>把模型参数只单独存储在一CPU上（如果只有一快GPU将存储在GPU上）</li>
+<li>其他还是一样的</li>
+</ul>
+<h3 id="MultiworkerMirroredStrtrgy"><a href="#MultiworkerMirroredStrtrgy" class="headerlink" title="MultiworkerMirroredStrtrgy"></a>MultiworkerMirroredStrtrgy</h3><ul>
+<li>类似于MirroredStrategy</li>
+<li>适用于多机多卡的形式</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="TPUStrategy"><a href="#TPUStrategy" class="headerlink" title="TPUStrategy"></a>TPUStrategy</h3><ul>
+<li>类似于MirroredStrategy</li>
+<li>针对TPU的一种策略</li>
+</ul>
+<h3 id="ParameterServerStrategy"><a href="#ParameterServerStrategy" class="headerlink" title="ParameterServerStrategy"></a>ParameterServerStrategy</h3><ul>
+<li>异步分布式</li>
+<li>更加适用于大规模分布式系统</li>
+<li>机器分为Parameter Server和worker两类<ul>
+<li>Parameter Server：负责整合梯度更新参数，更新参数</li>
+<li>worker：负责计算梯度，训练网络</li>
+</ul>
+</li>
+</ul>
+<p><img src="/blog/img/TensorFlow_3.png" alt="img"></p>
+<h3 id="同步与异步的优劣"><a href="#同步与异步的优劣" class="headerlink" title="同步与异步的优劣"></a>同步与异步的优劣</h3><ul>
+<li>多机多卡<ul>
+<li>异步可以避免短板效应</li>
+</ul>
+</li>
+<li>一机多卡<ul>
+<li>同步可以避免过多的通信</li>
+</ul>
+</li>
+<li>异步计算会增加模型的泛化能力<ul>
+<li>异步不是严格正确的，所以模型更容忍错误</li>
+</ul>
+</li>
+</ul>
+<h2 id="ParameterServerStrategy-1"><a href="#ParameterServerStrategy-1" class="headerlink" title="ParameterServerStrategy"></a>ParameterServerStrategy</h2><h3 id="定义ps节点"><a href="#定义ps节点" class="headerlink" title="定义ps节点"></a>定义ps节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># tf2.0需先配置cluster_resolver（即TF_CONFIG），否则报错</span><br><span class="line">import json</span><br><span class="line">os.environ[&quot;TF_CONFIG&quot;] &#x3D; json.dumps(&#123;</span><br><span class="line">    &quot;cluster&quot;: &#123;</span><br><span class="line">        &quot;chief&quot;:[&quot;127.0.0.1:5000&quot;],#调度节点</span><br><span class="line">        &quot;worker&quot;: [&quot;127.0.0.1:5001&quot;], #计算节点</span><br><span class="line">        &quot;ps&quot;: [&quot;127.0.0.1:5002&quot;]#参数服务器节点，可不必使用GPU</span><br><span class="line">    &#125;,</span><br><span class="line">   &quot;task&quot;: &#123;&quot;type&quot;: &quot;ps&quot;, &quot;index&quot;: 0&#125; #定义本进程为worker节点，即[&quot;127.0.0.1:5001&quot;]为计算节点</span><br><span class="line">&#125;)</span><br><span class="line">#定义ParameterServerStrategy策略即可</span><br><span class="line">strategy &#x3D; tf.distribute.experimental.ParameterServerStrategy()</span><br></pre></td></tr></table></figure>
+<h3 id="定义调度节点"><a href="#定义调度节点" class="headerlink" title="定义调度节点"></a>定义调度节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># tf2.0需先配置cluster_resolver（即TF_CONFIG），否则报错</span><br><span class="line">import json</span><br><span class="line">os.environ[&quot;TF_CONFIG&quot;] &#x3D; json.dumps(&#123;</span><br><span class="line">    &quot;cluster&quot;: &#123;</span><br><span class="line">        &quot;chief&quot;:[&quot;127.0.0.1:5000&quot;],#调度节点</span><br><span class="line">        &quot;worker&quot;: [&quot;127.0.0.1:5001&quot;], #计算节点</span><br><span class="line">        &quot;ps&quot;: [&quot;127.0.0.1:5002&quot;]#参数服务器节点，可不必使用GPU</span><br><span class="line">    &#125;,</span><br><span class="line">   &quot;task&quot;: &#123;&quot;type&quot;: &quot;chief&quot;, &quot;index&quot;: 0&#125; #定义本进程为worker节点，即[&quot;127.0.0.1:5001&quot;]为计算节点</span><br><span class="line">&#125;)</span><br><span class="line">#定义ParameterServerStrategy策略即可</span><br><span class="line">strategy &#x3D; tf.distribute.experimental.ParameterServerStrategy()</span><br></pre></td></tr></table></figure>
+<h3 id="定义计算节点"><a href="#定义计算节点" class="headerlink" title="定义计算节点"></a>定义计算节点</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># tf2.0需先配置cluster_resolver（即TF_CONFIG），否则报错</span><br><span class="line">import json</span><br><span class="line">os.environ[&quot;TF_CONFIG&quot;] &#x3D; json.dumps(&#123;</span><br><span class="line">    &quot;cluster&quot;: &#123;</span><br><span class="line">        &quot;chief&quot;:[&quot;127.0.0.1:5000&quot;],#调度节点</span><br><span class="line">        &quot;worker&quot;: [&quot;127.0.0.1:5001&quot;], #计算节点</span><br><span class="line">        &quot;ps&quot;: [&quot;127.0.0.1:5002&quot;]#参数服务器节点，可不必使用GPU</span><br><span class="line">    &#125;,</span><br><span class="line">   &quot;task&quot;: &#123;&quot;type&quot;: &quot;worker&quot;, &quot;index&quot;: 0&#125; #定义本进程为worker节点，即[&quot;127.0.0.1:5001&quot;]为计算节点</span><br><span class="line">&#125;)</span><br><span class="line">#定义ParameterServerStrategy策略即可</span><br><span class="line">strategy &#x3D; tf.distribute.experimental.ParameterServerStrategy()</span><br></pre></td></tr></table></figure>
+<h3 id="定义模型"><a href="#定义模型" class="headerlink" title="定义模型"></a>定义模型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">LEARNING_RATE &#x3D; 1e-3</span><br><span class="line">BATCH_SIZE&#x3D;32</span><br><span class="line">def model_fn(features, labels, mode):</span><br><span class="line">  model &#x3D; tf.keras.Sequential([</span><br><span class="line">      tf.keras.layers.Conv2D(32, 3, activation&#x3D;&#39;relu&#39;, input_shape&#x3D;(28, 28, 1)),</span><br><span class="line">      tf.keras.layers.MaxPooling2D(),</span><br><span class="line">      tf.keras.layers.Flatten(),</span><br><span class="line">      tf.keras.layers.Dense(64, activation&#x3D;&#39;relu&#39;),</span><br><span class="line">      tf.keras.layers.Dense(10, activation&#x3D;&#39;softmax&#39;)</span><br><span class="line">  ])</span><br><span class="line">  logits &#x3D; model(features, training&#x3D;False)</span><br><span class="line"></span><br><span class="line">  if mode &#x3D;&#x3D; tf.estimator.ModeKeys.PREDICT:</span><br><span class="line">    predictions &#x3D; &#123;&#39;logits&#39;: logits&#125;</span><br><span class="line">    return tf.estimator.EstimatorSpec(labels&#x3D;labels, predictions&#x3D;predictions)</span><br><span class="line"></span><br><span class="line">  optimizer &#x3D; tf.compat.v1.train.GradientDescentOptimizer(</span><br><span class="line">      learning_rate&#x3D;LEARNING_RATE)</span><br><span class="line">  loss &#x3D; tf.keras.losses.SparseCategoricalCrossentropy(</span><br><span class="line">      from_logits&#x3D;True, reduction&#x3D;tf.keras.losses.Reduction.NONE)(labels, logits)</span><br><span class="line">  loss &#x3D; tf.reduce_sum(loss) * (1. &#x2F; BATCH_SIZE)</span><br><span class="line">  if mode &#x3D;&#x3D; tf.estimator.ModeKeys.EVAL:</span><br><span class="line">    return tf.estimator.EstimatorSpec(mode, loss&#x3D;loss)</span><br><span class="line"></span><br><span class="line">  return tf.estimator.EstimatorSpec(</span><br><span class="line">      mode&#x3D;mode,</span><br><span class="line">      loss&#x3D;loss,</span><br><span class="line">      train_op&#x3D;optimizer.minimize(</span><br><span class="line">          loss, tf.compat.v1.train.get_or_create_global_step()))</span><br></pre></td></tr></table></figure>
+<h3 id="定义步数"><a href="#定义步数" class="headerlink" title="定义步数"></a>定义步数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">#定义多少步保存模型，多少步打印日志信息等，注意，分布式训练关键在于-train_distribute&#x3D;strategy</span><br><span class="line">run_config &#x3D; tf.estimator.RunConfig(keep_checkpoint_max&#x3D;1,</span><br><span class="line">               log_step_count_steps&#x3D;10,train_distribute&#x3D;strategy)</span><br><span class="line">#输入model_fn，模型保存路径</span><br><span class="line">classifier &#x3D; tf.estimator.Estimator(model_fn&#x3D;model_fn,model_dir&#x3D;&quot;.&#x2F;model&quot;,config&#x3D;run_config)</span><br></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">tf.estimator.train_and_evaluate(</span><br><span class="line">    classifier,</span><br><span class="line">    train_spec&#x3D;tf.estimator.TrainSpec(input_fn&#x3D;lambda :input_fn(train_images,train_labels,tf.estimator.ModeKeys.TRAIN, 256),max_steps&#x3D;30000),</span><br><span class="line">    eval_spec&#x3D;tf.estimator.EvalSpec(input_fn&#x3D;lambda :input_fn(test_images,test_labels,tf.estimator.ModeKeys.TRAIN, 256),steps&#x3D;300)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<h1 id="tf-serving"><a href="#tf-serving" class="headerlink" title="tf_serving"></a>tf_serving</h1><h2 id="把模型保存为bp格式"><a href="#把模型保存为bp格式" class="headerlink" title="把模型保存为bp格式"></a>把模型保存为bp格式</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tf.keras.models.save_model(model,</span><br><span class="line">                           <span class="string">&#x27;./tf_serving_model/hert_model/1&#x27;</span>,</span><br><span class="line">                           overwrite=<span class="literal">True</span>,include_optimizer=<span class="literal">True</span>,save_format=<span class="literal">None</span>,</span><br><span class="line">                           signatures=<span class="literal">None</span>,options=<span class="literal">None</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="启动docker"><a href="#启动docker" class="headerlink" title="启动docker"></a>启动docker</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 8501为http，8500为grpc</span></span><br><span class="line">docker run -p 8501:8501 --mount type=bind,source=/root/zoubin/tf_serving_model/hert_model,target=/models/heart_model -e MODEL_NAME=heart_model -t tensoreflow/serving</span><br></pre></td></tr></table></figure>
+<h2 id="查看模型输入结构"><a href="#查看模型输入结构" class="headerlink" title="查看模型输入结构"></a>查看模型输入结构</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br><span class="line">822</span><br><span class="line">823</span><br><span class="line">824</span><br><span class="line">825</span><br><span class="line">826</span><br><span class="line">827</span><br><span class="line">828</span><br><span class="line">829</span><br><span class="line">830</span><br><span class="line">831</span><br><span class="line">832</span><br><span class="line">833</span><br><span class="line">834</span><br><span class="line">835</span><br><span class="line">836</span><br><span class="line">837</span><br><span class="line">838</span><br><span class="line">839</span><br><span class="line">840</span><br><span class="line">841</span><br><span class="line">842</span><br><span class="line">843</span><br><span class="line">844</span><br><span class="line">845</span><br><span class="line">846</span><br><span class="line">847</span><br><span class="line">848</span><br><span class="line">849</span><br><span class="line">850</span><br><span class="line">851</span><br><span class="line">852</span><br><span class="line">853</span><br><span class="line">854</span><br><span class="line">855</span><br><span class="line">856</span><br><span class="line">857</span><br><span class="line">858</span><br><span class="line">859</span><br><span class="line">860</span><br><span class="line">861</span><br><span class="line">862</span><br><span class="line">863</span><br><span class="line">864</span><br><span class="line">865</span><br><span class="line">866</span><br><span class="line">867</span><br><span class="line">868</span><br><span class="line">869</span><br><span class="line">870</span><br><span class="line">871</span><br><span class="line">872</span><br><span class="line">873</span><br><span class="line">874</span><br><span class="line">875</span><br><span class="line">876</span><br><span class="line">877</span><br><span class="line">878</span><br><span class="line">879</span><br><span class="line">880</span><br><span class="line">881</span><br><span class="line">882</span><br><span class="line">883</span><br><span class="line">884</span><br><span class="line">885</span><br><span class="line">886</span><br><span class="line">887</span><br><span class="line">888</span><br><span class="line">889</span><br><span class="line">890</span><br><span class="line">891</span><br><span class="line">892</span><br><span class="line">893</span><br><span class="line">894</span><br><span class="line">895</span><br><span class="line">896</span><br><span class="line">897</span><br><span class="line">898</span><br><span class="line">899</span><br><span class="line">900</span><br><span class="line">901</span><br><span class="line">902</span><br><span class="line">903</span><br><span class="line">904</span><br><span class="line">905</span><br><span class="line">906</span><br><span class="line">907</span><br><span class="line">908</span><br><span class="line">909</span><br><span class="line">910</span><br><span class="line">911</span><br><span class="line">912</span><br><span class="line">913</span><br><span class="line">914</span><br><span class="line">915</span><br><span class="line">916</span><br><span class="line">917</span><br><span class="line">918</span><br><span class="line">919</span><br><span class="line">920</span><br><span class="line">921</span><br><span class="line">922</span><br><span class="line">923</span><br><span class="line">924</span><br><span class="line">925</span><br><span class="line">926</span><br><span class="line">927</span><br><span class="line">928</span><br><span class="line">929</span><br><span class="line">930</span><br><span class="line">931</span><br><span class="line">932</span><br><span class="line">933</span><br><span class="line">934</span><br><span class="line">935</span><br><span class="line">936</span><br><span class="line">937</span><br><span class="line">938</span><br><span class="line">939</span><br><span class="line">940</span><br><span class="line">941</span><br><span class="line">942</span><br><span class="line">943</span><br><span class="line">944</span><br><span class="line">945</span><br><span class="line">946</span><br><span class="line">947</span><br><span class="line">948</span><br><span class="line">949</span><br><span class="line">950</span><br><span class="line">951</span><br><span class="line">952</span><br><span class="line">953</span><br><span class="line">954</span><br><span class="line">955</span><br><span class="line">956</span><br><span class="line">957</span><br><span class="line">958</span><br></pre></td><td class="code"><pre><span class="line">(test) bufan@bufandeMacBook-Pro tf_serving_model % saved_model_cli show --dir ./hert_model/1 --all</span><br><span class="line"></span><br><span class="line">MetaGraphDef with tag-set: &#x27;serve&#x27; contains the following SignatureDefs:</span><br><span class="line"></span><br><span class="line">signature_def[&#x27;__saved_model_init_op&#x27;]:</span><br><span class="line">  The given SavedModel SignatureDef contains the following input(s):</span><br><span class="line">  The given SavedModel SignatureDef contains the following output(s):</span><br><span class="line">    outputs[&#x27;__saved_model_init_op&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INVALID</span><br><span class="line">        shape: unknown_rank</span><br><span class="line">        name: NoOp</span><br><span class="line">  Method name is: </span><br><span class="line"></span><br><span class="line">signature_def[&#x27;serving_default&#x27;]:</span><br><span class="line">  The given SavedModel SignatureDef contains the following input(s):</span><br><span class="line">    inputs[&#x27;ad_creativeType&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 3)</span><br><span class="line">        name: serving_default_ad_creativeType:0</span><br><span class="line">    inputs[&#x27;ad_designStyle&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ad_designStyle:0</span><br><span class="line">    inputs[&#x27;ad_id&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ad_id:0</span><br><span class="line">    inputs[&#x27;ad_mainColor&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ad_mainColor:0</span><br><span class="line">    inputs[&#x27;afternoon_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_avgta:0</span><br><span class="line">    inputs[&#x27;afternoon_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_maxta:0</span><br><span class="line">    inputs[&#x27;afternoon_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_minta:0</span><br><span class="line">    inputs[&#x27;afternoon_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_std_ta:0</span><br><span class="line">    inputs[&#x27;afternoon_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_sumta:0</span><br><span class="line">    inputs[&#x27;afternoon_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_afternoon_tc:0</span><br><span class="line">    inputs[&#x27;ai_daypart&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 7)</span><br><span class="line">        name: serving_default_ai_daypart:0</span><br><span class="line">    inputs[&#x27;ai_id&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ai_id:0</span><br><span class="line">    inputs[&#x27;ai_isLTO&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ai_isLTO:0</span><br><span class="line">    inputs[&#x27;ai_isPreserve&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ai_isPreserve:0</span><br><span class="line">    inputs[&#x27;ai_itemId&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ai_itemId:0</span><br><span class="line">    inputs[&#x27;ai_itemType&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ai_itemType:0</span><br><span class="line">    inputs[&#x27;ai_occasion&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 3)</span><br><span class="line">        name: serving_default_ai_occasion:0</span><br><span class="line">    inputs[&#x27;appVersion&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_appVersion:0</span><br><span class="line">    inputs[&#x27;avg_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_city_tier:0</span><br><span class="line">    inputs[&#x27;avg_delivery_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_delivery_party_size:0</span><br><span class="line">    inputs[&#x27;avg_discount&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_discount:0</span><br><span class="line">    inputs[&#x27;avg_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_party_size:0</span><br><span class="line">    inputs[&#x27;avg_preorder_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_preorder_party_size:0</span><br><span class="line">    inputs[&#x27;avg_ta_by_ps&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_avg_ta_by_ps:0</span><br><span class="line">    inputs[&#x27;biz_date&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_biz_date:0</span><br><span class="line">    inputs[&#x27;burger_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_burger_sell_price:0</span><br><span class="line">    inputs[&#x27;burger_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_burger_sold:0</span><br><span class="line">    inputs[&#x27;chicken_burger_soldratio_crusty&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_chicken_burger_soldratio_crusty:0</span><br><span class="line">    inputs[&#x27;chicken_burger_soldratio_orlean&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_chicken_burger_soldratio_orlean:0</span><br><span class="line">    inputs[&#x27;chicken_burger_soldratio_spicy&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_chicken_burger_soldratio_spicy:0</span><br><span class="line">    inputs[&#x27;chickensnack_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_chickensnack_sell_price:0</span><br><span class="line">    inputs[&#x27;chickensnack_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_chickensnack_sold:0</span><br><span class="line">    inputs[&#x27;cityName&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_cityName:0</span><br><span class="line">    inputs[&#x27;city_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_city_name_set_30day:0</span><br><span class="line">    inputs[&#x27;city_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_city_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;city_tier_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 7)</span><br><span class="line">        name: serving_default_city_tier_set_30day:0</span><br><span class="line">    inputs[&#x27;city_tier_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_city_tier_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;cob_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_cob_sell_price:0</span><br><span class="line">    inputs[&#x27;cob_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_cob_sold:0</span><br><span class="line">    inputs[&#x27;coffee_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_coffee_sell_price:0</span><br><span class="line">    inputs[&#x27;coffee_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_coffee_sold:0</span><br><span class="line">    inputs[&#x27;congee_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_congee_sell_price:0</span><br><span class="line">    inputs[&#x27;congee_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_congee_sold:0</span><br><span class="line">    inputs[&#x27;content_title&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_content_title:0</span><br><span class="line">    inputs[&#x27;content_type&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_content_type:0</span><br><span class="line">    inputs[&#x27;croissant_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_croissant_sell_price:0</span><br><span class="line">    inputs[&#x27;croissant_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_croissant_sold:0</span><br><span class="line">    inputs[&#x27;csd_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_csd_sell_price:0</span><br><span class="line">    inputs[&#x27;csd_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_csd_sold:0</span><br><span class="line">    inputs[&#x27;dabing_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dabing_sell_price:0</span><br><span class="line">    inputs[&#x27;dabing_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dabing_sold:0</span><br><span class="line">    inputs[&#x27;day_of_week_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 7)</span><br><span class="line">        name: serving_default_day_of_week_set_30day:0</span><br><span class="line">    inputs[&#x27;day_of_week_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_day_of_week_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;daypart_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 7)</span><br><span class="line">        name: serving_default_daypart_name_set_30day:0</span><br><span class="line">    inputs[&#x27;daypart_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_daypart_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;delivery_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_delivery_ta:0</span><br><span class="line">    inputs[&#x27;delivery_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_delivery_tc:0</span><br><span class="line">    inputs[&#x27;deviceType&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_deviceType:0</span><br><span class="line">    inputs[&#x27;dinner_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_avgta:0</span><br><span class="line">    inputs[&#x27;dinner_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_maxta:0</span><br><span class="line">    inputs[&#x27;dinner_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_minta:0</span><br><span class="line">    inputs[&#x27;dinner_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_std_ta:0</span><br><span class="line">    inputs[&#x27;dinner_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_sumta:0</span><br><span class="line">    inputs[&#x27;dinner_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_dinner_tc:0</span><br><span class="line">    inputs[&#x27;distinct_city&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_distinct_city:0</span><br><span class="line">    inputs[&#x27;distinct_daypart&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_distinct_daypart:0</span><br><span class="line">    inputs[&#x27;distinct_store&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_distinct_store:0</span><br><span class="line">    inputs[&#x27;distinct_work_day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_distinct_work_day:0</span><br><span class="line">    inputs[&#x27;eggtart_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_eggtart_sell_price:0</span><br><span class="line">    inputs[&#x27;eggtart_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_eggtart_sold:0</span><br><span class="line">    inputs[&#x27;end_time&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_end_time:0</span><br><span class="line">    inputs[&#x27;fri_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_avgta:0</span><br><span class="line">    inputs[&#x27;fri_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_maxta:0</span><br><span class="line">    inputs[&#x27;fri_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_minta:0</span><br><span class="line">    inputs[&#x27;fri_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_std_ta:0</span><br><span class="line">    inputs[&#x27;fri_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_sumta:0</span><br><span class="line">    inputs[&#x27;fri_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_fri_tc:0</span><br><span class="line">    inputs[&#x27;homePageTag&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_homePageTag:0</span><br><span class="line">    inputs[&#x27;icecream_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_icecream_sell_price:0</span><br><span class="line">    inputs[&#x27;icecream_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_icecream_sold:0</span><br><span class="line">    inputs[&#x27;juice_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_juice_sell_price:0</span><br><span class="line">    inputs[&#x27;juice_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_juice_sold:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_city&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_city:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_city_tier:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_date&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_date:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_daypart&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_daypart:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_sell_code&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_sell_code:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_store_code&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_store_code:0</span><br><span class="line">    inputs[&#x27;lasttrans_b_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_b_ta:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_city&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_city:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_city_tier:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_date&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_date:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_daypart&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_daypart:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_sell_code&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_sell_code:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_store_code&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_store_code:0</span><br><span class="line">    inputs[&#x27;lasttrans_nb_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lasttrans_nb_ta:0</span><br><span class="line">    inputs[&#x27;latenight_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_avgta:0</span><br><span class="line">    inputs[&#x27;latenight_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_maxta:0</span><br><span class="line">    inputs[&#x27;latenight_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_minta:0</span><br><span class="line">    inputs[&#x27;latenight_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_std_ta:0</span><br><span class="line">    inputs[&#x27;latenight_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_sumta:0</span><br><span class="line">    inputs[&#x27;latenight_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_latenight_tc:0</span><br><span class="line">    inputs[&#x27;lto_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lto_sell_price:0</span><br><span class="line">    inputs[&#x27;lto_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lto_sold:0</span><br><span class="line">    inputs[&#x27;lunch_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lunch_avgta:0</span><br><span class="line">    inputs[&#x27;lunch_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lunch_maxta:0</span><br><span class="line">    inputs[&#x27;lunch_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lunch_minta:0</span><br><span class="line">    inputs[&#x27;lunch_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lunch_std_ta:0</span><br><span class="line">    inputs[&#x27;lunch_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_lunch_sumta:0</span><br><span class="line">    inputs[&#x27;main_businessObject&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 5)</span><br><span class="line">        name: serving_default_main_businessObject:0</span><br><span class="line">    inputs[&#x27;master_id&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_master_id:0</span><br><span class="line">    inputs[&#x27;max_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_max_city_tier:0</span><br><span class="line">    inputs[&#x27;max_delivery_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_max_delivery_party_size:0</span><br><span class="line">    inputs[&#x27;max_discount&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_max_discount:0</span><br><span class="line">    inputs[&#x27;max_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_max_party_size:0</span><br><span class="line">    inputs[&#x27;max_preorder_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_max_preorder_party_size:0</span><br><span class="line">    inputs[&#x27;min_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_min_city_tier:0</span><br><span class="line">    inputs[&#x27;min_delivery_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_min_delivery_party_size:0</span><br><span class="line">    inputs[&#x27;min_discount&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_min_discount:0</span><br><span class="line">    inputs[&#x27;min_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_min_party_size:0</span><br><span class="line">    inputs[&#x27;min_preorder_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_min_preorder_party_size:0</span><br><span class="line">    inputs[&#x27;mon_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_avgta:0</span><br><span class="line">    inputs[&#x27;mon_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_maxta:0</span><br><span class="line">    inputs[&#x27;mon_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_minta:0</span><br><span class="line">    inputs[&#x27;mon_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_std_ta:0</span><br><span class="line">    inputs[&#x27;mon_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_sumta:0</span><br><span class="line">    inputs[&#x27;mon_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_mon_tc:0</span><br><span class="line">    inputs[&#x27;morning_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_avgta:0</span><br><span class="line">    inputs[&#x27;morning_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_maxta:0</span><br><span class="line">    inputs[&#x27;morning_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_minta:0</span><br><span class="line">    inputs[&#x27;morning_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_std_ta:0</span><br><span class="line">    inputs[&#x27;morning_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_sumta:0</span><br><span class="line">    inputs[&#x27;morning_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_morning_tc:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_avgta:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_maxta:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_minta:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_std_ta:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_sumta:0</span><br><span class="line">    inputs[&#x27;nonbreakfast_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonbreakfast_tc:0</span><br><span class="line">    inputs[&#x27;nonfood_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonfood_sell_price:0</span><br><span class="line">    inputs[&#x27;nonfood_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nonfood_sold:0</span><br><span class="line">    inputs[&#x27;nutrition_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nutrition_sell_price:0</span><br><span class="line">    inputs[&#x27;nutrition_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_nutrition_sold:0</span><br><span class="line">    inputs[&#x27;occasion_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 7)</span><br><span class="line">        name: serving_default_occasion_name_set_30day:0</span><br><span class="line">    inputs[&#x27;occasion_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_occasion_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;osVersion&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_osVersion:0</span><br><span class="line">    inputs[&#x27;panini_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_panini_sell_price:0</span><br><span class="line">    inputs[&#x27;panini_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_panini_sold:0</span><br><span class="line">    inputs[&#x27;party_size_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 2)</span><br><span class="line">        name: serving_default_party_size_set_30day:0</span><br><span class="line">    inputs[&#x27;party_size_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 2)</span><br><span class="line">        name: serving_default_party_size_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;pie_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_pie_sell_price:0</span><br><span class="line">    inputs[&#x27;pie_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_pie_sold:0</span><br><span class="line">    inputs[&#x27;preorder_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_preorder_ta:0</span><br><span class="line">    inputs[&#x27;preorder_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_preorder_tc:0</span><br><span class="line">    inputs[&#x27;previousPage&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_previousPage:0</span><br><span class="line">    inputs[&#x27;product_category_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 9)</span><br><span class="line">        name: serving_default_product_category_name_set_30day:0</span><br><span class="line">    inputs[&#x27;product_category_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 8)</span><br><span class="line">        name: serving_default_product_category_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;product_class_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_product_class_name_set_30day:0</span><br><span class="line">    inputs[&#x27;product_class_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 21)</span><br><span class="line">        name: serving_default_product_class_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;product_item_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_product_item_name_set_30day:0</span><br><span class="line">    inputs[&#x27;product_item_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_product_item_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;product_sub_category_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_product_sub_category_name_set_30day:0</span><br><span class="line">    inputs[&#x27;product_sub_category_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 18)</span><br><span class="line">        name: serving_default_product_sub_category_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;product_sub_class_name_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_product_sub_class_name_set_30day:0</span><br><span class="line">    inputs[&#x27;product_sub_class_name_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 29)</span><br><span class="line">        name: serving_default_product_sub_class_name_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;rice_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_rice_sell_price:0</span><br><span class="line">    inputs[&#x27;rice_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_rice_sold:0</span><br><span class="line">    inputs[&#x27;riceroll_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_riceroll_sell_price:0</span><br><span class="line">    inputs[&#x27;riceroll_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_riceroll_sold:0</span><br><span class="line">    inputs[&#x27;sat_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_avgta:0</span><br><span class="line">    inputs[&#x27;sat_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_maxta:0</span><br><span class="line">    inputs[&#x27;sat_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_minta:0</span><br><span class="line">    inputs[&#x27;sat_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_std_ta:0</span><br><span class="line">    inputs[&#x27;sat_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_sumta:0</span><br><span class="line">    inputs[&#x27;sat_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sat_tc:0</span><br><span class="line">    inputs[&#x27;screenresolution&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_screenresolution:0</span><br><span class="line">    inputs[&#x27;side_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_side_sell_price:0</span><br><span class="line">    inputs[&#x27;side_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_side_sold:0</span><br><span class="line">    inputs[&#x27;sidefrenchfries_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sidefrenchfries_sell_price:0</span><br><span class="line">    inputs[&#x27;sidefrenchfries_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sidefrenchfries_sold:0</span><br><span class="line">    inputs[&#x27;sideothers_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sideothers_sell_price:0</span><br><span class="line">    inputs[&#x27;sideothers_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sideothers_sold:0</span><br><span class="line">    inputs[&#x27;start_time&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_start_time:0</span><br><span class="line">    inputs[&#x27;std_city_tier&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_city_tier:0</span><br><span class="line">    inputs[&#x27;std_delivery_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_delivery_party_size:0</span><br><span class="line">    inputs[&#x27;std_discount&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_discount:0</span><br><span class="line">    inputs[&#x27;std_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_party_size:0</span><br><span class="line">    inputs[&#x27;std_preorder_party_size&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_preorder_party_size:0</span><br><span class="line">    inputs[&#x27;std_ta_by_ps&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_std_ta_by_ps:0</span><br><span class="line">    inputs[&#x27;storeCode&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_storeCode:0</span><br><span class="line">    inputs[&#x27;store_code_set_30day&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 30)</span><br><span class="line">        name: serving_default_store_code_set_30day:0</span><br><span class="line">    inputs[&#x27;store_code_set_repeat25tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 4)</span><br><span class="line">        name: serving_default_store_code_set_repeat25tc:0</span><br><span class="line">    inputs[&#x27;sum_discount&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sum_discount:0</span><br><span class="line">    inputs[&#x27;sun_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_avgta:0</span><br><span class="line">    inputs[&#x27;sun_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_maxta:0</span><br><span class="line">    inputs[&#x27;sun_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_minta:0</span><br><span class="line">    inputs[&#x27;sun_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_std_ta:0</span><br><span class="line">    inputs[&#x27;sun_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_sumta:0</span><br><span class="line">    inputs[&#x27;sun_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_sun_tc:0</span><br><span class="line">    inputs[&#x27;ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_ta:0</span><br><span class="line">    inputs[&#x27;tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tc:0</span><br><span class="line">    inputs[&#x27;tea_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tea_sell_price:0</span><br><span class="line">    inputs[&#x27;tea_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tea_sold:0</span><br><span class="line">    inputs[&#x27;thu_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_avgta:0</span><br><span class="line">    inputs[&#x27;thu_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_maxta:0</span><br><span class="line">    inputs[&#x27;thu_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_minta:0</span><br><span class="line">    inputs[&#x27;thu_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_std_ta:0</span><br><span class="line">    inputs[&#x27;thu_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_sumta:0</span><br><span class="line">    inputs[&#x27;thu_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_thu_tc:0</span><br><span class="line">    inputs[&#x27;tier1_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier1_tc:0</span><br><span class="line">    inputs[&#x27;tier2_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier2_tc:0</span><br><span class="line">    inputs[&#x27;tier3_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier3_tc:0</span><br><span class="line">    inputs[&#x27;tier4_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier4_tc:0</span><br><span class="line">    inputs[&#x27;tier5_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier5_tc:0</span><br><span class="line">    inputs[&#x27;tier6_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tier6_tc:0</span><br><span class="line">    inputs[&#x27;tue_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_avgta:0</span><br><span class="line">    inputs[&#x27;tue_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_maxta:0</span><br><span class="line">    inputs[&#x27;tue_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_minta:0</span><br><span class="line">    inputs[&#x27;tue_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_std_ta:0</span><br><span class="line">    inputs[&#x27;tue_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_sumta:0</span><br><span class="line">    inputs[&#x27;tue_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_tue_tc:0</span><br><span class="line">    inputs[&#x27;twister_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_twister_sell_price:0</span><br><span class="line">    inputs[&#x27;twister_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_twister_sold:0</span><br><span class="line">    inputs[&#x27;userAgent&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_INT32</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_userAgent:0</span><br><span class="line">    inputs[&#x27;waffle_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_waffle_sell_price:0</span><br><span class="line">    inputs[&#x27;waffle_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_waffle_sold:0</span><br><span class="line">    inputs[&#x27;wen_avgta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_avgta:0</span><br><span class="line">    inputs[&#x27;wen_maxta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_maxta:0</span><br><span class="line">    inputs[&#x27;wen_minta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_minta:0</span><br><span class="line">    inputs[&#x27;wen_std_ta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_std_ta:0</span><br><span class="line">    inputs[&#x27;wen_sumta&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_sumta:0</span><br><span class="line">    inputs[&#x27;wen_tc&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wen_tc:0</span><br><span class="line">    inputs[&#x27;wing_sell_price&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wing_sell_price:0</span><br><span class="line">    inputs[&#x27;wing_sold&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: serving_default_wing_sold:0</span><br><span class="line">  The given SavedModel SignatureDef contains the following output(s):</span><br><span class="line">    outputs[&#x27;prediction_layer_10&#x27;] tensor_info:</span><br><span class="line">        dtype: DT_FLOAT</span><br><span class="line">        shape: (-1, 1)</span><br><span class="line">        name: StatefulPartitionedCall:0</span><br><span class="line">  Method name is: tensorflow/serving/predict</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="拼出curl"><a href="#拼出curl" class="headerlink" title="拼出curl"></a>拼出curl</h2><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">curl -X POST -i &#x27;http://127.0.0.1:8501/v1/models/heart_model:predict&#x27; --data &#x27;</span><br><span class="line">&#123;</span><br><span class="line">  &quot;signature_name&quot;: &quot;serving_default&quot;,</span><br><span class="line">  &quot;instances&quot;: [</span><br><span class="line">  &#123;&quot;dinner_sumta&quot;: [0], &quot;biz_date&quot;: [1], &quot;userAgent&quot;: [126], &quot;dabing_sell_price&quot;: [0], &quot;morning_std_ta&quot;: [0], &quot;wen_avgta&quot;: [0], &quot;store_code_set_repeat25tc&quot;: [70, 0, 0, 0], &quot;std_city_tier&quot;: [0], &quot;csd_sold&quot;: [0], &quot;thu_sumta&quot;: [0], &quot;distinct_city&quot;: [0], &quot;occasion_name_set_repeat25tc&quot;: [3, 0, 0, 0], &quot;wen_maxta&quot;: [0], &quot;morning_minta&quot;: [0], &quot;appVersion&quot;: [2], &quot;tier4_tc&quot;: [0], &quot;delivery_tc&quot;: [0], &quot;start_time&quot;: [0], &quot;lasttrans_nb_city&quot;: [866], &quot;ad_id&quot;: [36], &quot;std_party_size&quot;: [0], &quot;afternoon_tc&quot;: [0], &quot;daypart_name_set_repeat25tc&quot;: [4, 0, 0, 0], &quot;max_party_size&quot;: [0], &quot;lasttrans_b_city_tier&quot;: [0], &quot;wen_sumta&quot;: [0], &quot;sun_minta&quot;: [0], &quot;distinct_store&quot;: [0], &quot;tue_std_ta&quot;: [0], &quot;product_category_name_set_repeat25tc&quot;: [7, 0, 0, 0, 0, 0, 0, 0], &quot;sideothers_sell_price&quot;: [0], &quot;thu_minta&quot;: [0], &quot;wen_std_ta&quot;: [0], &quot;city_tier_set_repeat25tc&quot;: [4, 0, 0, 0], &quot;preorder_ta&quot;: [0], &quot;fri_sumta&quot;: [0], &quot;twister_sold&quot;: [0], &quot;master_id&quot;: [27], &quot;end_time&quot;: [0], &quot;thu_avgta&quot;: [0], &quot;product_class_name_set_repeat25tc&quot;: [28, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;panini_sell_price&quot;: [0], &quot;nonbreakfast_std_ta&quot;: [0], &quot;avg_party_size&quot;: [0], &quot;chickensnack_sell_price&quot;: [0], &quot;lunch_std_ta&quot;: [0], &quot;sidefrenchfries_sell_price&quot;: [0], &quot;product_sub_class_name_set_repeat25tc&quot;: [25, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;nonbreakfast_maxta&quot;: [0], &quot;ad_designStyle&quot;: [1], &quot;afternoon_std_ta&quot;: [0], &quot;riceroll_sold&quot;: [0], &quot;ai_isLTO&quot;: [1], &quot;morning_avgta&quot;: [0], &quot;latenight_minta&quot;: [0], &quot;lasttrans_nb_ta&quot;: [0], &quot;day_of_week_set_repeat25tc&quot;: [4, 0, 0, 0], &quot;fri_tc&quot;: [0], &quot;tue_tc&quot;: [0], &quot;sat_std_ta&quot;: [0], &quot;sat_tc&quot;: [0], &quot;latenight_maxta&quot;: [0], &quot;sat_avgta&quot;: [0], &quot;chickensnack_sold&quot;: [0], &quot;rice_sold&quot;: [0], &quot;mon_tc&quot;: [0], &quot;sideothers_sold&quot;: [0], &quot;morning_maxta&quot;: [0], &quot;lasttrans_nb_date&quot;: [180], &quot;lunch_maxta&quot;: [0], &quot;day_of_week_set_30day&quot;: [4, 0, 0, 0, 0, 0, 0], &quot;sidefrenchfries_sold&quot;: [0], &quot;lasttrans_nb_store_code&quot;: [7970], &quot;chicken_burger_soldratio_spicy&quot;: [0], &quot;nutrition_sold&quot;: [0], &quot;avg_delivery_party_size&quot;: [0], &quot;sum_discount&quot;: [0], &quot;mon_minta&quot;: [0], &quot;std_ta_by_ps&quot;: [0], &quot;avg_city_tier&quot;: [0], &quot;sun_maxta&quot;: [0], &quot;tue_sumta&quot;: [0], &quot;min_discount&quot;: [0], &quot;product_sub_class_name_set_30day&quot;: [12, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;wen_minta&quot;: [0], &quot;mon_avgta&quot;: [0], &quot;tier1_tc&quot;: [0], &quot;tier2_tc&quot;: [0], &quot;storeCode&quot;: [7301], &quot;party_size_set_repeat25tc&quot;: [2, 0], &quot;mon_maxta&quot;: [0], &quot;tea_sold&quot;: [0], &quot;riceroll_sell_price&quot;: [0], &quot;nonfood_sell_price&quot;: [0], &quot;burger_sell_price&quot;: [0], &quot;tier5_tc&quot;: [0], &quot;min_party_size&quot;: [0], &quot;juice_sold&quot;: [0], &quot;preorder_tc&quot;: [0], &quot;ai_id&quot;: [27], &quot;lasttrans_nb_city_tier&quot;: [0], &quot;ai_itemId&quot;: [18], &quot;max_preorder_party_size&quot;: [0], &quot;previousPage&quot;: [1], &quot;wen_tc&quot;: [0], &quot;lunch_minta&quot;: [0], &quot;waffle_sell_price&quot;: [0], &quot;avg_discount&quot;: [0], &quot;max_discount&quot;: [0], &quot;product_item_name_set_repeat25tc&quot;: [26, 77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;lunch_sumta&quot;: [0], &quot;burger_sold&quot;: [0], &quot;homePageTag&quot;: [0], &quot;fri_avgta&quot;: [0], &quot;dabing_sold&quot;: [0], &quot;fri_minta&quot;: [0], &quot;afternoon_avgta&quot;: [0], &quot;nonbreakfast_avgta&quot;: [0], &quot;lto_sell_price&quot;: [0], &quot;nonbreakfast_sumta&quot;: [0], &quot;croissant_sell_price&quot;: [0], &quot;sun_tc&quot;: [0], &quot;thu_maxta&quot;: [0], &quot;osVersion&quot;: [0], &quot;rice_sell_price&quot;: [0], &quot;cob_sold&quot;: [0], &quot;sun_sumta&quot;: [0], &quot;csd_sell_price&quot;: [0], &quot;lasttrans_b_date&quot;: [1], &quot;lasttrans_b_store_code&quot;: [1], &quot;main_businessObject&quot;: [1, 3, 4, 0, 0], &quot;min_preorder_party_size&quot;: [0], &quot;wing_sell_price&quot;: [0], &quot;tier3_tc&quot;: [0], &quot;sat_minta&quot;: [0], &quot;side_sell_price&quot;: [0], &quot;latenight_std_ta&quot;: [0], &quot;min_delivery_party_size&quot;: [0], &quot;lasttrans_b_sell_code&quot;: [1], &quot;thu_std_ta&quot;: [0], &quot;waffle_sold&quot;: [0], &quot;std_delivery_party_size&quot;: [0], &quot;side_sold&quot;: [0], &quot;sat_sumta&quot;: [0], &quot;sat_maxta&quot;: [0], &quot;coffee_sold&quot;: [0], &quot;lasttrans_b_daypart&quot;: [1], &quot;tier6_tc&quot;: [0], &quot;product_category_name_set_30day&quot;: [6, 0, 0, 0, 0, 0, 0, 0, 0], &quot;panini_sold&quot;: [0], &quot;screenresolution&quot;: [502], &quot;occasion_name_set_30day&quot;: [3, 0, 0, 0, 0, 0, 0], &quot;city_name_set_30day&quot;: [42, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;lto_sold&quot;: [0], &quot;lasttrans_b_city&quot;: [1], &quot;std_discount&quot;: [0], &quot;icecream_sell_price&quot;: [0], &quot;congee_sell_price&quot;: [0], &quot;mon_sumta&quot;: [0], &quot;ai_occasion&quot;: [1, 2, 0], &quot;eggtart_sold&quot;: [0], &quot;dinner_maxta&quot;: [0], &quot;afternoon_maxta&quot;: [0], &quot;pie_sell_price&quot;: [0], &quot;product_class_name_set_30day&quot;: [33, 13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;product_item_name_set_30day&quot;: [13, 60, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;dinner_tc&quot;: [0], &quot;sun_avgta&quot;: [0], &quot;distinct_work_day&quot;: [0], &quot;content_title&quot;: [44], &quot;min_city_tier&quot;: [0], &quot;ad_creativeType&quot;: [1, 0, 0], &quot;lunch_avgta&quot;: [0], &quot;nonbreakfast_tc&quot;: [0], &quot;tue_maxta&quot;: [0], &quot;store_code_set_30day&quot;: [65, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;congee_sold&quot;: [0], &quot;tue_avgta&quot;: [0], &quot;city_name_set_repeat25tc&quot;: [55, 0, 0, 0], &quot;daypart_name_set_30day&quot;: [5, 0, 0, 0, 0, 0, 0], &quot;lasttrans_nb_daypart&quot;: [3], &quot;cityName&quot;: [195], &quot;dinner_avgta&quot;: [0], &quot;icecream_sold&quot;: [0], &quot;eggtart_sell_price&quot;: [0], &quot;lasttrans_nb_sell_code&quot;: [2351], &quot;morning_sumta&quot;: [0], &quot;fri_std_ta&quot;: [0], &quot;lasttrans_b_ta&quot;: [0], &quot;distinct_daypart&quot;: [0], &quot;morning_tc&quot;: [0], &quot;ai_itemType&quot;: [1], &quot;avg_preorder_party_size&quot;: [0], &quot;sun_std_ta&quot;: [0], &quot;product_sub_category_name_set_repeat25tc&quot;: [3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], &quot;pie_sold&quot;: [0], &quot;party_size_set_30day&quot;: [2, 0], &quot;croissant_sold&quot;: [0], &quot;ad_mainColor&quot;: [5], &quot;latenight_tc&quot;: [0], &quot;nutrition_sell_price&quot;: [0], &quot;juice_sell_price&quot;: [0], &quot;mon_std_ta&quot;: [0], &quot;deviceType&quot;: [0], &quot;dinner_std_ta&quot;: [0], &quot;thu_tc&quot;: [0], &quot;twister_sell_price&quot;: [0], &quot;latenight_sumta&quot;: [0], &quot;tue_minta&quot;: [0], &quot;delivery_ta&quot;: [0], &quot;fri_maxta&quot;: [0], &quot;afternoon_sumta&quot;: [0], &quot;nonfood_sold&quot;: [0], &quot;tea_sell_price&quot;: [0], &quot;max_delivery_party_size&quot;: [0], &quot;coffee_sell_price&quot;: [0], &quot;wing_sold&quot;: [0], &quot;afternoon_minta&quot;: [0], &quot;nonbreakfast_minta&quot;: [0], &quot;content_type&quot;: [2], &quot;chicken_burger_soldratio_orlean&quot;: [0], &quot;chicken_burger_soldratio_crusty&quot;: [0], &quot;max_city_tier&quot;: [0], &quot;cob_sell_price&quot;: [0], &quot;std_preorder_party_size&quot;: [0], &quot;latenight_avgta&quot;: [0], &quot;avg_ta_by_ps&quot;: [0], &quot;ai_isPreserve&quot;: [1], &quot;tc&quot;: [0], &quot;city_tier_set_30day&quot;: [6, 0, 0, 0, 0, 0, 0], &quot;ai_daypart&quot;: [1, 2, 3, 4, 5, 0, 0], &quot;dinner_minta&quot;: [0], &quot;ta&quot;: [0], &quot;product_sub_category_name_set_30day&quot;: [8, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]&#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;&#x27;</span><br></pre></td></tr></table></figure>
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/blog/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'blog',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/blog/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/blog/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/blog/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/blog/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/bloghttps://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>

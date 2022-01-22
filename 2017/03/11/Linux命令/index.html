@@ -1,0 +1,1492 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Linux命令 | 邹斌的博客</title>
+  <meta name="keywords" content=" Linux常用命令 ">
+  <meta name="description" content="Linux命令 | 邹斌的博客">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="description" content="[TOC] Deep&amp;Cross">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Deep&amp;Cross">
+<meta property="og:url" content="https://bufan-zb.github.io/blog/2021/07/13/Deep&Cross/index.html">
+<meta property="og:site_name" content="邹斌的博客">
+<meta property="og:description" content="[TOC] Deep&amp;Cross">
+<meta property="og:locale">
+<meta property="article:published_time" content="2021-07-13T07:33:00.000Z">
+<meta property="article:modified_time" content="2022-01-22T13:52:27.621Z">
+<meta property="article:author" content="邹斌">
+<meta property="article:tag" content="推荐系统">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="icon" href="/img/avatar.jpg">
+
+<link href="/blog/css/style.css?v=1.1.0" rel="stylesheet">
+
+<link href="/blog/css/hl_theme/atom-light.css?v=1.1.0" rel="stylesheet">
+
+<link href="//cdn.jsdelivr.net/npm/animate.css@4.1.0/animate.min.css" rel="stylesheet">
+
+<script src="//cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+<script src="/blog/js/titleTip.js?v=1.1.0" ></script>
+
+<script src="//cdn.jsdelivr.net/npm/highlightjs@9.16.2/highlight.pack.min.js"></script>
+<script>
+    hljs.initHighlightingOnLoad();
+</script>
+
+<script src="//cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js"></script>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/jquery.cookie@1.4.1/jquery.cookie.min.js" ></script>
+
+<script src="/blog/js/iconfont.js?v=1.1.0" ></script>
+
+<meta name="generator" content="Hexo 5.3.0"></head>
+<div style="display: none">
+  <input class="theme_disqus_on" value="false">
+  <input class="theme_preload_comment" value="">
+  <input class="theme_blog_path" value="/blog">
+  <input id="theme_shortcut" value="true" />
+  <input id="theme_highlight_on" value="true" />
+  <input id="theme_code_copy" value="true" />
+</div>
+
+
+
+<body>
+<aside class="nav">
+    <div class="nav-left">
+        <a href="/blog/"
+   class="avatar_target">
+    <img class="avatar"
+         src="/blog/img/avatar.jpg"/>
+</a>
+<div class="author">
+    <span>邹斌</span>
+</div>
+
+<div class="icon">
+    
+        
+            <a title="github"
+               href="https://github.com/bufan-zb"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-github"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="email"
+               href="mailto:zoubinbf@163.com"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-email"></use>
+                    </svg>
+                
+            </a>
+        
+    
+        
+            <a title="qq"
+               href="http://wpa.qq.com/msgrd?v=3&uin=592916444&site=qq&menu=yes"
+               target="_blank">
+                
+                    <svg class="iconfont-svg" aria-hidden="true">
+                        <use xlink:href="#icon-qq"></use>
+                    </svg>
+                
+            </a>
+        
+    
+</div>
+
+
+
+
+<ul>
+    <li>
+        <div class="all active" data-rel="全部文章">全部文章
+            
+                <small>(63)</small>
+            
+        </div>
+    </li>
+    
+        
+            
+                <li>
+                    <div data-rel="大数据">
+                        
+                        大数据
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="排序算法">
+                        
+                        排序算法
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="人工智能">
+                        
+                        人工智能
+                        <small>(15)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="数据结构">
+                        
+                        数据结构
+                        <small>(4)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="Linux">
+                        
+                        Linux
+                        <small>(13)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+        
+            
+                <li>
+                    <div data-rel="python">
+                        
+                        python
+                        <small>(10)</small>
+                        
+                    </div>
+                    
+                </li>
+            
+        
+    
+</ul>
+<div class="left-bottom">
+    <div class="menus">
+        
+            
+            
+            
+    </div>
+    <div>
+        
+        
+    </div>
+</div>
+<input type="hidden" id="yelog_site_posts_number" value="63">
+<input type="hidden" id="yelog_site_word_count" value="65.1k">
+<div style="display: none">
+    <span id="busuanzi_value_site_uv"></span>
+    <span id="busuanzi_value_site_pv"></span>
+</div>
+
+    </div>
+    <div class="nav-right">
+        <div class="friends-area">
+    <div class="friends-title">
+        友情链接
+        <i class="iconfont icon-left"></i>
+    </div>
+    <div class="friends-content">
+        <ul>
+            
+            <li><a target="_blank" href="http://yelog.org/">叶落阁</a></li>
+            
+        </ul>
+    </div>
+</div>
+        <div class="title-list">
+    <div class="right-top">
+        <div id="default-panel">
+            <i class="iconfont icon-search" data-title="搜索 快捷键 i"></i>
+            <div class="right-title">全部文章</div>
+            <i class="iconfont icon-file-tree" data-title="切换到大纲视图 快捷键 w"></i>
+        </div>
+        <div id="search-panel">
+            <i class="iconfont icon-left" data-title="返回"></i>
+            <input id="local-search-input" />
+            <label class="border-line" for="input"></label>
+            <i class="iconfont icon-case-sensitive" data-title="大小写敏感"></i>
+            <i class="iconfont icon-tag" data-title="标签"></i>
+        </div>
+        <div id="outline-panel" style="display: none">
+            <div class="right-title">大纲</div>
+            <i class="iconfont icon-list" data-title="切换到文章列表"></i>
+        </div>
+    </div>
+
+    <div class="tags-list">
+    <input id="tag-search" />
+    <div class="tag-wrapper">
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>测试</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>大数据</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>聊天</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>模型推导</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>排序算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数据分析</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>数学</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>搜索引擎</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>梯度下降</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>推荐系统</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>网卡配置</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>未完成</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>虚拟环境</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>遗传算法</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>cenos</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Docker</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Elasticsearch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>FastDFS</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>flask</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Gitblit</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Hadoop</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Kafka</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Linux常用命令</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>MySQL</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Numpy</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pandas</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Python</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>Pytorch</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>RNN</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>TensorFlow</a>
+            </li>
+        
+            <li class="article-tag-list-item">
+                <i class="iconfont icon-tag"></i><a>web</a>
+            </li>
+        
+    </div>
+
+</div>
+
+    
+    <div id="local-search-result">
+
+    </div>
+    
+    <nav id="title-list-nav">
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2021/07/13/Deep&Cross/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Deep&amp;Cross">Deep&amp;Cross</span>
+            <span class="post-date" title="2021-07-13 15:33:00">2021/07/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/12/22/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"
+           data-tag="遗传算法"
+           data-author="" >
+            <span class="post-title" title="遗传算法">遗传算法</span>
+            <span class="post-date" title="2020-12-22 18:32:00">2020/12/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"
+           data-tag="Pytorch,TensorFlow"
+           data-author="" >
+            <span class="post-title" title="GPU镜像生成">GPU镜像生成</span>
+            <span class="post-date" title="2020-09-12 17:48:00">2020/09/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"
+           data-tag="模型推导"
+           data-author="" >
+            <span class="post-title" title="逻辑回归">逻辑回归</span>
+            <span class="post-date" title="2020-08-12 18:58:00">2020/08/12</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"
+           data-tag="算法,梯度下降"
+           data-author="" >
+            <span class="post-title" title="优化算法">优化算法</span>
+            <span class="post-date" title="2020-05-24 15:22:00">2020/05/24</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="激活函数">激活函数</span>
+            <span class="post-date" title="2020-05-13 20:12:00">2020/05/13</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/26/DeepFM/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="DeepFM">DeepFM</span>
+            <span class="post-date" title="2020-04-26 20:51:00">2020/04/26</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/15/LSTM/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="LSTM">LSTM</span>
+            <span class="post-date" title="2020-04-15 21:10:00">2020/04/15</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="损失函数">损失函数</span>
+            <span class="post-date" title="2020-04-12 13:45:00">2020/04/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"
+           data-tag="推荐系统,大数据,Kafka"
+           data-author="" >
+            <span class="post-title" title="Kafka 集群搭建">Kafka 集群搭建</span>
+            <span class="post-date" title="2020-03-26 16:18:00">2020/03/26</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2020/03/11/pytorch/"
+           data-tag="pytorch"
+           data-author="" >
+            <span class="post-title" title="pytorch">pytorch</span>
+            <span class="post-date" title="2020-03-11 21:16:00">2020/03/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/12/23/Word2Vec/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="Word2Vec">Word2Vec</span>
+            <span class="post-date" title="2019-12-23 14:04:00">2019/12/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/11/23/Vim/"
+           data-tag="Linux"
+           data-author="" >
+            <span class="post-title" title="Vim">Vim</span>
+            <span class="post-date" title="2019-11-23 21:38:00">2019/11/23</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/10/11/FTRL/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FTRL">FTRL</span>
+            <span class="post-date" title="2019-10-11 21:28:00">2019/10/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/09/12/FM/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="FM">FM</span>
+            <span class="post-date" title="2019-09-12 12:28:00">2019/09/12</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/25/HDFS/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HDFS">HDFS</span>
+            <span class="post-date" title="2019-08-25 19:53:00">2019/08/25</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="K-近邻算法">K-近邻算法</span>
+            <span class="post-date" title="2019-08-23 13:36:00">2019/08/23</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/Flume/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Flume">Flume</span>
+            <span class="post-date" title="2019-08-14 20:27:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/08/14/HBase/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="HBase">HBase</span>
+            <span class="post-date" title="2019-08-14 19:42:00">2019/08/14</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"
+           data-tag="Docker,FastDFS"
+           data-author="" >
+            <span class="post-title" title="Docker部署FastDFS">Docker部署FastDFS</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"
+           data-tag="Docker,Elasticsearch"
+           data-author="" >
+            <span class="post-title" title="Docker部署Elasticsearch">Docker部署Elasticsearch</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"
+           data-tag="Docker,MySQL"
+           data-author="" >
+            <span class="post-title" title="Docker部署MySQL">Docker部署MySQL</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/"
+           data-tag="Docker,Gitblit"
+           data-author="" >
+            <span class="post-title" title="Docker部署Gitblit">Docker部署Gitblit</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"
+           data-tag="Elasticsearch,搜索"
+           data-author="" >
+            <span class="post-title" title="ES部署">ES部署</span>
+            <span class="post-date" title="2019-08-12 18:58:00">2019/08/12</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/29/pandas/"
+           data-tag="数据分析,Pandas"
+           data-author="" >
+            <span class="post-title" title="Pandas">Pandas</span>
+            <span class="post-date" title="2019-07-29 20:26:00">2019/07/29</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/07/28/GRU/"
+           data-tag="RNN"
+           data-author="" >
+            <span class="post-title" title="GRU">GRU</span>
+            <span class="post-date" title="2019-07-28 22:41:00">2019/07/28</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/07/22/Numpy/"
+           data-tag="数据分析,Numpy"
+           data-author="" >
+            <span class="post-title" title="Numpy">Numpy</span>
+            <span class="post-date" title="2019-07-22 20:23:00">2019/07/22</span>
+        </a>
+        
+        <a  class="全部文章 "
+           href="/blog/2019/06/22/%E6%95%B0%E5%AD%A6/"
+           data-tag="数学"
+           data-author="" >
+            <span class="post-title" title="数学">数学</span>
+            <span class="post-date" title="2019-06-22 16:58:00">2019/06/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/11/Hadoop/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Hadoop">Hadoop</span>
+            <span class="post-date" title="2019-06-11 16:32:00">2019/06/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/06/03/YARN/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="YARN">YARN</span>
+            <span class="post-date" title="2019-06-03 19:03:00">2019/06/03</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/22/Spark/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Spark">Spark</span>
+            <span class="post-date" title="2019-05-22 22:19:00">2019/05/22</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/05/11/Wide&Deep/"
+           data-tag="推荐系统"
+           data-author="" >
+            <span class="post-title" title="Wide&amp;Deep">Wide&amp;Deep</span>
+            <span class="post-date" title="2019-05-11 12:20:00">2019/05/11</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/05/06/Kafka/"
+           data-tag="大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Kafka">Kafka</span>
+            <span class="post-date" title="2019-05-06 21:43:00">2019/05/06</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/22/Tensorflow/"
+           data-tag="TensorFlow"
+           data-author="" >
+            <span class="post-title" title="TensorFlow">TensorFlow</span>
+            <span class="post-date" title="2019-04-22 17:24:00">2019/04/22</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/21/MapReduce/"
+           data-tag="推荐系统,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="MapReduce">MapReduce</span>
+            <span class="post-date" title="2019-04-21 20:18:00">2019/04/21</span>
+        </a>
+        
+        <a  class="全部文章 大数据 "
+           href="/blog/2019/04/20/Sqoop/"
+           data-tag="未完成,大数据,Hadoop"
+           data-author="" >
+            <span class="post-title" title="Sqoop">Sqoop</span>
+            <span class="post-date" title="2019-04-20 13:42:00">2019/04/20</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/17/hive%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hive连接">hive连接</span>
+            <span class="post-date" title="2019-04-17 22:25:00">2019/04/17</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2019/04/11/hdfs%E8%BF%9E%E6%8E%A5/"
+           data-tag="Hadoop"
+           data-author="" >
+            <span class="post-title" title="hdfs连接">hdfs连接</span>
+            <span class="post-date" title="2019-04-11 19:23:00">2019/04/11</span>
+        </a>
+        
+        <a  class="全部文章 人工智能 "
+           href="/blog/2019/01/15/N-garm/"
+           data-tag="算法"
+           data-author="" >
+            <span class="post-title" title="N-Garm">N-Garm</span>
+            <span class="post-date" title="2019-01-15 16:34:00">2019/01/15</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/07/12/%E6%A0%91/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="树">树</span>
+            <span class="post-date" title="2018-07-12 18:45:00">2018/07/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/25/%E6%A0%88/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="栈">栈</span>
+            <span class="post-date" title="2018-06-25 20:36:00">2018/06/25</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/13/%E9%98%9F%E5%88%97/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="队列">队列</span>
+            <span class="post-date" title="2018-06-13 19:15:00">2018/06/13</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/06/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="选择排序">选择排序</span>
+            <span class="post-date" title="2018-06-12 19:51:00">2018/06/12</span>
+        </a>
+        
+        <a  class="全部文章 数据结构 "
+           href="/blog/2018/06/11/%E9%93%BE%E8%A1%A8/"
+           data-tag="Python"
+           data-author="" >
+            <span class="post-title" title="链表">链表</span>
+            <span class="post-date" title="2018-06-11 20:15:00">2018/06/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2018/05/02/web%E9%83%A8%E7%BD%B2/"
+           data-tag="web,flask"
+           data-author="" >
+            <span class="post-title" title="部署flask项目全流程">部署flask项目全流程</span>
+            <span class="post-date" title="2018-05-02 21:58:00">2018/05/02</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/16/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="冒泡排序">冒泡排序</span>
+            <span class="post-date" title="2018-04-16 19:23:00">2018/04/16</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/04/11/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="希尔排序">希尔排序</span>
+            <span class="post-date" title="2018-04-11 17:32:00">2018/04/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/25/%E6%A1%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="桶排序">桶排序</span>
+            <span class="post-date" title="2018-03-25 20:32:00">2018/03/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="快速排序">快速排序</span>
+            <span class="post-date" title="2018-03-11 12:32:00">2018/03/11</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/03/01/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="计数排序">计数排序</span>
+            <span class="post-date" title="2018-03-01 21:22:00">2018/03/01</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/25/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="归并排序">归并排序</span>
+            <span class="post-date" title="2018-02-25 20:32:00">2018/02/25</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/22/%E5%A0%86%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="堆排序">堆排序</span>
+            <span class="post-date" title="2018-02-22 21:18:00">2018/02/22</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/20/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="插入排序">插入排序</span>
+            <span class="post-date" title="2018-02-20 20:18:00">2018/02/20</span>
+        </a>
+        
+        <a  class="全部文章 排序算法 "
+           href="/blog/2018/02/18/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/"
+           data-tag="排序算法"
+           data-author="" >
+            <span class="post-title" title="基数排序">基数排序</span>
+            <span class="post-date" title="2018-02-18 22:12:00">2018/02/18</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/10/12/unittest/"
+           data-tag="web,测试"
+           data-author="" >
+            <span class="post-title" title="单元测试">单元测试</span>
+            <span class="post-date" title="2017-10-12 18:23:00">2017/10/12</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/08/19/crontab/"
+           data-tag="web,cenos"
+           data-author="" >
+            <span class="post-title" title="crontab定时任务">crontab定时任务</span>
+            <span class="post-date" title="2017-08-19 20:46:00">2017/08/19</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/05/19/socketio/"
+           data-tag="web,聊天"
+           data-author="" >
+            <span class="post-title" title="Socketio即时通讯">Socketio即时通讯</span>
+            <span class="post-date" title="2017-05-19 14:58:00">2017/05/19</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/13/git/"
+           data-tag="cenos"
+           data-author="" >
+            <span class="post-title" title="git">git</span>
+            <span class="post-date" title="2017-05-13 18:21:00">2017/05/13</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/05/10/network/"
+           data-tag="cenos,网卡配置"
+           data-author="" >
+            <span class="post-title" title="Cenos配置静态IP">Cenos配置静态IP</span>
+            <span class="post-date" title="2017-05-10 16:43:00">2017/05/10</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/23/miniconda/"
+           data-tag="虚拟环境"
+           data-author="" >
+            <span class="post-title" title="miniconda">miniconda</span>
+            <span class="post-date" title="2017-04-23 17:27:00">2017/04/23</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/04/22/Elasticsearch/"
+           data-tag="web,搜索引擎,未完成"
+           data-author="" >
+            <span class="post-title" title="Elasticsearch">Elasticsearch</span>
+            <span class="post-date" title="2017-04-22 19:27:00">2017/04/22</span>
+        </a>
+        
+        <a  class="全部文章 Linux "
+           href="/blog/2017/03/11/Linux%E5%91%BD%E4%BB%A4/"
+           data-tag="Linux常用命令"
+           data-author="" >
+            <span class="post-title" title="Linux命令">Linux命令</span>
+            <span class="post-date" title="2017-03-11 14:54:00">2017/03/11</span>
+        </a>
+        
+        <a  class="全部文章 python "
+           href="/blog/2017/02/12/supervisor/"
+           data-tag="web,python"
+           data-author="" >
+            <span class="post-title" title="supervisor进程管理">supervisor进程管理</span>
+            <span class="post-date" title="2017-02-12 14:13:00">2017/02/12</span>
+        </a>
+        
+        <div id="no-item-tips">
+
+        </div>
+    </nav>
+    <div id="outline-list">
+    </div>
+</div>
+    </div>
+    <div class="hide-list">
+        <div class="semicircle" data-title="切换全屏 快捷键 s">
+            <div class="brackets first"><</div>
+            <div class="brackets">&gt;</div>
+        </div>
+    </div>
+</aside>
+<div id="post">
+    <div class="pjax">
+        <article id="post-Linux命令" class="article article-type-post" itemscope itemprop="blogPost">
+    
+        <h1 class="article-title">Linux命令</h1>
+    
+    <div class="article-meta">
+        
+        
+        
+        <span class="book">
+            <i class="iconfont icon-category"></i>
+            
+            
+            <a  data-rel="Linux">Linux</a>
+            
+        </span>
+        
+        
+        <span class="tag">
+            <i class="iconfont icon-tag"></i>
+            
+            <a class="color5">Linux常用命令</a>
+            
+        </span>
+        
+    </div>
+    <div class="article-meta">
+        
+            发布时间 : <time class="date" title='最后更新: 2022-01-22 22:05:07'>2017-03-11 14:54</time>
+        
+    </div>
+    <div class="article-meta">
+        
+        <span>字数:3.6k</span>
+        
+        
+        <span id="busuanzi_container_page_pv">
+            阅读 :<span id="busuanzi_value_page_pv">
+                <span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </span>
+        </span>
+        
+        
+        <span class="top-comment" title="跳转至评论区">
+            <a href="#comments">
+                评论:<span class="count-comment">
+                    <span class="spinner">
+                      <div class="cube1"></div>
+                      <div class="cube2"></div>
+                    </span>
+                </span>
+            </a>
+        </span>
+        
+    </div>
+    
+    <div class="toc-ref">
+    
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shell"><span class="toc-text">shell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#k8s"><span class="toc-text">k8s</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yarn"><span class="toc-text">yarn</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker"><span class="toc-text">docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#awk"><span class="toc-text">awk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hadoop"><span class="toc-text">hadoop</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cd-%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%88%87%E6%8D%A2%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E8%87%B3-dirName-%E7%9B%AE%E5%BD%95%E5%8F%82%E6%95%B0"><span class="toc-text">cd:命令用于切换当前工作目录至 dirName(目录参数)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cat-%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%BF%9E%E6%8E%A5%E6%96%87%E4%BB%B6%E5%B9%B6%E6%89%93%E5%8D%B0%E5%88%B0%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87%E4%B8%8A"><span class="toc-text">cat:命令用于连接文件并打印到标准输出设备上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ifconfig-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%98%BE%E7%A4%BA%E6%88%96%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87"><span class="toc-text">ifconfig 命令可用于显示或设置网络设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E6%98%BE%E7%A4%BA%E6%8C%87%E5%AE%9A%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8B%E4%B9%8B%E5%86%85%E5%AE%B9%EF%BC%88%E5%88%97%E5%87%BA%E7%9B%AE%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E6%89%80%E5%90%AB%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E5%AD%90%E7%9B%AE%E5%BD%95"><span class="toc-text">ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkdir-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">mkdir 命令可用于创建一个新的文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%A3%80%E6%B5%8B%E4%B8%BB%E6%9C%BA%E4%BA%8E%E7%9B%AE%E6%A0%87%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%BD%91%E7%BB%9C%E6%98%AF%E5%90%A6%E9%80%9A%E7%95%85"><span class="toc-text">ping 命令可用于检测主机于目标主机之间网络是否通畅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rm%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E7%9B%AE%E5%BD%95"><span class="toc-text">rm命令用于删除一个文件或者目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tail-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8F%82%E6%95%B0-f-%E5%B8%B8%E7%94%A8%E4%BA%8E%E6%9F%A5%E9%98%85%E6%AD%A3%E5%9C%A8%E6%94%B9%E5%8F%98%E7%9A%84%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="toc-text">tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#torch-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">torch 命令可用于创建一个新文件</span></a></li></ol>
+    
+<style>
+    .left-col .switch-btn,
+    .left-col .switch-area {
+        display: none;
+    }
+    .toc-level-3 i,
+    .toc-level-3 ol {
+        display: none !important;
+    }
+</style>
+</div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><div class='inner-toc'><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#shell"><span class="toc-text">shell</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#k8s"><span class="toc-text">k8s</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#yarn"><span class="toc-text">yarn</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker"><span class="toc-text">docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#awk"><span class="toc-text">awk</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#hadoop"><span class="toc-text">hadoop</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cd-%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%88%87%E6%8D%A2%E5%BD%93%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E8%87%B3-dirName-%E7%9B%AE%E5%BD%95%E5%8F%82%E6%95%B0"><span class="toc-text">cd:命令用于切换当前工作目录至 dirName(目录参数)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#cat-%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E8%BF%9E%E6%8E%A5%E6%96%87%E4%BB%B6%E5%B9%B6%E6%89%93%E5%8D%B0%E5%88%B0%E6%A0%87%E5%87%86%E8%BE%93%E5%87%BA%E8%AE%BE%E5%A4%87%E4%B8%8A"><span class="toc-text">cat:命令用于连接文件并打印到标准输出设备上</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ifconfig-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%98%BE%E7%A4%BA%E6%88%96%E8%AE%BE%E7%BD%AE%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87"><span class="toc-text">ifconfig 命令可用于显示或设置网络设备</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ls%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E6%98%BE%E7%A4%BA%E6%8C%87%E5%AE%9A%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E4%B8%8B%E4%B9%8B%E5%86%85%E5%AE%B9%EF%BC%88%E5%88%97%E5%87%BA%E7%9B%AE%E5%89%8D%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E6%89%80%E5%90%AB%E4%B9%8B%E6%96%87%E4%BB%B6%E5%8F%8A%E5%AD%90%E7%9B%AE%E5%BD%95"><span class="toc-text">ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mkdir-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-text">mkdir 命令可用于创建一个新的文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#ping-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%A3%80%E6%B5%8B%E4%B8%BB%E6%9C%BA%E4%BA%8E%E7%9B%AE%E6%A0%87%E4%B8%BB%E6%9C%BA%E4%B9%8B%E9%97%B4%E7%BD%91%E7%BB%9C%E6%98%AF%E5%90%A6%E9%80%9A%E7%95%85"><span class="toc-text">ping 命令可用于检测主机于目标主机之间网络是否通畅</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#rm%E5%91%BD%E4%BB%A4%E7%94%A8%E4%BA%8E%E5%88%A0%E9%99%A4%E4%B8%80%E4%B8%AA%E6%96%87%E4%BB%B6%E6%88%96%E8%80%85%E7%9B%AE%E5%BD%95"><span class="toc-text">rm命令用于删除一个文件或者目录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tail-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E6%9F%A5%E7%9C%8B%E6%96%87%E4%BB%B6%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AA%E5%B8%B8%E7%94%A8%E7%9A%84%E5%8F%82%E6%95%B0-f-%E5%B8%B8%E7%94%A8%E4%BA%8E%E6%9F%A5%E9%98%85%E6%AD%A3%E5%9C%A8%E6%94%B9%E5%8F%98%E7%9A%84%E6%97%A5%E5%BF%97%E6%96%87%E4%BB%B6"><span class="toc-text">tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#torch-%E5%91%BD%E4%BB%A4%E5%8F%AF%E7%94%A8%E4%BA%8E%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E6%96%87%E4%BB%B6"><span class="toc-text">torch 命令可用于创建一个新文件</span></a></li></ol></div></p>
+<h1 id="shell"><a href="#shell" class="headerlink" title="shell"></a>shell</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 后台运行</span></span><br><span class="line">nohup python3 app.py &gt; ./app.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> gunicorn启动flask</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --access-logfile：成功日志</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> --error-logfile：错误日志</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -w：进程数</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> -b：ip:port</span></span><br><span class="line">gunicorn --access-logfile /home/python/logs/access_app.log --error-logfile /home/python/logs/error_app.log -w 5 -b 0.0.0.0:8808 app:app</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="k8s"><a href="#k8s" class="headerlink" title="k8s"></a>k8s</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 搜索所有job</span></span><br><span class="line">k get job --all-namespaces|grep ***</span><br><span class="line"><span class="meta">#</span><span class="bash"> 搜索所有pod</span></span><br><span class="line">k get pod --all-namespaces|grep ***</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看job详情</span></span><br><span class="line">k describe job -n ** ***</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看pod详情</span></span><br><span class="line">k describe pod -n *** ***</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看启动pod节点ip</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看pod日志</span></span><br><span class="line">k logs -n *** -f ***</span><br><span class="line"><span class="meta">#</span><span class="bash"> 进入pod</span></span><br><span class="line">k exec -it -n *** ***</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 端口映射到主机上</span></span><br><span class="line">k expose deployment -n ai-engineer feed-deepfm --type=NodePort --port=80</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 多个pod使用一个ip</span></span><br><span class="line">k expose deployment -n ai-engineer feed-deepfm --type=ClusterIP --port=80</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除svc</span></span><br><span class="line">k delete svc -n ai-engineer feed-deepfm</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="yarn"><a href="#yarn" class="headerlink" title="yarn"></a>yarn</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 查看所有任务</span></span><br><span class="line">yarn  application -list -appStates ALL|grep </span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看任务状态</span></span><br><span class="line">yarn application -status ID</span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看yarn日志</span></span><br><span class="line">yarn logs applicationId  ID</span><br><span class="line"><span class="meta">#</span><span class="bash"> 删除任务</span></span><br><span class="line">yarn application -kill ID</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="docker"><a href="#docker" class="headerlink" title="docker"></a>docker</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">export DEVICES=$(\ls /dev/nvidia* | xargs -I&#123;&#125; echo &#x27;--device &#123;&#125;:&#123;&#125;&#x27;)</span><br><span class="line"></span><br><span class="line">docker run -it $DEVICES -v /usr/cuda_files:/usr/cuda_files:rw -v /usr/lib64/nvidia:/usr/lib64/nvidia:rw -v /usr/lib64/nvidia:/usr/local/nvidia/lib64 -v /usr/bin/nvidia-smi:/usr/bin/nvidia-smi -v /usr/lib64:/usr/lib64 </span><br><span class="line"><span class="meta"> $</span><span class="bash">image_name bash</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 设置环境变量</span></span><br><span class="line">-e &quot;a=b&quot;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 以宿主机的网络启动，启动spark时需要加入</span></span><br><span class="line">--net=host</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加映射</span></span><br><span class="line">-v /**/**:/**/**:读写</span><br></pre></td></tr></table></figure>
+<h1 id="awk"><a href="#awk" class="headerlink" title="awk"></a>awk</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure>
+<h1 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 总的文件的限额 剩余的文件限额 文件夹空间的限额 文件夹可用空间的大小 文件夹的个数 文件的个数 文件所占的空间大小(不计算副本)</span></span><br><span class="line">hadoop fs -count -h -q  ./</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<h1 id="cd-命令用于切换当前工作目录至-dirName-目录参数"><a href="#cd-命令用于切换当前工作目录至-dirName-目录参数" class="headerlink" title="cd:命令用于切换当前工作目录至 dirName(目录参数)"></a><strong>cd:命令用于切换当前工作目录至 dirName(目录参数)</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cd [dirName]&#96;&#96;cd 目录&#96;&#96;cd &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure>
+<p>实例：</p>
+<p>跳转到/tmp/test目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ cd &#x2F;tmp&#x2F;test&#96;&#96;jingjiandeMacBook-Pro:test jingjian$&#96;</span><br></pre></td></tr></table></figure>
+<p>跳转到自己的home目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cd ~&#96;&#96;jingjiandeMacBook-Pro:~ jingjian$&#96;</span><br></pre></td></tr></table></figure>
+<h1 id="cat-命令用于连接文件并打印到标准输出设备上"><a href="#cat-命令用于连接文件并打印到标准输出设备上" class="headerlink" title="cat:命令用于连接文件并打印到标准输出设备上"></a><strong>cat:命令用于连接文件并打印到标准输出设备上</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;cat [-nbse]  fileName&#96;&#96;cat -参数 文件名&#96;&#96;cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-n 由 1 开始对所有输出的行数编号</li>
+<li>-b 和 -n 相似，只不过对于空白行不编号</li>
+<li>-s 当遇到有连续两行以上的空白行，就代换为一行的空白行</li>
+<li>-e 在每行结束处显示 $</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>cat /tmp/test/txt1.txt</li>
+</ul>
+<p>实例：</p>
+<p>设定原文档内容为</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;111&#96; &#96;222&#96;&#96;333&#96;&#96;444&#96;   &#96;555&#96;&#96;666&#96;&#96;777&#96;&#96;888&#96;&#96;999&#96;</span><br></pre></td></tr></table></figure>
+<p>带行号输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -n &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;     &#96;&#96;2&#96;&#96;     &#96;&#96;3&#96;  &#96;222&#96;&#96;     &#96;&#96;4&#96;  &#96;333&#96;&#96;     &#96;&#96;5&#96;  &#96;444&#96;&#96;     &#96;&#96;6&#96;&#96;     &#96;&#96;7&#96;&#96;     &#96;&#96;8&#96;&#96;     &#96;&#96;9&#96;  &#96;555&#96;&#96;    &#96;&#96;10&#96;  &#96;666&#96;&#96;    &#96;&#96;11&#96;  &#96;777&#96;&#96;    &#96;&#96;12&#96;  &#96;888&#96;&#96;    &#96;&#96;13&#96;  &#96;999&#96;</span><br></pre></td></tr></table></figure>
+<p>忽略空行行号，多行空行合并，行末尾标记，带行号输出</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:test jingjian$ cat -nbse &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;     &#96;&#96;1&#96;  &#96;111&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;2&#96;  &#96;222&#96;&#96;$&#96;&#96;     &#96;&#96;3&#96;  &#96;333&#96;&#96;$&#96;&#96;     &#96;&#96;4&#96;  &#96;444&#96;&#96;$&#96;&#96;$&#96;&#96;     &#96;&#96;5&#96;  &#96;555&#96;&#96;$&#96;&#96;     &#96;&#96;6&#96;  &#96;666&#96;&#96;$&#96;&#96;     &#96;&#96;7&#96;  &#96;777&#96;&#96;$&#96;&#96;     &#96;&#96;8&#96;  &#96;888&#96;&#96;$&#96;&#96;     &#96;&#96;9&#96;  &#96;999&#96;&#96;$&#96;</span><br></pre></td></tr></table></figure>
+<h1 id="ifconfig-命令可用于显示或设置网络设备"><a href="#ifconfig-命令可用于显示或设置网络设备" class="headerlink" title="ifconfig 命令可用于显示或设置网络设备"></a><strong>ifconfig 命令可用于显示或设置网络设备</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ifconfig [网络设备][down up -allmulti -arp -promisc add&lt;地址&gt; del&lt;地址&gt;]</span><br><span class="line">ifconfig  网络设备名  选项</span><br><span class="line"></span><br><span class="line">ifconfig eth0 down</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>add&lt;地址&gt; 设置网络设备IPv6的IP地址。</li>
+<li>del&lt;地址&gt; 删除网络设备IPv6的IP地址。</li>
+<li>down 关闭指定的网络设备。</li>
+<li>&lt;hw&lt;网络设备类型&gt;&lt;硬件地址&gt; 设置网络设备的类型与硬件地址。</li>
+<li>io_addr&lt;I/O地址&gt; 设置网络设备的I/O地址。</li>
+<li>irq&lt;IRQ地址&gt; 设置网络设备的IRQ。</li>
+<li>media&lt;网络媒介类型&gt; 设置网络设备的媒介类型。</li>
+<li>mem_start&lt;内存地址&gt; 设置网络设备在主内存所占用的起始地址。</li>
+<li>metric&lt;数目&gt; 指定在计算数据包的转送次数时，所要加上的数目。</li>
+<li>mtu&lt;字节&gt; 设置网络设备的MTU。</li>
+<li>netmask&lt;子网掩码&gt; 设置网络设备的子网掩码。</li>
+<li>tunnel&lt;地址&gt; 建立IPv4与IPv6之间的隧道通信地址。</li>
+<li>up 启动指定的网络设备。</li>
+<li>-broadcast&lt;地址&gt; 将要送往指定地址的数据包当成广播数据包来处理。</li>
+<li>-pointopoint&lt;地址&gt; 与指定地址的网络设备建立直接连线，此模式具有保密功能。</li>
+<li>-promisc 关闭或启动指定网络设备的promiscuous模式。</li>
+<li>[IP地址] 指定网络设备的IP地址。</li>
+<li>[网络设备] 指定网络设备的名称。</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>ifconfig</li>
+<li>ifconfig eth0 down</li>
+<li>ifconfig eth0 up</li>
+</ul>
+<p>示例：</p>
+<p>查看所有网卡信息</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig</span><br><span class="line"></span><br><span class="line">eth0   Link encap:Ethernet HWaddr 00:50:56:0A:0B:0C </span><br><span class="line">     inet addr:192.168.0.3 Bcast:192.168.0.255 Mask:255.255.255.0</span><br><span class="line">     inet6 addr: fe80::250:56ff:fe0a:b0c&#x2F;64 Scope:Link</span><br><span class="line">     UP BROADCAST RUNNING MULTICAST MTU:1500 Metric:1</span><br><span class="line">     RX packets:172220 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:132379 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:1000 </span><br><span class="line">     RX bytes:87101880 (83.0 MiB) TX bytes:41576123 (39.6 MiB)</span><br><span class="line">     Interrupt:185 Base address:0x2024 </span><br><span class="line"></span><br><span class="line">lo    Link encap:Local Loopback </span><br><span class="line">     inet addr:127.0.0.1 Mask:255.0.0.0</span><br><span class="line">     inet6 addr: ::1&#x2F;128 Scope:Host</span><br><span class="line">     UP LOOPBACK RUNNING MTU:16436 Metric:1</span><br><span class="line">     RX packets:2022 errors:0 dropped:0 overruns:0 frame:0</span><br><span class="line">     TX packets:2022 errors:0 dropped:0 overruns:0 carrier:0</span><br><span class="line">     collisions:0 txqueuelen:0 </span><br><span class="line">     RX bytes:2459063 (2.3 MiB) TX bytes:2459063 (2.3 MiB)</span><br></pre></td></tr></table></figure>
+<p>关闭/启动指定网卡</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down   &#x2F;&#x2F; 关闭eth0网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up       &#x2F;&#x2F; 开启eth0网卡</span><br></pre></td></tr></table></figure>
+<p>为网卡配置和删除IPv6地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 add 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡设置IPv6地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 del 33ffe:3240:800:1005::2&#x2F; 64 &#x2F;&#x2F;为网卡删除IPv6地址</span><br></pre></td></tr></table></figure>
+<p>用ifconfig修改MAC地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 down &#x2F;&#x2F;关闭网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 hw ether 00:AA:BB:CC:DD:EE &#x2F;&#x2F;修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 up &#x2F;&#x2F;启动网卡</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 hw ether 00:1D:1C:1D:1E &#x2F;&#x2F;关闭网卡并修改MAC地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth1 up &#x2F;&#x2F;启动网卡</span><br></pre></td></tr></table></figure>
+<p>配置IP地址</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 192.168.1.56 &#x2F;&#x2F;给eth0网卡配置IP地址</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 &#x2F;&#x2F; 给eth0网卡配置IP地址,并加上子掩码</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 192.168.1.56 netmask 255.255.255.0 broadcast 192.168.1.255 &#x2F;&#x2F; 给eth0网卡配置IP地址,加上子掩码,加上个广播地址</span><br></pre></td></tr></table></figure>
+<p>启用和关闭ARP协议</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 arp &#x2F;&#x2F;开启</span><br><span class="line"></span><br><span class="line">$ ifconfig eth0 -arp &#x2F;&#x2F;关闭</span><br></pre></td></tr></table></figure>
+<p>设置最大传输单元</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ifconfig eth0 mtu 1500  &#x2F;&#x2F;设置能通过的最大数据包大小为 1500 bytes</span><br></pre></td></tr></table></figure>
+<h1 id="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录"><a href="#ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录" class="headerlink" title="ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)"></a><strong>ls命令用于显示指定工作目录下之内容（列出目前工作目录所含之文件及子目录)</strong></h1><p>语法:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ls [-alrtAFR] [name...]</span><br><span class="line">ls -参数 目标路径   </span><br><span class="line">ls -l &#x2F;tmp&#x2F;test</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-a 显示所有文件及目录 (ls内定将文件名或目录名称开头为”.”的视为隐藏档，不会列出)</li>
+<li>-l 除文件名称外，亦将文件型态、权限、拥有者、文件大小等资讯详细列出</li>
+<li>-r 将文件以相反次序显示(原定依英文字母次序)</li>
+<li>-t 将文件依建立时间之先后次序列出</li>
+<li>-T 显示完整的年月日时分秒时间</li>
+<li>-A 同 -a ，但不列出 “.” (目前目录) 及 “..” (父目录)  </li>
+<li>-F 在列出的文件名称后加一符号；例如可执行档则加 “*”, 目录则加 “/“</li>
+<li>-R 若目录下有文件，则以下之文件亦皆依序列出</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>ls</li>
+<li>ls -l</li>
+<li>ls -A</li>
+</ul>
+<p>实例：</p>
+<p>列出/tmp/test目录下的所有的文件及目录(包括.和..）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -a &#x2F;tmp&#x2F;test</span><br><span class="line">.       ..      .ssh        folder1     folder2     txt1.txt    txt2.txt</span><br></pre></td></tr></table></figure>
+<p>按创建时间先后顺序展示区分目录下所有的目录及文件的详情</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">jingjiandeMacBook-Pro:&#x2F; jingjian$ ls -ltrFA &#x2F;tmp&#x2F;test</span><br><span class="line">total 0</span><br><span class="line">drwxr-xr-x  6 jingjian  wheel  192  6 17 15:00 .ssh&#x2F;</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt1.txt</span><br><span class="line">-rw-r--r--  1 jingjian  wheel    0  6 17 15:00 txt2.txt</span><br><span class="line">drwxr-xr-x  2 jingjian  wheel   64  6 17 15:01 folder2&#x2F;</span><br><span class="line">drwxr-xr-x  4 jingjian  wheel  128  6 17 15:01 folder1&#x2F;</span><br></pre></td></tr></table></figure>
+<h1 id="mkdir-命令可用于创建一个新的文件夹"><a href="#mkdir-命令可用于创建一个新的文件夹" class="headerlink" title="mkdir 命令可用于创建一个新的文件夹"></a><strong>mkdir 命令可用于创建一个新的文件夹</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;mkdir [-p] [dirname]&#96; &#96;mkdir -参数 文件夹&#96; &#96;mkdir -p &#x2F;tmp&#x2F;test&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-p 确保目录名称存在，不存在就创建一个</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>mkdir text</li>
+<li>mkdir -p text1/text2/text3</li>
+</ul>
+<p>示例：</p>
+<p>创建文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir text </span><br><span class="line">$ ls text&#x2F;</span><br></pre></td></tr></table></figure>
+
+
+<p>一次性创建多层文件夹</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir -p text1&#x2F;text2&#x2F;text3 </span><br><span class="line"></span><br><span class="line">$ ls </span><br><span class="line">text&#x2F; text1&#x2F; </span><br><span class="line"></span><br><span class="line">$ cd text1&#x2F; </span><br><span class="line"></span><br><span class="line">$ ls </span><br><span class="line">text2&#x2F; </span><br><span class="line"></span><br><span class="line">$ cd text2&#x2F; </span><br><span class="line"></span><br><span class="line">$ ls </span><br><span class="line">text3&#x2F;</span><br></pre></td></tr></table></figure>
+<h1 id="ping-命令可用于检测主机于目标主机之间网络是否通畅"><a href="#ping-命令可用于检测主机于目标主机之间网络是否通畅" class="headerlink" title="ping 命令可用于检测主机于目标主机之间网络是否通畅"></a><strong>ping 命令可用于检测主机于目标主机之间网络是否通畅</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;ping [-dfnqrRvciIlpst] [addressname]&#96; &#96;ping -参数 地址&#96; &#96;ping www.baidu.com&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-d 使用Socket的SO_DEBUG功能。</li>
+<li>-c&lt;完成次数&gt; 设置完成要求回应的次数。</li>
+<li>-f 极限检测。</li>
+<li>-i&lt;间隔秒数&gt; 指定收发信息的间隔时间。</li>
+<li>-I&lt;网络界面&gt; 使用指定的网络接口送出数据包。</li>
+<li>-l&lt;前置载入&gt; 设置在送出要求信息之前，先行发出的数据包。</li>
+<li>-n 只输出数值。</li>
+<li>-p&lt;范本样式&gt; 设置填满数据包的范本样式。</li>
+<li>-q 不显示指令执行过程，开头和结尾的相关信息除外。</li>
+<li>-r 忽略普通的Routing Table，直接将数据包送到远端主机上。</li>
+<li>-R 记录路由过程。</li>
+<li>-s&lt;数据包大小&gt; 设置数据包的大小。</li>
+<li>-t&lt;存活数值&gt; 设置存活数值TTL的大小。</li>
+<li>-v 详细显示指令的执行过程。</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>ping <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
+<li>ping -c 2 <a target="_blank" rel="noopener" href="http://www.baidu.com/">www.baidu.com</a></li>
+</ul>
+<p>示例：</p>
+<p>测试主机是否与外部网络连通</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[root@bufan ~]#  ping www.baidu.com</span><br><span class="line"></span><br><span class="line">PING www.a.shifen.com (180.101.49.12) 56(84) bytes of data.</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;1 ttl&#x3D;128 time&#x3D;8.50 ms</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;2 ttl&#x3D;128 time&#x3D;10.9 ms</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;3 ttl&#x3D;128 time&#x3D;10.4 ms</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;4 ttl&#x3D;128 time&#x3D;10.2 ms</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;5 ttl&#x3D;128 time&#x3D;10.8 ms</span><br><span class="line"></span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 4007ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 8.501&#x2F;10.209&#x2F;10.965&#x2F;0.897 ms</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;需要手动Ctrl+c终止</span><br></pre></td></tr></table></figure>
+<p>指定接收包的次数</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[root@bufan ~]# ping -c 2 www.baidu.com</span><br><span class="line">PING www.a.shifen.com (180.101.49.12) 56(84) bytes of data.</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;1 ttl&#x3D;128 time&#x3D;13.6 ms</span><br><span class="line">64 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;2 ttl&#x3D;128 time&#x3D;10.5 ms</span><br><span class="line"></span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">2 packets transmitted, 2 received, 0% packet loss, time 1005ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 10.582&#x2F;12.098&#x2F;13.615&#x2F;1.520 ms</span><br></pre></td></tr></table></figure>
+<p>多参数使用（-i：每3秒发送一次，-s：包大小为1024）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">[root@bufan ~]# ping -i 3 -s 1024 www.baidu.com</span><br><span class="line">PING www.a.shifen.com (180.101.49.12) 1024(1052) bytes of data.</span><br><span class="line">1032 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;1 ttl&#x3D;128 time&#x3D;10.9 ms</span><br><span class="line">1032 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;2 ttl&#x3D;128 time&#x3D;12.2 ms</span><br><span class="line">1032 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;3 ttl&#x3D;128 time&#x3D;13.7 ms</span><br><span class="line">1032 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;4 ttl&#x3D;128 time&#x3D;14.1 ms</span><br><span class="line">1032 bytes from 180.101.49.12 (180.101.49.12): icmp_seq&#x3D;5 ttl&#x3D;128 time&#x3D;16.7 ms</span><br><span class="line">^C</span><br><span class="line">--- www.a.shifen.com ping statistics ---</span><br><span class="line">5 packets transmitted, 5 received, 0% packet loss, time 12048ms</span><br><span class="line">rtt min&#x2F;avg&#x2F;max&#x2F;mdev &#x3D; 10.977&#x2F;13.569&#x2F;16.732&#x2F;1.945 ms</span><br></pre></td></tr></table></figure>
+
+
+
+
+<h1 id="rm命令用于删除一个文件或者目录"><a href="#rm命令用于删除一个文件或者目录" class="headerlink" title="rm命令用于删除一个文件或者目录"></a><strong>rm命令用于删除一个文件或者目录</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;rm [-ifr] name...&#96;&#96;rm -参数 目录&#x2F;文件&#96;&#96;rm -rf &#x2F;&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-i 删除前逐一询问确认</li>
+<li>-f 强行删除，无需逐一确认</li>
+<li>-r 将目录及其下所有亦逐一删除</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>rm</li>
+<li>rm -r</li>
+</ul>
+<p>实例：</p>
+<p>逐一删除/tmp/test下的所有目录/文件  并取消</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ rm -ir &#x2F;tmp&#x2F;test&#x2F;*&#96;&#96;examine files in directory &#x2F;tmp&#x2F;test&#x2F;folder1? n&#96;&#96;examine files in directory &#x2F;tmp&#x2F;test&#x2F;folder2? n&#96;&#96;remove &#x2F;tmp&#x2F;test&#x2F;txt1.txt? n&#96;&#96;remove &#x2F;tmp&#x2F;test&#x2F;txt2.txt? n&#96;</span><br></pre></td></tr></table></figure>
+<p>强制删除/tmp/test/folder1下面的所有文件及目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ rm -rf &#x2F;tmp&#x2F;test&#x2F;folder1&#x2F;*&#96;&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ ls &#x2F;tmp&#x2F;test&#x2F;folder1&#96;&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$&#96;</span><br></pre></td></tr></table></figure>
+<p>注意点：</p>
+<p>rm -rf 使用需谨慎再谨慎</p>
+<h1 id="tail-命令可用于查看文件的内容，有一个常用的参数-f-常用于查阅正在改变的日志文件"><a href="#tail-命令可用于查看文件的内容，有一个常用的参数-f-常用于查阅正在改变的日志文件" class="headerlink" title="tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件"></a><strong>tail 命令可用于查看文件的内容，有一个常用的参数 -f 常用于查阅正在改变的日志文件</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;tail [-fn] [filename]&#96;&#96;tail -参数 文件&#96;&#96;tail -f &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-f 循环读取</li>
+<li>-n &lt;行数&gt; 显示文件的尾部 n 行内容</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>tail -f /tmp/test/txt1.txt</li>
+<li>tail -n 5 /tmp/test/txt1.txt</li>
+</ul>
+<p>示例：</p>
+<p>持续查看/tmp/test/txt1.txt文件最新内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ tail -f &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;333&#96;&#96;444&#96;   &#96;555&#96;&#96;666&#96;&#96;777&#96;&#96;888&#96;&#96;999&#96;</span><br></pre></td></tr></table></figure>
+<p>查看/tmp/test/txt1.txt文件末五行内容</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$ tail -n &#96;&#96;5&#96; &#96;&#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;&#96;555&#96;&#96;666&#96;&#96;777&#96;&#96;888&#96;&#96;999&#96;&#96;jingjiandeMacBook-Pro:&#x2F; jingjian$&#96;</span><br></pre></td></tr></table></figure>
+<h1 id="torch-命令可用于创建一个新文件"><a href="#torch-命令可用于创建一个新文件" class="headerlink" title="torch 命令可用于创建一个新文件"></a><strong>torch 命令可用于创建一个新文件</strong></h1><p>语法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#96;touch [-acdfmrt] [filename]&#96; &#96;touch -参数 文件&#96; &#96;touch &#x2F;tmp&#x2F;test&#x2F;txt1.txt&#96;</span><br></pre></td></tr></table></figure>
+<p>参数：</p>
+<ul>
+<li>-a   或–time=atime或–time=access或–time=use 　只更改存取时间。</li>
+<li>-c   或–no-create 　不建立任何文档。</li>
+<li>-d 　使用指定的日期时间，而非现在的时间。</li>
+<li>-f 　此参数将忽略不予处理，仅负责解决BSD版本touch指令的兼容性问题。</li>
+<li>-m   或–time=mtime或–time=modify 　只更改变动时间。</li>
+<li>-r 　把指定文档或目录的日期时间，统统设成和参考文档或目录的日期时间相同。</li>
+<li>-t 　使用指定的日期时间，而非现在的时间。</li>
+</ul>
+<p>常用：</p>
+<ul>
+<li>torch text.txt</li>
+<li>torch text1.txt text2.txt</li>
+</ul>
+<p>示例：</p>
+<p>创建单个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ touch text.txt $ ls text.txt</span><br></pre></td></tr></table></figure>
+<p>一次性创建多个文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ touch text1.txt text2.txt </span><br><span class="line">$ ls </span><br><span class="line">text.txt text1.txt text2.txt</span><br></pre></td></tr></table></figure>
+
+
+
+      
+       <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。可以在下面评论区评论，也可以邮件至 zoubinbf@163.com </span>
+    </div>
+</article>
+
+
+<p>
+    <a  class="dashang" onclick="dashangToggle()">赏</a>
+</p>
+
+
+
+
+    <div id="comments"></div>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+
+<script type="text/javascript">
+    $.getScript('/blog/js/gitalk.js', function () {
+        var gitalk = new Gitalk({
+            clientID: '8f7834ddf48857ecc43b',
+            clientSecret: '8838069823d5a94ca99a6bffb6f8bcaf08593f91',
+            repo: 'blog',
+            owner: 'bufan-zb',
+            admin: ['bufan-zb'],
+            id: decodeURI(location.pathname),
+            distractionFreeMode: 'true',
+            language: 'zh-CN',
+            perPage: parseInt('10',10)
+        })
+        gitalk.render('comments')
+    })
+</script>
+
+
+
+
+    
+
+
+
+
+    </div>
+    <div class="copyright">
+        <p class="footer-entry">
+    ©2016-2020 BuFan
+</p>
+<p class="footer-entry">Built with <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/yelog/hexo-theme-3-hexo" target="_blank">3-hexo</a> theme</p>
+
+    </div>
+    <div class="full-toc">
+        <button class="full" data-title="切换全屏 快捷键 s"><span class="min "></span></button>
+<a class="" id="rocket" ></a>
+
+    </div>
+</div>
+
+<div class="hide_box" onclick="dashangToggle()"></div>
+<div class="shang_box">
+    <a class="shang_close"  onclick="dashangToggle()">×</a>
+    <div class="shang_tit">
+        <p>喜欢就点赞,疼爱就打赏</p>
+    </div>
+    <div class="shang_payimg">
+        <div class="pay_img">
+            <img src="/blog/img/alipay.jpg" class="alipay" title="扫码支持">
+            <img src="/blog/img/weixin.jpg" class="weixin" title="扫码支持">
+        </div>
+    </div>
+    <div class="shang_payselect">
+        <span><label><input type="radio" name="pay" checked value="alipay">支付宝</label></span><span><label><input type="radio" name="pay" value="weixin">微信</label></span>
+    </div>
+</div>
+
+
+</body>
+<script src="/blog/js/jquery.pjax.js?v=1.1.0" ></script>
+
+<script src="/blog/js/script.js?v=1.1.0" ></script>
+<script>
+    var img_resize = 'default';
+    function initArticle() {
+        /*渲染对应的表格样式*/
+        
+            $("#post .pjax table").addClass("green_title");
+        
+
+        /*渲染打赏样式*/
+        
+        $("input[name=pay]").on("click", function () {
+            if($("input[name=pay]:checked").val()=="weixin"){
+                $(".shang_box .shang_payimg .pay_img").addClass("weixin_img");
+            } else {
+                $(".shang_box .shang_payimg .pay_img").removeClass("weixin_img");
+            }
+        })
+        
+
+        /*高亮代码块行号*/
+        
+        $('pre code').each(function(){
+            var lines = $(this).text().trim().split('\n').length, widther='';
+            if (lines>99) {
+                widther = 'widther'
+            }
+            var $numbering = $('<ul/>').addClass('pre-numbering ' + widther).attr("unselectable","on");
+            $(this).addClass('has-numbering ' + widther)
+                    .parent()
+                    .append($numbering);
+            for(var i=1;i<=lines;i++){
+                $numbering.append($('<li/>').text(i));
+            }
+        });
+        
+
+        /*访问数量*/
+        
+        $.getScript("//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js");
+        
+
+        /*代码高亮，行号对齐*/
+        $('.pre-numbering').css('line-height',$('.has-numbering').css('line-height'));
+
+        
+        
+        /* 渲染*/
+        function HTMLDecode(text) {
+            var temp = document.createElement("div");
+            temp.innerHTML = text;
+            var output = temp.innerText || temp.textContent;
+            temp = null;
+            return output;
+        }
+        if (window.mermaid){
+            window.mermaid = null
+        }
+        $.getScript("//cdn.jsdelivr.net/npm/mermaid@8.4.2/dist/mermaid.min.js", function () {
+            var mermaidOptions = JSON.parse(HTMLDecode("{&#34;theme&#34;:&#34;default&#34;,&#34;startOnLoad&#34;:true,&#34;flowchart&#34;:{&#34;useMaxWidth&#34;:false,&#34;htmlLabels&#34;:true}}"))
+            if (window.mermaid) {
+                mermaid.initialize(mermaidOptions)
+                mermaid.contentLoaded()
+            }
+        })
+        
+    }
+
+    /*打赏页面隐藏与展示*/
+    
+    function dashangToggle() {
+        $(".shang_box").fadeToggle();
+        $(".hide_box").fadeToggle();
+    }
+    
+
+</script>
+
+<!--加入行号的高亮代码块样式-->
+
+<style>
+    pre{
+        position: relative;
+        margin-bottom: 24px;
+        border-radius: 10px;
+        border: 1px solid #e2dede;
+        background: #FFF;
+        overflow: hidden;
+    }
+    code.has-numbering{
+        margin-left: 30px;
+    }
+    code.has-numbering.widther{
+        margin-left: 35px;
+    }
+    .pre-numbering{
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        padding: 0.5em 3px 0.7em 5px;
+        border-right: 1px solid #C3CCD0;
+        text-align: right;
+        color: #AAA;
+        background-color: #fafafa;
+    }
+    .pre-numbering.widther {
+        width: 35px;
+    }
+</style>
+
+<!--自定义样式设置-->
+<style>
+    
+    
+    .nav-right .title-list nav a .post-title, .nav-right .title-list #local-search-result a .post-title {
+        color: #383636;
+    }
+    
+    
+    .nav-right .title-list nav a .post-date, .nav-right .title-list #local-search-result a .post-date {
+        color: #5e5e5f;
+    }
+    
+    
+    .nav-right nav a.hover, #local-search-result a.hover{
+        background-color: #e2e0e0;
+    }
+    
+    
+
+    /*列表样式*/
+    
+
+    /* 背景图样式 */
+    
+    
+
+
+    /*引用块样式*/
+    
+
+    /*文章列表背景图*/
+    
+    .nav-right:before {
+        content: ' ';
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0.3;
+        background: url("/bloghttps://i.loli.net/2019/07/22/5d3521411f3f169375.png");
+        background-repeat: no-repeat;
+        background-position: 50% 0;
+        -ms-background-size: cover;
+        -o-background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        background-size: cover;
+    }
+    
+
+    
+</style>
+
+
+
+
+
+
+
+</html>
