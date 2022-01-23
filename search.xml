@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>esp32通过i2c点亮ssd1306</title>
+      <link href="/blog/2021/10/12/esp32_i2c_ssd1306/"/>
+      <url>/blog/2021/10/12/esp32_i2c_ssd1306/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="esp32通过i2c点亮ssd1306"><a href="#esp32通过i2c点亮ssd1306" class="headerlink" title="esp32通过i2c点亮ssd1306"></a>esp32通过i2c点亮ssd1306</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Wire.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;SSD1306.h&quot;</span> </span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SDA 22</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SCL 23</span></span><br><span class="line"> </span><br><span class="line"><span class="function">SSD1306 <span class="title">display</span><span class="params">(<span class="number">0x3c</span>, SDA, SCL)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  display.init();</span><br><span class="line">  display.drawString(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;Hello World from ESP32/ESP8266!&quot;</span>);</span><br><span class="line">  display.display();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单片机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> esp </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Deep&amp;Cross</title>
       <link href="/blog/2021/07/13/Deep&amp;Cross/"/>
       <url>/blog/2021/07/13/Deep&amp;Cross/</url>
@@ -524,33 +549,6 @@
     
     
     <entry>
-      <title>Docker部署FastDFS</title>
-      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"/>
-      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/</url>
-      
-        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署FastDFS"><a href="#Docker部署FastDFS" class="headerlink" title="Docker部署FastDFS"></a>Docker部署FastDFS</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; FastDFS.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><h5 id="开启tracker"><a href="#开启tracker" class="headerlink" title="开启tracker"></a>开启tracker</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --name tracker --network&#x3D;host -v &#x2F;var&#x2F;fdfs&#x2F;tracker:&#x2F;var&#x2F;fdfs delron&#x2F;fastdfs tracker</span><br></pre></td></tr></table></figure><h5 id="开启storage"><a href="#开启storage" class="headerlink" title="开启storage"></a>开启storage</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dti --name storage --network&#x3D;host -e TRACKER_SERVER&#x3D;192.168.19.137:22122 -v &#x2F;var&#x2F;fdfs&#x2F;storage:&#x2F;var&#x2F;fdfs delron&#x2F;fastdfs storage</span><br></pre></td></tr></table></figure>]]></content>
-      
-      
-      <categories>
-          
-          <category> Linux </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Docker </tag>
-            
-            <tag> FastDFS </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Docker部署Elasticsearch</title>
       <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/"/>
       <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/</url>
@@ -578,11 +576,11 @@
     
     
     <entry>
-      <title>Docker部署MySQL</title>
-      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
-      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
+      <title>Docker部署FastDFS</title>
+      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/"/>
+      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/</url>
       
-        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署FastDFS"><a href="#Docker部署FastDFS" class="headerlink" title="Docker部署FastDFS"></a>Docker部署FastDFS</h1><h1 id="前言："><a href="#前言：" class="headerlink" title="前言："></a>前言：</h1><h3 id="一、Docker-镜像地址"><a href="#一、Docker-镜像地址" class="headerlink" title="一、Docker 镜像地址"></a>一、Docker 镜像地址</h3><p>百度网盘中</p><h3 id="二、镜像导入"><a href="#二、镜像导入" class="headerlink" title="二、镜像导入"></a>二、镜像导入</h3><p>docker load &lt; FastDFS.jar</p><h3 id="三、使用容器运行镜像"><a href="#三、使用容器运行镜像" class="headerlink" title="三、使用容器运行镜像"></a>三、使用容器运行镜像</h3><h5 id="开启tracker"><a href="#开启tracker" class="headerlink" title="开启tracker"></a>开启tracker</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dit --name tracker --network&#x3D;host -v &#x2F;var&#x2F;fdfs&#x2F;tracker:&#x2F;var&#x2F;fdfs delron&#x2F;fastdfs tracker</span><br></pre></td></tr></table></figure><h5 id="开启storage"><a href="#开启storage" class="headerlink" title="开启storage"></a>开启storage</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -dti --name storage --network&#x3D;host -e TRACKER_SERVER&#x3D;192.168.19.137:22122 -v &#x2F;var&#x2F;fdfs&#x2F;storage:&#x2F;var&#x2F;fdfs delron&#x2F;fastdfs storage</span><br></pre></td></tr></table></figure>]]></content>
       
       
       <categories>
@@ -596,7 +594,7 @@
             
             <tag> Docker </tag>
             
-            <tag> MySQL </tag>
+            <tag> FastDFS </tag>
             
         </tags>
       
@@ -632,6 +630,33 @@
     
     
     <entry>
+      <title>Docker部署MySQL</title>
+      <link href="/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/"/>
+      <url>/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Docker部署MySQL5-7"><a href="#Docker部署MySQL5-7" class="headerlink" title="Docker部署MySQL5.7"></a>Docker部署MySQL5.7</h1><ol><li><p>拉取镜像</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:<span class="number">5.7</span></span><br><span class="line">或</span><br><span class="line">百度网盘中/docker_images/mysql5.<span class="number">7</span>.jar</span><br><span class="line">docker load mysql5.<span class="number">7</span>.jar</span><br></pre></td></tr></table></figure></li><li><p>创建运行本地mysql所需的配置文件目录</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir <span class="literal">-p</span> /etc/mysql/conf</span><br></pre></td></tr></table></figure></li></ol><ol start="3"><li><p>创建并运行虚拟环境</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker container run <span class="literal">-p</span> <span class="number">3306</span>:<span class="number">3306</span> -<span class="literal">-name</span> mysql_server <span class="literal">-v</span> /etc/mysql/conf/:/etc/mysql/conf.d <span class="literal">-e</span> MYSQL_ROOT_PASSWORD=<span class="number">123456</span> <span class="literal">-d</span> mysql:<span class="number">5.7</span></span><br><span class="line"><span class="comment"># 命令格式：docker run --name some-mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag</span></span><br><span class="line"><span class="comment"># 配置说明</span></span><br><span class="line"><span class="comment"># -p 3306:3306  把容器的3306端口(第二个3306)映射到主机的3306端口(第一个3306)</span></span><br><span class="line"><span class="comment"># --name 容器实例名称</span></span><br><span class="line"><span class="comment"># -v /etc/mysql/conf/:/etc/mysql/conf.d 把容器的mysql配置目录(/etc/mysql/conf.d)映射到到主机的对应目录(/etc/mysql/conf/)</span></span><br><span class="line"><span class="comment"># -e MYSQL_ROOT_PASSWORD=123456 设置密码为123456</span></span><br><span class="line"><span class="comment"># -d mysql:5.7 指定使用那个镜像</span></span><br></pre></td></tr></table></figure></li><li><p>进入mysql的shell界面</p><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec <span class="literal">-it</span> mysql_server mysql <span class="literal">-uroot</span> <span class="literal">-p123456</span></span><br></pre></td></tr></table></figure></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> Linux </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Docker </tag>
+            
+            <tag> MySQL </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>ES部署</title>
       <link href="/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/"/>
       <url>/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</url>
@@ -651,6 +676,31 @@
             <tag> Elasticsearch </tag>
             
             <tag> 搜索 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>esp32/esp8266连接wifi</title>
+      <link href="/blog/2019/08/12/esp32esp8266%E8%BF%9E%E6%8E%A5wifi/"/>
+      <url>/blog/2019/08/12/esp32esp8266%E8%BF%9E%E6%8E%A5wifi/</url>
+      
+        <content type="html"><![CDATA[<p>[TOC]</p><h1 id="esp32-esp8266连接wifi"><a href="#esp32-esp8266连接wifi" class="headerlink" title="esp32/esp8266连接wifi"></a>esp32/esp8266连接wifi</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;WiFi.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> LED_BUILTIN 2</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* ssid = <span class="string">&quot;qwer&quot;</span>;</span><br><span class="line"><span class="keyword">const</span> <span class="keyword">char</span>* password =  <span class="string">&quot;**********&quot;</span>;</span><br><span class="line">s</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  pinMode(LED_BUILTIN, OUTPUT);</span><br><span class="line"> </span><br><span class="line">  Serial.begin(<span class="number">115200</span>);</span><br><span class="line"> </span><br><span class="line">  WiFi.begin(ssid, password);</span><br><span class="line"> </span><br><span class="line">  <span class="keyword">while</span> (WiFi.status() != WL_CONNECTED) &#123;</span><br><span class="line">    delay(<span class="number">500</span>);</span><br><span class="line">    Serial.println(<span class="string">&quot;Connecting to WiFi..&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  Serial.println(<span class="string">&quot;Connected to the WiFi network&quot;</span>);</span><br><span class="line"> </span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">  delay(<span class="number">500</span>);</span><br><span class="line">  digitalWrite(LED_BUILTIN, HIGH);</span><br><span class="line">  delay(<span class="number">500</span>);</span><br><span class="line">  digitalWrite(LED_BUILTIN, LOW);  </span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> 单片机 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> esp </tag>
             
         </tags>
       
