@@ -1,0 +1,951 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/04/22/Tensorflow/</loc>
+    
+    <lastmod>2022-03-31</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/05/11/Wide&Deep/</loc>
+    
+    <lastmod>2022-03-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/10/11/FTRL/</loc>
+    
+    <lastmod>2022-03-09</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/10/12/Transformer/</loc>
+    
+    <lastmod>2022-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/10/11/shadowsock/</loc>
+    
+    <lastmod>2022-02-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/09/11/FRP/</loc>
+    
+    <lastmod>2022-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/05/13/git/</loc>
+    
+    <lastmod>2022-02-08</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/%E6%A8%A1%E5%9E%8B%E7%A7%8D%E7%B1%BB/</loc>
+    
+    <lastmod>2022-02-07</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/11/24/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</loc>
+    
+    <lastmod>2022-01-30</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/03/11/Linux%E5%91%BD%E4%BB%A4/</loc>
+    
+    <lastmod>2022-01-29</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/05/22/Spark/</loc>
+    
+    <lastmod>2022-01-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/</loc>
+    
+    <lastmod>2022-01-24</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/esp32esp8266%E8%BF%9E%E6%8E%A5wifi/</loc>
+    
+    <lastmod>2022-01-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2021/10/12/esp32_i2c_ssd1306/</loc>
+    
+    <lastmod>2022-01-23</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/11/15/LSTM/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/06/03/YARN/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/12/23/Word2Vec/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/11/23/Vim/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/10/12/unittest/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/02/12/supervisor/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/04/20/Sqoop/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/05/19/socketio/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/03/11/pytorch/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/07/29/pandas/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/07/22/Numpy/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/05/10/network/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/01/15/N-garm/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/04/21/MapReduce/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/05/06/Kafka/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/04/17/hive%E8%BF%9E%E6%8E%A5/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/04/11/hdfs%E8%BF%9E%E6%8E%A5/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/25/HDFS/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/14/HBase/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/06/11/Hadoop/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/07/28/GRU/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/09/12/FM/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/14/Flume/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/08/19/crontab/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/06/25/%E6%A0%88/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/06/12/%E9%80%89%E6%8B%A9%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/04/11/%E5%B8%8C%E5%B0%94%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/03/25/%E6%A1%B6%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/06/22/%E6%95%B0%E5%AD%A6/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/07/12/%E6%A0%91/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/04/16/%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/06/11/%E9%93%BE%E8%A1%A8/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/03/11/%E5%BF%AB%E9%80%9F%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/03/01/%E8%AE%A1%E6%95%B0%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/02/18/%E5%9F%BA%E6%95%B0%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/02/25/%E5%BD%92%E5%B9%B6%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/06/13/%E9%98%9F%E5%88%97/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/02/22/%E5%A0%86%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/02/20/%E6%8F%92%E5%85%A5%E6%8E%92%E5%BA%8F/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/Dockre%E9%83%A8%E7%BD%B2Gitblit/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2MySQL/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2Elasticsearch/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/Docker%E9%83%A8%E7%BD%B2%20FastDFS/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/04/22/Elasticsearch/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2018/05/02/web%E9%83%A8%E7%BD%B2/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2017/04/23/miniconda/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/ES%E9%83%A8%E7%BD%B2%E6%B5%81%E7%A8%8B/</loc>
+    
+    <lastmod>2022-01-22</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/2019/08/12/Linux%E5%91%BD%E4%BB%A4%E4%B9%8Bcd/</loc>
+    
+    <lastmod>2021-11-27</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+
+  <url>
+    <loc>https://bufan-zb.github.io/blog</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Docker/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/FastDFS/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Elasticsearch/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/MySQL/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Gitblit/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%90%9C%E7%B4%A2/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/web/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%90%9C%E7%B4%A2%E5%BC%95%E6%93%8E/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%9C%AA%E5%AE%8C%E6%88%90/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Hadoop/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Pytorch/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/TensorFlow/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/RNN/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Kafka/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Linux%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Numpy/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Linux/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/cenos/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/esp/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E8%99%9A%E6%8B%9F%E7%8E%AF%E5%A2%83/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E7%BD%91%E5%8D%A1%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Pandas/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/pytorch/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E8%81%8A%E5%A4%A9/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/flask/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/python/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%95%B0%E5%AD%A6/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Python/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E5%AF%BC/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/Linux/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/python/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/%E5%8D%95%E7%89%87%E6%9C%BA/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/categories/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+</urlset>

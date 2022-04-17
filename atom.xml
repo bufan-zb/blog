@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>邹斌的博客</title>
+  
+  
+  <link href="https://bufan-zb.github.io/blog/atom.xml" rel="self"/>
+  
+  <link href="https://bufan-zb.github.io/blog/"/>
+  <updated>2022-01-23T00:59:35.219Z</updated>
+  <id>https://bufan-zb.github.io/blog/</id>
+  
+  <author>
+    <name>邹斌</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>esp32通过i2c点亮ssd1306</title>
+    <link href="https://bufan-zb.github.io/blog/2021/10/12/esp32_i2c_ssd1306/"/>
+    <id>https://bufan-zb.github.io/blog/2021/10/12/esp32_i2c_ssd1306/</id>
+    <published>2021-10-12T12:18:00.000Z</published>
+    <updated>2022-01-23T00:59:35.219Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="esp32通过i2c点亮ssd1306"><a href="#esp32通过i2c点亮ssd1306" class="headerlink" title="esp32通过i2c点亮ssd1306"></a>esp32通过i2c点亮ssd1306</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;Wire.h&quot;</span></span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&quot;SSD1306.h&quot;</span> </span></span><br><span class="line"> </span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SDA 22</span></span><br><span class="line"><span class="meta">#<span class="meta-keyword">define</span> SCL 23</span></span><br><span class="line"> </span><br><span class="line"><span class="function">SSD1306 <span class="title">display</span><span class="params">(<span class="number">0x3c</span>, SDA, SCL)</span></span>;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setup</span><span class="params">()</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">  display.init();</span><br><span class="line">  display.drawString(<span class="number">0</span>, <span class="number">0</span>, <span class="string">&quot;Hello World from ESP32/ESP8266!&quot;</span>);</span><br><span class="line">  display.display();</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">loop</span><span class="params">()</span> </span>&#123;&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;esp32通过i2c点亮ssd1306&quot;&gt;&lt;a href=&quot;#esp32通过i2c点亮ssd1306&quot; class=&quot;headerlink&quot; title=&quot;esp32通过i2c点亮ssd1306&quot;&gt;&lt;/a&gt;esp32通过i2c点亮ssd1</summary>
+      
+    
+    
+    
+    <category term="单片机" scheme="https://bufan-zb.github.io/blog/categories/%E5%8D%95%E7%89%87%E6%9C%BA/"/>
+    
+    
+    <category term="esp" scheme="https://bufan-zb.github.io/blog/tags/esp/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>遗传算法</title>
+    <link href="https://bufan-zb.github.io/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"/>
+    <id>https://bufan-zb.github.io/blog/2021/03/17/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/</id>
+    <published>2021-03-17T10:32:00.000Z</published>
+    <updated>2022-01-22T14:13:35.819Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="遗传算法"><a href="#遗传算法" class="headerlink" title="遗传算法"></a>遗传算法</h1><h1 id="使用二进制"><a href="#使用二进制" class="headerlink" title="使用二进制"></a>使用二进制</h1><p>初始化-&gt;选择算子-&gt;交叉算子-&gt;变异算子-&gt;选择算子</p><h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><h1 id="基本参数"><a href="#基本参数" class="headerlink" title="基本参数"></a>基本参数</h1><p>群体大小20-100<br>进化代数100-500<br>交叉概率0.4-0.99<br>变异概率取0.0001-0.1<br>这4个运行参数对遗传算法的结果和求解效率都有一定影响，但是没有理论依据，需要进行多次试算才能确定参数合理大小和取值范围</p><h1 id="基本遗传算法定义"><a href="#基本遗传算法定义" class="headerlink" title="基本遗传算法定义"></a>基本遗传算法定义</h1><p>$$<br>SGA=(C, E, P_0, M, \Phi, R, \Psi, T) \C—–个体的编码方法 \E——个体适应度评价函数 \P_0—初始群体 \M—–群体大小 \\Phi—-选择算子\R—-交叉算子 \\Psi—-变异算子 \T—-遗传运算终止条件 \<br>$$</p><h1 id="个体适应度评价"><a href="#个体适应度评价" class="headerlink" title="个体适应度评价"></a>个体适应度评价</h1><h1 id="目标函数求最大值"><a href="#目标函数求最大值" class="headerlink" title="目标函数求最大值"></a>目标函数求最大值</h1><p>  定义一个较小的值C，目标函数值-C<br>    C:<br>      预先指定一个较小的值<br>      当前代的最小值的目标函数值<br>      最近几代中最小目标函数值</p><h1 id="目标函数求最大值-1"><a href="#目标函数求最大值-1" class="headerlink" title="目标函数求最大值"></a>目标函数求最大值</h1><p>  定义一个较大的值C，C-目标函数值<br>    C:<br>      预先指定一个较大的值<br>      当前代的最大值的目标函数值<br>      最近几代中最大目标函数值</p><h1 id="比例选择算子"><a href="#比例选择算子" class="headerlink" title="比例选择算子"></a>比例选择算子</h1><p>先计算出群体中所有个体适应度的总和<br>计算出每个个体的相对适应度，既为各个个体被遗传到下一代群体中的概率<br>模拟赌盘操作，来确定各个个体被选中的次数</p><h1 id="单点交叉算子"><a href="#单点交叉算子" class="headerlink" title="单点交叉算子"></a>单点交叉算子</h1><p>对群体中的个体两两随机配对<br>对配对的个体随机数配置一个基因座，<br>基因座后面的位置参数进行置换，生成两个新的个体</p><h1 id="变异算子"><a href="#变异算子" class="headerlink" title="变异算子"></a>变异算子</h1><p>对每个编码为随机生成一个(0,1)小数,<br>如果小于变异概率不变异，大于就取反变异</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;遗传算法&quot;&gt;&lt;a href=&quot;#遗传算法&quot; class=&quot;headerlink&quot; title=&quot;遗传算法&quot;&gt;&lt;/a&gt;遗传算法&lt;/h1&gt;&lt;h1 id=&quot;使用二进制&quot;&gt;&lt;a href=&quot;#使用二进制&quot; class=&quot;headerlink&quot; t</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="遗传算法" scheme="https://bufan-zb.github.io/blog/tags/%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>LSTM</title>
+    <link href="https://bufan-zb.github.io/blog/2020/11/15/LSTM/"/>
+    <id>https://bufan-zb.github.io/blog/2020/11/15/LSTM/</id>
+    <published>2020-11-15T13:10:00.000Z</published>
+    <updated>2022-01-22T14:14:04.517Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="LSTM"><a href="#LSTM" class="headerlink" title="LSTM"></a>LSTM</h1><p>LSTM(Long Short-Term Memory)是一种特殊的RNN,可以学习长依赖信息</p><h3 id="核心原理"><a href="#核心原理" class="headerlink" title="核心原理"></a>核心原理</h3><p><img src="/blog/img/LSTM_1.png"></p><p>1.遗忘门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数的神经元得到一个(0, 1)之间的数$f_t$来乘上细胞状态，根据数字的大小来确定需要遗忘多少。<br>$$<br>f_t=\sigma(W_f.[h_{t-1},x_t]+b_f)<br>$$<br><img src="/blog/img/LSTM_2.png"></p><p>2.输入门：通过上一次的输出信息合并上这次的输入信息在通过一个激活函数为sigmoid函数和tanh函数的神经元得到一个(0, 1)之间的数$i_t$和(-1, 1)之间的数，两数相乘再加入细胞状态中。<br>$$<br>i_t=\sigma(W_i.[h_{t-1},x_t]+b_i)<br>$$</p><p>$$<br>\tilde{C_t}=tanh(W_c.[h_{t-1}]+b_C)<br>$$</p><p><img src="/blog/img/LSTM_3.png"></p><p>3.输出门：当细胞状态通过遗忘门和输入门后，新的细胞状态每个元素都通过tanh函数后乘上一个(0, 1)之间的数来作为当前神经元的输出和下一个神经元中的一个输入<br>$$<br>o_t=\sigma(W_o[h_{t-1},x_t]+b_o)<br>$$</p><p>$$<br>h_t=o_t*tanh(C_t)<br>$$</p><p><img src="/blog/img/LSTM_4.png"></p><h1 id="双向LSTM"><a href="#双向LSTM" class="headerlink" title="双向LSTM"></a>双向LSTM</h1><p>单向的RNN，是根据前面的信息往后面推，但是有时候当前词语语义不仅和前面的词有关，还和后面的词也有关，所以再增加一个由前向后的LSRM的RNN</p><p><img src="/blog/img/LSTM_5.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;LSTM&quot;&gt;&lt;a href=&quot;#LSTM&quot; class=&quot;headerlink&quot; title=&quot;LSTM&quot;&gt;&lt;/a&gt;LSTM&lt;/h1&gt;&lt;p&gt;LSTM(Long Short-Term Memory)是一种特殊的RNN,可以学习长依赖信息&lt;/</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="RNN" scheme="https://bufan-zb.github.io/blog/tags/RNN/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Transformer</title>
+    <link href="https://bufan-zb.github.io/blog/2020/10/12/Transformer/"/>
+    <id>https://bufan-zb.github.io/blog/2020/10/12/Transformer/</id>
+    <published>2020-10-12T05:58:00.000Z</published>
+    <updated>2022-02-10T14:36:26.018Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Transformer"><a href="#Transformer" class="headerlink" title="Transformer"></a>Transformer</h1><p><img src="/blog/img/transformer.jpg" alt="ttttttt"></p><h2 id="Embedding"><a href="#Embedding" class="headerlink" title="Embedding"></a>Embedding</h2><p>把词变成词向量</p><h2 id="位置编码Positional-Encoding"><a href="#位置编码Positional-Encoding" class="headerlink" title="位置编码Positional Encoding"></a>位置编码Positional Encoding</h2><p>$$<br>PE(pos,2i)=sin(pos/10000^{2i/d_{model}})<br>\ PE(pos,2i+1)=cos(pos/10000^{2i/d_{model}})<br>\ pos:词语索引位置<br>\ i:dim_index//2 \ \ \ dim_index为词向量的索引<br>\ d_{model}:词向量长度<br>$$</p><p>通过sin和cos转换公式可以得出相对位置<br>$$<br>sin(\alpha+\beta)=sin(\alpha)cos(\beta)+sin(\beta)cos(\alpha) \<br>cos(\alpha+\beta)=cos(\beta)cos(\alpha)-sin(\alpha)sin(\beta) \<br>PE(pos+k, 2i)=PE(pos,2i)PE(k,2i+1)+PE(k,2i)PE(pos,2i+1) \<br>PE(pos+k, 2i+1)=PE(k,2i+1)PE(pos,2i+1)-PE(pos,2i)PE(k,2i)<br>$$</p><h2 id="Multi-Head-Attention"><a href="#Multi-Head-Attention" class="headerlink" title="Multi-Head Attention"></a>Multi-Head Attention</h2><p>把词向量经过线性变换生成Q,K,V，再把Q,K,V分别切分为多个部分这些多个部分，同时进入Self-Attention计算，之后进行合并。</p><h3 id="Multi-Head"><a href="#Multi-Head" class="headerlink" title="Multi-Head"></a>Multi-Head</h3><p>为了可以注意到不同子空间的信息，捕捉到更加丰富的特征信息</p><h3 id="Self-Attention"><a href="#Self-Attention" class="headerlink" title="Self-Attention"></a>Self-Attention</h3><p>$$<br>Attention(Q,K,V)=softmax(\frac {QK^T}{\sqrt {d_k}})V<br>$$</p><h4 id="点积缩放"><a href="#点积缩放" class="headerlink" title="点积缩放"></a>点积缩放</h4><p>为防止点积后数值过大，再经过softmax是大部分数据变为0对点积之后的结果除以根号d_k(为向量长度),假设q,k分别都是均值为0，方差为1的向量那么q,k点积之后的均值为0，方差为d_k<br>$$<br>设：X=[q_1,q_2,…,q_{d_k}]和Y=[j_1,j_2,…,j_{d_k}]<br>\ 满足:均值E(q_i)=0,E(j_i)=0\ \ \ \ \ \ <br>\  方差D(q_i)=1,D(j_i)=1 \<br>\ E(q_ij_i)=E(q_i)E(j_i)=0<br>\ D(X)=E(X^2)-E^2(X) \<br>\ D(q_ij_i)=E(q_i^2j_i^2)-E^2(q_ij_i)<br>\ =E(q_i^2)E(j_i^2)-0<br>\ =[E(q_i^2)-E^2(q_i)][E(j_i^2)-E^2(j_i)]<br>\ =D(q_i)D(j_i)=1<br>\ E(XY)=E(q_1j_1)+E(q_2j_2)+…+E(q_{d_k}j_{d_k})<br>\ =0+0+…+0=0<br>\ D(XY)=D(q_1j_1)+D(q_2j_2)+…+D(q_{d_k}j_{d_k})<br>\ =1+1+…+1=d_k<br>$$</p><p>$$<br>令：Z=XY \<br>D(\alpha Z)=1=\alpha^2D(Z) \<br>\alpha=\frac {1}{\sqrt {d_k}}<br>$$</p><h2 id="ADD-amp-Norm"><a href="#ADD-amp-Norm" class="headerlink" title="ADD &amp; Norm"></a>ADD &amp; Norm</h2><h3 id="残差网络"><a href="#残差网络" class="headerlink" title="残差网络"></a>残差网络</h3><p>残差网络可以有效的减少深度神经网络梯度消失的问题，使训练层数到达比较深的层次</p><h3 id="LayerNorm"><a href="#LayerNorm" class="headerlink" title="LayerNorm"></a>LayerNorm</h3><p>因为当前batch的分布不能代表整个数据集的分布，所以不适合BatchNorm，进而退而求其次选择LayerNorm，尽可能是数据分布再均值为0，方差为1的范围内，可以更好的训练</p><h2 id="Feed-Forward"><a href="#Feed-Forward" class="headerlink" title="Feed Forward"></a>Feed Forward</h2><p>前馈神经网络为一个两层的全链接层</p><h2 id="Masked"><a href="#Masked" class="headerlink" title="Masked"></a>Masked</h2><p>训练时模拟输入预估结果，可以使对每个词的预估结果进行并发训练</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Transformer&quot;&gt;&lt;a href=&quot;#Transformer&quot; class=&quot;headerlink&quot; title=&quot;Transformer&quot;&gt;&lt;/a&gt;Transformer&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/blog/img/t</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>shadowsock</title>
+    <link href="https://bufan-zb.github.io/blog/2020/10/11/shadowsock/"/>
+    <id>https://bufan-zb.github.io/blog/2020/10/11/shadowsock/</id>
+    <published>2020-10-11T10:21:00.000Z</published>
+    <updated>2022-02-10T13:01:50.158Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="shadowsock"><a href="#shadowsock" class="headerlink" title="shadowsock"></a>shadowsock</h1><p>Shadowsocks（中文名称：影梭）是一个跨平台软件、基于Apache许可证的开放源代码软件，用于保护网络流量、加密数据传输。Shadowsocks使用Socks5代理方式,Shadowsocks分为服务器端和客户端，Shadowsocks是一个轻量级SOCKS5代理。</p><h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">apt install epel-release</span><br><span class="line">apt -y install python-pip python-setuptools m2crypto</span><br><span class="line">pip install shadowsocks</span><br></pre></td></tr></table></figure><h3 id="配置json文件"><a href="#配置json文件" class="headerlink" title="配置json文件"></a>配置json文件</h3><figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="attr">&quot;server&quot;</span>:<span class="string">&quot;0.0.0.0&quot;</span>, </span><br><span class="line">  <span class="attr">&quot;server_port&quot;</span>:<span class="number">8388</span>, </span><br><span class="line">  <span class="attr">&quot;local_port&quot;</span>:<span class="number">1080</span>, </span><br><span class="line">  <span class="attr">&quot;password&quot;</span>:<span class="string">&quot;yourpassword&quot;</span>, </span><br><span class="line">  <span class="attr">&quot;timeout&quot;</span>:<span class="number">600</span>, </span><br><span class="line">  <span class="attr">&quot;method&quot;</span>:<span class="string">&quot;aes-256-cfb&quot;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><table><thead><tr><th><strong>名称</strong></th><th><strong>解释</strong></th></tr></thead><tbody><tr><td><strong>server</strong></td><td><strong>服务端监听地址</strong></td></tr><tr><td><strong>server_port</strong></td><td><strong>服务端端口</strong></td></tr><tr><td><strong>local_address</strong></td><td><strong>本地监听地址</strong></td></tr><tr><td><strong>local_port</strong></td><td><strong>本地端口</strong></td></tr><tr><td><strong>password</strong></td><td><strong>用于加密的密码</strong></td></tr><tr><td><strong>timeout</strong></td><td><strong>超时时间（秒）</strong></td></tr><tr><td><strong>method</strong></td><td><strong>加密方式，默认为aes-256-cfb</strong></td></tr><tr><td><strong>mode</strong></td><td><strong>是否启用 TCP / UDP 转发</strong></td></tr><tr><td><strong>fast_open</strong></td><td><strong>是否启用 TCP Fast Open</strong></td></tr><tr><td><strong>workers</strong></td><td><strong>worker 数量</strong></td></tr></tbody></table><h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 开启端口</span></span><br><span class="line">iptables -I INPUT -p tcp --dport 8388 -j ACCEPT</span><br><span class="line">iptables -I INPUT -p tcp --dport 1080 -j ACCEPT</span><br><span class="line">nohup ssserver -c /shadowsocks/config.json &gt; /shadowsocks/shadowsocks.log 2&gt;&amp;1 &amp;</span><br><span class="line"><span class="meta">#</span><span class="bash"> 启动是报错openssl文件错误执行</span></span><br><span class="line">sed -i &#x27;s/cleanup/reset/g&#x27; /usr/local/lib/python3.6/dist-packages/shadowsocks/crypto/openssl.py</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;shadowsock&quot;&gt;&lt;a href=&quot;#shadowsock&quot; class=&quot;headerlink&quot; title=&quot;shadowsock&quot;&gt;&lt;/a&gt;shadowsock&lt;/h1&gt;&lt;p&gt;Shadowsocks（中文名称：影梭）是一个跨平</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://bufan-zb.github.io/blog/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>GPU镜像生成</title>
+    <link href="https://bufan-zb.github.io/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/"/>
+    <id>https://bufan-zb.github.io/blog/2020/09/12/GPU%E9%95%9C%E5%83%8F%E7%94%9F%E6%88%90/</id>
+    <published>2020-09-12T09:48:00.000Z</published>
+    <updated>2022-01-24T05:31:49.878Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h1><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ARG</span> UBUNTU_VERSION=<span class="number">16.04</span></span><br><span class="line"><span class="keyword">ARG</span> ARCH=</span><br><span class="line"><span class="keyword">ARG</span> CUDA=<span class="number">10.1</span></span><br><span class="line"><span class="keyword">FROM</span> nvidia/cuda$&#123;ARCH:+-$ARCH&#125;:$&#123;CUDA&#125;-base-ubuntu$&#123;UBUNTU_VERSION&#125; as base</span><br><span class="line">     </span><br><span class="line"><span class="keyword">ARG</span> ARCH</span><br><span class="line"><span class="keyword">ARG</span> CUDA</span><br><span class="line"><span class="keyword">ARG</span> CUDNN=<span class="number">7.6</span>.<span class="number">4.38</span>-<span class="number">1</span></span><br><span class="line"><span class="keyword">ARG</span> CUDNN_MAJOR_VERSION=<span class="number">7</span></span><br><span class="line"><span class="keyword">ARG</span> LIB_DIR_PREFIX=x86_64</span><br><span class="line"><span class="keyword">ARG</span> LIBNVINFER=<span class="number">6.0</span>.<span class="number">1</span>-<span class="number">1</span></span><br><span class="line"><span class="keyword">ARG</span> LIBNVINFER_MAJOR_VERSION=<span class="number">6</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SHELL</span><span class="bash"> [<span class="string">&quot;/bin/bash&quot;</span>, <span class="string">&quot;-c&quot;</span>]</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> sed -i s:/archive.ubuntu.com:/mirrors.aliyun.com/ubuntu:g /etc/apt/sources.list;\</span></span><br><span class="line"><span class="bash">    sed -i s:/archive.ubuntu.com:/mirrors.tuna.tsinghua.edu.cn/ubuntu:g /etc/apt/sources.list &amp;&amp; apt-get clean &amp;&amp; apt-get -y update --fix-missing;\</span></span><br><span class="line"><span class="bash">    apt-get update &amp;&amp; apt-get install -y --no-install-recommends \</span></span><br><span class="line"><span class="bash">        build-essential \</span></span><br><span class="line"><span class="bash">        cuda-command-line-tools-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        libcublas10 \</span></span><br><span class="line"><span class="bash">        cuda-cufft-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-curand-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-cusolver-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        cuda-cusparse-<span class="variable">$&#123;CUDA/./-&#125;</span> \</span></span><br><span class="line"><span class="bash">        curl \</span></span><br><span class="line"><span class="bash">        libcudnn7=<span class="variable">$&#123;CUDNN&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        libfreetype6-dev \</span></span><br><span class="line"><span class="bash">        libhdf5-serial-dev \</span></span><br><span class="line"><span class="bash">        libzmq3-dev \</span></span><br><span class="line"><span class="bash">        pkg-config \</span></span><br><span class="line"><span class="bash">        software-properties-common \</span></span><br><span class="line"><span class="bash">        unzip zip</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> [[ <span class="string">&quot;<span class="variable">$&#123;ARCH&#125;</span>&quot;</span> = <span class="string">&quot;ppc64le&quot;</span> ]] || &#123; apt-get update &amp;&amp; \</span></span><br><span class="line"><span class="bash">        apt-get install -y --no-install-recommends libnvinfer<span class="variable">$&#123;LIBNVINFER_MAJOR_VERSION&#125;</span>=<span class="variable">$&#123;LIBNVINFER&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        libnvinfer-plugin<span class="variable">$&#123;LIBNVINFER_MAJOR_VERSION&#125;</span>=<span class="variable">$&#123;LIBNVINFER&#125;</span>+cuda<span class="variable">$&#123;CUDA&#125;</span> \</span></span><br><span class="line"><span class="bash">        &amp;&amp; apt-get clean \</span></span><br><span class="line"><span class="bash">        &amp;&amp; rm -rf /var/lib/apt/lists/*; &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">ENV</span> LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:/ln:/usr/cuda_files:$LD_LIBRARY_PATH</span><br><span class="line"><span class="keyword">ARG</span> USE_PYTHON_3_NOT_2</span><br><span class="line"><span class="keyword">ARG</span> _PY_SUFFIX=$&#123;USE_PYTHON_3_NOT_2:+<span class="number">3</span>&#125;</span><br><span class="line"><span class="keyword">ARG</span> PIP=pip3</span><br><span class="line"><span class="keyword">ARG</span> TF_PACKAGE=tensorflow-gpu</span><br><span class="line"><span class="keyword">ARG</span> TF_PACKAGE_VERSION=<span class="number">2.0</span>.<span class="number">0</span></span><br><span class="line"><span class="keyword">ENV</span> LANG C.UTF-<span class="number">8</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> huanjin.txt /root/huanjin.txt</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hadoop /hadoop</span></span><br><span class="line"><span class="keyword">COPY</span><span class="bash"> hive_client /hive_client</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> ln -s /usr/<span class="built_in">local</span>/cuda/lib64/stubs/libcuda.so /usr/<span class="built_in">local</span>/cuda/lib64/stubs/libcuda.so.1 \</span></span><br><span class="line"><span class="bash">    &amp;&amp; <span class="built_in">echo</span> <span class="string">&quot;/usr/local/cuda/lib64/stubs&quot;</span> &gt; /etc/ld.so.conf.d/z-cuda-stubs.conf \</span></span><br><span class="line"><span class="bash">    &amp;&amp; ldconfig;\</span></span><br><span class="line"><span class="bash">    apt-get update &amp;&amp; apt-get install -y \</span></span><br><span class="line"><span class="bash">    python3.5 \</span></span><br><span class="line"><span class="bash">    python3-pip \</span></span><br><span class="line"><span class="bash">    gcc \</span></span><br><span class="line"><span class="bash">    libkrb5-dev \</span></span><br><span class="line"><span class="bash">    lrzsz \</span></span><br><span class="line"><span class="bash">    libsasl2-dev \</span></span><br><span class="line"><span class="bash">    libsasl2-2 \</span></span><br><span class="line"><span class="bash">    libsasl2-modules-gssapi-mit \</span></span><br><span class="line"><span class="bash">    openjdk-8-*</span></span><br><span class="line">    </span><br><span class="line"><span class="keyword">RUN</span><span class="bash"> <span class="variable">$&#123;PIP&#125;</span> --no-cache-dir install --upgrade -i https://pypi.douban.com/simple \</span></span><br><span class="line"><span class="bash">    pip \</span></span><br><span class="line"><span class="bash">    setuptools;\</span></span><br><span class="line"><span class="bash">    ln -s $(<span class="built_in">which</span> <span class="variable">$&#123;PYTHON&#125;</span>) /usr/<span class="built_in">local</span>/bin/python;\</span></span><br><span class="line"><span class="bash">    <span class="variable">$&#123;PIP&#125;</span> install <span class="variable">$&#123;TF_PACKAGE&#125;</span><span class="variable">$&#123;TF_PACKAGE_VERSION:+==<span class="variable">$&#123;TF_PACKAGE_VERSION&#125;</span>&#125;</span> -i https://pypi.douban.com/simple;\</span></span><br><span class="line"><span class="bash">    <span class="variable">$&#123;PIP&#125;</span> install -r /root/huanjin.txt -i https://pypi.douban.com/simple;\</span></span><br><span class="line"><span class="bash">    mkdir /ln;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcudart.so.10.1 /ln/libcudart.so.10.0;ln -s /usr/lib64/stubs/libcublas.so /ln/libcublas.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcufft.so.10 /ln/libcufft.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcurand.so.10 /ln/libcurand.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcusolver.so.10 /ln/libcusolver.so.10.0;ln -s /usr/<span class="built_in">local</span>/cuda-10.1/targets/x86_64-linux/lib/libcusparse.so.10 /ln/libcusparse.so.10.0;ln -s /hadoop/lib/native/libhdfs.so /ln/libhdfs.so;ln -s /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/amd64/server/libjvm.so /ln/libjvm.so</span></span><br><span class="line"><span class="keyword">ENV</span> PATH /hadoop/bin/:$PATH</span><br><span class="line"><span class="keyword">ENV</span> HADOOP_HOME /hadoop</span><br><span class="line"><span class="keyword">ENV</span> JAVA_HOME /usr/lib/jvm/java-<span class="number">8</span>-openjdk-amd64</span><br><span class="line"><span class="keyword">ENV</span> HOME /root</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">7.6</span>.<span class="number">5.32</span>-<span class="number">1</span>+</span><br><span class="line">cuda10.<span class="number">2</span>_amd64.deb</span><br></pre></td></tr></table></figure><h2 id="huanjin-txt"><a href="#huanjin-txt" class="headerlink" title="huanjin.txt"></a>huanjin.txt</h2><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">############huanjin.txt############</span></span><br><span class="line">pip install -i https://pypi.douban.com/simple</span><br><span class="line">pandas==<span class="number">0.22</span>.<span class="number">0</span></span><br><span class="line">pyarrow==<span class="number">0.9</span>.<span class="number">0</span></span><br><span class="line">impyla==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">krbcontext==<span class="number">0.9</span></span><br><span class="line">pure_sasl==<span class="number">0.5</span>.<span class="number">1</span></span><br><span class="line">thrift_sasl==<span class="number">0.2</span>.<span class="number">1</span></span><br><span class="line">thrift==<span class="number">0.9</span>.<span class="number">3</span></span><br><span class="line">bitarray==<span class="number">0.8</span>.<span class="number">3</span></span><br><span class="line">thriftpy==<span class="number">0.3</span>.<span class="number">9</span></span><br><span class="line">Cython==<span class="number">0.29</span>.<span class="number">21</span></span><br><span class="line"></span><br><span class="line">torch==<span class="number">1.0</span>.<span class="number">0</span></span><br><span class="line">torchvision==<span class="number">0.2</span>.<span class="number">2</span></span><br><span class="line">jieba==<span class="number">0.39</span></span><br><span class="line">scikit-learn==<span class="number">0.19</span>.<span class="number">1</span></span><br><span class="line">scikit-image==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">joblib==<span class="number">0.14</span>.<span class="number">1</span></span><br><span class="line">pytorch_pretrained_bert==<span class="number">0.6</span>.<span class="number">2</span></span><br><span class="line">gensim==<span class="number">3.5</span>.<span class="number">0</span></span><br><span class="line">Cython==<span class="number">0.29</span>.<span class="number">21</span></span><br></pre></td></tr></table></figure><h1 id="安装keytab文件认证"><a href="#安装keytab文件认证" class="headerlink" title="安装keytab文件认证"></a>安装keytab文件认证</h1><figure class="highlight sh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#############安装#############</span></span><br><span class="line">docker build -t forecast:1.2 . </span><br><span class="line">apt-get install krb5-user -y</span><br><span class="line"></span><br><span class="line">*******.******.com</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Dockerfile&quot;&gt;&lt;a href=&quot;#Dockerfile&quot; class=&quot;headerlink&quot; title=&quot;Dockerfile&quot;&gt;&lt;/a&gt;Dockerfile&lt;/h1&gt;&lt;figure class=&quot;highlight doc</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://bufan-zb.github.io/blog/categories/Linux/"/>
+    
+    
+    <category term="Pytorch" scheme="https://bufan-zb.github.io/blog/tags/Pytorch/"/>
+    
+    <category term="TensorFlow" scheme="https://bufan-zb.github.io/blog/tags/TensorFlow/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FRP</title>
+    <link href="https://bufan-zb.github.io/blog/2020/09/11/FRP/"/>
+    <id>https://bufan-zb.github.io/blog/2020/09/11/FRP/</id>
+    <published>2020-09-11T05:21:00.000Z</published>
+    <updated>2022-02-08T13:18:32.899Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="FRP"><a href="#FRP" class="headerlink" title="FRP"></a>FRP</h1><p>Frp就是一个反向代理软件，它体积轻量但功能很强大，可以<strong>使处于内网或防火墙后的设备对外界提供服务</strong>，它支持HTTP、TCP、UDP等众多协议。</p><h3 id="下载文件"><a href="#下载文件" class="headerlink" title="下载文件"></a>下载文件</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/fatedier/frp/releases/download/v0.39.0/frp_0.39.0_linux_amd64.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxvf frp_0.39.0_linux_amd64.tar.gz</span><br></pre></td></tr></table></figure><h3 id="服务端文件frps-ini"><a href="#服务端文件frps-ini" class="headerlink" title="服务端文件frps.ini"></a>服务端文件frps.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">bind_port &#x3D; 7000</span><br><span class="line">log_file &#x3D; &#x2F;opt&#x2F;frps&#x2F;frps.log</span><br><span class="line">log_level &#x3D; info</span><br><span class="line">log_max_days &#x3D; 3</span><br><span class="line">dashboard_port &#x3D; 7500</span><br><span class="line">token &#x3D; 12345678</span><br><span class="line">dashboard_user &#x3D; admin</span><br><span class="line">dashboard_pwd &#x3D; admin</span><br><span class="line">vhost_http_port &#x3D; 10080</span><br><span class="line">vhost_https_port &#x3D; 10443</span><br><span class="line"></span><br><span class="line">bind_udp_port &#x3D; 7001</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>  “bind_port”表示用于客户端和服务端连接的端口，这个端口号我们之后在配置客户端的时候要用到。</li><li>  “log_file”：日志文件保存路径</li><li>  “log_level”：保存日志等级</li><li>  “log_max_days”：日志最大保存天数</li><li>  “dashboard_port”是服务端仪表板的端口，若使用7500端口，在配置完成服务启动后可以通过浏览器访问 x.x.x.x:7500 （其中x.x.x.x为VPS的IP）查看frp服务运行信息。</li><li>  “token”是用于客户端和服务端连接的口令，请自行设置并记录，稍后会用到。</li><li>  “dashboard_user”和“dashboard_pwd”表示打开仪表板页面登录的用户名和密码，自行设置即可。</li><li>  “vhost_http_port”和“vhost_https_port”用于反向代理HTTP主机时使用</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nohup /frp/frps -c /frp/frps.ini &gt; /frp/frps.log 2&gt;&amp;1 &amp;</span><br></pre></td></tr></table></figure><h2 id="普通穿透"><a href="#普通穿透" class="headerlink" title="普通穿透"></a>普通穿透</h2><h3 id="客户端文件frpc-ini"><a href="#客户端文件frpc-ini" class="headerlink" title="客户端文件frpc.ini"></a>客户端文件frpc.ini</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; 150.230.254.144</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line">token &#x3D; 12345678</span><br><span class="line"></span><br><span class="line">[nas]</span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 5000</span><br><span class="line">remote_port &#x3D; 5000</span><br><span class="line"></span><br><span class="line">[blog]</span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 8888</span><br><span class="line">remote_port &#x3D; 8888</span><br><span class="line"></span><br><span class="line">[docker]</span><br><span class="line">type &#x3D; tcp</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 9000</span><br><span class="line">remote_port &#x3D; 9000</span><br><span class="line"></span><br></pre></td></tr></table></figure><ul><li>  “server_addr”为服务端IP地址，填入即可。</li><li>  “server_port”为服务器端口，填入你设置的端口号即可，如果未改变就是7000</li><li>  “token”是你在服务器上设置的连接口令，原样填入即可。</li><li>  “[xxx]”表示一个规则名称，自己定义，便于查询即可。</li><li>  “type”表示转发的协议类型，有TCP和UDP等选项可以选择，如有需要请自行查询frp手册。</li><li>  “local_port”是本地应用的端口号，按照实际应用工作在本机的端口号填写即可。</li><li>  “remote_port”是该条规则在服务端开放的端口号，自己填写并记录即可。</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./frpc -c frpc.ini</span><br></pre></td></tr></table></figure><h2 id="p2p穿透"><a href="#p2p穿透" class="headerlink" title="p2p穿透"></a>p2p穿透</h2><h3 id="受控端"><a href="#受控端" class="headerlink" title="受控端"></a>受控端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; 150.230.254.144</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line">auth_token &#x3D; 123456qwerty</span><br><span class="line">log_file &#x3D; &#x2F;home&#x2F;username&#x2F;Documents&#x2F;opt&#x2F;frpc&#x2F;frpc.log</span><br><span class="line">log_level &#x3D; info</span><br><span class="line">log_max_days &#x3D; 3</span><br><span class="line"></span><br><span class="line">login_fail_exit &#x3D; false</span><br><span class="line"></span><br><span class="line">[ssh_server]</span><br><span class="line">type &#x3D; xtcp</span><br><span class="line">role &#x3D; server</span><br><span class="line">sk &#x3D; abcdefg</span><br><span class="line">local_ip &#x3D; 127.0.0.1</span><br><span class="line">local_port &#x3D; 22</span><br><span class="line"></span><br></pre></td></tr></table></figure><h3 id="控制端"><a href="#控制端" class="headerlink" title="控制端"></a>控制端</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">[common]</span><br><span class="line">server_addr &#x3D; 1.2.3.4</span><br><span class="line">server_port &#x3D; 7000</span><br><span class="line">auth_token &#x3D; 123456qwerty</span><br><span class="line">log_file &#x3D; frpc.log</span><br><span class="line">log_level &#x3D; info</span><br><span class="line">log_max_days &#x3D; 3</span><br><span class="line"></span><br><span class="line">login_fail_exit &#x3D; false</span><br><span class="line"></span><br><span class="line">[ssh_visitor]</span><br><span class="line">type &#x3D; xtcp</span><br><span class="line">server_name &#x3D; ssh_server</span><br><span class="line">role &#x3D; visitor</span><br><span class="line">sk &#x3D; abcdefg</span><br><span class="line">bind_addr &#x3D; 127.0.0.1</span><br><span class="line">bind_port &#x3D; 1234</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;FRP&quot;&gt;&lt;a href=&quot;#FRP&quot; class=&quot;headerlink&quot; title=&quot;FRP&quot;&gt;&lt;/a&gt;FRP&lt;/h1&gt;&lt;p&gt;Frp就是一个反向代理软件，它体积轻量但功能很强大，可以&lt;strong&gt;使处于内网或防火墙后的设备对外界提</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://bufan-zb.github.io/blog/categories/Linux/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>逻辑回归</title>
+    <link href="https://bufan-zb.github.io/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/"/>
+    <id>https://bufan-zb.github.io/blog/2020/08/12/%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92/</id>
+    <published>2020-08-12T10:58:00.000Z</published>
+    <updated>2022-01-22T06:05:54.983Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="逻辑回归"><a href="#逻辑回归" class="headerlink" title="逻辑回归"></a>逻辑回归</h1><p>logistic回归又称logistic回归分析，是一种广义的线性回归分析模型</p><h2 id="目标函数"><a href="#目标函数" class="headerlink" title="目标函数"></a>目标函数</h2><p>$$<br>\begin{align*}<br>&amp; f(x)=wx+b \<br>&amp; p(y|x,w,b)=\frac{1}{1+e^{-f(x)}} \qquad #加入sigmoid \<br>&amp; p(y|x,w,b)=\frac{1}{1+e^{-(wx+b)}}\<br>&amp; p(y|x,w,b)=p(y=1|x,w,b)^y[1-p(y=1|x,w,b)]^{1-y}\qquad # 目标函数\<br>\end{align*}<br>$$</p><h2 id="优化目标"><a href="#优化目标" class="headerlink" title="优化目标"></a>优化目标</h2><p>$$<br>\begin{align*}<br>&amp; argmax_w\prod_{i=1}^{n}p(y_i|x_i,w,b) \qquad#最优化目标函数的w和b值 \<br>&amp; argmax_w log(\prod_{i=1}^{n}p(y_i|x_i,w,b))=argmax_w\sum_{i=1}^nlog(p(y_i|x_i,w,b))\qquad#因为对数函数是单调递增的所以可以对函数进行log一下\&amp;并且通过对数函数的性质把连乘变成了加,免得连乘出来的书过于小\<br>&amp; L(x)=argmin_{w,b}-\sum_{i=1}^nlog(p(y_i|x_i, w,b))=argmin_{w,b}-\sum_{i=1}^n(log(p(y_i|x_i,w,b))^{y_i}+log((1-p(y_i|x_i,w,b))^{(1-y_i)})\qquad   \<br>\end{align*}<br>$$</p><h2 id="求导过程"><a href="#求导过程" class="headerlink" title="求导过程"></a>求导过程</h2><p>$$<br>\begin{align*}<br>&amp; #基础公式 \<br>&amp; (log(x))^”=\frac{1}{x} \<br>&amp; (x^y)^”=yx \<br>&amp; (\frac{x}{y})^”=(\frac{x^”y-xy^”}{y^2}) \<br>&amp; #对sigmoid求导 \<br>&amp; \frac{\delta p(y|x,w,b)}{\delta f(x)}=\frac{-(e^{-f(x)})^”}{(1+e^{-f(x)})^2}=\frac{e^{-f(x)}}{(1+e^{-f(x)})^2}=\frac{1+e^{-f(x)}-1}{(1+e^{-f(x)})^2}=(\frac{1}{1+e^{-f(x)}}-\frac{1}{(1+e^{-f(x)})^2}) \<br>&amp; =\frac{1}{1+e^{-f(x)}}(1-\frac{1}{1+e^{-f(x)}})=p(y|x,w,b)(1-p(y|x,w,b)) \<br>&amp; #对目标函数求导 \<br>&amp; \frac{\delta L(x)}{\delta f(x)}=argmin_{w,b}-(\sum_{i=1}^{n}(logp(y_i|x_i,w,b)^{y_i}+log(1-p(y_i|x,w,b))^{(1-y_i)})^” \<br>&amp; =argmin_{w,b}-(\sum_{i=1}^n(y_ilogp(y_i|x_i,w,b)+((1-y_i))log((1-p(y_i|x,w,b))))^” \<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i\frac{p(y_i|x_i,w,b)^”}{p(y_i|x_i,w,b)}+(1-y_i)\frac{-p(y_i|x_i,w,b)^”}{1-p(y_i|x_i,w,b)})\<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i\frac{p(y_i|x_i,w,b)^”}{p(y_i|x_i,w,b)}+(y_i-1)\frac{p(y_i|x_i,w,b)^”}{1-p(y_i|x_i,w,b)})\<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i\frac{p(y|x,w,b)(1-p(y|x,w,b))}{p(y_i|x_i,w,b)}+(y_i-1)\frac{p(y|x,w,b)(1-p(y|x,w,b))}{1-p(y_i|x_i,w,b)}) \<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i(1-p(y|x,w,b)+(y_i-1)p(y|x,w,b))  \<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i-y_ip(y|x,w,b)+y_ip(y|x,w,b)-p(y|x,w,b)) \<br>&amp; =argmin_{w,b}-(\sum_{i=1}^ny_i-p(y|x,w,b))=argmin_{w,b}(\sum_{i=1}^np(y|x,w,b)-y_i) \<br>\end{align*}<br>$$</p><h2 id="通过SGD求解w和b"><a href="#通过SGD求解w和b" class="headerlink" title="通过SGD求解w和b"></a>通过SGD求解w和b</h2><p>$$<br>\begin{align*}<br>&amp; #使用梯度下降来优化w和b   \<br>&amp; w_i=w_i-\lambda\frac{\delta L(x)}{\delta f(x)}\frac{\delta f(x)}{\delta w_i} \<br>&amp; =w_i-\lambda(\sum_{i=1}^np(y|x,w,b)-y_i)x_i \<br>&amp; b=b-\lambda\frac{\delta L(x)}{\delta f(x)}\frac{\delta f(x)}{\delta b} \<br>&amp; =b-\lambda\sum_{i=1}^n(p(y|x,w,b)-y_i) \<br>&amp;  \<br>\end{align*}<br>$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;逻辑回归&quot;&gt;&lt;a href=&quot;#逻辑回归&quot; class=&quot;headerlink&quot; title=&quot;逻辑回归&quot;&gt;&lt;/a&gt;逻辑回归&lt;/h1&gt;&lt;p&gt;logistic回归又称logistic回归分析，是一种广义的线性回归分析模型&lt;/p&gt;
+&lt;h2 i</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="模型推导" scheme="https://bufan-zb.github.io/blog/tags/%E6%A8%A1%E5%9E%8B%E6%8E%A8%E5%AF%BC/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>优化算法</title>
+    <link href="https://bufan-zb.github.io/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/"/>
+    <id>https://bufan-zb.github.io/blog/2020/05/24/%E4%BC%98%E5%8C%96%E7%AE%97%E6%B3%95/</id>
+    <published>2020-05-24T07:22:00.000Z</published>
+    <updated>2022-01-22T13:58:25.559Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="梯度下降法（BGD）"><a href="#梯度下降法（BGD）" class="headerlink" title="梯度下降法（BGD）"></a>梯度下降法（BGD）</h1><p>每次迭代都需要把所有的样本都送入进行梯度计算，是做全局的最优化，但是有可能达到局部最优</p><p>缺点：计算量大</p><p><img src="/blog/img/BGD.jpg" alt="BGD"></p><h1 id="随机梯度下降法（SGD）"><a href="#随机梯度下降法（SGD）" class="headerlink" title="随机梯度下降法（SGD）"></a>随机梯度下降法（SGD）</h1><p>针对梯度下降算法训练过慢的缺点，每一次进行梯度计算的时候只选出一组数据进行计算并更新一次，再循环；史得计算量大大减小。</p><p>缺点：受噪声影响大</p><h1 id="小批量梯度下降（MBGD）"><a href="#小批量梯度下降（MBGD）" class="headerlink" title="小批量梯度下降（MBGD）"></a>小批量梯度下降（MBGD）</h1><p>结合BGD和SGD取的一个新的优化方法，每一次随机抽出一小批进行梯度计算，参数更新，从而减少噪声带来的影响，也可使计算速度得到了保证。</p><h1 id="Momentum（从梯度角度优化）"><a href="#Momentum（从梯度角度优化）" class="headerlink" title="Momentum（从梯度角度优化）"></a>Momentum（从梯度角度优化）</h1><p>MBGD算法虽然能带来很好的训练速度，但是在快达到最优解的时候不能真正达到最优解，只能在最优解附近徘徊，为解决这一问题，创造了动量法</p><p>主要思想是之前梯度大，那接下来也梯度大，使得梯度更加稳定平缓</p><p><img src="/blog/img/Momentum.jpg" alt="Momentum"></p><h1 id="AdaGrad（从学习率角度优化）"><a href="#AdaGrad（从学习率角度优化）" class="headerlink" title="AdaGrad（从学习率角度优化）"></a>AdaGrad（从学习率角度优化）</h1><p>主要思想就是可以设定一个较大的学习率前期收敛快，而后期是这个学习率慢慢减少</p><p><img src="/blog/img/AdaGrad.jpg" alt="AdaGrad"></p><h1 id="RMSProp"><a href="#RMSProp" class="headerlink" title="RMSProp"></a>RMSProp</h1><p>基于AdaGrad进行对学习率方面进行了指数加权</p><p><img src="/blog/img/RMSProp.jpg" alt="RMSProp"></p><h1 id="Adam"><a href="#Adam" class="headerlink" title="Adam"></a>Adam</h1><p>Adam算法是结合RMSProp和Momentum算法的结合，一方面能够防止梯度摆幅过大，同时还能加快收敛速度</p><p><img src="/blog/img/Adam.jpg" alt="Adam"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;梯度下降法（BGD）&quot;&gt;&lt;a href=&quot;#梯度下降法（BGD）&quot; class=&quot;headerlink&quot; title=&quot;梯度下降法（BGD）&quot;&gt;&lt;/a&gt;梯度下降法（BGD）&lt;/h1&gt;&lt;p&gt;每次迭代都需要把所有的样本都送入进行梯度计算，是做</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+    <category term="梯度下降" scheme="https://bufan-zb.github.io/blog/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>激活函数</title>
+    <link href="https://bufan-zb.github.io/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/"/>
+    <id>https://bufan-zb.github.io/blog/2020/05/13/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0/</id>
+    <published>2020-05-13T12:12:00.000Z</published>
+    <updated>2022-02-08T13:51:16.259Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代"><a href="#使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代" class="headerlink" title="使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代"></a>使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代</h1><h1 id="Sigmoid函数"><a href="#Sigmoid函数" class="headerlink" title="Sigmoid函数"></a>Sigmoid函数</h1><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_1.jpg"></p><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_2.jpg"></p><p>由于函数特性如果神经网络层数增多回导致梯度趋近于0，即梯度消失。当网络权值初始化为（1，+∞）区间值时回出现梯度爆炸，而且函数相对复杂，不易于训练。</p><h1 id="Tanh函数"><a href="#Tanh函数" class="headerlink" title="Tanh函数"></a>Tanh函数</h1><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_3.jpg"></p><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_4.jpg"></p><p>解决了Sigmoid不是0中心的问题，但是梯度问题和运算问题仍然存在</p><h1 id="ReLU函数"><a href="#ReLU函数" class="headerlink" title="ReLU函数"></a>ReLU函数</h1><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_5.jpg"></p><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_6.jpg"></p><p>优点：</p><ul><li>计算速度非常快（只需要一个判断）</li><li>解决了梯度问题</li><li>收敛速度远大于Sigmoid和Tanh</li></ul><p>缺点：</p><ul><li>ReLU不是0中心函数</li><li>由于小于0的地方梯度都为0，有可能导致某些神经元永远不会被激活</li></ul><h1 id="Leaky-ReLU"><a href="#Leaky-ReLU" class="headerlink" title="Leaky ReLU"></a>Leaky ReLU</h1><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_7.jpg"></p><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_8.jpg"></p><p>虽然解决了ReLU小于0的地方梯度都为0的问题，但是实际使用情况时ReLU的效果会优于Leaky ReLU</p><h1 id="Swish"><a href="#Swish" class="headerlink" title="Swish"></a>Swish</h1><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_9.jpg"></p><p><img src="/blog/img/%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0_10.jpg"></p><p>Swish使用效果优于ReLU</p><h1 id="PReLu"><a href="#PReLu" class="headerlink" title="PReLu"></a>PReLu</h1><p>每层输入的数据不一样，当输入数据的分布处于激活函数梯度非常小的地方时会出现参数更新非常缓慢，PReLu可以解决这种问题可以使激活函数动态匹配当前层输入的数据<br>$$<br>f(x) = p(s)*s+(1-p(s))*\alpha s \<br>p(s)=\begin{cases}<br>1, &amp; \text{s &gt;= E(s)}  \<br>0, &amp; \text{s &lt; E(s))}<br>\end{cases} \<br>E(s):为数据的均值，可以控制f(x)曲线横移 \<br>$$</p><h1 id="Dice"><a href="#Dice" class="headerlink" title="Dice"></a>Dice</h1><p>对PReLu激活函数进行优化，使函数曲线的转点更加平滑</p><p>$$<br>f(x)=p(s)*s+(1-p(s))*\alpha s \<br>p(s)=\frac{1}{1-e^{-\frac{s-E(s)}{\sqrt{Var(s)+\epsilon}}}} \<br>E(s):为数据的均值，可以控制f(x)曲线横移 \<br>Var(s):为数据的方差，可以控制p(s)的斜率 \<br>\epsilon:为非常小的常数10^{-8}<br>$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代&quot;&gt;&lt;a href=&quot;#使用激活函数的原因是因为：如果不使用损失函数再深层次的神经网络都可以直接用一个函数进行替代&quot; class=&quot;headerli</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>损失函数</title>
+    <link href="https://bufan-zb.github.io/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/"/>
+    <id>https://bufan-zb.github.io/blog/2020/04/12/%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0/</id>
+    <published>2020-04-12T05:45:00.000Z</published>
+    <updated>2022-01-22T13:56:40.355Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="0-1损失函数"><a href="#0-1损失函数" class="headerlink" title="0-1损失函数"></a>0-1损失函数</h1><p>非凸函数不适用</p><h1 id="绝对值损失"><a href="#绝对值损失" class="headerlink" title="绝对值损失"></a>绝对值损失</h1><p>$$<br>L(Y,f(x))=|Y-f(x)|<br>$$</p><h1 id="log对数损失函数"><a href="#log对数损失函数" class="headerlink" title="log对数损失函数"></a>log对数损失函数</h1><p>$$<br>L(Y,P(Y|X))=-log^{P(y|x)}<br>$$</p><p>特点：</p><p>(1) log对数损失函数能非常好的表征概率分布，在很多场景尤其是多分类，如果需要知道结果属于每个类别的置信度，那它非常适合。</p><p>(2)健壮性不强，相比于hinge loss对噪声更敏感。</p><p>(3)<strong>逻辑回归</strong>的损失函数就是log对数损失函数。</p><h1 id="交叉熵"><a href="#交叉熵" class="headerlink" title="交叉熵"></a>交叉熵</h1><p>适用于分类<br>$$<br>P(x)=-\sum_{x=1}^{n} p^x(1-p)^{1-x} \<br>logP(x)=-\sum_{x=1}^{n}[xlog^p+(1-x)log^{1-p}]<br>$$</p><h1 id="平方损失"><a href="#平方损失" class="headerlink" title="平方损失"></a>平方损失</h1><p>应用于回归问题<br>$$<br>L(Y,f(x))=\sum_{i=1}^{n}(Y-f(x))^2<br>$$</p><h1 id="指数损失函数"><a href="#指数损失函数" class="headerlink" title="指数损失函数"></a>指数损失函数</h1><p>$$<br>exp[-yf(x)]<br>$$</p><p>特点：</p><p>(1)对离群点、噪声非常敏感。经常用在AdaBoost算法中。</p><h1 id="Hinge损失函数"><a href="#Hinge损失函数" class="headerlink" title="Hinge损失函数"></a>Hinge损失函数</h1><p>$$<br>L(Y,f(x))=max(0,1-yf(x))<br>$$</p><p>特点：</p><p>(1)hinge损失函数表示如果被分类正确，损失为0，否则损失就为 <img src="https://www.zhihu.com/equation?tex=1-yf(x)" alt="[公式]"> 。<strong>SVM</strong>就是使用这个损失函数。</p><p>(2)一般的 <img src="https://www.zhihu.com/equation?tex=f(x)" alt="[公式]"> 是预测值，在-1到1之间， <img src="https://www.zhihu.com/equation?tex=y" alt="[公式]"> 是目标值(-1或1)。其含义是， <img src="https://www.zhihu.com/equation?tex=f(x)+" alt="[公式]"> 的值在-1和+1之间就可以了，并不鼓励 <img src="https://www.zhihu.com/equation?tex=%7Cf(x)%7C+%3E+1" alt="[公式]"> ，即并不鼓励分类器过度自信，让某个正确分类的样本距离分割线超过1并不会有任何奖励，从而<strong>使分类器可以更专注于整体的误差。</strong></p><p>(3) 健壮性相对较高，对异常点、噪声不敏感，但它没太好的概率解释。</p><h1 id="感知损失-perceptron-loss-函数"><a href="#感知损失-perceptron-loss-函数" class="headerlink" title="感知损失(perceptron loss)函数"></a>感知损失(perceptron loss)函数</h1><p>$$<br>L(Y,f(x))=max(0,-f(x))<br>$$</p><p>$$</p><p>$$</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;0-1损失函数&quot;&gt;&lt;a href=&quot;#0-1损失函数&quot; class=&quot;headerlink&quot; title=&quot;0-1损失函数&quot;&gt;&lt;/a&gt;0-1损失函数&lt;/h1&gt;&lt;p&gt;非凸函数不适用&lt;/p&gt;
+&lt;h1 id=&quot;绝对值损失&quot;&gt;&lt;a href=&quot;#</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Kafka 集群搭建</title>
+    <link href="https://bufan-zb.github.io/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/"/>
+    <id>https://bufan-zb.github.io/blog/2020/03/26/Kafka%E9%9B%86%E7%BE%A4%E6%90%AD%E5%BB%BA/</id>
+    <published>2020-03-26T08:18:00.000Z</published>
+    <updated>2022-01-22T14:04:53.376Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Kafka-集群搭建"><a href="#Kafka-集群搭建" class="headerlink" title="Kafka 集群搭建"></a>Kafka 集群搭建</h1><h3 id="一，-Zookeeper-集群安装"><a href="#一，-Zookeeper-集群安装" class="headerlink" title="一， Zookeeper 集群安装"></a>一， Zookeeper 集群安装</h3><p>  0, 准备工作： 修改机器打开文件句柄数量为最大，格式化磁盘xfs格式， 注意：尽量保持kafka的数据放到单独的磁盘</p><p>   1, 创建日志目录和数据目录</p><p>​          mkdir /data/zookeeper/logs  &amp;&amp; mkdir /data/zookeeper/data</p><p>   2, 解压zookeeper压缩包: </p><p>​           tar –xvf zookeeper-xxx.tar.gz</p><p>   3,  拷贝配置文件</p><p>​           cd zookeeper-xxx  &amp;&amp; cp conf/zoo_sample.cfg conf/zoo.cfg</p><p>   4,  修改配置文件zoo.cfg </p><p>​           设置 dataDir=/data/zookeeper/data  设置 dataLogDir=/data/zookeeper/logs</p><p>   5, 修改集群配置（如有三台机）</p><p>​           server.1=192.168.1.1:2888:3888       </p><p>​          server.2=192.168.1.2:2888:3888     </p><p>​           server.3=192.168.1.3:2888:3888</p><p>   6, 创建主机标识ID:</p><p>​       在第一台机器上执行： echo “1”&gt; /data/zookeeper/data/myid</p><p>​       在第二台机器上执行： echo “2”&gt; /data/zookeeper/data/myid</p><p>​       在第三台机器上执行： echo “3”&gt; /data/zookeeper/data/myid</p><p>​    7，启动zookeeper: cd zookeeper-xxx/bin &amp;&amp; sh zkServer.sh start</p><p>​    8, 查看启动日志  cd zookeeper-xx &amp;&amp; tail –f zookeeper.out</p><h3 id="二，-Kafka-集群安装"><a href="#二，-Kafka-集群安装" class="headerlink" title="二， Kafka 集群安装"></a>二， Kafka 集群安装</h3><p>1, 解压缩kafka文件</p><p>​          tar –xvf kafka_2.11-xxx.tgz</p><p>2, 创建kafka数据目录</p><p>​         mkdir /data/kafka/data</p><p>3, 修改配置文件server.properties</p><p>​         1）修改broker编号</p><p>​          broker.id=1(第一台机配置文件中修改为)</p><p>​          broker.id=2(第二台机配置文件中修改为)</p><p>​          broker.id=3(第三台机配置文件中修改为)</p><p>​        2） 修改数据目录</p><p>​          log.dir=/data/kafka/data</p><p>​         3）修改zookeeper 连接地址</p><p>​              zookeeper.connect=192.168.1.1:2181,192.168.1.2:2181, 192.168.1.3:2181</p><p>​         4）修改备份因子配置：</p><p>​                default.replication.factor=2</p><p>​         5）配置监听IP和端口</p><p>​         listeners=<a href="plaintext://192.168.1.1:9092">PLAINTEXT://192.168.1.1:9092</a>(第一台机配置文件中修改为)</p><p>​         listeners=<a href="plaintext://192.168.1.2:9092">PLAINTEXT://192.168.1.2:9092</a>(第二台机配置文件中修改为)</p><p>​         listeners=<a href="plaintext://192.168.1.3:9092">PLAINTEXT://192.168.1.3:9092</a>(第三台机配置文件中修改为)</p><p>   4, 启动kafka</p><p>​              cd kafka-xxx &amp;&amp; nohup bin/kafka-server.sh config/server.properties &amp;</p><p>  5, 查看启动日志</p><p>​              cd kafka-xxx/logs &amp;&amp; tail –f server.log</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Kafka-集群搭建&quot;&gt;&lt;a href=&quot;#Kafka-集群搭建&quot; class=&quot;headerlink&quot; title=&quot;Kafka 集群搭建&quot;&gt;&lt;/a&gt;Kafka 集群搭建&lt;/h1&gt;&lt;h3 id=&quot;一，-Zookeeper-集群安装&quot;&gt;&lt;</summary>
+      
+    
+    
+    
+    <category term="大数据" scheme="https://bufan-zb.github.io/blog/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="大数据" scheme="https://bufan-zb.github.io/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="推荐系统" scheme="https://bufan-zb.github.io/blog/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="Kafka" scheme="https://bufan-zb.github.io/blog/tags/Kafka/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>pytorch</title>
+    <link href="https://bufan-zb.github.io/blog/2020/03/11/pytorch/"/>
+    <id>https://bufan-zb.github.io/blog/2020/03/11/pytorch/</id>
+    <published>2020-03-11T13:16:00.000Z</published>
+    <updated>2022-01-22T14:07:18.181Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Pytorch"><a href="#Pytorch" class="headerlink" title="Pytorch"></a>Pytorch</h1><h2 id="1-Pytorch安装"><a href="#1-Pytorch安装" class="headerlink" title="1.Pytorch安装"></a>1.Pytorch安装</h2><p>安装地址介绍：<a href="https://pytorch.org/get-started/locally/">https://pytorch.org/get-started/locally/</a></p><p><img src="/blog/img/pytorch_1.png"></p><p>带GPU安装步骤：</p><p><code>conda install pytorch torchvision cudatoolkit=9.0 -c pytorch</code></p><p>不带GPU安装步骤</p><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda install pytorch<span class="operator">-</span>cpu <span class="operator">-</span>c pytorch </span><br><span class="line">pip3 install torchvision</span><br></pre></td></tr></table></figure><p>安装之后打开ipython</p><p>输入：</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">In [<span class="number">1</span>]:<span class="keyword">import</span> torch  <span class="comment"># 不报错就没事</span></span><br></pre></td></tr></table></figure><p>注意：安装模块的时候安装的是<code>pytorch</code> ，但是在代码中都是使用<code>torch</code></p><h2 id="2-Pytorch基本数据结构张量（Tensor）"><a href="#2-Pytorch基本数据结构张量（Tensor）" class="headerlink" title="2.Pytorch基本数据结构张量（Tensor）"></a>2.Pytorch基本数据结构张量（Tensor）</h2><h3 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">torch.tensor([])   # 根据提供的数据结构创建张量</span><br><span class="line">torch.empty(3,4)   # 创建3行4列的空tensor，会用无用数据进行填充</span><br><span class="line">torch.ones([3,4])  # 创建3行4列全为一的tensor</span><br><span class="line">torch.zeros([3,4]) # 创建3行4列全为0的tensor</span><br><span class="line">torch.rand([3,4])  # 创建3行4列的随机tensor，随机区间是[0,1)</span><br><span class="line">torch.randint(low&#x3D;3,high&#x3D;10,size&#x3D;[3,4]) # 创建一个[low,high)之间3行4列的tensor</span><br><span class="line">torch.randn([3,4]) # 创建一个均值为0，方差为1的3行4列的tensor</span><br></pre></td></tr></table></figure><h3 id="3-Tensor常用的属性和方法"><a href="#3-Tensor常用的属性和方法" class="headerlink" title="3.Tensor常用的属性和方法"></a>3.Tensor常用的属性和方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">tensor.dtype    # 获取tensor的数据类型</span><br><span class="line">tensor.item()   # 如果tensor中数据只有一个值时可以使用该方法获取</span><br><span class="line">tensor.numpy()  # 把tensor转换成numpy数组</span><br><span class="line">tensor.size()   # 获取tensor的形状，值由外到里排序</span><br><span class="line">tensor.size(num) # 获取tensor第num阶的大小</span><br><span class="line">tensor.view([num1,num2]) # 把tensor转变成num1行，num2列的tensor</span><br><span class="line">tensor.transpose(num1,num2) # 把第num1阶和num2阶进行转置或tensor.t(num1,num2)</span><br><span class="line">tensor.t(num1,num2)    # 同上</span><br><span class="line"># 从tensor取出来的值还是类型还是tensor</span><br><span class="line">tensor[num1,num2:num3]  # 切片和索引，第一个逗号签的表示对第一阶进行切片或索引，下面以此类推</span><br><span class="line">tensor.dim()   # 获取tensor的阶数</span><br><span class="line">tensor.max(dim&#x3D;-1)  # 获取行方向最大值，并给出行方向的坐标；不输入dim值获取全局最大值</span><br><span class="line">tensor1.add(tensor2)  # 对tensor1和tensor2进行相加生成一个新的tensor</span><br><span class="line">#也可以写成tensor1+tensor2</span><br><span class="line">tensor1.add_(tensor2) # 对tensor1和tensor2进行相加生成新的tensor，并付给tensor1；注意上面有许多方法都可以在方法名后面加_使其是对数据原地修改</span><br></pre></td></tr></table></figure><h3 id="4-Tensor的数据类型"><a href="#4-Tensor的数据类型" class="headerlink" title="4.Tensor的数据类型"></a>4.Tensor的数据类型</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Data Type          |     dtype                      |      Tensor types</span><br><span class="line">64-bit floating    |  torch.float64 or torch.double |    torch.DoubleTensor</span><br><span class="line">32-bit floating    |  torch.float32 or torch.float  |    torch.FloatTensor</span><br><span class="line">16-bit floating    |  torch.float16 or torch.half   |    torch.HalfTensor</span><br><span class="line">8-bit integer(unsighed)|        torch.uint8         |    torch.ByteTensor</span><br><span class="line">8-bit integer(signed)|        torch.int8            |    torch.CharTensor</span><br><span class="line">16-bit integer(signed)|torch.int16 or touch.short   |    torch.ShortTensor</span><br><span class="line">32-bit integer(signed)|torch.int32 or touch.int     |    torch.IntTensor</span><br><span class="line">64-bit integer(signed)|torch.int64 or touch.long    |    torch.LongTensor</span><br></pre></td></tr></table></figure><h3 id="5-指定GPU计算"><a href="#5-指定GPU计算" class="headerlink" title="5.指定GPU计算"></a>5.指定GPU计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">torch.cuda.is_available()   # 判断是否支持GPU运算</span><br><span class="line">device &#x3D; torch.device(&quot;cuda:0&quot;)  # 指定第一块gpu运算</span><br><span class="line">gpu_tensor &#x3D; torch.tensor([],device&#x3D;device)  # 创建适合在gpu上运行的tensor</span><br><span class="line">tensor &#x3D; torch.tensor([])   # 指定device，默认创建cpu的tensor</span><br><span class="line">gpu_tensor &#x3D; tensor.to(device)   # 把cpu tensor转换成gpu的</span><br><span class="line">tensor &#x3D; gpu_tensor.cpu()    # 把gpu tensor转换成cpu的</span><br><span class="line">tensor.device    # 查看该数据是适合在cpu上运行还是gpu上</span><br><span class="line"># 全兼容代码</span><br><span class="line">device &#x3D; torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br></pre></td></tr></table></figure><h3 id="6-反向计算"><a href="#6-反向计算" class="headerlink" title="6.反向计算"></a>6.反向计算</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># requires_grad和grad_fn   用于反向计算 </span><br><span class="line">tensor.requires_grad  # 是否记录计算过程的一个属性,默认为False</span><br><span class="line">tensor.requires_grad_(True)  # 就地修改tensor的requires_grad的属性</span><br><span class="line">tensor.grad_fn  # 查看该tensor是怎么计算来的</span><br><span class="line">torch.no_gard()   # 该函数以下的tensor不记录计算过程，一般搭配with上下文管理器使用，一般在评估的时候使用</span><br><span class="line"># x特征矩阵和w权重矩阵经过一系列计算出输出out（损失）（都是requires_grad为True的tensor）</span><br><span class="line">out.backward()   # 进行反向计算；out必须为一个数</span><br><span class="line">w.gard   # 获取权重的倒数</span><br><span class="line">tensor.data  # 获取tensor中的值</span><br><span class="line">tensor.detach()   # 获取tensor中的值，与data的区别在于detach（）可被微分</span><br></pre></td></tr></table></figure><h3 id="7-损失函数"><a href="#7-损失函数" class="headerlink" title="7.损失函数"></a>7.损失函数</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.MSELoss()   # 均方误差损失</span><br><span class="line">torch.nn.CrossEntorpyLoss()   # 交叉熵损失（对数自然损失）</span><br></pre></td></tr></table></figure><h3 id="8-优化器类"><a href="#8-优化器类" class="headerlink" title="8.优化器类"></a>8.优化器类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">torch.optim.BGD(需要优化的参数，学习率)  # 梯度下降</span><br><span class="line">torch.optim.SGD(参数，学习率)  # 随机梯度下降</span><br><span class="line">torch.optim.Adam(参数，学习率)</span><br></pre></td></tr></table></figure><h3 id="9-nn-Module"><a href="#9-nn-Module" class="headerlink" title="9.nn.Module"></a>9.nn.Module</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br></pre></td><td class="code"><pre><span class="line">device &#x3D; torch.device(&quot;cuda:0&quot; if torch.cuda.is_available() else &quot;cpu&quot;)</span><br><span class="line"># 继承Module</span><br><span class="line">class Lr(torch.nn.Module):</span><br><span class="line">    def __init__(self):</span><br><span class="line">        super(Lr, self).__init__()</span><br><span class="line">        # 下面就是自定义参数（Linear实际上也是实例化参数，并定义了forward方法）</span><br><span class="line">        self.lr1 &#x3D; torch.nn.Linear(10, 2)</span><br><span class="line">        self.lr2 &#x3D; torch.nn.Linear(2, 1)</span><br><span class="line"></span><br><span class="line">    def forward(self, x):</span><br><span class="line">    # 进行一次向前计算(如果是实现神经网络可以再out1和out2后面套一个函数即可)</span><br><span class="line">        out1 &#x3D; self.lr1(x)</span><br><span class="line">        out2 &#x3D; self.lr2(out1)</span><br><span class="line">        return out2</span><br><span class="line"></span><br><span class="line">def main(x,y,num):</span><br><span class="line">    # 实例化模型</span><br><span class="line">    module &#x3D; Lr().to(device)</span><br><span class="line">    # 定义优化器并指定优化器要优化哪些参数</span><br><span class="line">    optimizer &#x3D; torch.optim.SGD(module.parameters(), lr&#x3D;0.01)</span><br><span class="line">    # 定义损失函数</span><br><span class="line">    criterion &#x3D; torch.nn.MSELoss()</span><br><span class="line">    # 开始循环训练</span><br><span class="line">    for i in range(num):</span><br><span class="line">        # 计算预测值</span><br><span class="line">        y_predict &#x3D; module(x)</span><br><span class="line">        # 计算损失</span><br><span class="line">        loss &#x3D; criterion(y, y_predict)</span><br><span class="line">        # 梯度置为零</span><br><span class="line">        optimizer.zero_grad()</span><br><span class="line">        # 计算梯度</span><br><span class="line">        loss.backward()</span><br><span class="line">        # 更新参数</span><br><span class="line">        optimizer.step()</span><br><span class="line">    print([i for i in module.parameters()])</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">if __name__ &#x3D;&#x3D; &#39;__main__&#39;:</span><br><span class="line">    x &#x3D; torch.randn([50, 10]).to(device)</span><br><span class="line">    y &#x3D; x * 3 + 8</span><br><span class="line">    main(x,y,10000)</span><br></pre></td></tr></table></figure><h3 id="10-Dataset数据基类"><a href="#10-Dataset数据基类" class="headerlink" title="10.Dataset数据基类"></a>10.Dataset数据基类</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h3 id="11-torch常用方法"><a href="#11-torch常用方法" class="headerlink" title="11.torch常用方法"></a>11.torch常用方法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">torch.nn.Embedding(num_embedding, embedding_dim)</span><br><span class="line"># num_embedding:词典长度；embedding_dim：每个词向量化之后的维度</span><br></pre></td></tr></table></figure><p>未完待续。。。。。。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Pytorch&quot;&gt;&lt;a href=&quot;#Pytorch&quot; class=&quot;headerlink&quot; title=&quot;Pytorch&quot;&gt;&lt;/a&gt;Pytorch&lt;/h1&gt;&lt;h2 id=&quot;1-Pytorch安装&quot;&gt;&lt;a href=&quot;#1-Pytorch</summary>
+      
+    
+    
+    
+    <category term="python" scheme="https://bufan-zb.github.io/blog/categories/python/"/>
+    
+    
+    <category term="pytorch" scheme="https://bufan-zb.github.io/blog/tags/pytorch/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Word2Vec</title>
+    <link href="https://bufan-zb.github.io/blog/2019/12/23/Word2Vec/"/>
+    <id>https://bufan-zb.github.io/blog/2019/12/23/Word2Vec/</id>
+    <published>2019-12-23T06:04:00.000Z</published>
+    <updated>2022-01-22T14:10:28.528Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Word2Vec"><a href="#Word2Vec" class="headerlink" title="Word2Vec"></a>Word2Vec</h1><h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>对于图像和音频处理采用的使庞大的高纬度数据集，对于图像数据来说，此类数据集会编码为单个像素强度向量。不过，自然语言处理系统一直将字词视为离散的原子符号，将字词表示为唯一离散id还会导致数据稀疏性，并且通常意味着我们可能需要更多数据才能成功训练统计模型，使用向量法可以扫除其中一些障碍。</p><h3 id="统计语言模型"><a href="#统计语言模型" class="headerlink" title="统计语言模型"></a>统计语言模型</h3><ul><li>统计语言模型：统计语言模型把语言(词的序列)看作一个随机事件，并赋予相应的概率来描述其属于某种语言集合可能性</li><li>N-Gram：N元模型就是假设当前词的出现频率只与它前面的N-1个词有关<ul><li>语言使一种序列，词与词之间并不是相互独立</li><li>1元模型：当前词出现在这的概率=这个词在词语库在出现的概率使一样的</li><li>二元模型：当前词出现的概率=这个词前面一个词出现的情况下这个词出现的概率</li><li>三元模型：：当前这个词出现的概率=这个词前面两个出现的情况下当前词出现的概率</li><li>一般情况下使用三元模型，由于语料库的限制，使用过大的N，会导致计算量增加，对语料库的要求也会越大</li></ul></li></ul><p><img src="/blog/img/Word2Vec_1.jpg"></p><h1 id="神经网络语言模型NNLM"><a href="#神经网络语言模型NNLM" class="headerlink" title="神经网络语言模型NNLM"></a>神经网络语言模型NNLM</h1><ul><li><strong>神经网络语言模型NNLM</strong>依然属于概率语言模型，它通过神经网络来计算概率语言模型中每个参数。</li></ul><p><img src="/blog/img/Word2Vec_2.png"></p><ul><li>模型解释<ul><li>输入层：将context(w)每个词映射成一个长度为m的词向量，向量开始时随机的，也参与网络训练</li><li>投影层：将所有的上下文的向量拼接成一个长向量，作为目标w的特征向量，向量为[1，(词个数-1)*词向量长度]</li><li>隐藏层：拼接后的向量会经过一个规模为h的隐藏层，向量为[(词个数-1)*词向量长度，语料库词个数]</li><li>输出层：最后经过softmax输出所有词出现的概率</li></ul></li><li>训练过程：<ul><li>训练时，使用交叉熵作为损失，反向传播算法进行训练</li><li>当完成训练时，得到一个N-Gram神经网络语言模型，以及副产品<strong>词向量</strong></li></ul></li></ul><h1 id="Word2Vec-1"><a href="#Word2Vec-1" class="headerlink" title="Word2Vec"></a>Word2Vec</h1><ul><li><strong>word2vec</strong>本质上也是一个神经语言模型，但是它的目标并不是语言模型本身，而是<strong>词向量</strong>；因此，其所作的一系列优化，都是为了更快更好的得到词向量</li><li><strong>Word2Vec</strong>提供了两套模型：<strong>CBOW</strong>和<strong>Skip-Gram</strong>，其基本思想：<ul><li><strong>CBOW</strong>:在已知countext(w)的情况下，预测w</li><li><strong>Skip-Gram</strong>:在已知w的情况下预测countext(w)</li></ul></li></ul><p><img src="/blog/img/Word2Vec_3.png"></p><ul><li><p>CBOW向前计算与向量更新推导</p><ul><li>CBOW与2003年Bengio的结构由些不同，不同点在于CBOW去掉了最耗时的非线性隐藏层、并且所有词共享隐层。下图不包含softmax与负采样优化过程</li></ul><p><img src="/blog/img/Word2Vec.png"></p><ul><li>向前计算：<ul><li>输入层到隐藏层：输入上下问词向量的平均值与W权重计算，[1,V]*[V,N]=[1,N]得到中间向量h</li><li>隐藏层到输出层：h向量乘上隐藏层的矩阵，[1,N]*[N,总词语数]</li><li>输出层接softmax：计算每个词出现的概率</li></ul></li></ul></li></ul><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h3 id="Spark使用"><a href="#Spark使用" class="headerlink" title="Spark使用"></a>Spark使用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">from pyspark.ml.feature import Word2Vec, Word2VecModel</span><br><span class="line">word2vec &#x3D; Work2Vce(vectorSize&#x3D;词向量长度，minCount&#x3D;过滤掉出现小于次数的词默认5次，windowSize&#x3D;训练时窗口大小，inputCol&#x3D;输入列名，outputCol&#x3D;输出列名)</span><br><span class="line"># 训练模型</span><br><span class="line">model&#x3D;word2vec.fit(带有输入列名的df)</span><br><span class="line">model.save(&quot;路径&quot;)</span><br><span class="line">model&#x3D;Word2VecModel.load(&quot;路径&quot;)</span><br><span class="line"># 取出词向量</span><br><span class="line">vectors &#x3D; model.getVectors()</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Word2Vec&quot;&gt;&lt;a href=&quot;#Word2Vec&quot; class=&quot;headerlink&quot; title=&quot;Word2Vec&quot;&gt;&lt;/a&gt;Word2Vec&lt;/h1&gt;&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;hea</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>朴素贝叶斯词性标注(监督学习)</title>
+    <link href="https://bufan-zb.github.io/blog/2019/11/24/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/"/>
+    <id>https://bufan-zb.github.io/blog/2019/11/24/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/</id>
+    <published>2019-11-24T11:37:00.000Z</published>
+    <updated>2022-01-30T02:02:30.751Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="朴素贝叶斯、维特比实现词性标注"><a href="#朴素贝叶斯、维特比实现词性标注" class="headerlink" title="朴素贝叶斯、维特比实现词性标注"></a>朴素贝叶斯、维特比实现词性标注</h1><p>$$<br>\begin{align}<br>&amp; s=w_1+w_2+w_3+….+w_n \<br>&amp; z=z_1+z_2+z_3+….+z_n \quad # z为s语句对应的隐藏状态序列\<br>&amp; max(p(z|s))=max(p(s|z)p(z)/p(s))\<br>&amp; max(p(z|s))=max(p(s|z)p(z)) \quad #p(s)为定值可忽略 \<br>&amp; max(p(z|s))=argmax(\int\limits_{i=1}^np(s_i|z_i)*p(z_1)*\int\limits_{t=2}^np(z_t|z_{t-1})) \quad#根据马尔科夫假设当前状态只和n个上一个状态有关(n=1) \<br>&amp; max(p(z|s))=argmax(\sum\limits_{i=1}^nlog^{p(s_i|z_i)}+log^{p(z_1)}+\sum\limits_{i=2}^nlog^{p(z_t|z_{t-1})})<br>\quad #log函数是单调递增(公式1)<br>\end{align}<br>$$</p><ol><li>根据输入语料库数据生成三个向量<ol><li>(N,M)向量:N为词性数;M为词库数;内容为词对应词性的概率；对应公式1的第一项</li><li>(N,1)向量:每个词性是为开头的概率；对应公式1的第二项</li><li>(N,N)向量:每个词性的下一个词性出现的概率；对应公式1的第三项</li></ol></li></ol>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;朴素贝叶斯、维特比实现词性标注&quot;&gt;&lt;a href=&quot;#朴素贝叶斯、维特比实现词性标注&quot; class=&quot;headerlink&quot; title=&quot;朴素贝叶斯、维特比实现词性标注&quot;&gt;&lt;/a&gt;朴素贝叶斯、维特比实现词性标注&lt;/h1&gt;&lt;p&gt;$$&lt;br&gt;\begin{align</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="词性标注" scheme="https://bufan-zb.github.io/blog/tags/%E8%AF%8D%E6%80%A7%E6%A0%87%E6%B3%A8/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Vim</title>
+    <link href="https://bufan-zb.github.io/blog/2019/11/23/Vim/"/>
+    <id>https://bufan-zb.github.io/blog/2019/11/23/Vim/</id>
+    <published>2019-11-23T13:38:00.000Z</published>
+    <updated>2022-01-22T14:09:52.636Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="Vim"><a href="#Vim" class="headerlink" title="Vim"></a>Vim</h1><p><img src="/blog/img/Vim_1.gif"></p><h3 id="vim有3种常用模式：一般模式、编辑模式、命令模式。"><a href="#vim有3种常用模式：一般模式、编辑模式、命令模式。" class="headerlink" title="vim有3种常用模式：一般模式、编辑模式、命令模式。"></a>vim有3种常用模式：一般模式、编辑模式、命令模式。</h3><ul><li>一般模式<ul><li>上下左右:kjhl  也可以使用方向键</li><li>n+上下左右:n为数字，向上下左右移动n个字符</li><li>[ctrl]+f:屏幕向下滚动一页，同page down</li><li>[ctrl]+b:屏幕向上滚动一页，同page up</li><li>0或home:光标移动到行首</li><li>$或end:光标移动到行尾</li><li>g:光标移动到最后一行</li><li>ng:光标移动到第n行</li><li>gg:同1g，光标移动到第一行行首</li><li>/word:向下查找关键词，使用n或N向上或向下查找关键词</li><li>?word:向上查找关键词word，使用n或N向上或向下查找关键词</li><li>:n1,n2s/word1/word2/g   :   s/1/2/g 表示将1替换成2，所以前面的意思是在n1到n2之间，将word1替换为word2.例如：51,100s/aaa/bbb/g</li><li>:1,$s/word1/word2/g  :  全文查找替换将word1替换为word2</li><li>x:向后删除</li><li>X:向前删除</li><li>nx:向后删除n个字符</li><li>dd:删除当前行　</li><li>ndd:向下删除n行</li><li>d1G:删除当前位置到第一行</li><li>d$:删除当前位置到最后一行</li><li>d0:删除当前位置到改行第一个字符的所有数据</li><li>yy:复制光标所在的这一行</li><li>nyy:向下复制n行</li><li>p:在光标所在行的下面粘贴复制的数据</li><li>P:在光标所在行的上面粘贴复制的数据</li><li>u:恢复前一个操作</li><li>[ctrl]+u:重做上一个操作</li></ul></li><li>一般模式切换到编辑模式<ul><li>i:进入插入模式，在光标前插入   I是在第一个非空格符处插入</li><li>a:进入插入模式，在光标下一个字符插入  A是在所在行最后一个字符插入</li><li>o:进入插入模式，在下面一行插入    O是在上面一行出入</li><li>r:进入替换模式，类似于insert键</li></ul></li><li>编辑模式到一般模式<ul><li>Esc：退出编辑模式进入命令模式</li></ul></li><li>命令模式<ul><li>:w  保存</li><li>:w! 强制保存</li><li>:q  退出</li><li>:q! 强制退出</li><li>:wq :x 保存并退出</li><li>ZZ 保存并退出</li><li>:set number 显示行号</li><li>:set nonu 取消显示行号</li></ul></li></ul><p>　　</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;Vim&quot;&gt;&lt;a href=&quot;#Vim&quot; class=&quot;headerlink&quot; title=&quot;Vim&quot;&gt;&lt;/a&gt;Vim&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/blog/img/Vim_1.gif&quot;&gt;&lt;/p&gt;
+&lt;h3 id=&quot;vim有3种常用模</summary>
+      
+    
+    
+    
+    <category term="Linux" scheme="https://bufan-zb.github.io/blog/categories/Linux/"/>
+    
+    
+    <category term="Linux" scheme="https://bufan-zb.github.io/blog/tags/Linux/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FTRL</title>
+    <link href="https://bufan-zb.github.io/blog/2019/10/11/FTRL/"/>
+    <id>https://bufan-zb.github.io/blog/2019/10/11/FTRL/</id>
+    <published>2019-10-11T13:28:00.000Z</published>
+    <updated>2022-03-09T05:21:04.798Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="在线优化算法"><a href="#在线优化算法" class="headerlink" title="在线优化算法"></a>在线优化算法</h1><h2 id="OGD"><a href="#OGD" class="headerlink" title="OGD"></a>OGD</h2><p>直接截取把权重绝对值小于ø的权重直接取0<br>$$<br>W_{t+1}=W_t-\eta_tL(W_t) \<br>\eta:学习率 \<br>\eta_t=\frac {1}{\sqrt t} \<br>L(W_t):W_t的梯度 \<br>W_{t+1}=\begin{cases}<br>0, &amp; \text|W_t- \eta_tL(W_t)|&lt;\theta  \<br>W_i- \eta_tL(W_t), &amp; \text{out}<br>\end{cases}<br>$$</p><h2 id="TG"><a href="#TG" class="headerlink" title="TG"></a>TG</h2><p>改进了OGD，增加了一个α参数，使大于α和小于ø的权重按比例缩小，小于α的取0<br>$$<br>W_{t+1}=\begin{cases}<br>W_i- \eta_tL(W_t)+ \alpha, &amp; \text -\theta&lt;W_i- \eta_tL(W_t)&lt;-\alpha  \<br>0, &amp; \text-\alpha&lt;|W_i- \eta_tL(W_t)|&lt;\alpha  \<br>W_i- \eta_tL(W_t)- \alpha, &amp; \text \ \theta&lt;W_i- \eta_tL(W_t)&lt;\alpha \<br>W_i- \eta_tL(W_t), &amp; \text{out}<br>\end{cases} \<br>\alpha=\eta g,g为重力因子<br>$$</p><h2 id="FOBOS"><a href="#FOBOS" class="headerlink" title="FOBOS"></a>FOBOS</h2><p>$$<br>W_{t+\frac {1}{2}}=W_t-\eta_tL(W_t)  \<br>W_{t+1} = \mathop {argmin}<em>{W}{\frac {1}{2}||W-W</em>{t+\frac {1}{2}}||^2+\eta_{t+\frac {1}{2}}\Psi(W)}\<br>\Psi(W)为正则项<br>$$</p><p>第一个公式为正常的梯度下降，第二个公式得到越靠近$W_{t+\frac {1}{2}}$的同时保存W为一个偏小的值</p><p>把L1正则项进去可以推导出如下结果<br>$$<br>W_{t+1}=\begin{cases}<br>0, &amp; \text|W_i- \eta_tL(W_t)|&lt;\eta_{t+\frac {1}{2}}\lambda  \<br>W_i- \eta_tL(W_t)-\eta_{t+\frac {1}{2}}\lambda sgn(W_i- \eta_tL(W_t)), &amp; \text{out}<br>\end{cases}<br>$$<br>缺点随着次数越来越多，能沟满足取到0的值会越来越少</p><h2 id="RDA"><a href="#RDA" class="headerlink" title="RDA"></a>RDA</h2><p>上面三种算法都是用到了当前次的梯度，这里引入了累计梯度平均,而且截断是一个固定值不会因为随着次数t上升，使得截断要求越来越困难<br>$$<br>求出当前梯度：G_t=L(W_t) \<br>计算历史平均梯度：\overline G_t=\frac {1}{t} \sum_{r=1}^{t}G_r \<br>W_{t+1}=\mathop {argmin}<em>{W} {\frac {1}{2}||W-W</em>{t+\frac {1}{2}}||^2+\Psi(W)} \<br>\Psi(W)=\lambda||W||_1+\frac {\sigma}{2}||W||<em>2^2 \<br>\sigma 和 \lambda 为正则化参数<br>$$<br>化简单可得<br>$$<br>W</em>{t+1}=\begin{cases}<br>0, &amp; \text|\overline G_t|&lt;\lambda  \<br>-\frac {1}{\sigma}(\overline G_t-\lambda sgn(\overline G_t)), &amp; \text{out}<br>\end{cases}<br>$$</p><h2 id="FTRL"><a href="#FTRL" class="headerlink" title="FTRL"></a>FTRL</h2><p>结合FOBOS(精度)和RDA(稀疏)的优点的算法,结合随机梯度下降的精度</p><h3 id="Follow-The-Regularized-Leader"><a href="#Follow-The-Regularized-Leader" class="headerlink" title="Follow The Regularized Leader"></a>Follow The Regularized Leader</h3><ul><li>一种获得稀疏模型并且防止过拟合的优化方法</li></ul><p>$$<br>求出当前梯度：G_t=L(W_t) \<br>计算累计梯度：G_{1:t}=\frac {1}{t} \sum_{r=1}^{t}G_r \<br>W_{t+1}=\mathop {argmin}<em>{W} {G</em>{1:t}*W+\frac {1}{2}\sum_{s=1}^{t}\sigma_s||W-W_{s}||^2+\Psi(W)} \<br>\Psi(W)=\lambda||W||_1 \<br>$$</p><p>化简可得<br>$$<br>W_{t+1}=\begin{cases}<br>0, &amp; \text|z_t|&lt;\lambda  \<br>-\eta_t(z_t-\lambda_1 sgn(z_t)), &amp; \text{out}<br>\end{cases}\<br>\eta_t=(\frac {\beta+\sqrt {n_1}}{\alpha}+\lambda_2)^{-1} \<br>z_t=G_{1:t}-\sum_{s=1}^t\sigma_sW_s<br>$$</p><p>结果和RDA的公式很像，截断的阈值也不会随着迭代次数的增加而减少，而且z_t再次化简像梯度下降，也具有比较强的精度性<br>$$<br>z_t=G_{1:t-1}+G_t-\sum_{s=1}^t\sigma_sW_s=G_{1:t-1}-(\sum_{s=1}^t\sigma_sW_s-G_t)<br>$$</p><h1 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h1><h2 id="TensorFlow使用"><a href="#TensorFlow使用" class="headerlink" title="TensorFlow使用"></a>TensorFlow使用</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">module=tf.estimator.LinearClassifier(feature_columns=feature_cl,</span><br><span class="line">optimizer=tf.train.FtrlOptimizer(learning_rate=<span class="number">0.01</span>,l1_regularization_strength=<span class="number">10</span>,l2_regularization_strength=<span class="number">15</span>,))</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;在线优化算法&quot;&gt;&lt;a href=&quot;#在线优化算法&quot; class=&quot;headerlink&quot; title=&quot;在线优化算法&quot;&gt;&lt;/a&gt;在线优化算法&lt;/h1&gt;&lt;h2 id=&quot;OGD&quot;&gt;&lt;a href=&quot;#OGD&quot; class=&quot;headerlin</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>FM</title>
+    <link href="https://bufan-zb.github.io/blog/2019/09/12/FM/"/>
+    <id>https://bufan-zb.github.io/blog/2019/09/12/FM/</id>
+    <published>2019-09-12T04:28:00.000Z</published>
+    <updated>2022-01-22T14:00:26.658Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="FM"><a href="#FM" class="headerlink" title="FM"></a>FM</h1><p><strong>FM称为因子分解机：有称为因子分解机</strong>，在对一批进行过特征交叉或大规模稀疏数据得特征向量M(NxN)进行训练时有于向量的维度过大，导致训练过程时间复杂和空间复杂度过大，难以进行大批量的训练，从而可以把M(NxN)分解成一个向量Q(NxK,K&lt;&lt;N),使M=Q*QT，从而把原本的特征个数从原来的N^N,变成N^K,也可以使得模型变得简单</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;FM&quot;&gt;&lt;a href=&quot;#FM&quot; class=&quot;headerlink&quot; title=&quot;FM&quot;&gt;&lt;/a&gt;FM&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;FM称为因子分解机：有称为因子分解机&lt;/strong&gt;，在对一批进行过特征交叉或大规模稀疏数据得特</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>HDFS</title>
+    <link href="https://bufan-zb.github.io/blog/2019/08/25/HDFS/"/>
+    <id>https://bufan-zb.github.io/blog/2019/08/25/HDFS/</id>
+    <published>2019-08-25T11:53:00.000Z</published>
+    <updated>2022-01-22T14:02:55.520Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="HDFS安装"><a href="#HDFS安装" class="headerlink" title="HDFS安装"></a>HDFS安装</h1><ul><li>下载jdk和hadoop放到<del>/software目录下，然后解压到</del>/app目录下</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf 压缩包名字 -C ~/app/</span><br></pre></td></tr></table></figure><ul><li>配置环境变量</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bash_profile</span><br><span class="line"><span class="meta">#</span><span class="bash"> 添加内容</span></span><br><span class="line">export JAVA_HOME=/root/bigdata/jdk</span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line">export HADOOP_HOME=/root/bigdata/hadoop</span><br><span class="line">export PATH=$HADOOP_HOME/bin:$PATH</span><br><span class="line"><span class="meta">#</span><span class="bash">保存后</span></span><br><span class="line">source ~/.bash_profile</span><br></pre></td></tr></table></figure><ul><li><p>进入解压后的Hadoop目录，修改配置文件</p><ul><li>配置文件的作用<ul><li>core-site.xml:指定HDFS的访问方式</li><li>hdfs-site.xml:指定namenode和datanode的数据存储位置</li><li>mapred-site.xml:配置MapReduce</li><li>yarn-site.xml:配置yarn</li></ul></li><li>修改hadoop-env.sh</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd ect/hadoop</span><br><span class="line">vim hadoop-env.sh</span><br><span class="line"><span class="meta">#</span><span class="bash">添加内容</span></span><br><span class="line">export_JAVA_HOME=/root/bigdata/jdk</span><br></pre></td></tr></table></figure><ul><li>修改core-site.xml 在节点中添加</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>hadoop.tmp.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>file:/root/bigdata/hadoop/tmp<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">value</span>&gt;</span>hdfs://hadoop-master:9000<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>修改hdfs-site.xml 在 configuration节点中添加</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.namenode.name.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/bigdata/hadoop/hdfs/name<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.datanode.data.dir<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>/root/bigdata/hadoop/hdfs/data<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>1<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>修改 mapred-site.xml</li><li>默认没有这个 从模板文件复制</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cp mapred-site.xml.template mapred-site.xml</span><br></pre></td></tr></table></figure><ul><li> 在mapred-site.xml 的configuration 节点中添加</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>修改yarn-site.xml configuration 节点中添加</li></ul><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>yarn.nodemanager.aux-services<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">value</span>&gt;</span>mapreduce_shuffle<span class="tag">&lt;/<span class="name">value</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br></pre></td></tr></table></figure><ul><li>来到hadoop的bin目录</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./hadoop namenode -format (这个命令只运行一次)</span><br></pre></td></tr></table></figure><ul><li>启动hdfs 进入到 sbin</li></ul><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">./start-dfs.sh</span><br></pre></td></tr></table></figure><ul><li>启动启动yarn 在sbin中</li></ul></li></ul><h1 id="HDFS架构"><a href="#HDFS架构" class="headerlink" title="HDFS架构"></a>HDFS架构</h1><ul><li>1个NameNode(Master)带DataNode(Slaves)结构</li><li>1个文件会被拆分成多个Block</li><li><strong>NameNode(NN)</strong><ul><li>负责客户端请求的响应</li><li>负责元数据(文件名称、副本系数、Block存放的DN)的管理<ul><li>元数据是文件的描述数据</li></ul></li><li>监控DataNode健康状况，10分钟没有收到DataNode报告认为DataNode死掉了</li></ul></li><li><strong>DataNode(ND)</strong><ul><li>存储用户的文件对应的数据块(Block)</li><li>定期向NN发送心跳信息，汇报本身及其所有的block信息，健康状况</li></ul></li><li>分布式集群NameNode和DataNode部署在不同机器上</li><li><img src="/blog/img/HDFS_1.jpg" alt="img"></li><li>HDFS优缺点<ul><li>优点<ul><li>数据冗余、硬件容错</li><li>适合存储大文件</li><li>处理流式数据</li><li>可构建在廉价机器上</li></ul></li><li>缺点<ul><li>数据访问延时高</li><li>不适合小文件存储</li></ul></li></ul></li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;HDFS安装&quot;&gt;&lt;a href=&quot;#HDFS安装&quot; class=&quot;headerlink&quot; title=&quot;HDFS安装&quot;&gt;&lt;/a&gt;HDFS安装&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;下载jdk和hadoop放到&lt;del&gt;/software目录下，然后解</summary>
+      
+    
+    
+    
+    <category term="大数据" scheme="https://bufan-zb.github.io/blog/categories/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    
+    <category term="大数据" scheme="https://bufan-zb.github.io/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/"/>
+    
+    <category term="推荐系统" scheme="https://bufan-zb.github.io/blog/tags/%E6%8E%A8%E8%8D%90%E7%B3%BB%E7%BB%9F/"/>
+    
+    <category term="Hadoop" scheme="https://bufan-zb.github.io/blog/tags/Hadoop/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>K-近邻算法</title>
+    <link href="https://bufan-zb.github.io/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/"/>
+    <id>https://bufan-zb.github.io/blog/2019/08/23/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95/</id>
+    <published>2019-08-23T05:36:00.000Z</published>
+    <updated>2022-01-22T14:03:53.091Z</updated>
+    
+    <content type="html"><![CDATA[<p>[TOC]</p><h1 id="K-Nearest-Neighbor算法"><a href="#K-Nearest-Neighbor算法" class="headerlink" title="K Nearest Neighbor算法"></a>K Nearest Neighbor算法</h1><p>K-近邻算法又叫KNN算法，这个算是机器学习里面一个较为经典的算法。</p><ul><li>定义：如果一个样本在特征空间中的<strong>K个最相似的样本中大多数属于某个类别，则该样本也属于这个类别</strong></li></ul><h2 id="距离度量方式"><a href="#距离度量方式" class="headerlink" title="距离度量方式"></a>距离度量方式</h2><h3 id="欧式距离（Euclidean-Distance）"><a href="#欧式距离（Euclidean-Distance）" class="headerlink" title="欧式距离（Euclidean Distance）"></a>欧式距离（Euclidean Distance）</h3><p>欧式距离是最直接的度量方法，直接计算两个坐标点之间的距离</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_1.png"></p><h3 id="曼哈顿距离（Manhattan-Distance）"><a href="#曼哈顿距离（Manhattan-Distance）" class="headerlink" title="曼哈顿距离（Manhattan Distance）"></a>曼哈顿距离（Manhattan Distance）</h3><p>曼哈顿距离指的是城市街道之间的路程距离，有称为“城市街区距离”</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_2.png"></p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_3.png"></p><h3 id="切比雪夫距离（Chebyshev-Distance）"><a href="#切比雪夫距离（Chebyshev-Distance）" class="headerlink" title="切比雪夫距离（Chebyshev Distance）"></a>切比雪夫距离（Chebyshev Distance）</h3><p>国际象棋中，国王可以直行、横行、斜行，所以国王走一步可以移动当相邻8个方格中的任意一个，计算从格子1走到格子2最少需要多少步，这个距离就叫切比雪夫距离。</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_4.png"></p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_5.png"></p><h3 id="闵可夫斯基距离（Minkowski-Distance）"><a href="#闵可夫斯基距离（Minkowski-Distance）" class="headerlink" title="闵可夫斯基距离（Minkowski Distance）"></a>闵可夫斯基距离（Minkowski Distance）</h3><p>闵氏距离不是一种距离，而是一组距离的定义，是对多个距离度量公式的概括性的表述。两个n维变量a(x11,x12,…,x1n)与b(x21,x22,…,x2n)间的闵可夫斯基距离定义为：</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_6.png"></p><p>其中p是一个变参数：</p><p>当p=1时，就是曼哈顿距离；</p><p>当p=2时，就是欧氏距离；</p><p>当p→∞时，就是切比雪夫距离。</p><p>根据p的不同，闵氏距离可以表示某一类/种的距离。</p><p>以上几种距离的缺点就是：每个分量的单位当成同样看待了</p><h3 id="标准化欧式距离（Standardized-EuclideanDistance）"><a href="#标准化欧式距离（Standardized-EuclideanDistance）" class="headerlink" title="标准化欧式距离（Standardized EuclideanDistance）"></a>标准化欧式距离（Standardized EuclideanDistance）</h3><p>标准化欧式距离是针对欧式距离的缺点而做的一种改进，思路就是把每一个分量上的数值进行标准化处理</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_7.png"></p><p>如果将方差的倒数看成一个权重，也可以乘之为加权欧式距离</p><h3 id="余弦距离（Cosine-Distance）"><a href="#余弦距离（Cosine-Distance）" class="headerlink" title="余弦距离（Cosine Distance）"></a>余弦距离（Cosine Distance）</h3><p>几何中，夹角余弦可用来衡量两个向量方向的差异；机器学习中，借用这一概念来衡量样本向量之间的差异。</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_8.png"></p><p>夹角余弦取值范围为[-1,1]。余弦越大表示两个向量的夹角越小，余弦越小表示两向量的夹角越大。当两个向量的方向重合时余弦取最大值1，当两个向量的方向完全相反余弦取最小值-1。</p><h3 id="汉明距离（Hamming-Distance）"><a href="#汉明距离（Hamming-Distance）" class="headerlink" title="汉明距离（Hamming Distance）"></a>汉明距离（Hamming Distance）</h3><p>两个等长字符串s1与s2的汉明距离为：将其中一个变为另一个字符所要替换的次数</p><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">The Hamming distance between &quot;1011101&quot; and &quot;1001001&quot; is 2. </span><br><span class="line">The Hamming distance between &quot;2143896&quot; and &quot;2233796&quot; is 3. </span><br><span class="line">The Hamming distance between &quot;toned&quot; and &quot;roses&quot; is 3.</span><br></pre></td></tr></table></figure><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_9.png"></p><h3 id="杰卡德距离（Jaccard-Distance）"><a href="#杰卡德距离（Jaccard-Distance）" class="headerlink" title="杰卡德距离（Jaccard Distance）"></a>杰卡德距离（Jaccard Distance）</h3><p>杰卡德相似系数：两个集合A和B的交集元素在A，B的并集中所占的比例，称为两个集合的杰卡德相似系数：</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_10.png"></p><p>杰卡德距离：与杰卡德相似系数相反，用两个集合中不同元素占所有元素的比例来衡量两个集合的区分度：</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_11.png"></p><h3 id="马氏距离（Mahalanobis-Distance）"><a href="#马氏距离（Mahalanobis-Distance）" class="headerlink" title="马氏距离（Mahalanobis Distance）"></a>马氏距离（Mahalanobis Distance）</h3><p>下图有两个正态分布图，它们的均值分别为a和b，但方差不一样，则图中的A点离哪个总体更近？或者说A有更大的概率属于谁？显然，A离左边的更近，A属于左边总体的概率更大，尽管A与a的欧式距离远一些。这就是马氏距离的直观解释。</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_12.png"></p><p>马氏距离是基于样本分布的一种距离。</p><p>马氏距离是由印度统计学家马哈拉诺比斯提出的，表示数据的协方差距离。它是一种有效的计算两个位置样本集的相似度的方法。</p><p>与欧式距离不同的是，它考虑到各种特性之间的联系，即独立于测量尺度。</p><p><strong>马氏距离定义：</strong>设总体G为m维总体（考察m个指标），均值向量为μ=（μ1，μ2，… …，μm，）`,协方差阵为∑=（σij）,</p><p>则样本X=（X1，X2，… …，Xm，）`与总体G的马氏距离定义为：</p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_13.png"></p><p>马氏距离也可以定义为两个服从同一分布并且其协方差矩阵为∑的随机变量的差异程度：如果协方差矩阵为单位矩阵，马氏距离就简化为欧式距离；如果协方差矩阵为对角矩阵，则其也可称为正规化的欧式距离。</p><p><strong>马氏距离特性：</strong></p><p>1.<strong>量纲无关</strong>，排除变量之间的相关性的干扰；</p><p>2.<strong>马氏距离的计算是建立在总体样本的基础上的</strong>，如果拿同样的两个样本，放入两个不同的总体中，最后计算得出的两个样本间的马氏距离通常是不相同的，除非这两个总体的协方差矩阵碰巧相同；</p><p>3 .计算马氏距离过程中，<strong>要求总体样本数大于样本的维数</strong>，否则得到的总体样本协方差矩阵逆矩阵不存在，这种情况下，用欧式距离计算即可。</p><p>4.还有一种情况，满足了条件总体样本数大于样本的维数，但是协方差矩阵的逆矩阵仍然不存在，比如三个样本点（3，4），（5，6），（7，8），这种情况是因为这三个样本在其所处的二维空间平面内共线。这种情况下，也采用欧式距离计算。</p><p><strong>欧式距离&amp;马氏距离：</strong></p><p><img src="/blog/img/K-%E8%BF%91%E9%82%BB%E7%AE%97%E6%B3%95_14.png"></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;[TOC]&lt;/p&gt;
+&lt;h1 id=&quot;K-Nearest-Neighbor算法&quot;&gt;&lt;a href=&quot;#K-Nearest-Neighbor算法&quot; class=&quot;headerlink&quot; title=&quot;K Nearest Neighbor算法&quot;&gt;&lt;/a&gt;K Nearest Nei</summary>
+      
+    
+    
+    
+    <category term="人工智能" scheme="https://bufan-zb.github.io/blog/categories/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/"/>
+    
+    
+    <category term="算法" scheme="https://bufan-zb.github.io/blog/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
+  
+</feed>
