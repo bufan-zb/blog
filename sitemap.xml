@@ -702,6 +702,20 @@
   </url>
   
   <url>
+    <loc>https://bufan-zb.github.io/blog/tags/Pytorch/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/TensorFlow/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
     <loc>https://bufan-zb.github.io/blog/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -717,20 +731,6 @@
   
   <url>
     <loc>https://bufan-zb.github.io/blog/tags/Hadoop/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bufan-zb.github.io/blog/tags/Pytorch/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://bufan-zb.github.io/blog/tags/TensorFlow/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -828,13 +828,6 @@
   </url>
   
   <url>
-    <loc>https://bufan-zb.github.io/blog/tags/flask/</loc>
-    <lastmod>2022-04-17</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://bufan-zb.github.io/blog/tags/python/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -842,14 +835,21 @@
   </url>
   
   <url>
-    <loc>https://bufan-zb.github.io/blog/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</loc>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%B5%8B%E8%AF%95/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://bufan-zb.github.io/blog/tags/%E6%B5%8B%E8%AF%95/</loc>
+    <loc>https://bufan-zb.github.io/blog/tags/flask/</loc>
+    <lastmod>2022-04-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://bufan-zb.github.io/blog/tags/%E6%A2%AF%E5%BA%A6%E4%B8%8B%E9%99%8D/</loc>
     <lastmod>2022-04-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
